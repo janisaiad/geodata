@@ -10,7 +10,6 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)) + os.path.sep + '..' 
 import torch
 from torch.autograd        import grad
 from sparse_distance_bmp   import sparse_distance_bmp
-from pykeops.torch         import Kernel
 
 import numpy as np
 from scipy import misc
