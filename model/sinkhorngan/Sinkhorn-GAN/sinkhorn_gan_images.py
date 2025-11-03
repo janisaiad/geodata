@@ -255,7 +255,9 @@ def run_gan(args,loss, batch_size, epsilon = 1, niter_sink = 1):
 
             if gen_iterations%20 == 1:
             	print('generator iterations ='+str(gen_iterations))
-
+             
+             
+             
             if gen_iterations%500 == 1:
             	y_fixed = netG(fixed_noise)
             	y_fixed.data = y_fixed.data.mul(0.5).add(0.5)
