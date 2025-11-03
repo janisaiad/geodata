@@ -5,6 +5,7 @@ description = "Geodata Analysis research for MVA course"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "geomloss>=0.2.6",
     "jupyter>=1.1.1",
     "matplotlib>=3.9.3",
     "numba>=0.61.0",
