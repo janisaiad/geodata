@@ -1,0 +1,4 @@
+\section{Conclusion}
+We have presented two convergence theorems for SDs: a bound on the approximation error of OT and a sample complexity bound for empirical Sinkhorn divergences. The $1/\sqrt{n}$ convergence rate is similar to MMD, but with a constant that depends on the inverse of the regularization parameter, which nicely complements the interpolation property of SDs pointed out in recent papers. Furthermore, the reformulation of SDs as the maximization of an expectation in a RKHS ball also opens the door to a better use of kernel-SGD for the computation of SDs.
+
+Our numerical experiments suggest some open problems. It seems that the convergence rate still holds for unbounded domains and non-smooth cost functions. Besides, getting tighter bounds in our theorem might allow us to derive a sharp estimate on the optimal $\epsilon$ to approximate OT for a given $n$, by combining our two convergence theorems together.

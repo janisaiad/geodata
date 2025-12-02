@@ -1,0 +1,148 @@
+\usepackage{color}
+\usepackage{xcolor}
+
+% todo, comments
+\newcommand{\gab}[1]{{\color{blue} Gabriel: #1}}
+
+\newcommand{\VectMode}[1]{\mathrm{\textbf{\upshape#1}}}
+
+
+% Set of Radon Measure 
+% \Mm
+% Simplex of histogram
+\newcommand{\simplex}{\Si}
+% input measure 
+%\renewcommand{\mu}{\al}
+%\renewcommand{\nu}{\be}
+% input histograms
+\renewcommand{\a}{\VectMode{a}}
+\renewcommand{\b}{\VectMode{b}}
+% input spaces
+\newcommand{\X}{\Xx}
+\newcommand{\Y}{\Yy}
+% ground distance
+\newcommand{\dist}{d}
+\newcommand{\distD}{\VectMode{D}} % discrete matrix
+% Monge map
+\newcommand{\T}{T}
+% coupling measure / matrice
+% \pi
+\renewcommand{\P}{\VectMode{P}}
+\newcommand{\p}{\VectMode{p}}
+% set of admissible couplings 
+\newcommand{\Couplings}{\Uu}
+\newcommand{\CouplingsD}{\VectMode{U}}
+% cost / matrix cost
+\renewcommand{\c}{c}
+\newcommand{\C}{\VectMode{C}}
+\newcommand{\cc}{\VectMode{c}}
+% dual vectors and 
+\newcommand{\fD}{\VectMode{f}} 
+\newcommand{\gD}{\VectMode{g}}
+\newcommand{\hD}{\VectMode{h}}
+
+%%% associated dual continuous functions
+\newcommand{\f}{f} 
+\newcommand{\g}{g}
+%%% set of valid dual potentials
+\newcommand{\PotentialsD}{\VectMode{R}}
+\newcommand{\Potentials}{\Rr}
+%%% wasserstein *distance* (associated to the power of a distance, usually \Wass_p (clash with \p...)
+\DeclareMathOperator{\Wass}{\mathcal{W}}
+\DeclareMathOperator{\WassD}{\mathrm{W}} % discrete
+% value associated to some cost c
+\newcommand{\MK}{\mathcal{L}}
+\newcommand{\MKD}{\mathrm{L}} % discrete
+
+%%% Sinkhorn
+\newcommand{\uD}{\VectMode{u}} % exponential scalings
+\newcommand{\vD}{\VectMode{v}} 
+\DeclareMathOperator{\LSE}{LSE} % log-sum-exp
+\newcommand{\K}{\VectMode{K}} % Gibbs kernel
+\renewcommand{\k}{\VectMode{k}} % Gibbs kernel
+\newcommand{\logP}{\VectMode{S}} % log of the Gibbs kernel
+\newcommand{\Hilbert}{d_\Hh} % hilbert projective metric
+
+%%% Densities
+\newcommand{\density}[1]{\rho_{#1}} % density with respect to Lebesgue
+\newcommand{\cumul}[1]{\Cc_{#1}}
+
+%%% Dynamic
+\newcommand{\speed}{v} % speed 
+\newcommand{\Moment}{J} % momentum
+\newcommand{\MomentD}{\VectMode{J}} % momentum
+\newcommand{\BBConstr}{\Cc} % div constraints 
+\newcommand{\BBConstrD}{\VectMode{C}}
+\newcommand{\InterpBB}{\Ii} % interpolation operators
+
+
+
+%%% Ambient dimension
+\renewcommand{\dim}{d}
+
+% permutation
+\newcommand{\Perm}{\mathrm{Perm}}
+
+%%% W1 flow
+\newcommand{\flow}{f}
+\newcommand{\flowD}{\VectMode{f}}
+
+%% graphs
+\newcommand{\Edges}{\Ee}
+\newcommand{\weight}{\VectMode{w}}
+
+%%% -Entropy, KL
+\renewcommand{\H}{H}
+\newcommand{\KL}{KL}
+\newcommand{\HD}{\mathrm{H}}
+\newcommand{\KLD}{\mathrm{KL}}
+
+
+%%% RKHS
+\newcommand{\Krkhs}{k}
+\newcommand{\KrkhsD}{\VectMode{k}}
+
+%%% Unbalanced
+\DeclareMathOperator{\WFR}{WFR}
+
+%%% Gaussian measure
+\newcommand{\Gaussian}{\Nn}
+\newcommand{\mean}{m}
+\newcommand{\cov}{C}
+
+
+%%% Sliced
+\DeclareMathOperator{\SW}{SW}
+
+%%% Gromov Wasserstein
+\DeclareMathOperator{\GW}{\mathcal{GW}}
+\DeclareMathOperator{\GWD}{\mathrm{GW}} % discrete
+
+
+%%% Theory boxes
+\usepackage{mdframed}
+
+\mdfsetup{%
+% middlelinecolor=red,
+% middlelinewidth=2pt,
+backgroundcolor=gray!5,
+% roundcorner=10pt
+}
+\newcommand{\theoryNoTitle}[1]{\begin{mdframed}#1\end{mdframed}}
+\newcommand{\theory}[2]{\theoryNoTitle{\textbf{#1.} #2}}
+
+\mdfdefinestyle{mystyle}{backgroundcolor=gray!15}
+\newcommand{\theoryHard}[2]{\begin{mdframed}[style=mystyle]\textbf{#1.} #2\end{mdframed}}
+
+%%% Iterations 
+\renewcommand{\it}[1]{#1^{(\ell)}}
+\newcommand{\ittt}[1]{#1^{(\ell+2)}}
+\newcommand{\init}[1]{#1^{(0)}}
+
+
+\newcommand{\sumin}{\sum_{i=1}^n}
+
+
+
+
+

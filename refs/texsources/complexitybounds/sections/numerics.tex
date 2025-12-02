@@ -1,0 +1,21 @@
+ \begin{figure*}[h]
+  \centering
+  \includegraphics[width=.32\textwidth]{W1_d2.png} 
+  \includegraphics[width=.32\textwidth]{W1_eps001.png}  
+  \includegraphics[width=.32\textwidth]{gauss.png} 
+  \caption{$\bar W_\epsilon(\hat\alpha_n,\hat\alpha_n')$ as a function of $n$ in log-log space - cost $c(x,y)=\norm{x-y}_1$ with uniform distributions (two leftmost figures) and quadratic cost $c(x,y)=\norm{x-y}_2^2$ with standard normal distributions (right figure).} \label{fig:other}
+  \end{figure*}
+
+\section{Experiments} We conclude with some numerical experiments on the sample complexity of Sinkhorn Divergences. Since there are no explicit formulas for $W_\epsilon$ in general, we consider $\bar W_\epsilon(\hat\alpha_n,\hat\alpha_n ')$ where $\hat \alpha_n \eqdef \frac{1}{n} \sumin \delta_{Xi}$, $\hat \alpha_n' \eqdef \frac{1}{n} \sumin \delta_{Xi'}$ and $(X_1,\dots,X_n)$ and $(X_1',\dots,X_n')$ are two independent $n$-samples from $\alpha$. Note that we use in this section the normalized Sinkhorn Divergence as defined in~\eqref{SinkhornDiv}, since we know that $\bar W_\epsilon(\alpha,\alpha) =0$ and thus $\bar W_\epsilon(\hat\alpha_n,\hat\alpha_n') \rightarrow 0$ as $\n \rightarrow +\infty$ .
+
+Each of the experiments is run $300$ times, and we plot the average of $\bar W_\epsilon(\hat\alpha_n,\hat\alpha_n')$ as a function of $n$ in log-log space, with shaded standard deviation bars.
+
+First, we consider the uniform distribution over a hypercube with the standard quadratic cost $c(x,y) = \norm{x-y}_2^2$, which falls within our framework, as we are dealing with a $\Cc^\infty$ cost on a bounded domain.
+%
+Figure~\ref{fig:d} shows the influence of the dimension $d$ on the convergence, while Figure~\ref{fig:epsilon} shows the influence of the regularization $\epsilon$ on the convergence for a given dimension. The influence of $\epsilon$ on the convergence rate increases with the dimension: the curves are almost parallel for all values of $\epsilon$ in dimension 2 but they get further apart as dimension increases. As expected from our bound, there is a cutoff which happens here at $\epsilon =1$. All values of $\epsilon \geq 1$ have similar convergence rates, and the dependence on $\frac{1}{\epsilon}$ becomes clear for smaller values. The same cutoff appears when looking at the influence of the dimension on the convergence rate for a fixed $\epsilon$. The curves are parallel for all dimensions for $\epsilon \geq 1$ but they have very different slopes for smaller $\epsilon$. 
+
+We relax next some of the assumptions needed in our theorem to see how the Sinkhorn divergence behaves empirically. First we relax the regularity assumption on the cost, using $c(x,y) = \norm{x-y}_1$. As seen on the two left images in figure \ref{fig:other} the behavior is very similar to the quadratic cost but with a more pronounced influence of $\epsilon$, even for small dimensions. The fact that the convergence rate gets slower as $\epsilon$ gets smaller is already very clear in dimension 2, which wasn't the case for the quadratic cost. The influence of the dimension for a given value of $\epsilon$ is not any different however.
+
+We also relax the bounded domain assumption, considering a standard normal distribution over $\RR^d$ with a quadratic cost. While the influence of $\epsilon$ on the convergence rate is still obvious, the influence of the dimension is less clear. There is also a higher variance, which can be expected as the concentration bound from Corollary~\ref{cor:concentration} depends on the diameter of the domain.
+
+For all curves, we observe that $d$ and $\epsilon$ impact variance, with much smaller variance for small values of $\epsilon$ and high dimensions. From the concentration bound, the dependency on $\epsilon$ coming from the uniform bound on $\f_\epsilon$ is of the form $\epsilon \exp(\kappa/\epsilon)$, suggesting higher variance for small values of $\epsilon$. This could indicate that our uniform bound on $f_\epsilon$ is not tight, and we should consider other methods to get tighter bounds in further work.

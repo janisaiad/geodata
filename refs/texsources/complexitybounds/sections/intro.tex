@@ -1,0 +1,58 @@
+
+\section{Introduction}
+Optimal Transport (OT) has emerged in recent years as a powerful tool to compare probability distributions. Indeed, Wasserstein distances can endow the space of probability measures with a rich Riemannian structure~\citep{ambrosio2006gradient}, one that is able to capture meaningful geometric features between measures even when their supports do not overlap. OT has been, however, long neglected in data sciences for two main reasons, which could be loosely described as \emph{computational} and \emph{statistical}: computing OT is costly since it requires solving a network flow problem; and suffers from the curse-of-dimensionality, since, as will be made more explicit later in this paper, the Wasserstein distance computed between two samples converges only very slowly to its population counterpart.
+
+Recent years have witnessed significant advances on the computational aspects of OT. A recent wave of works have exploited entropic regularization, both to compare  discrete measures with finite support~\citep{CuturiSinkhorn} or measures that can be sampled from~\citep{2016-genevay-nips}. Among the many learning tasks performed with this regularization, one may cite domain adaptation~\citep{courty2014domain}, text retrieval~\citep{kusner2015word} or multi-label classification \citep{2015-Frogner}. The ability of OT to compare probability distributions with disjoint supports (as opposed to the Kullback-Leibler divergence) has also made it  popular as a loss function to learn generative models \citep{WassersteinGAN,OTGAN,ABC}.
+
+At the other end of the spectrum, the maximum mean discrepancy (MMD)~\citep{GrettonMMD} is an integral probability metric~\citep{empmmd} on a reproducing kernel Hilbert space (RKHS) of test functions. The MMD is easy to compute, and has also been used in a very wide variety of applications, including for instance the estimation of generative models \citep{li2015generative,MMD-GAN,MMDGAN}.
+
+OT and MMD differ, however, on a fundamental aspect: their sample complexity. The definition of sample complexity that we choose here is the convergence rate of a given metric between a measure and its empirical counterpart, as a function of the number of samples. This notion is crucial in machine learning, as bad sample complexity implies overfitting and high gradient variance when using these divergences for parameter estimation. In that context, it is well known that the sample complexity of MMD is independent of the dimension, scaling as $\frac{1}{\sqrt{n}}$ \citep{GrettonMMD} where $n$ is the number of samples.  In contrast, it is well known that standard OT suffers from the curse of dimensionality \citep{dudley1969speed}: Its sample complexity is exponential in the dimension of the ambient space. Although it was recently proved that this result can be refined to consider the implicit dimension of data \citep{weed2017sharp}, the sample complexity of OT appears now to be the major bottleneck for the use of OT in high-dimensional machine learning problems. 
+
+A remedy to this problem may lie, again, in regularization. Divergences defined through regularized OT, known as Sinkhorn divergences, seem to be indeed less prone to over-fitting. Indeed, a certain amount of regularization seems to improve performance in simple learning tasks \citep{CuturiSinkhorn}. Additionally, recent papers \citep{ramdas2017wasserstein,genevay2018learning} have pointed out the fact that Sinkhorn divergences are in fact interpolating between OT (when regularization goes to zero) and MMD (when regularization goes to infinity). However, aside from a recent central limit theorem in the case of measures supported on discrete spaces~\citep{bigot2017central}, the convergence of empirical Sinkhorn divergences, and more generally their sample complexity, remains an open question.
+
+\paragraph{Contributions.}
+This paper provides three main contributions, which all exhibit theoretical properties of Sinkhorn divergences. Our first result is a bound on the speed of convergence of regularized OT to standard OT as a function of the regularization parameter, in the case of continuous measures.  The second theorem proves that the optimizers of the regularized optimal transport problem lie in a Sobolev ball which is independent of the measures. This allows us to rewrite the Sinkhorn divergence as an expectation maximization problem in a RKHS ball and thus justify the use of kernel-SGD for regularized OT as advocated in \citep{2016-genevay-nips}. As a consequence of this reformulation, we provide as our third contribution a sample complexity result. We focus on how the sample size and the regularization parameter affect the convergence of the empirical Sinkhorn divergence (i.e., computed from samples of two continuous measures) to the continuous Sinkhorn divergence. We show that the Sinkhorn divergence benefits from the same sample complexity as MMD, scaling in $\frac{1}{\sqrt{n}}$ but with a constant that depends on the inverse of the regularization parameter. Thus sample complexity worsens when getting closer to standard OT, and there is therefore a tradeoff between a good approximation of OT (small regularization parameter) and fast convergence in terms of sample size (larger regularization parameter). We conclude this paper with a few numerical experiments to asses the dependence of the sample complexity on $\epsilon$ and $d$ in very simple cases.
+
+\paragraph{Notations.} We consider $\Xx$ and $\Yy$ two bounded subsets of $\RR^d$ and we denote by $\abs{\Xx}$ and $\abs{\Yy}$ their respective diameter $\sup \{ \norm{x-x'} | x, x' \in \Xx (resp. \Yy) \}$. The space of positive Radon measures of mass 1 on $\Xx$ is  denoted $\Mm_+^1(\Xx)$ and we use upper cases $X,Y$ to denote random variables in these spaces. We use the notation $\phi = O(1+ x^k)$ to say that $\phi \in \RR$ is bounded by a polynomial of order $k$ in $x$ with positive coefficients. 
+
+\section{Reminders on Sinkhorn Divergences}
+
+We consider two probability measures $\alpha \in \Mm_+^1(\Xx)$ and $\beta$ on $\Mm_+^1(\Yy)$. The \citeauthor{Kantorovich42} formulation~\citeyearpar{Kantorovich42} of optimal transport between $\alpha$ and $\beta$ is defined by
+\eql{W(\alpha,\beta) \eqdef \min_{\pi \in \Pi(\alpha,\beta)} \int_{\Xx \times \Yy} c(x,y) \d\pi(x,y) \tag{$\Pp$},
+}
+where the feasible set is composed of probability distributions over the product space $\Xx \times \Yy$ with fixed marginals $\alpha,\beta$:
+\eq{ 
+	\Pi(\alpha,\beta) \eqdef \enscond{\pi \in \Mm_+^1(\Xx \times \Yy) }{ P_{1\sharp}\pi=\alpha, P_{2\sharp}\pi=\beta  },
+	% \forall (A,B) \subset \Xx \times \Yy, \pi(A \times \Yy) = \mu(A), \pi(\Xx \times B) = \beta(B)
+} 
+where $P_{1\sharp}\pi$ (resp.~$P_{2\sharp}\pi$) is the marginal distribution of $\pi$ for the first (resp.~second) variable, using the projection maps $P_1(x,y)=x; P_2(x,y)=y$ along with the push-forward operator $_\sharp$.
+
+%
+The cost function $c$ represents the  cost to move a unit of mass from $x$ to $y$. Through this paper, we will assume this function to be $\Cc^\infty$ (more specifically, we need it to be $\Cc^{\frac{d}{2}+1}$). When $\Xx = \Yy$ is endowed with a distance~$d_\Xx$, choosing  $c(x,y)=d_\Xx(x,y)^p$ where $p \geq 1$ yields the $p$-Wasserstein distance  between probability measures.
+ 
+
+We introduce regularized optimal transport, which consists in adding an entropic regularization to the optimal transport problem, as proposed in~\citep{CuturiSinkhorn}. Here we use the relative entropy of the transport plan with respect to the product measure $\alpha \otimes \beta$ following \citep{2016-genevay-nips}:
+\begin{align}\label{OTreg}
+W_\epsilon(\alpha,\beta) \eqdef \!\min_{\pi\in\Pi(\alpha,\beta)} \int_{\Xx \times \Yy}\!\!\! &c(x,y) \d\pi(x,y) \nonumber \\&+ \epsilon H(\pi \mid \alpha\otimes \beta) \tag{$\Pp_\epsilon$},
+\end{align}
+where 
+\eql{H(\pi \mid \alpha\otimes \beta) \eqdef  \int_{\Xx \times \Yy} \log\left(\frac{\d\pi(x,y)}{\d\alpha(x)\d\beta(y)}\right) \d\pi(x,y). \label{entropy}}
+
+Choosing the relative entropy as a regularizer allows to express the dual formulation of regularized OT as the maximization of an expectation problem, as shown in \citep{2016-genevay-nips}
+\begin{align*} \label{dual OTreg}
+W_\epsilon(\alpha,\beta) = & \max_{u \in \Cc(\Xx),v \in \Cc(\Yy)} \int_\Xx u(x) \d\alpha(x) + \int_\Yy v(y) \d\beta(y) \\
+& - \epsilon \int_{\Xx \times \Yy} e^{\frac {u(x)+v(y) - c(x,y)}{\epsilon}}\d\alpha(x) \d\beta(y)  + \epsilon \\
+= & \max_{u \in \Cc(X),v \in \Cc(Y)} \EE_{\alpha\otimes\beta} \left[f_\epsilon^{XY}(u,v) \right] + \epsilon
+\end{align*}
+where $f_\epsilon^{xy}(u,v) = u(x) + v(y) - \epsilon  e^{\frac {u(x)+v(y) - c(x,y)}{\epsilon}}.$
+This reformulation as the maximum of an expectation will prove crucial to obtain sample complexity results. The existence of optimal dual potentials $(u,v)$ is proved in the appendix. They are unique $\alpha-$ and $\beta-$a.e. up to an additive constant.
+
+To correct for the fact that $W_\epsilon(\alpha,\alpha)\ne 0$,  \citep{genevay2018learning} propose Sinkhorn divergences, a natural normalization of that quantity defined as
+\eql{ \bar W_\epsilon(\alpha,\beta) = W_\epsilon(\alpha,\beta) - \frac{1}{2} (W_\epsilon(\alpha,\alpha) + W_\epsilon(\beta,\beta)).
+\label{SinkhornDiv}}
+This normalization ensures that $\bar W_\epsilon(\alpha,\alpha) = 0$, but also has a noticeable asymptotic behavior as mentioned in~\citep{genevay2018learning}. Indeed, when $\epsilon \rightarrow 0$ one recovers the original (unregularized) OT problem, while choosing $\epsilon \rightarrow +\infty$ yields the maximum mean discrepancy associated to the kernel $k = -c/2$, where MMD is defined by:
+\begin{align*}
+	MMD_k(\alpha,\beta) = \mathbb{E}_{\alpha\otimes\alpha}[k(X,X')] &+ \mathbb{E}_{\beta\otimes \beta}[k(Y,Y')] \\
+	&- 2 \mathbb{E}_{\alpha\otimes \beta}[k(X,Y)].
+\end{align*}
+In the context of this paper, we study in detail the sample complexity of $W_\epsilon(\alpha,\beta)$, knowing that these results can be extended to $\bar W_\epsilon(\alpha,\beta)$.
