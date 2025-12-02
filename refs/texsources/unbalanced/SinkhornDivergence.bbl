@@ -1,0 +1,342 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{RJBVE19}
+
+\bibitem[ACB17]{arjovsky2017wasserstein}
+Martin Arjovsky, Soumith Chintala, and L{\'e}on Bottou.
+\newblock Wasserstein {GAN}.
+\newblock {\em arXiv preprint arXiv:1701.07875}, 2017.
+
+\bibitem[Ale81]{alefeld1981convergence}
+Georg Alefeld.
+\newblock On the convergence of {Halley's} method.
+\newblock {\em The American Mathematical Monthly}, 88(7):530--536, 1981.
+
+\bibitem[BL21]{baradat2021regularized}
+Aymeric Baradat and Hugo Lavenant.
+\newblock Regularized unbalanced optimal transport as entropy minimization with
+  respect to branching brownian motion.
+\newblock {\em arXiv preprint arXiv:2111.01666}, 2021.
+
+\bibitem[BM02]{bartlett2002rademacher}
+Peter~L Bartlett and Shahar Mendelson.
+\newblock {Rademacher} and {Gaussian} complexities: Risk bounds and structural
+  results.
+\newblock {\em Journal of Machine Learning Research}, 3(Nov):463--482, 2002.
+
+\bibitem[Cal61]{calderon1961lebesgue}
+Alberto~P Calder{\'o}n.
+\newblock Lebesgue spaces of differentiable functions and distributions.
+\newblock In {\em Proc. Sympos. Pure Math}, volume~4, pages 33--49, 1961.
+
+\bibitem[CB18]{chizat2018global}
+Lenaic Chizat and Francis Bach.
+\newblock On the global convergence of gradient descent for over-parameterized
+  models using optimal transport.
+\newblock {\em Advances in neural information processing systems},
+  31:3036--3046, 2018.
+
+\bibitem[CDM17]{chizat2017tumor}
+L{\'e}na{\"\i}c Chizat and Simone Di~Marino.
+\newblock A tumor growth model of {Hele--Shaw} type as a gradient flow.
+\newblock {\em arXiv preprint arXiv:1712.06124}, 2017.
+
+\bibitem[CFG{\etalchar{+}}20]{charlier2020kernel}
+Benjamin Charlier, Jean Feydy, Joan~Alexis Glaun{\`e}s, Fran{\c{c}}ois-David
+  Collin, and Ghislain Durif.
+\newblock Kernel operations on the {GPU}, with autodiff, without memory
+  overflows.
+\newblock {\em arXiv preprint arXiv:2004.11127}, 2020.
+
+\bibitem[CGH{\etalchar{+}}96]{corless1996lambertw}
+Robert~M Corless, Gaston~H Gonnet, David~EG Hare, David~J Jeffrey, and Donald~E
+  Knuth.
+\newblock On the {Lambert-W} function.
+\newblock {\em Advances in Computational mathematics}, 5(1):329--359, 1996.
+
+\bibitem[Chi19]{chizat2019sparse}
+Lenaic Chizat.
+\newblock Sparse optimization on measures with over-parameterized gradient
+  descent.
+\newblock {\em arXiv preprint arXiv:1907.10300}, 2019.
+
+\bibitem[CPSV15]{chizat2015unbalanced}
+Lenaic Chizat, Gabriel Peyr{\'e}, Bernhard Schmitzer, and Fran{\c{c}}ois-Xavier
+  Vialard.
+\newblock Unbalanced optimal transport: geometry and {Kantorovich} formulation.
+\newblock {\em arXiv preprint arXiv:1508.05216}, 2015.
+
+\bibitem[CPSV18]{chizat2016scaling}
+Lenaic Chizat, Gabriel Peyr{\'e}, Bernhard Schmitzer, and Fran{\c{c}}ois-Xavier
+  Vialard.
+\newblock Scaling algorithms for unbalanced transport problems.
+\newblock {\em to appear in Mathematics of Computation}, 2018.
+
+\bibitem[CR13]{combettes2013moreau}
+Patrick~L Combettes and Noli~N Reyes.
+\newblock {Moreau}’s decomposition in {Banach} spaces.
+\newblock {\em Mathematical Programming}, 139(1-2):103--114, 2013.
+
+\bibitem[CRL{\etalchar{+}}20]{chizat2020faster}
+Lenaic Chizat, Pierre Roussillon, Flavien L{\'e}ger, Fran{\c{c}}ois-Xavier
+  Vialard, and Gabriel Peyr{\'e}.
+\newblock Faster {Wasserstein} distance estimation with the {Sinkhorn}
+  divergence.
+\newblock {\em Advances in Neural Information Processing Systems}, 33, 2020.
+
+\bibitem[CS96]{constantine1996multivariate}
+Gregory~M. Constantine and Thomas~H. Savits.
+\newblock A multivariate {Faa di Bruno} formula with applications.
+\newblock {\em Transactions of the American Mathematical Society},
+  348(2):503--520, 1996.
+
+\bibitem[Csi67]{csiszar1967information}
+Imre Csisz{\'a}r.
+\newblock Information-type measures of difference of probability distributions
+  and indirect observation.
+\newblock {\em Studia Scientiarum Mathematicarum Hungarica}, 2:229--318, 1967.
+
+\bibitem[Cut13]{cuturi2013lightspeed}
+Marco Cuturi.
+\newblock Sinkhorn distances: Lightspeed computation of optimal transport.
+\newblock In {\em Adv. in Neural Information Processing Systems}, pages
+  2292--2300, 2013.
+
+\bibitem[Dud69]{dudley1969speed}
+Richard~M. Dudley.
+\newblock The speed of mean {Glivenko-Cantelli} convergence.
+\newblock {\em The Annals of Mathematical Statistics}, 40(1):40--50, 1969.
+
+\bibitem[FCVP17]{feydy2017optimal}
+Jean Feydy, Benjamin Charlier, Fran{\c{c}}ois-Xavier Vialard, and Gabriel
+  Peyr{\'e}.
+\newblock Optimal transport for diffeomorphic registration.
+\newblock In {\em International Conference on Medical Image Computing and
+  Computer-Assisted Intervention}, pages 291--299. Springer, 2017.
+
+\bibitem[Fey20]{feydy2020thesis}
+Jean Feydy.
+\newblock {\em Geometric data analysis, beyond convolutions}.
+\newblock PhD thesis, Universit{\'e} Paris-Saclay, 2020.
+
+\bibitem[FGCB20]{feydy2020fast}
+Jean Feydy, Joan Glaun{\`e}s, Benjamin Charlier, and Michael Bronstein.
+\newblock Fast geometric learning with symbolic matrices.
+\newblock {\em Proc. NeurIPS}, 2(4):6, 2020.
+
+\bibitem[Fig10]{figalli2010optimal}
+Alessio Figalli.
+\newblock The optimal partial transport problem.
+\newblock {\em Archive for rational mechanics and analysis}, 195(2):533--560,
+  2010.
+
+\bibitem[FSFC21]{fatras2021unbalanced}
+Kilian Fatras, Thibault S{\'e}journ{\'e}, R{\'e}mi Flamary, and Nicolas Courty.
+\newblock Unbalanced minibatch optimal transport; applications to domain
+  adaptation.
+\newblock In {\em International Conference on Machine Learning}, pages
+  3186--3197. PMLR, 2021.
+
+\bibitem[FSV{\etalchar{+}}19]{feydy2018interpolating}
+Jean Feydy, Thibault S{\'e}journ{\'e}, Fran{\c{c}}ois-Xavier Vialard, Shun-ichi
+  Amari, Alain Trouv{\'e}, and Gabriel Peyr{\'e}.
+\newblock Interpolating between optimal transport and {MMD} using {Sinkhorn}
+  divergences.
+\newblock In {\em The 22nd International Conference on Artificial Intelligence
+  and Statistics}, pages 2681--2690. PMLR, 2019.
+
+\bibitem[GBR{\etalchar{+}}06]{gretton2007kernel}
+Arthur Gretton, Karsten Borgwardt, Malte Rasch, Bernhard Sch{\"o}lkopf, and
+  Alex Smola.
+\newblock A kernel method for the two-sample-problem.
+\newblock {\em Advances in neural information processing systems}, 19:513--520,
+  2006.
+
+\bibitem[GBR{\etalchar{+}}12]{gretton2012kernel}
+Arthur Gretton, Karsten~M Borgwardt, Malte~J Rasch, Bernhard Sch{\"o}lkopf, and
+  Alexander Smola.
+\newblock A kernel two-sample test.
+\newblock {\em Journal of Machine Learning Research}, 13(Mar):723--773, 2012.
+
+\bibitem[GCB{\etalchar{+}}19]{genevay2018sample}
+Aude Genevay, L{\'e}naic Chizat, Francis Bach, Marco Cuturi, and Gabriel
+  Peyr{\'e}.
+\newblock Sample complexity of {Sinkhorn} divergences.
+\newblock In {\em The 22nd International Conference on Artificial Intelligence
+  and Statistics}, pages 1574--1583. PMLR, 2019.
+
+\bibitem[GPC18]{genevay2018learning}
+Aude Genevay, Gabriel Peyr{\'e}, and Marco Cuturi.
+\newblock Learning generative models with {Sinkhorn} divergences.
+\newblock In {\em International Conference on Artificial Intelligence and
+  Statistics}, pages 1608--1617, 2018.
+
+\bibitem[Han92]{hanin1992kantorovich}
+Leonid~G Hanin.
+\newblock {Kantorovich--Rubinstein} norm and its application in the theory of
+  {Lipschitz} spaces.
+\newblock {\em Proceedings of the American Mathematical Society},
+  115(2):345--352, 1992.
+
+\bibitem[Han99]{hanin1999extension}
+Leonid~G Hanin.
+\newblock An extension of the {Kantorovich} norm.
+\newblock {\em Contemporary Mathematics}, 226:113--130, 1999.
+
+\bibitem[Hun07]{matplotlib}
+J.~D. Hunter.
+\newblock Matplotlib: A {2D} graphics environment.
+\newblock {\em Computing in Science \& Engineering}, 9(3):90--95, 2007.
+
+\bibitem[JCG20]{janati2020debiased}
+Hicham Janati, Marco Cuturi, and Alexandre Gramfort.
+\newblock Debiased {Sinkhorn} barycenters.
+\newblock {\em arXiv preprint arXiv:2006.02575}, 2020.
+
+\bibitem[KMV{\etalchar{+}}16]{kondratyev2016new}
+Stanislav Kondratyev, L{\'e}onard Monsaingeon, Dmitry Vorotnikov, et~al.
+\newblock A new optimal transport distance on the space of finite {Radon}
+  measures.
+\newblock {\em Advances in Differential Equations}, 21(11/12):1117--1164, 2016.
+
+\bibitem[KRU14]{knight2014symmetry}
+Philip~A Knight, Daniel Ruiz, and Bora U{\c{c}}ar.
+\newblock A symmetry preserving algorithm for matrix scaling.
+\newblock {\em SIAM journal on Matrix Analysis and Applications},
+  35(3):931--955, 2014.
+
+\bibitem[LBR19]{lee2019parallel}
+John Lee, Nicholas~P Bertrand, and Christopher~J Rozell.
+\newblock Parallel unbalanced optimal transport regularization for large scale
+  imaging problems.
+\newblock {\em arXiv preprint arXiv:1909.00149}, 2019.
+
+\bibitem[LMS15]{liero2015optimal}
+Matthias Liero, Alexander Mielke, and Giuseppe Savar{\'e}.
+\newblock Optimal entropy-transport problems and a new {Hellinger--Kantorovich}
+  distance between positive measures.
+\newblock {\em Inventiones mathematicae}, pages 1--149, 2015.
+
+\bibitem[LN12]{lemmens2012nonlinear}
+Bas Lemmens and Roger Nussbaum.
+\newblock {\em Nonlinear Perron-Frobenius Theory}, volume 189.
+\newblock Cambridge University Press, 2012.
+
+\bibitem[LQG19]{flownet3d}
+Xingyu Liu, Charles~R Qi, and Leonidas~J Guibas.
+\newblock {FlowNet3D}: Learning scene flow in {3D} point clouds.
+\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
+  Pattern Recognition}, pages 529--537, 2019.
+
+\bibitem[MG15]{kitti}
+Moritz Menze and Andreas Geiger.
+\newblock Object scene flow for autonomous vehicles.
+\newblock In {\em Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, 2015.
+
+\bibitem[MGS{\etalchar{+}}21]{mukherjee2021outlier}
+Debarghya Mukherjee, Aritra Guha, Justin~M Solomon, Yuekai Sun, and Mikhail
+  Yurochkin.
+\newblock Outlier-robust optimal transport.
+\newblock In {\em International Conference on Machine Learning}, pages
+  7850--7860. PMLR, 2021.
+
+\bibitem[MW19]{mena2019statistical}
+Gonzalo Mena and Jonathan Weed.
+\newblock Statistical bounds for entropic optimal transport: sample complexity
+  and the central limit theorem.
+\newblock {\em arXiv preprint arXiv:1905.11882}, 2019.
+
+\bibitem[Oli06]{numpy}
+Travis Oliphant.
+\newblock A guide to numpy, 2006.
+
+\bibitem[PGC{\etalchar{+}}17]{pytorch}
+Adam Paszke, Sam Gross, Soumith Chintala, Gregory Chanan, Edward Yang, Zachary
+  DeVito, Zeming Lin, Alban Desmaison, Luca Antiga, and Adam Lerer.
+\newblock Automatic differentiation in pytorch.
+\newblock 2017.
+
+\bibitem[RJBVE19]{rotskoff2019global}
+Grant Rotskoff, Samy Jelassi, Joan Bruna, and Eric Vanden-Eijnden.
+\newblock Global convergence of neuron birth-death dynamics.
+\newblock {\em arXiv preprint arXiv:1902.01843}, 2019.
+
+\bibitem[RTC17]{ramdas2017wasserstein}
+Aaditya Ramdas, Nicolas~Garcia Trillos, and Marco Cuturi.
+\newblock On {Wasserstein} two-sample testing and related families of
+  nonparametric tests.
+\newblock {\em Entropy}, 19(2), 2017.
+
+\bibitem[RW09]{rockafellar2009variational}
+R~Tyrrell Rockafellar and Roger J-B Wets.
+\newblock {\em Variational analysis}, volume 317.
+\newblock Springer Science \& Business Media, 2009.
+
+\bibitem[San15]{santambrogio2015optimal}
+Filippo Santambrogio.
+\newblock {\em Optimal Transport for applied mathematicians}, volume~87 of {\em
+  Progress in Nonlinear Differential Equations and their applications}.
+\newblock Springer, 2015.
+
+\bibitem[SFL{\etalchar{+}}21]{robot}
+Zhengyang Shen, Jean Feydy, Peirong Liu, Ariel Curiale, Ruben San Jose~Estepar,
+  Raul San Jose~Estepar, and Marc Niethammer.
+\newblock Accurate point cloud registration with robust optimal transport.
+\newblock {\em Advances in Neural Information Processing Systems}, 34, 2021.
+
+\bibitem[Sin64]{sinkhorn1964relationship}
+Richard Sinkhorn.
+\newblock A relationship between arbitrary positive matrices and doubly
+  stochastic matrices.
+\newblock {\em Ann. Math. Statist.}, 35:876--879, 1964.
+
+\bibitem[SST{\etalchar{+}}17]{schiebinger2017reconstruction}
+Geoffrey Schiebinger, Jian Shu, Marcin Tabaka, Brian Cleary, Vidya Subramanian,
+  Aryeh Solomon, Siyan Liu, Stacie Lin, Peter Berube, Lia Lee, et~al.
+\newblock Reconstruction of developmental landscapes by optimal-transport
+  analysis of single-cell gene expression sheds light on cellular
+  reprogramming.
+\newblock {\em BioRxiv}, page 191056, 2017.
+
+\bibitem[SW19]{schmitzer2019framework}
+Bernhard Schmitzer and Benedikt Wirth.
+\newblock A framework for {Wasserstein}-1-type metrics.
+\newblock {\em to appear in Journal of Convex Analysis}, 2019.
+
+\bibitem[SZRM18]{salimans2018improving}
+Tim Salimans, Han Zhang, Alec Radford, and Dimitris Metaxas.
+\newblock Improving {GAN}s using optimal transport.
+\newblock In {\em International Conference on Learning Representations}, 2018.
+
+\bibitem[Teb92]{teboulle1992entropic}
+Marc Teboulle.
+\newblock Entropic proximal mappings with applications to nonlinear
+  programming.
+\newblock {\em Mathematics of Operations Research}, 17(3):670--690, 1992.
+
+\bibitem[Tse01]{tseng2001convergence}
+Paul Tseng.
+\newblock Convergence of a block coordinate descent method for
+  nondifferentiable minimization.
+\newblock {\em Journal of optimization theory and applications},
+  109(3):475--494, 2001.
+
+\bibitem[VBR{\etalchar{+}}99]{vedula1999three}
+Sundar Vedula, Simon Baker, Peter Rander, Robert Collins, and Takeo Kanade.
+\newblock Three-dimensional scene flow.
+\newblock In {\em Proceedings of the Seventh IEEE International Conference on
+  Computer Vision}, volume~2, pages 722--729. IEEE, 1999.
+
+\bibitem[WB17]{weed2017sharp}
+Jonathan Weed and Francis Bach.
+\newblock Sharp asymptotic and finite-sample rates of convergence of empirical
+  measures in {Wasserstein} distance.
+\newblock {\em arXiv preprint arXiv:1707.00087}, 2017.
+
+\bibitem[YU18]{yang2018scalable}
+Karren~D Yang and Caroline Uhler.
+\newblock Scalable unbalanced optimal transport using generative adversarial
+  networks.
+\newblock {\em arXiv preprint arXiv:1810.11447}, 2018.
+
+\end{thebibliography}

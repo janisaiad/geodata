@@ -1,0 +1,56 @@
+
+\subsection{Sinkhorn divergence, Sinkhorn entropy and Hausdorff divergence}
+\label{subsec-sink-functionals}
+We present in this section functionals derived from $\OTb$.
+Most importantly, we generalize the balanced Sinkhorn divergence~\cite{ramdas2017wasserstein,genevay2018learning,feydy2018interpolating} to the unbalanced setting.
+%
+%The idea of normalizing the Sinkhorn cost $\OTb(\al,\be)$ by substracting the diagonal bias terms $\tfrac{1}{2} \OTb(\al,\al) + \tfrac{1}{2} \OTb(\be,\be)$ was introduced in~\cite{ramdas2017wasserstein}. 
+%It has been studied in depth for balanced OT in~\cite{genevay2018learning,feydy2018interpolating, chizat2020faster,janati2020debiased} under the name of ``Sinkhorn divergence''.
+%%  
+%We present and study its extension to unbalanced OT. 
+
+\begin{definition}\label{def-sink-div-unb}
+The \emph{Unbalanced Sinkhorn divergence} is defined as
+\begin{align}
+  \Sb(\al,\be) \eqdef \OTb(\al,\be) - \tfrac{1}{2} \OTb(\al,\al) - \tfrac{1}{2} \OTb(\be,\be) +\tfrac{\epsilon}{2} \big( m(\al) - m(\be) \big)^2.
+\end{align}
+The \emph{Unbalanced Sinkhorn Entropy} is defined as
+\begin{gather}
+\begin{aligned}
+\Fb(\al) \eqdef &-\sup_{\f\in\Cc(\Xx)} \dotp{\al}{-\phi^*(-\f)} - \tfrac{\epsilon}{2}\dotp{\al\otimes\al}{e^{\frac{\f\oplus\f-\C}{\epsilon}}}
+= &- \tfrac{1}{2}\OTb(\al,\al) + \tfrac{\epsilon}{2}m(\al)^2,
+\end{aligned}
+\end{gather}
+where the last relation holds thanks to Proposition~\ref{lem-sym-pot}.
+Under Assumptions~(\ref{as:1},\ref{as:2}) $\OTb$ is differentiable, and the symmetric Bregman divergence associated to $\Fb$ is well-defined. 
+We call it the \emph{Hausdorff divergence}. It reads
+\begin{align}
+  \Hb(\al,\be) \eqdef \dotp{\al - \be}{\nabla\Fb(\al) - \nabla\Fb(\be) }. 
+\end{align}
+From now on, we write $(\f_{\al\be},\g_{\al\be}, \f_\al, \g_\be)$ optimal potentials such that $\OTb(\al,\be)=\Ff(\f_{\al\be},\g_{\al\be})$, $\OTb(\al,\al)=\Ff(\f_\al,\f_\al)$ and $\OTb(\be,\be)=\Ff(\g_\be,\g_\be)$.
+\end{definition}
+
+
+Those divergences can be explicited as functions of $(\f_{\al\be},\g_{\al\be}, \f_\al, \g_\be)$, allowing a simple numerical computation (see Section~\ref{sec-implementation}). 
+We provide formulas for $\D_\phi = \rho\KL$. 
+
+\begin{proposition}[Dual formulas for the Sinkhorn costs]\label{prop-funct-kl}
+Assuming the cost $\C$ to be symmetric and $\gamma$-Lipschitz. For $\D_\phi = \rho\KL$  and $(\al,\be)\in\Mmpp(\Xx)$ one has 
+\begin{align}
+  \OTb(\al,\be) &= \dotp{\al}{  \rho - (\rho + \tfrac{\epsilon}{2}) e^{-\tfrac{\f_{\al\be}}{\rho}}  } 
+  + \dotp{\be}{  \rho - (\rho + \tfrac{\epsilon}{2}) e^{-\tfrac{\g_{\al\be}}{\rho}}  } + \epsilon m(\al)m(\be), \nonumber\\
+  \Sb(\al,\be) &= \dotp{\al}{ - (\rho + \tfrac{\epsilon}{2}) \big( e^{-\tfrac{\f_{\al\be}}{\rho}} - e^{-\tfrac{\f_{\al}}{\rho}}  \big) }
+  + \dotp{\be}{ - (\rho + \tfrac{\epsilon}{2}) \big( e^{-\tfrac{\g_{\al\be}}{\rho}} - e^{-\tfrac{\g_{\be}}{\rho}}  \big) }, \nonumber \\
+  \Hb(\al,\be) &= \dotp{\al}{ - (\rho + \epsilon) \big( e^{-\tfrac{\f_{\al}}{\rho}} - e^{-\tfrac{\g_{\be}}{\rho}}  \big) }
+  + \dotp{\be}{ - (\rho + \epsilon) \big( e^{-\tfrac{\g_{\be}}{\rho}} - e^{-\tfrac{\f_{\al}}{\rho}}  \big) }. \nonumber
+\end{align}
+\end{proposition}
+\begin{proof}
+	For $(\al,\be)\in\Mmpp(\Xx)$ Theorem~\ref{thm-cv-sink-compact} applies and yields existence and uniqueness of the potentials. The result is a calculation derived from the dual program~\eqref{eq-dual-unb} and the formulas from Theorem~\ref{thm-diff-unb}, i.e. $e^{-\f_{\al\be} / \rho} = \dotp{\be}{e^{(\g_{\al\be} - \C) / \epsilon}}$ and $e^{-\g_{\al\be} / \rho} = \dotp{\al}{e^{(\f_{\al\be} - \C) / \epsilon}}$.
+\end{proof}
+%We warn the reader that contrary to balanced OT, the derivative $\nabla_1 \OTb$ is not equal to the function integrated against $\al$ in $\OTb$. The derivative has a constant factor $(\rho + \epsilon)$ (see Theorem~\ref{thm-diff-unb}) while the function integrated against $\al$ has a constant $(\rho + \tfrac{\epsilon}{2})$.
+\begin{remark}
+	Balanced OT satisfies the relation 
+	$$\OTb(\al,\be) = \dotp{\al}{\nabla_\al\OTb(\al,\be)} + \dotp{\be}{\nabla_\be\OTb(\al,\be)}.$$
+	The previous result shows that this relation does not hold for unbalanced OT.
+\end{remark}

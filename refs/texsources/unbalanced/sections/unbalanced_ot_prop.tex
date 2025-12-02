@@ -1,0 +1,139 @@
+
+\section{Properties of entropic unbalanced optimal transport functionals}
+\label{sec-ot-prop}
+
+We focus here on topological properties of $\OTb$ and functionals derived from it.
+Our main result are Theorem~\ref{thm-sink-unb} and~\ref{thm-sink-weak-cv} stating that $\Sb$ is convex, positive, definite, and metrizes the weak* topology.
+It means that $\Sb$ satisfies more metric properties than $\OTb$.
+
+%Having shown the convergence of the Sinkhorn algorithm, we now focus on the \emph{geometric properties} of functionals derived from the unbalanced transport cost $\OTb$.
+%
+%Our main result is located in Theorem~\ref{thm-sink-unb}, which proves that the \emph{debiased}, \emph{unbalanced} Sinkhorn divergence is convex, positive and definite.
+%
+%We note that the null measure requires a special treatment, detailed in Section~\ref{sec-null-meas}.
+
+
+
+\subsection{Weak* regularity of unbalanced OT}
+\label{sec-weak-regularity-ot}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+We detail the regularity of $\OTb$.
+The Sinkhorn divergence $\Sb$ inherits those properties.
+%We start with a general continuity result, that holds under a boundedness assumption.
+
+\begin{theorem}[Convexity and continuity of $\OTb$]
+	\label{thm-continuity-unb}
+For any entropy $\phi$, $\OTb$ is convex on $\Mmp(\Xx)$ in $\al$ and $\be$ but not jointly convex.
+Assume $\phi$ is continuous and satisfies Asssumptions~\ref{as:1} and~\ref{as:2}.
+If $(\al_n,\be_n)\rightharpoonup(\al,\be)\in\Mmpp(\Xx)^2$, then $\OTb(\al_n,\be_n)\rightarrow\OTb(\al,\be)$.
+%such that Theorem~\ref{thm-cv-sink-compact} holds, consider a sequence $\al_n\rightharpoonup\al$ and $\be_n\rightharpoonup\be$ with $(\al,\be)\in\Mmp(\Xx)$, and write $(\f_n,\g_n)$ a sequence of optimal potentials for $\OTb(\al_n,\be_n)$. If $(\f_n,\g_n)$ can be uniformly bounded by a constant independent of $n$, then $\OTb(\al_n,\be_n)\rightarrow\OTb(\al,\be)$.
+\end{theorem}
+\begin{proof}
+The functional $\OTb$ is a supremum of functions which are linear in $\al$ and linear in $\be$, but not jointly convex in $(\al,\be)$, hence the convexity result.
+%
+Concerning continuity, Theorem~\ref{thm-sink-weak-cv} and Proposition~\ref{prop-uniform-conv} hold.
+There exists $(\f_n,\g_n)_n$ and $(\f,\g)$ such that $\OTb(\al_n,\be_n)=\Ff(\f_n,\g_n)$, $\OTb(\al,\be)=\Ff(\f,\g)$ and $(\f_n,\g_n)\rightarrow(\f,\g)$.
+Because $\phi$ is continuous, so is $\Ff$ on $\Cc(\Xx)^2$.
+Thus $\Ff(\f_n,\g_n)\rightarrow\Ff(\f,\g)$, hence the continuity of $\OTb$.
+%With respect to continuity, note that for any $n$, $(\f_n,\g_n)$ are $\gamma$-Lipschitz (Lemma~\ref{lem-smin-cost-regular}) and continuous on a compact set and are thus uniformly equicontinuous. Using the assumption that this sequence is uniformly bounded, the Ascoli-Arzelà Theorem allows us to show the relative compactness of the sequence in $\Cc(\Xx)\times\Cc(\Yy)$. Note that the Softmin and the aprox are $1$-Lipschitz (Lemma~\ref{lem-smin-lipschitz-func} and Proposition~\ref{prop-nonexp}) and the Softmin is weak* continuous in its input measure $\al$ or $\be$, thus for any converging subsequence $\f_{n_k}\rightarrow\f$ and $\g_{n_k}\rightarrow\g$, we get that $(\f,\g)$ is a fixed point of the Sinkhorn mapping for $(\al,\be)$ and is thus an optimal pair of potentials for $\OTb(\al,\be)$. Since the dual functional~\eqref{eq-dual-unb} is continuous in $(\al,\be,\f,\g)$, we get that for any subsequence $\OTb(\al_n,\be_n)\rightarrow\OTb(\al,\be)$, hence the continuity property.
+\end{proof}
+
+\begin{remark}\label{rem-continuity-not-strictly}
+	A similar result holds for balanced, TV or Range but requires dedicated proofs detailed in Appendix~\ref{appendix-proofs}.
+	In the Range setting $\OTb$ would only be continuous on its domain.
+	For instance, with $\D_\phi=\RG_{[1,2]}$, we have $\OTb((1-\epsilon)\al, (2+\epsilon)\al)=+\infty$ for any $\al$ and $\epsilon>0$, even though $\OTb(\al,\al)<+\infty$.
+\end{remark}
+%We now provide a Corollary of the Theorem above, showing that $\OTb$ is weak*\--continuous for the settings of Section~\ref{sec-exmp-f-div}. Note that we only state continuity on the \emph{domain} of $\OTb$: in general, $\OTb$ is only lower semicontinuous (l.s.c.) on $\Mm^+(\Xx)^2$. For instance, with $\D_\phi=\RG_{[1,2]}$, we know that $\OTb((1-\epsilon)\al, (2+\epsilon)\al)=+\infty$ for any $\epsilon>0$ even though $\OTb(\al,\al)<+\infty$.
+
+%\begin{corollary}[Continuity of $\OTb$]\label{cor-continuity}
+%	Write $\al_n\rightharpoonup\al$ and $\be_n\rightharpoonup\be$ with $(\al,\be)\in\Mmpp(\Xx)$ such that for any $n$ there exists optimal dual potentials $(\f_n,\g_n)$. Then for any setting of Section~\ref{sec-exmp-f-div} we can uniformly bound this sequence and show that $\OTb$ is weak*-continuous.
+%\end{corollary}
+%\begin{proof}
+%	The case of strictly convex entropies is proved in Proposition~\ref{prop-uniform-conv}. In the balanced setting, potentials are defined up to a constant, thus we can assume without loss of generality that $\f_n(x^*)=0$ for some $x^*\in\Xx$. Because optimal potentials are $\gamma$-Lipschitz, we have that $\norm{\f_n}_\infty< \gamma\text{diam}(\Xx)$. Because the Sinkhorn update is 1-Lipschitz, we get that $\norm{\f_n}_\infty< 2\gamma\text{diam}(\Xx) + \epsilon|\log(m(\al_n))|$ and because $\al_n\rightharpoonup\al$ the mass term can be uniformly bounded, hence the result. When $\D_\phi=\rho\TV$ the aprox operator implies $\norm{\f_n}_\infty\leq\rho$ and $\norm{\g_n}_\infty\leq\rho$. In the case $\D_\phi=\RG_{[a,b]}$, we need to prove that for any $n$, at least one of the potentials $(\f_n,\g_n)$ is zero at some point of the support of $(\al_n,\be_n)$. If it is not the case, then we can replace $(\f_n,\g_n)$ by $(\f_n+ \lambda,\g_n-\lambda)$ with $\lambda\in\R$, and the expression of $\phi^*$ is such that the dual functional~\eqref{eq-dual-unb} is locally linear. Then we can locally increase the dual cost, which violates the optimality of $(\f_n,\g_n)$. Thus there exists $(x_n^*,y_n^*)$ such that $\f_n(x_n^*)=0$ or $\g_n(y_n^*)=0$, and we can derive a uniform bound similar to the balanced setting. Thus Theorem~\ref{thm-continuity-unb} holds and we get that $\OTb(\al_n,\be_n)\rightarrow\OTb(\al,\be)$.
+%\end{proof}
+
+We focus on the differentiability of $\OTb$. We start with subdifferentials defined for any setting, then study differentiability under additional assumptions.
+
+\begin{definition}[Subdifferential on a space of measures]\label{def-subdif}
+Let $\Ff$ be any functional defined on $\Mmp(\Xx)$. The subdifferential of $\Ff$ at $\al\in\Mmp(\Xx)$ is defined as
+\begin{align*}
+  \partial\Ff(\al) \eqdef \{p\in\Cc(\Xx),\,\, \forall\be\in\Mmp(\Xx),\, \Ff(\be)\geq \Ff(\al) + \dotp{\be - \al}{p} \}
+\end{align*}
+If $\partial\Ff(\al) \neq\emptyset$, we say that $\Ff$ is subdifferentiable at $\al$.
+\end{definition}
+
+
+\begin{proposition}[Subdifferential of $\OTb$]\label{prop-subdif}
+Let us assume that Assumption~\ref{as:2} holds or consider the case of balanced, TV and Range unbalanced optimal transport. 
+For any $(\al,\be)\in\Mmpp(\Xx)$ such that $\OTb(\al,\be) < \infty$, note $(\f,\g)$ optimal potentials. Then subdifferentials are nonempty, and
+\begin{align*}
+        - \phi^*(-\f) -\epsilon\dotp{\be}{ \tefgc} + \epsilon m(\be) \in\partial_1\OTb(\al,\be), \\
+        - \phi^*(-\g) -\epsilon\dotp{\al}{ \tefgc} + \epsilon m(\al) \in\partial_2\OTb(\al,\be).
+\end{align*}
+\end{proposition}
+\begin{proof}
+The proof is similar for both coordinates: let us show it for the first one. Take $(\bar{\al},\be)$, and compare $\OTb(\bar{\al},\be)$ with $\OTb(\al,\be)$. The pair $(\f,\g)$ is suboptimal in $\OTb(\bar{\al},\be)$, thus
+\begin{align*}
+  \OTb(\bar{\al},\be) &\geq - \dotp{\bar{\al}}{\phi^*(-\f)} - \dotp{\be}{\phi^*(-\g)} - \epsilon \dotp{\bar{\al}\otimes\be}{\tefgc - 1}\\
+                      &\geq \dotp{ \bar{\al} }{-\phi^*(-\f)-\epsilon\dotp{\be}{ \tefgc -1}} - \dotp{\be}{\phi^*(-\g)}\\
+                      &\geq \OTb(\al,\be) + \dotp{\bar{\al} - \al}{-\phi^*(-\f)-\epsilon\dotp{\be}{ \tefgc - 1}}.                      
+\end{align*}
+Since $(\f,\g)$ is optimal in $\OTb(\al,\be)$, we get that $- \phi^*(-\f) -\epsilon\dotp{\be}{ \tefgc } + \epsilon m(\be)\in\partial_1\OTb(\al,\be)$. The similar property holds for $\partial_2\OTb(\al,\be)$.
+\end{proof}
+
+We now consider Assumptions~(\ref{as:1},\ref{as:2}) hold.
+We prove stronger differentiability properties of $\OTb$ in this setting.
+First we define it for functionals defined on $\Mm(\Xx)$.
+%Let us first provide a rigorous definition for functionals that are defined over a space of measures.
+
+\begin{definition}[Differentiability in $\Mmp(\Xx)$] \label{def-diff-meas}
+Let $\Ff$ be any functional defined on $\Mmp(\Xx)$. We say that it is differentiable in the sense of measures if for any $\al\in\Mmp(\Xx)$, there exists a function $\nabla \Ff(\al) \in \Cc(\Xx)$ such that for any $t$ in a neighborhood of $0$ and for any $\de\al\in\Mm(\Xx)$ with $\al + t\de\al \in \Mmp(\Xx)$,
+\begin{align*}
+  \Ff(\al+t\de\al) = \Ff(\al) + t \dotp{\de\al}{\nabla\Ff(\al)} + o(t).
+\end{align*}
+If such property holds, we call $\nabla\Ff(\al)$ the gradient of $\Ff$ at $\al$.
+\end{definition}
+
+We now present our main theorem on the regularity of $\OTb$. 
+Note that it does not hold for balanced OT. 
+This case requires a separate proof, detailed in~\cite{feydy2018interpolating}.
+
+\begin{theorem}%[Enveloppe theorem for $\OTb$]
+	\label{thm-diff-unb}
+	Let $\C$ be a $\gamma$-lipschitz cost function.
+	Under Assumptions~\ref{as:1} and \ref{as:2}, $\OTb$ is differentiable on
+	$\Mmpp(\Xx)^2$ in the sense of Definition~\ref{def-diff-meas}.
+	For any $(\al,\be)$, write $(\f,\g)$ the unique potentials verifying $(\f,\g)=(\Aa\Ss_\be(\g), \Aa\Ss_\al(\f))$ everywhere on $\Xx$ (see Remark~\ref{rem-extrapolate-pot}). Then the gradients read
+    \begin{align*}
+       \nabla_\al \OTb  &= - \phi^*(-\f) -\epsilon\dotp{\be}{ \tefgc -1} \\
+       \nabla_\be \OTb  &= - \phi^*(-\g) -\epsilon\dotp{\al}{ \tefgc -1}.
+    \end{align*}
+    Furthermore, if $\phi^*$ is differentiable, one can simplify formulas using $\nabla\phi^*(-\f)=\dotp{\be}{ \tefgc }$ and $\nabla\phi^*(-\g)=\dotp{\al}{ \tefgc }$.
+\end{theorem}
+
+\begin{proof}
+The proof is deferred in Appendix~\ref{appendix-proofs}. It is a generalization of~\cite{santambrogio2015optimal} and~\cite{feydy2018interpolating}.
+\end{proof}
+
+The last point of Theorem~\ref{thm-diff-unb} is important from a computational perspective. 
+Computing $\dotp{\be}{e^{(\f\oplus\g-\C)/ \epsilon}}$ takes $O(N^2)$ time, while $\dotp{\al}{\nabla\phi^*(-\f)}$ takes $O(N)$ time because $\nabla\phi^*$ is applied pointwise.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We give as a corollary the formulas in the popular case $\D_\phi=\rho\KL$. 
+
+\begin{corollary}[Gradient of $\OTb$ for $\rho\KL$]
+\label{cor-diff-KL}
+When $\D_\phi=\rho\KL$, $\OTb$ is differentiable in the sense of Theorem~\ref{thm-diff-unb}. For any measures $(\al,\be)$ whose (existing and unique) potentials are noted $(\f,\g)$:
+\begin{gather}
+\begin{aligned}
+\nabla_\al \OTb(\al,\be) = (\rho+\epsilon m(\be)) - (\rho+\epsilon)\exp(-\f/\rho),\\
+\nabla_\be \OTb(\al,\be) = (\rho+\epsilon m(\al)) - (\rho+\epsilon)\exp(-\g/\rho).
+\end{aligned}
+\end{gather}
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm-diff-unb} holds in this setting. 
+It then suffices to compute formulas with $\phi^*(x)=\rho(e^{x / \rho} - 1)$.
+\end{proof}

@@ -1,0 +1,720 @@
+% !TEX root = ../SinkhornDivergenceUnbalanced.tex
+
+\section{Introduction}
+\label{sec:introduction}
+
+Many problems in imaging and learning boil down to minimizing some loss function between two positive measures $\al$ and $\be$. 
+%
+Typically $\alpha$ can thought as a deformable template while $\beta$ is some fixed dataset which in practice is a discrete measure (supported on a point cloud). 
+%
+Designing this loss function is thus of major importance. It should be robust to various sources of errors such as modeling errors, outliers, occlusions and sampling noise.
+%
+Optimal Transport (OT) approaches have emerged as a general machinery to design such loss functions which leverage some underlying ground distance (or cost) $\C(x,y)$ between the points. 
+%
+The focus of this paper is to detail a family of loss functions built on top of OT, which integrates entropic regularization and unbalanced OT, and enjoys favorable theoretical and computational properties. 
+
+
+\paragraph{Csiszàr $\phi$-divergences}
+%
+Arguably the simplest loss functions between measures operate pointwise comparison between the distributions. They are central in our work, since we use them to cope with outliers and missing data in the so-called unbalanced OT approaches.
+%
+Informally, these Csiszàr $\phi$-divergences~\cite{csiszar1967information} are computed by measuring how much the relative density $\frac{\d\al}{\d\be}$ is close to 1. 
+%
+Considering data defined on a space $\Xx$, and writing the set of positive measures $\Mmp(\Xx)$, this ratio is defined using the Radon-Nikodym-Lebesgue decomposition, denoted $\al = \frac{\d\al}{\d\be} \be + \al^\bot$ for any $(\al,\be)\in\Mmp(\Xx)$.
+%
+We penalize the ratio with an entropy function $\phi:(0,\infty)\rightarrow[0,\infty)$ which is assumed to be \emph{convex}, \emph{positive}, \emph{lower-semi-continuous} and such that $\phi(1)=0$.
+The Csiszàr divergence is defined as
+\begin{align}\label{eq-csiszar-div}
+	\D_\phi(\al|\be) \eqdef \int_\Xx \phi\bigg(\frac{\d\al}{\d\be}(x)\bigg) \d\be(x) + \phi^\prime_\infty \int_\Xx \d\al^\bot(x),
+\end{align}
+where $\phi^\prime_\infty \eqdef \lim_{x\rightarrow\infty}\tfrac{\phi(x)}{x}$ is called the recession constant.
+The entropy is extended on $\R$ by setting $\phi(x)=+\infty$ for any $x<0$.
+Popular instances are the Total Variation divergence ($\TV$) when $\phi(x)=|x-1|$ and the Kullback-Leibler divergence $(\KL(\al|\be) \eqdef \int\log(\tfrac{\d\al}{\d\be})\d\al - \int\d\al + \int\d\be$) when $\phi(x)=x\log x -x + 1$.
+With $\KL$ one has $\phi^\prime_\infty=+\infty$, which has a finite value if and only if the supports satisfy $\spt(\al)\subset\spt(\be)$.
+%
+For discrete distributions defined on the same grid of $N$ points, these divergences are computed in $O(N)$ operations. The downside is however that they do not take into account the geometry of the underlying spaces. They are thus not continuous with respect to translation of the points. 
+To be more precise, this means that they do not metrize the weak$^*$ convergence (denoted $\al_n\rightharpoonup\al$, which means, on compact spaces, that for any continuous function $\f$, $\int\f\d\al_n\rightarrow \int\f\d\al$). 
+There are sequences such that $\al_n\rightharpoonup\be$, but $\D_\phi(\al_n|\be)\nrightarrow 0$.
+A striking example is when supports are disjoints. 
+Take $x_n \rightarrow x$ with $x_n \neq x$, so that $\de_{x_n} \rightharpoonup \de_x$, one has $\TV(\de_{x_n}|\de_x)=2$ and $\KL(\de_{x_n}|\de_x)=+\infty$.  
+
+% When taking $\Ll=\D_\phi$, we cannot learn outside of the empirical measure's support $\be$, which is detrimental for any extrapolation task.
+
+\paragraph{Kernel norms} 
+
+A natural way to cure this lack of smoothness of these $\phi$-divergences is to consider kernel norms, also called Maximum Mean Discrepencies~\cite{gretton2007kernel}. They integrate a spatial similarity measure $k:\Xx^2\rightarrow\R$, called a \textbf{kernel}, and are defined as $\norm{\al-\be}_k^2\eqdef\int_{\Xx^2}k(x,y)\d\xi(x)\d\xi(y)$ where $\xi=\al-\be$.
+%
+This definition requires the kernel to be \emph{positive}, so that $\norm{\xi}_k^2$ is indeed a positive quantity for any measure $\xi$.
+%
+Assuming the kernel $k$ is universal (i.e. functions $x\mapsto k(x,y)$ are dense), then, on sharp contrast to $\phi$-divergences, $\norm{\cdot}_k$ metrizes the weak$^*$ topology~\cite{gretton2012kernel}.
+%
+It holds for instance in $\Xx=\R^d$ endowed with the Euclidean norm $\norm{\cdot}_2$ and $k(x,y)=e^{-\norm{x-y}_2^2 / (2\sigma^2)}$ ($\sigma>0$ encoding the bandwidth of the kernel). Another example is the energy distance kernel, $k(x,y)=-\norm{x-y}_2$, in which case the kernel is only conditionally positive and the resulting norm only metrizes the space of probability measures.
+% Another advantage is to define a \emph{Reproducing Kernel Hilbert Space} (RKHS) $(\Mmp(\Xx), \norm{\cdot}_k)$, which is analoguous to the Euclidean geometry in $\R^d$ and thus convenient to analyze.
+%
+A chief advantage of these norms with respect to OT methods detailed below is that they are computed in $O(N^2)$ operations for discrete measures with $N$ points. 
+%
+They are however quite uninformative when comparing far away distributions.
+For instance, when $k(x,y)=e^{-\norm{x-y}_2^2 / (2\sigma^2)}$, one has $\norm{\de_x - \de_y}_k^2 = 2(1 - e^{-\norm{x-y}_2^2 / (2\sigma^2)})$, whose gradient w.r.t. $x$ quickly vanishes as $x-y$ increases.
+
+\paragraph{Optimal Transport Distance}
+
+Optimal transport avoids the global integration operated by kernel norms by rather seeking a sparse assignment between points. This leads to a better behavior of the loss when the supports are far away, at the price of an expensive optimization problem. 
+% 
+For some ground cost $\C:\Xx^2\rightarrow\R$ and two probability measures $(\al,\be)$, it reads 
+\begin{gather}
+\begin{aligned}\label{eq-defn-primal}
+&\OT(\al,\be) \eqdef \min_{\pi \in \Mmp(\Xx^2)}
+\textstyle\int_{(x,y)\in\Xx^2} \C(x,y) \, \d \pi(x,y)
+\\
+\text{s.t.}&\;\;
+%\pi \geqslant 0,
+\pi_1 \eqdef \textstyle\int_{y\in\Xx} \d \pi(\,\cdot\,, y) = \al,
+\pi_2 \eqdef \textstyle\int_{x\in\Xx} \d \pi(x, \,\cdot\,) =  \be.
+%	\label{eq:ot_continu_b}
+\end{aligned}
+\end{gather}
+The optimization variable is a transport plan $\pi$ satisfying the so-called marginal constraints, i.e. $(\pi_1,\pi_2)$ should match the input probability distributions.
+%
+When $(\Xx,d_\Xx)$ is a metric space and $\C=d_\Xx^p$ with $p\geq 1$, $\OT^{1/p}$ is called the Wassersein-$p$ distance, and on compact spaces it metrizes the weak$^*$ convergence~\cite{santambrogio2015optimal}.
+%
+One has in this case $\OT^{1/p}(\de_x,\de_y) = d_\Xx(x,y)$ which supports its favorable behavior even for far away distributions. 
+%
+% Furthermore, the gradient w.r.t. $\al$ of $\Ll=\OT$ never fades to $0$.
+% It is the generalization of an assignement (called a Monge map in some settings~\cite{}) that maps a parameter $\theta$ of $\al_\theta$ to a relevantneighborhood of the dqata $\be$.
+
+There are however many challenges that undermine its applicability, which we aim at lifting by combining several existing approaches in a coherent framework. 
+%
+The first one is both computational and statistical: computing exactly $\OT(\al,\be)$ for discrete distribution with $N$ points requires $O(N^3\log N)$ operation. Furthermore, in $\Xx=\R^d$, the error $\OT(\al_N,\be_N)-\OT(\al,\be)$ made when considering $N$ discrete samples drawn some (unknown) distributions $(\al,\be)$ is typically of the order of $1/N^{1/d}$ \cite{dudley1969speed, weed2017sharp}.
+%
+This is in sharp contrast with kernel norms, which can be computed in $O(N^2)$ operations and whose sampling error decay like $1/\sqrt{N}$. 
+%
+A popular approach to avoid these issues is to introduce entropic regularization, using Sinkhorn's algorithm, which is also a way to interpolate between OT and kernel norms~\cite{feydy2017optimal}.
+%
+The second source of difficulties is the lack of robustness of OT to outliers and missing data. This can be alleviated by considering unbalanced OT~\cite{liero2015optimal}, which replaces the exact mass conservation constraint by a soft penalty. 
+%
+In this paper, we bring together these two streams of ideas and define unbalanced Sinkhorn divergences.
+
+% The constraint $(\pi_1=\al,\pi_2=\be)$ enforces that all sammples of $(\al,\be)$ are considered, which makes OT sensitive to outliers in the dataset $\be$. This issue occurs frequently in real-world datasets. The computation complexity of $\OT$ is $O(N^3\log N)$ (by using the simplex agorithm on this linear program). It makes OT prohibitively expensive to use in large scale applications. A last issue concerns statistical aspects. If we have access to empirical measures $(\al_N,_be_N)$ made of $N$ samples from unknown distributions $(\al,\be)$, then the estimation of the loss $\OT(\al,\be)$ suffers from the curse of dimensionality. In $\R^d$, one has $|\OT(\al_N,\be_N) - \OT(\al,\be)|=O(N^{-1/d})$ \cite{dudley1969speed}. By comparison, one has $|\norm{\al_N - \be_N}_k - \norm{\al - \be}_k|=O(N^{-1/2})$ \cite{sriperumbudur2012empirical}. The rate for OT can be tightened to $O(N^{-1/d^*})$ where $d^*$ is some intrinsic dimension of the measures~\cite{weed2017sharp}, but the curse remains. Those limitations can be tackled using two different extensions of OT, namely unbalanced OT and entropic regularization.
+
+
+\paragraph{Unbalanced and entropic OT}
+
+% Informally, the plan $\pi$ encodes two possible decisions: transporting at cost $\C$ or destroying/creating mass at a fixed price. The latter happens when $\C(x,y)$ is too large, which is the case for outliers in datasets. Thus the system might display laziness to transport, a feature that has recently been interpreted as 'robustness'~\cite{mukherjee2021outlier, fatras2021unbalanced}.
+
+
+Unbalanced OT consists in relaxing the constraints $(\pi_1=\al,\pi_2=\be)$ which enforces \emph{mass conservation} (because it imposes $\int\d\al=\int\d\be$).
+%
+Following~\cite{liero2015optimal}, it uses a soft penalty $\D_\phi(\pi_1|\al) + \D_\phi(\pi_2|\be)$, so that in general $(\pi_1,\pi_2)\neq(\al,\be)$.
+%
+This combination of transportation with mass creation/destruction increase the robustness of the optimal transport plan to outliers~\cite{mukherjee2021outlier, fatras2021unbalanced}.
+%
+We focus on the unbalanced OT formulation called 'static'.
+There exists another formulation called 'dynamic'~\cite{liero2015optimal, chizat2015unbalanced, kondratyev2016new, chizat2017tumor}.
+%
+Unbalanced OT proved to be successful in biology~\cite{schiebinger2017reconstruction, yang2018scalable}, videos~\cite{lee2019parallel} or prove global convergence of 2-layers neural networks~\cite{chizat2018global, rotskoff2019global}.
+
+
+Unbalanced OT combines nicely with entropic regularization, and consists in adding a term $\epsilon\KL(\pi|\al\otimes\be)$ into Equation~\eqref{eq-defn-primal}.
+%
+The resulting optimization problem is strictly convex and can be solved using the popular \emph{Sinkhorn algorithm}~\cite{sinkhorn1964relationship}. This leads to a highly parallelizable computation scheme which streams well on GPUs~\cite{cuturi2013lightspeed}. 
+%
+The combination of unbalanced OT and entropic regularization reads, for any $\epsilon>0$, 
+\begin{align}\label{eq-primal-unb}
+\OTb(\al,\be) \eqdef \inf_{\pi \in \Mmp(\Xx^2)} \int_{\Xx^2} \C \,\d\pi + \D_\phi(\pi_1|\al) + \D_\phi(\pi_2|\be) + \epsilon \KL(\pi|\al\otimes\be).
+\end{align}
+This formulation was first proposed in~\cite{chizat2016scaling} with a generalized Sinkhorn algorithm to solve this approximation of unbalanced OT.
+However, the convergence is only known for $\D_\phi=\KL$, and is not proved when $(\al,\be)$ are not discrete measures.
+%
+One retrieves balanced OT as a particular instance of this formulation when using $\phi=\iota_{\{1\}}$ ($\phi(1)=0$ and $+\infty$ otherwise).
+Popular choices are $\D_\phi=\TV$ or $\KL$ (see Section~\ref{sec-exmp-f-div} for details).
+We thus use the same notation $\OTb$ to emphasize those examples are instances of the same framework.
+%
+Concerning statistical complexity, entropic regularization transfers the curse of dimensionality into the constants.
+It scales for balanced OT as $|\OTb(\al_N,\be_N)-\OTb(\al,\be)|=O(\epsilon^{-d/2}n^{-1/2})$ for compact measures~\cite{genevay2018sample}.
+It can be refined for $\C = \norm{\cdot}^2$ with subgaussian measures~\cite{mena2019statistical}.
+
+
+\paragraph{Unbalanced Sinkhorn divergence} 
+
+While using $\OTb(\al,\be)$ enjoys favorable computational property, especially in high dimension, it suffers from a strong bias as $\epsilon$ becomes larger.
+%
+More precisely, $\OTb(\al,\be)$ is not a distance, in particular $\OTb(\al,\al)>0$. We show in Section~\ref{sec-pos-sink-div} that when $\epsilon \rightarrow +\infty$, then $\al$ minimizing $\OTb(\al,\be)$ degenerates to a Dirac mass when $\epsilon \rightarrow +\infty$. 
+%
+In the balanced case, this entropic bias has been studied in details and removed by considering debiased formulation~\cite{janati2020debiased}. This idea was suggested in~\cite{ramdas2017wasserstein, genevay2018learning, salimans2018improving} for balanced OT for statistical testing and generative learning.
+%
+An important contribution of our work is to extend this idea to the unbalanced OT setting. We introduce the unbalanced Sinkhorn divergence as 
+\begin{align*}
+\Sb(\al,\be) \eqdef \OTb(\al,\be) - \tfrac{1}{2} \OTb(\al,\al) - \tfrac{1}{2} \OTb(\be,\be) +\tfrac{\epsilon}{2} \big( m(\al) - m(\be) \big)^2,
+\end{align*}
+where $m(\al) = \int_\Xx \d\al \geq 0$ is the total mass of $\al$.
+%
+When $m(\al)=m(\be)$, one recovers the previously proposed formulations, which has been studied theoretically in~\cite{feydy2018interpolating}, where it was shown to be convex, positive, definite, and to metrize the convergence in law. Our contributions include the extension of these results to the general case of unbalanced OT. 
+
+
+
+\paragraph{Contributions}
+Our contributions are the following:
+\begin{itemize}
+	\item In Section~\ref{sec-operators}, we show new theoretical results on the unbalanced Sinkhorn algorithm initially derived in~\cite{chizat2016scaling}.
+		This includes a proof of linear convergence of this algorithm for general measures (not only discrete) and a general class of divergences $\D_\phi$.
+		%
+		This is made possible thanks to a new formulation of the algorithm. 
+	\item Section~\ref{sec-ot-prop} dwells into the continuity and differentiability properties of $\OTb$ and $\Sb$ w.r.t. weak* topology.
+	\item In Section~\ref{sec-ot-prop}, we prove the main theoretical results of the paper. Theorem~\ref{thm-sink-unb} shows that $\Sb$ is a convex, positive, definite loss on $\Mmp(\Xx)$. Theorem~\ref{thm-sink-weak-cv} states that it metrizes the weak* convergence when $\D_\phi=\KL$ and $\TV$. 
+	\item In Section~\ref{sec-stat-comp} we extend the results of~\cite{genevay2018sample} on statistical complexity of $\OTb$ to the unbalanced setting. More precisely, we show the error rate $|\OTb(\al_N,\be_N)-\OTb(\al,\be)|=O(\epsilon^{-d/2}n^{-1/2})$ remains true.	
+	\item Section~\ref{sec-implementation} focuses on discrete measures and describes how the Sinkhorn algorithm and divergence are implemented. 
+		Section~\ref{sec:numerical} provides numerical illustrations to showcase the robustness properties of this new loss function. We display gradient flows with synthetic data and a detailed quantitative analysis for optical flow estimation on real data.
+\end{itemize}
+
+\paragraph{Notations}
+Here $(\Xx,d_\Xx)$ represents a metric space assumed to be compact.
+We define $(\Cc(\Xx),\norm{\cdot}_\infty)$ as the space of continuous functions $\f:\Xx\rightarrow\R$ endowed with the sup-norm $\norm{\f}_\infty\eqdef\max_{x\in\Xx} |\f(x)|$.
+We note the space of positive Radon measures as $\Mmp(\Xx)$.
+It is in duality with $(\Cc(\Xx),\norm{\cdot}_\infty)$ and is endowed with the weak* topology.
+We define it as $\al_n \rightharpoonup \al$ $\Leftrightarrow$ $\forall\f\in\Cc(\Xx),\;\int_\Xx f \d \al_n \rightarrow \int_\Xx f\d \al$.
+We note $\Mmpo(\Xx)$ the space of probabilities, and $\Mmpp(\Xx)\eqdef\Mmp(\Xx)\setminus\{0\}$.
+For the sake of concision we replace integrals by the duality pairing $ \dotp{\al}{\f} \eqdef \int_\Xx \f\d\al = \mathbb{E}_\al[\f]$.
+We define the tensor product of measures as  $(\al\otimes\be)(x,y)\eqdef\al(x)\be(y)$ and the tensor sum of functions as $(\f\oplus\g)(x,y)\eqdef \f(x) + \g(y)$.
+
+A kernel $k:\Xx^2\rightarrow\R$ is called positive if for any signed measure $\al$, $\norm{\al}_k^2 \eqdef \dotp{\al\otimes\al}{k} = \int_{\Xx^2} k(x,y) \d\al(x)\d\al(y)\geq 0$.
+For discrete measures $\al=\sum_i \al_i \de_{x_i}$, it means that the matrix $\mathbb{K} = (k(x_i,y_j))_{i,j}$ is positive.
+We assume kernels are continuous in this paper.
+A kernel is called universal if the set of functions $\enscond{ x\mapsto k(x,y) }{ y\in\Xx }$ is dense in $\Cc(\Xx)$.
+We also define the convolution with a measure $k\star\al$ as the continuous function $x\mapsto\int_{y\in\Xx} k(x,y)\d\al(y)$.
+
+Concerning the cost $\C$ appearing in Program~\eqref{eq-primal-unb}, we assume it is symmetric and continuous.
+We also assume it is $\gamma$-Lipschitz in the sense that for any $(x,y)\in\Xx$, $\norm{\C(x,.) - \C(y,.)}_\infty \leq \gamma\d_\Xx(x,y)$.
+Finally, we define the diameter of a set $A$ as $\text{diam}(A) \eqdef \sup_{(x,y)\in A^2} \d_\Xx(x,y)$.
+The diameter of a measure is the diameter of its support.
+
+
+
+
+\iffalse
+\newpage
+\tibo{Below is the old version to restart with}
+Optimal Transport (OT) generalizes sorting to spaces of dimension $\D \geqslant 1$. 
+It is a fundamental tool in many applied fields and has been studied extensively since the early 1940's \citep{Kantorovich42}.
+The transport problem is closely related to \emph{minimum cost network flows} in optimization theory \citep{ford1962flows} and is known as the \emph{linear assignement} problem in operations research \citep{bertsekas79auction}, as the \emph{earth mover's} problem in computer vision \citep{rubner-2000} or as \emph{robust point matching} in shape analysis \citep{gold1998new,TPSRPM}.
+In applied mathematics, it can be traced back to \cite{Monge1781} and induces the \emph{Wasserstein distance} and \emph{metric} between probability distributions \citep{Brenier91,otto_flow,villani2003,santambrogio2015optimal}.
+
+%\paragraph{Sorting points}
+%In its simplest form, the optimal transport problem reads:
+%\begin{align}
+%  \OT(x_1, \dots, x_\N ~;~ y_1, \dots, y_\N)
+%  ~\eqdef~
+%  \min_{\substack{\sigma : [\![ 1, \N]\!]\rightarrow [\![ 1, \N]\!] \\ \text{permutation}}}
+%  ~~ \frac{1}{2\N}\sum_{i=1}^\N \| x_i - y_{\sigma(i)}\|^2~,
+%  \label{eq:ot_simple}
+%\end{align}
+%where $\sigma$ is a permutation of the indices $1, \dots, \N$ for $\N \geqslant 1$, $x_1, \dots, x_\N$ and $y_1, \dots, y_\N$ are points in a vector space $\R^\D$ and $\|x-y\|^2$ denotes the squared Euclidean distance between $x$ and $y$.
+%When $\D = 1$ and the points $x_i$, $y_i$ belong to the real line $\R$, the optimal value of this problem is reached when the coupling $\sigma$ is non-decreasing: for all indices $i$ and $j$ in $[\![1,\N]\!]$, $x_i \leqslant x_j$ if and only if $y_{\sigma(i)} \leqslant y_{\sigma(j)}$.
+%The geometric minimization of Eq.~(\ref{eq:ot_simple}) is thus understood as a generalized sorting or \emph{assignment} problem in a space of dimension $\D > 1$.
+
+\paragraph{General formulation}
+We can extend this concept to generic distributions and geometries.
+Let $(\Xx, d_\Xx)$ be a compact metric space, endowed with a continuous and symmetric cost function
+$
+  \C : (x,y)\mapsto \C(x,y) \in \R
+$
+that satisfies $\C(x,x) = 0$ for all point $x \in \Xx$.
+If $x_1, \dots, x_\N$ and $y_1, \dots, y_\M\in \Xx$ are two collections of points in $\Xx$ and $\al_1, \dots, \al_\N \geqslant 0$, $\be_1, \dots, \be_\M \geqslant 0$ are non-negative collections of weights that both sum up to $1$, we consider the \emph{discrete probability measures}:
+%
+\begin{align}
+  \al~ & =~ \textstyle\sum_{i=1}^\N \al_i \delta_{x_i}~
+       & \text{and}                                      &  &
+  \be~ & =~ \textstyle\sum_{j=1}^\M \be_j \delta_{y_j}~.
+  \label{eq:discrete_measures}
+\end{align}
+%
+These objects represent two distributions of probability as weighted sums of punctual Dirac masses $\delta_x$'' at locations $x_i$ and $y_j$: they can be understood as generalized, weighted point clouds whose properties are invariant to permutations of the labels ``$i$'' and ``$j$''.
+The optimal transport problem between $\al$ and $\be$ then reads:
+\begin{gather}
+  \OT(\al, \be)~\eqdef~
+  \min_{\pi \in \R^{\N\times\M}}
+  \textstyle\sum_{i=1}^\N \textstyle\sum_{j=1}^\M \pi_{i,j}\, \C(x_i,y_j)
+  \nonumber%\label{eq:ot_discret}
+  \\
+  \text{subject to~~}
+  \pi \geqslant 0,~~
+  \pi \mathbf{1} = \al,~~
+  \t{\pi} \mathbf{1} = \be~,
+  \label{eq:ot_discret}\\
+  \text{i.e.}~~
+  \forall i \in [\![1,\N ]\!],~
+  j \in [\![1,\M]\!],
+  ~~
+  \pi_{i,j} \geqslant 0,~
+  \textstyle\sum_{k=1}^\M \pi_{i,k} = \al_i,~
+  \textstyle\sum_{l=1}^\N \pi_{l,j} = \be_j~.
+  \nonumber%\label{eq:ot_discret_b}
+\end{gather}
+%
+Optimization is performed on the \emph{transport plan} $\pi \in \R^{\N\times \M}$, an $\N$-by-$\M$ matrix that we understand as a probabilistic coupling between the $x_i$'s and the $y_j$'s.
+When $\Xx$ is a subset of $\R^\D$, $\C(x,y) = \tfrac{1}{2}\|x-y\|^2$ and $\N = \M$ with constant weights $\al_i = \be_j = 1/\N$, the assignment and transport problems coincide: the optimal transport cost of Eq.~(\ref{eq:ot_discret}) is reached when $(\pi_{i,j}) = (\mathbf{1}_{\sigma(i)=j})$ is the permutation matrix that corresponds to a solution $\sigma$ of Eq.~(\ref{eq:ot_simple}).
+Going further, we can adapt this definition for \emph{continuous} distributions. 
+If $(\al,\be) \in \Mmp_1(\Xx)$ are Radon probability measures on $\Xx$,
+the general transport problem between $\al$ and $\be$ reads:
+%
+\begin{gather}
+	\begin{aligned}%\label{eq:ot_continu}
+	\OT(\al,\be)
+	~\eqdef~
+	\min_{\pi \in \Mm(\Xx^2)}
+	\textstyle\int_{(x,y)\in\Xx^2} \C(x,y) \, \d \pi(x,y)
+	\\
+	\text{subject to}~~
+	\pi \geqslant 0,~
+	\pi_1 \eqdef \textstyle\int_{y\in\Xx} \d \pi(\,\cdot\,, y) = \al,~
+	\pi_2 \eqdef \textstyle\int_{x\in\Xx} \d \pi(x, \,\cdot\,) =  \be~.
+%	\label{eq:ot_continu_b}
+	\end{aligned}
+\end{gather}
+%
+The optimization is performed on the continuous transport plan $\pi \in \Mm(\Xx^2)$, a non-negative Radon measure on the product space $\Xx^2 = \Xx \times \Xx$ whose marginals $\pi_1$ and $\pi_2$ sum up to $\al$ and $\be$, respectively.
+When $\al$ and $\be$ are \emph{discrete} measures, this definition coincides with the previous one.
+
+\paragraph{Preservation of mass}
+The marginal constraints on the transport plan ($\pi_1 = \al$, $\pi_2 = \be$) ensure that the source measure $\al$ is \emph{fully} transported onto the target $\be$.
+This contraint is interpreted as enforcing mass conservation as the program is well-defined only when $m(\al)\eqdef\int_\Xx\d\al = m(\be)$.
+One can also interpret $\pi$ as a generalized permutation between $(\al,\be)$.
+
+
+
+Classical optimal transport theory studies the interaction between the mass transportation constraints ($\pi_1 = \al, \pi_2 = \be$),
+the geometry of the cost function $\C(x,y)$ and the structure of the distributions $\al$, $\be$.
+When $\Xx=\R^D$ and $\C(x,y) = \tfrac{1}{p} \|x-y\|_2^p$ is the power of the Euclidean distance, $\OT^p$ is the celebrated 'Wasserstein-$p$' distance~\cite{villani2003}. 
+%Strong results have been obtained for $\C(x,y) = \tfrac{1}{p} \|x-y\|^p$ is a Euclidean distance on $\R^\D$ that is raised to a power $p \geqslant 1$: \cor{ambiguous}{we can show} that the optimal transport problem then induces the ``Wasserstein-$p$'' distance $\d(\al,\be) \eqdef \sqrt[p]{\OT}(\al,\be)$ between probability measures and retains an intuitive geometric structure.
+%Strong motivations for the study of \cor{which metric ? ambiguous}{this metric} come from fluid mechanics, \cor{either remove or give more context, "incompressible" often means $\al=\be$}{where the mass transportation constraint is closely related to a hypothesis of \emph{incompressibility}}.
+
+
+
+%\paragraph{Main limitations}
+%\cor{This paragraph is a repetition}{}
+%In most applications however, working
+%with a ``\emph{bijective}'' transport plan
+%to model the coupling between two distributions is too restrictive:
+%\begin{compactenum}
+%  \item Because the relationship between
+%  the samples $x_i$ and $y_j$ may not be functional
+%  and one-to-one (\emph{injective}).
+%  This is most relevant when working with real-life discrete samples
+%  that can be noisy and prone to discretization artifacts.
+%
+%  \item Because the matching between the two distributions
+%  may not be defined everywhere and onto (\emph{surjective}).
+%  This is especially true when outlier samples,
+%  partial observations and growth processes are
+%  present in the data.
+%\end{compactenum}
+
+\paragraph{Robust relaxation(s) of the transport problem}
+The \emph{entropic} and \emph{unbalanced} extensions of OT theory have been designed to address two key limitations.
+As detailed below, They both consist in simple modifications of Eqs.~(\ref{eq:ot_discret}-\ref{eq:ot_continu}). 
+They are becoming increasingly popular among practitioners.
+The former allows accelerated computations~\cite{CuturiSinkhorn}.
+The latter proved empirically to be more relevant in applications using real data polluted by noise and/or outliers~\cite{fatras2021unbalanced, mukherjee2021outlier}.
+% \cor{ambiguous}{their} neat mathematical structures are key to both theoretical studies and efficient implementations.
+
+Nevertheless, both theories are seldom studied together.
+The main purpose of the present paper is to fill this gap in the literature.
+We study here objects derived from entropic unbalanced OT satisfying both theoretical and algorithmic properties required in large-scale applications.
+We hope this work provides enough guarantees to encourage the massive use of OT in applications.
+%\cor{What does this mean ? be direct !}{we intend to put \emph{robust} optimal transport on solid ground for both theorists and practitioners.}
+%For the first time, we provide a comprehensive and self-contained presentation of an \emph{efficient} OT method that addresses \emph{both} of the points above.
+%Our results unlock the use of robust OT tools in a wide range of applied settings;
+%we hope to see them become part of the \cor{What are foundations of higher level methods ? Reformulate}{foundations
+%of higher level methods} in years to come.
+
+% \newpage
+
+\subsection{Previous work}
+
+%\cor{The block below is out of place, here is 'previous work'}{We decompose this paper in three main parts:}
+%\begin{compactenum}
+%  \item We first present a \emph{general formulation} for entropy-regularized, unbalanced
+%  optimal transport.
+%  We recover many well known extensions of OT
+%  as special cases.
+%  \item We then present a \emph{fast algorithm} to solve this family of
+%  transport problems.
+%  We show its convergence in full generality (for both continuous and discrete settings), provide an efficient implementation and discuss desirable extensions.
+%  \item We rely on the two points above to define a family of tractable,
+%  transport-based pseudo-distances (or \emph{divergences})
+%  between any two positive measures.
+%  We study the properties of these pseudo-metrics
+%  from analytical, geometric and statistical perspectives.
+%  Remarkably, we show that this family of divergences
+%  combines the desirable geometric structure
+%  of the Wasserstein distance with the guarantees of
+%  \emph{robustness} that are required to process
+%  real-life, noisy data.
+%\end{compactenum}
+%\noindent
+%Needless to say, our work relies extensively
+%on pre-existing results and insights.
+%To put this paper in context and motivate the definition
+%of robust divergences on the full space of positive measures,
+%we now provide an overview of related works.
+
+
+%%%
+\paragraph{Distances between distributions}
+Measure theory provides solid foundations
+for the manipulation of un-ordered collections of samples:
+a set of points ``up to permutations'' is often
+best described as a distribution of mass.
+Positive measures are
+thus suited to represent a wide range of objects
+in applied sciences \citep[Chapter~3]{feydy2020thesis},
+from embedded datasets to parametric densities and
+3D point clouds.
+Accordingly, comparing probability distributions with each other
+has become a key problem in data sciences:
+distances $\d$ on spaces of measures are used to compute
+discrepancies between collections of samples
+and thus monitor the quality of approximation models.
+Using the notations of Eq.~(\ref{eq:discrete_measures}),
+a quantity of interest in many applied problems is the value
+$\d(\al,\be)$ and gradient $\nabla_{x_i,y_j} \d(\al,\be)$
+of a ``loss fuction'' between two distributions of samples
+with respect to their positions.
+This general framework is highly relevant to e.g.
+shape matching~\cite{vaillant2005surface,varifold},
+generative modeling~\cite{goodfellow2014generative},
+supervised learning~\cite{damodaran2018entropic}
+and domain adaptation~\cite{7586038}.
+%
+
+In this context, pointwise formulas show clear limitations.
+Common pseudo-distances between histograms
+such as the total variation norm or the relative entropy
+are not continuous with respect to displacements
+of the points $x_i$, $y_j$ that support the
+distributions $\al$ and $\be$,
+and thus cannot be used effectively as differentiable loss functions
+to match distributions with each other.
+As detailed in Section~\ref{sec-assumptions},
+admissible pseudo-distances for these applications
+should at least metrize the weak$^*$ convergence of measures.
+Going further, taking into account the geometry of the underlying space $\Xx$ between samples $x_i$ and $y_j$
+is often key to produce relevant cost values and gradient vectors.
+
+
+%%%
+\paragraph{OT and kernel distances}
+To compare distributions, a first idea is to let points
+interact with each other through a convolution
+kernel $k: (x,y)\in \Xx\times\Xx \mapsto k(x,y)\in\R$
+and use the squared norm
+$\d_k(\al,\be) = \tfrac{1}{2}\|\al-\be\|_k^2
+  = \tfrac{1}{2}\langle \al-\be, k\star (\al-\be)\rangle$
+of the
+continuous function $k\star(\al-\be)$
+as a divergence between any two distributions $\al$ and $\be$.
+Depending on the choice of the kernel $k$,
+these distances are known
+as blurred Sums of Squared Distances (SSD) in imaging,
+as negative order Sobolev norms in functional analysis,
+as the Energy Distance (ED) in statistics \cite{energy_distance}
+or as kernel norms and Maximum Mean Discrepancies (MMD)
+in the machine learning literature~\cite{gretton2007kernel}.
+The computation of a kernel distance between two
+collections of samples $x_1,\dots,x_\N$ and
+$y_1,\dots,y_\N$ is both robust and tractable:
+it relies on the evaluation of the pairwise interaction terms
+$k(x_i,y_j)$, which streams well on modern parallel hardware
+and has at most a $O(\N^2)$ time complexity.
+Kernel-based formulas also have a low \emph{sample complexity}:
+assuming that the points $x_i$ and $y_j$ are both
+i.i.d. samples of underlying continuous distributions
+$\al$ and $\be$,
+the approximation error between a kernel
+distance $\d_k(\al,\be)$ and its discrete counterpart
+$\d_k(\tfrac{1}{\N}\sum_i \delta_{x_i}, \tfrac{1}{\N}\sum_j \delta_{y_j})$
+converges relatively quickly in
+$O(1/\sqrt{\N})$~\cite{sriperumbudur2012empirical}.
+
+
+A limitation is that the geometry induced by kernel norms
+does not interact well with common optimization algorithms.
+Most noticeably,
+the gradients of these formulas tend to vanish on the boundaries
+of the distributions' supports in a way that closely
+resembles electrostatic shielding \cite{global-divergences,feydy2020thesis}.
+Their gradients incite matching algorithms to
+put emphasis on samples
+$x_i$ and $y_j$ which are already close to each other,
+to the detriment of the global geometry of both distributions.
+Thus gradient-based optimisation methods are often slow and output trained models very different from the empirical distribution.
+%and makes them vulnerable
+%to \cor{what is a poor inimum ?}{poor} local minima of the loss function.
+
+Optimal transport theory displays appealing properties to avoid such issues.
+We can rely on the solution of a generalized sorting problem to define geometric distances between any two distributions of points.
+As detailed for instance in~\cite{peyre2017computational}, the Wasserstein distance lifts the geometry of the space of points $\Xx$ to the space of probability measures $\Mmp_1(\Xx)$. 
+It is robust to both global translations and small perturbations (but \emph{not} to rotations), allowing practitioners to retrieve clean gradients for matching problems.
+On the other hand, standard OT distances are usually one or two orders of magnitude more compute-intensive than kernel-based formulas and are highly susceptible to the \emph{curse of dimensionality}.
+When $\Xx = \R^d$ and $\C(x,y) = \|x-y\|$ or $\tfrac{1}{2}\|x-y\|^2$, the discretization error made by the plug-in estimator is
+$|\OT(\tfrac{1}{\N}\sum_i \delta_{x_i}, \tfrac{1}{\N}\sum_j \delta_{y_j}) - \OT(\al,\be)|=O(\N^{-1/d})$ ~\cite{dudley1969speed, weed2017sharp}.
+%on the estimation
+%of the Wasserstein distance
+%$\OT(\al,\be)$ between two continuous distributions
+%scales in $O(\N^{-1/d})$. 
+This is prohibitively slow when the dimension of the distributions' supports is large.
+
+
+%%%
+\paragraph{Entropic regularization}
+To combine the statistical robustness of kernel norms
+with the geometric properties of the Wasserstein distance,
+a sensible idea is to limit the influence
+of individual samples by regularizing the OT problem of Eq.~(\ref{eq:ot_discret}-\ref{eq:ot_continu}).
+% 
+Among the many strategies that have been considered, the most common approach is
+to add a small entropic penalty to the transport cost
+of Eqs.~(\ref{eq:ot_discret},\ref{eq:ot_continu}).
+If $\epsilon > 0$ is a positive regularization strength
+(or \emph{temperature}), we add
+to the standard linear term $\sum_{i,j} \C(x_i,y_j) \pi_{i,j}$
+a relative entropy (or \emph{Kullback-Leibler divergence})
+$\epsilon\KL(\pi,\pi_{\text{ref}})$
+between the transport plan $\pi$ and a reference measure
+$\pi_\text{ref}$ on the product space $\Xx\times\Xx$.
+This simple modification biases the transport
+problem towards \emph{blurry} couplings $\pi$ that
+match points $x_i$ with a \emph{collection} of points $y_j$
+-- and vice versa.
+The resulting \emph{entropic} transport problem has a lower computational complexity than standard OT (which is associated to a null temperature $\epsilon = 0$), and behaves roughly as if the cost function $\C(x,y)$ had been quantized by a smooth window of resolution $\epsilon$.
+
+Most importantly, one can solve regularized OT using a fast iterative algorithm --
+commonly named after Richard Sinkhorn
+who provided the first convergence proof~\cite{Sinkhorn64}.
+This method can be understood as a smooth relaxation
+of the well-known auction iterations~\cite{auctions}
+and has become a standard tool in many applied fields.
+It has been studied for decades under a variety
+of names:
+entropic OT was first introduced by Schrödinger to model
+lazy gas~\cite{Schroedinger31,leonard2013survey}
+and is known as the gravity model for transportation~\cite{wilson1969use}, the \cor{detail abbreviations}{IPFP and RAS} methods in statistics~\cite{DemingStephanIPFP,bacharach1965estimating}, the soft-assign algorithm~\cite{kosowsky1994invisible} for robust point matching
+in computer vision \cite{gold1998new,TPSRPM}
+or as matching with trade-offs
+in social sciences~\cite{galichon2010matching}.
+Its increasing popularity in the machine learning
+literature stems from~\cite{CuturiSinkhorn},
+which highlighted its fitness for modern parallel hardware
+and showcased the use of entropic OT cost as a differentiable loss function for supervised learning problems.
+%
+Over the last decade, this stimulating
+environment has led to major progress in the field:
+we refer to~\cite{solomon2015convolutional,Benamou2015,altschuler2018massively,schmitzer2019stabilized,leger2020gradient,feydy2020thesis,benamou2020capacity} for an introduction
+to recent advances on both theoretical and numerical aspects
+of the Sinkhorn method.
+
+
+%%%
+\paragraph{Unbalanced OT}
+In the works above,
+both standard and entropic OT are only used
+to compare measures that have the same total mass.
+As discussed in the previous Section,
+this is often too restrictive and
+can lead to irregular transportation artifacts
+on real-life data.
+Enforcing the perfect
+preservation of mass with the \emph{hard} constraints
+of Eqs.~(\ref{eq:ot_discret},\ref{eq:ot_continu})
+can coerce the transport model into
+overfitting to spurious noise patterns and outlier samples.
+
+To work around this problem and allow for
+both local and global variation of mass in the
+matching of two distributions,
+a common approach is to rely on
+partial OT~\cite{figalli2010optimal}
+and only transport a fraction of the full distributions.
+In the simple case where $\Xx = \R^d$ and
+$\C(x,y) = \|x-y\|$, the resulting
+partial Wasserstein distance
+is the dual ``norm'' of a set of Lipschitz and \emph{bounded} functions, the so-called \emph{flat}
+or \emph{Kantorovich-Rubinstein} norm~\cite{hanin1992kantorovich,hanin1999extension}.
+
+In a spirit that is closer to fluid mechanics and PDE theory,
+another way of relaxing the mass preservation constraint
+is to start from a dynamic Benamou-Brenier
+formulation of OT~\cite{benamou2000computational}
+and introduce a source term in the  model to
+account for mass creation and destruction~\cite{lenaic,kondratyev2016new,liero2016optimal,maas2015generalized, piccoli2014generalized}.
+%
+Most remarkably, some specific penalizations of this source term in the dynamic OT problem lead to a formulation which is equivalent to a static problem, involving a transport plan $\pi$ as in Eqs.~(\ref{eq:ot_discret},\ref{eq:ot_continu})~\cite{lenaic,liero2015optimal}.
+Of particular interest to us is the static formulation of~\cite{liero2015optimal}, which uses a Csiszàr divergence~\cite{csiszar1967information} to penalize the mass conservation constraints ($\pi_1 = \al$, $\pi_2 = \be$).
+%\cor{remove. Avoid ref to later section}{under suitable assumptions, the study of a ``growth-aware'' dynamic transport problem can be reduced to the resolution of a Kantorovitch problem along the lines of Eqs.~(\ref{eq:ot_discret}-\ref{eq:ot_continu}), where the \emph{strict} constraints on the marginals of the plan $\pi$ are replaced by \emph{soft} penalties.}
+This fundamental remark led to the development of a fast Sinkhorn solver for \emph{unbalanced} OT in~\cite{chizat2016scaling}, which provides the foundations of our approach to robust optimal transport.
+
+
+
+With theoretical and practical questions getting progressively answered, unbalanced OT is becoming increasingly popular in applications.
+As an example, let us mention its use for supervised learning~\cite{frogner2015learning}, to enhance iterative closest point registration~\cite{bonneel2019spot} and to register medical images and shapes with each other~\cite{feydy2017optimal,feydy2019fast}.
+%
+Unbalanced OT is also at the heart
+of a recent line of work that relies on
+unbalanced gradient flows to study dynamics that
+involve local changes of mass, such as the Hele-Shaw tumor model~\cite{gallouet2019unbalanced,gallouet2017jko,kondratyev2016fitness,gallouet2018generalized,chizat2017tumor}, the Camassa-Holm equation~\cite{gallouet2018generalized}
+or the dynamics of cell populations through
+the analysis of flow cytometry data~\cite{schiebinger2017reconstruction}.
+%
+Similar gradient flows have also been applied with success to
+the analysis of the global convergence properties
+of gradient descent methods for
+the training of simple neural networks in the mean field limit~\cite{chizat2018global,rotskoff2019global}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Entropic regularization and unbalanced optimal transport}
+\label{subsec-entrop-ot}
+
+Let us now present the main ingredients of our model.
+From now on, we work with positive Radon measures in $\Mmp(\Xx)$ 
+and do \emph{not} assume that they have unit mass.
+%
+Following~\cite{liero2015optimal}, we consider a formulation of unbalanced OT
+where the ``hard'' contraints on the conservation of mass by 
+the transport plan are replaced by a ``soft" penalty
+that is specified using a $\phi$-divergence $D_\phi$.
+%
+This accounts for local destruction and creation of mass in situations where 
+pure transportation would be too expensive.
+
+A function $\phi:()0,\infty)\rightarrow[]0,\infty)$ is called an entropy function if it is convex and lower semicontinuous (\emph{l.s.c.}) with $\phi(1)=0$. It is extended on $\R$ with the convention $\phi(p) =+\infty, \forall p<0$. The coefficient $\phi^\prime_\infty = \lim_{p\rightarrow +\infty} \phi(p) / p$ is called the recession constant. 
+For any positive measures $(\al,\be)\in \Mmp(\Xx)$ with the Lebesgue decomposition $\al = \frac{\d\al}{\d\be} \be + \al^\bot$, the \textbf{$\phi$-divergence} (or Csiszàr-divergence)  associated to $\phi$ reads
+\begin{align}%\label{eq-csiszar-div}
+  \D_\phi(\al|\be) \eqdef \int_\Xx \phi\big(\frac{\d\al}{\d\be}\big) \d\be + \phi^\prime_\infty \int_\Xx \d\al^\bot.
+\end{align}
+For $\phi(p) = p\log p -p +1$, $D_\phi$ is the Kullback-Leibler divergence, also known as the relative entropy. The convention when $\phi^\prime_\infty = +\infty$ is that $\infty\times 0=0$ so that $\D_\phi(\al|\be) < +\infty$ implies $\al\ll\be$. Properties and examples are provided in Section~\ref{sec-sinkhorn}.
+\todo{Define KL which is not introduced for the def of $\OTb$}
+
+
+Following~\cite{chizat2016scaling}, the \textbf{regularized unbalanced optimal transport cost} $\OTb$ between positive measures $(\al,\be)$ is then defined for a regularization parameter $\epsilon \geq 0$ as
+\begin{align}%\label{eq-primal-unb}
+  \OTb(\al,\be) \eqdef
+  \inf_{\pi \in \Mmp(\Xx^2)}
+  \int_{\Xx^2} \C \,\d\pi + \D_\phi(\pi_1|\al) + \D_\phi(\pi_2|\be)
+  + \epsilon \KL(\pi|\al\otimes\be).
+\end{align}
+%
+Here, the notation $(\pi_1,\pi_2)$ denotes the marginals of the measure $\pi\in\Mmp(\Xx^2)$, and $\C(x,y)$ is some ground cost to transport a unit of mass between $x$ and $y$. A usual choice is $\C(x,y)=d_\Xx(x,y)^p$ for some exponent $p$.
+%
+``Classical'' (balanced) OT is retrieved by setting $\D_\phi(\pi_1|\al)=+\infty$ if $\pi_1 \neq \al$ and $0$ otherwise and similarly for $\D_\phi(\pi_2|\be)$: $\phi=\iota_{\{1\}}$ and we write $\D_\phi = \iota_{(=)}$.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Entropic bias and Sinkhorn divergence}
+In the framework of balanced OT, as $\epsilon\rightarrow 0$, $\OTb(\al,\be)$ converges to un-regularized OT. This convergence is studied in~\cite{cominetti1994asymptotic} for discrete measures, in~\cite{Carlier2017} for general measures in $\Xx=\R^d$, and in~\cite{leonard2012schrodinger} for more general metric spaces $\Xx$.
+
+
+
+In sharp contrast, the asymptotic for large $\epsilon$ is a quadratic functional which reads for $(\al,\be)\in\Mmpo(\Xx)$
+\begin{equation*}
+  \OTb(\al,\be)
+  \xrightarrow{\epsilon\rightarrow \infty}
+  \dotp{\al}{\C\star\be} \eqdef \int_{\Xx} \C(x,y) \d\al(x)\d\be(y).
+\end{equation*}
+Informally, the term $\epsilon\KL(\pi|\al\otimes\be)$ imposes $\pi=\al\otimes\be$ when $\epsilon\rightarrow\infty$, see Section~\ref{sec-ot-prop} for details.
+It shows that $\OTb$ interpolates between the genuine transport cost $\OT_0$, which is \emph{minimized} when $\al=\be$, and an inner product that is minimized at $\al=\de_{x^\star}$ where $x^\star=\arg\min_{x\in\Xx}\int\C(x,y)\d\be(y)$.
+When $\epsilon>0$, the regularized transport cost $\OTb$ is no longer a distance.
+There exists a measure $\gamma\neq\be$ such that $\OTb(\gamma,\be) < \OTb(\be,\be)$.
+In other terms, one does not retrieve the target distribution $\be$.
+We call this phenomenon the \textbf{entropic bias} \cite{feydy2018interpolating,janati2020debiased}. 
+
+\todo{Add an illustration of entropic bias here}
+\cor{An illustration would be simpler here}{A simple example is found when $\C(x,y) = \norm{x-y}_2^2$ and $\epsilon\rightarrow\infty$: the measure $\al$ that minimizes $\dotp{\al}{\C\star\be}$ is a Dirac located at the mean of $\be$. As shown in~\cite{TPSRPM}, the measure $\gamma$ that minimizes $\OTb(\cdot,\be)$ is an increasingly shrinked version of $\be$ as $\epsilon$ increases.} 
+
+
+In order to correct this artifact of entropic regularization in the balanced case ($D_\phi=\iota_{\{=\}}$), a debiased \textbf{Sinkhorn divergence} was introduced in~\cite{RamdasSinkhAsymptotics} and studied in depth in~\cite{genevay2018learning,feydy2018interpolating,chizat2020faster}. 
+%
+We extend this notion to the unbalanced case by defining
+\begin{align*}
+  \Sb(\al,\be) \eqdef \OTb(\al,\be) - \tfrac{1}{2} \OTb(\al,\al) - \tfrac{1}{2} \OTb(\be,\be) +\tfrac{\epsilon}{2} \big( m(\al) - m(\be) \big)^2,
+\end{align*}
+where $m(\al) = \int_\Xx \d\al \geqslant 0$ is the total mass of $\al$. The original definition corresponds to the case where $m(\al)=m(\be)$ and $D_\phi=\iota_{(=)}$.
+In the balanced case, the previous works cited above have shown that
+$\Sb$ interpolates between $\OT_0$ and a kernel norm:
+its behaviour as a loss function is more consistent
+than that of $\OTb$.
+Assuming that $\exp(-\C(\cdot,\cdot) / \epsilon)$ 
+defines a positive definite kernel, they have also shown
+that $\Sb$ is convex, positive and definite on the space of \emph{probability} measures. The first purpose of this article is to extend these properties to all \emph{positive} measures in $\Mmp(\Xx)$, for arbitrary choices of the divergence $D_\phi$.
+
+\subsection{Outline and contributions}
+
+We hope that this paper will provide an accessible summary
+of the theoretical and numerical properties of 
+unbalanced, entropy-regularized optimal transport.
+Our main results can be summarized as follows:
+
+\begin{enumerate}
+  \item We write the \textbf{generalized Sinkhorn algorithm
+        for unbalanced OT} as a composition of the well-studied \emph{Softmin} and \emph{anisotropic proximal} operators (Proposition~\ref{prop-optimality-prox}, Definition~\ref{def-sinkhorn}).
+        We provide the necessary background in Section~\ref{sec-operators}
+        and show that our framework is general enough to encompass the standard
+        theory of balanced OT and its most popular unbalanced variants.
+        We present the Kullback--Leibler, Range, Total Variation and
+        Power divergences in Section~\ref{sec-exmp-f-div} and discuss
+        their use as soft penalties $\phi$ for the mass transportation constraints
+        ``$\pi \mathbf{1} = \al$, $\t{\pi} \mathbf{1} = \be$''.
+  
+  \item We then leverage this new formulation of the Sinkhorn iterates
+        for theoretical purposes.
+        We prove that \textbf{the Sinkhorn algorithm solves the unbalanced,
+        entropic transport problem} in full generality (Theorem~\ref{thm-cv-sink-compact}),
+        with a linear convergence rate that holds for convenient penalties $\phi$ such as the Kullback--Leibler and Power divergences (Proposition~\ref{prop-contractive-sink}).
+        These favourable cases are detailed in Section~\ref{subsubsec-convergence-compact}; we handle carefully
+        the ``limit'' cases of balanced OT, the Total Variation penalty and
+        the Range entropy in Section~\ref{sec-compact-balanced-tv-range}.
+
+  \item Having shown that unbalanced, entropy-regularized OT defines a tractable problem, we study the \textbf{main properties of the related pseudo-distances} on the space of positive measures.
+        We generalize the debiased Sinkhorn divergence $\Sb$
+        to the unbalanced setting (Definition~\ref{def-sink-div-unb})
+        and show that it is positive, definite and convex (Theorem~\ref{thm-sink-unb}).
+        It also metrizes the convergence in law (Theorem~\ref{thm-sink-weak-cv})
+        and is differentiable under mild assumptions on the entropy
+        function $\phi$ (Section~\ref{sec-weak-regularity-ot}).
+
+        We handle the case of the null measure with care (Section~\ref{sec-null-meas})
+        and provide two lower bounds on the Sinkhorn divergence
+        with complementary behaviours (Section~\ref{subsec-sink-div}).
+        We also detail a first analysis of its statistical complexity (Theorem~\ref{thm-sample-complexity-unb}).
+
+  \item Finally, we present an \textbf{implementation} of the unbalanced Sinkhorn algorithm for discrete measures in Section~\ref{sec-implementation} 
+  and discuss the \textbf{practical impact} of different penalties
+  $\phi$ for the mass transportation constraints in 
+  Section~\ref{sec:numerical}.
+  The theoretical advances of the previous section translate into a versatile numerical scheme that can be implemented in all the settings where
+  the Sinkhorn iterations have been used in previous art: grid images and volumes, 3D curves and surfaces, high-dimensional point clouds, histograms, etc.
+
+\end{enumerate}
+
+
+
+
+\subsection{Assumptions and notations}
+\label{sec-assumptions}
+
+We consider the space of positive Radon measures $\Mmp(\Xx)$ defined on a metric space $(\Xx,d_\Xx)$ which is \textbf{assumed to be compact} and convex. The space $\Mmp(\Xx)$ is in duality with the space of continuous functions $\Cc(\Xx)$ endowed with the sup-norm $\norm{\f}_\infty\eqdef\max_{x\in\Xx} |\f(x)|$, while $\Mmp(\Xx)$ is equipped with the weak* topology. The convergence for the weak* topology is denoted $\al_n \rightharpoonup \al$, which corresponds to $\int f \d \al_n \rightarrow \int f\d \al$ for any $f \in \Cc(\Xx)$.
+%
+The space of non-zero positive measures and of probability measures are respectively noted $\Mmpp(\Xx)$ and $\Mmpo(\Xx)$. The duality pairing is denoted by $ \dotp{\al}{\f} \eqdef \int_\Xx \f\d\al = \mathbb{E}_\al[\f]$.
+
+A \textbf{kernel} $k(x,y)$ is  a continuous function on $\Xx^2$ which accounts for some  measure of similarity between $x$ and $y$. It is called positive if for any signed measure $\al$, the quantity $\norm{\al}_k^2 \eqdef \dotp{\al\otimes\al}{k} = \int_{\Xx^2} k(x,y) \d\al(x)\d\al(y)$ is nonnegative. In the case of discrete measures $\al=\sum_i \al_i \de_{x_i}$ this is equivalent to assuming that the matrix $\mathbb{K} = (k(x_i,y_j))_{i,j}$ is positive. A kernel is called universal if the set of functions $\enscond{ x\mapsto k(x,y) }{ y\in\Xx }$ is dense in $\Cc(\Xx)$. The convolution of a kernel with a measure is the continuous function in $\Cc(\Xx)$ defined as
+\begin{align*}
+  k\star\al : x\mapsto \int_{y\in\Xx} k(x,y)\d\al(y).
+\end{align*}
+
+We assume through the article that the cost $\C$ appearing in~\eqref{eq-primal-unb} is symmetric, continuous, and that $\C(x,x)=0$. We also assume that $\C$ is $\gamma$-Lipschitz with respect to each of its input, i.e. for any $(x,y)\in\Xx$, $\norm{\C(x,.) - \C(y,.)}_\infty \leq \gamma\d_\Xx(x,y)$.
+
+Finally, the diameter of a set $A$ is defined as $\text{diam}(A) \eqdef \sup_{(x,y)\in A^2} \d_\Xx(x,y)$. The diameter of a measure is the diameter of its support.
+
+
+\fi
