@@ -8,6 +8,28 @@ import matplotlib.pyplot as plt
 from dataclasses import dataclass
 from typing import List, Optional
 import os
+import logging
+
+# ==========================================
+# LOGGING SETUP
+# ==========================================
+os.makedirs("logs", exist_ok=True)
+# Reset logging handlers to avoid duplicates if re-run
+for handler in logging.root.handlers[:]:
+    logging.root.removeHandler(handler)
+
+logging.basicConfig(
+    filename='logs/tearing_analysis.log',
+    filemode='w', # Overwrite each run
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+# Add console handler
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+formatter = logging.Formatter('%(message)s')
+console.setFormatter(formatter)
+logging.getLogger('').addHandler(console)
 
 # ==========================================
 # CONFIGURATION & UTILS
@@ -20,7 +42,7 @@ class OTConfig:
     scaling: float = 0.9
     reach: Optional[float] = None  # None = Balanced
     p: int = 2
-    device: str = "cuda" if torch.cuda.is_available() else "cpu"
+    device: str = "cuda" # Force CPU pour stabilité (évite CUDA error unknown)
     sigma: float = None  # Pour splatting
 
 def get_measures_from_image(img: torch.Tensor, res: int):
@@ -120,6 +142,57 @@ class WassersteinInterpolator:
             scaling=config.scaling, backend="tensorized"
         )
 
+    def get_transport_map(self, img1, img2, channel=0):
+        """
+        Calcule la carte de transport barycentrique T(x) pour un canal donné.
+        Retourne:
+            T_x: Tensor (H, W, 2) positions cibles pour chaque pixel source
+        """
+        device = self.cfg.device
+        pos_a, w_a, Ha, Wa, _ = get_measures_from_image(img1.to(device), self.cfg.resolution)
+        pos_b, w_b, Hb, Wb, _ = get_measures_from_image(img2.to(device), self.cfg.resolution)
+        
+        # Sélection du canal spécifique
+        wa_c = w_a[channel:channel+1]
+        wb_c = w_b[channel:channel+1]
+        
+        # Format batch pour GeomLoss
+        pos_a_batch = pos_a.unsqueeze(0).contiguous()
+        pos_b_batch = pos_b.unsqueeze(0).contiguous()
+        
+        F_pot, G_pot = self.loss_layer(wa_c, pos_a_batch, wb_c, pos_b_batch)
+        
+        f, g = F_pot[0], G_pot[0]
+        wa_vec, wb_vec = wa_c[0], wb_c[0]
+        
+        # Calcul du plan de transport log_pi
+        # C_matrix: (N, M)
+        dist = torch.cdist(pos_a, pos_b, p=2)
+        C_matrix = (dist**2) / 2
+        
+        log_pi = (f[:, None] + g[None, :] - C_matrix) / self.epsilon + \
+                 torch.log(wa_vec[:, None]) + torch.log(wb_vec[None, :])
+        
+        # Pour la projection barycentrique : T(x_i) = sum_j y_j * pi_{ij} / sum_k pi_{ik}
+        # Attention numerique : log-sum-exp
+        # Mais on veut juste la moyenne pondérée. 
+        # P_ij = exp(log_pi_ij).
+        # Row sums: sum_j P_ij = wa_vec (approximativement, sauf Unbalanced)
+        
+        # Normalisation conditionnelle P(y|x)
+        # log P(y_j | x_i) = log_pi_{ij} - log(sum_k exp(log_pi_{ik}))
+        log_row_sum = torch.logsumexp(log_pi, dim=1, keepdim=True)
+        log_cond_prob = log_pi - log_row_sum
+        cond_prob = torch.exp(log_cond_prob) # (N, M)
+        
+        # Barycentric projection: T = P * Y
+        # (N, M) @ (M, 2) -> (N, 2)
+        T_map_flat = torch.mm(cond_prob, pos_b)
+        
+        # Reshape en grille (H, W, 2)
+        T_map = T_map_flat.view(Ha, Wa, 2)
+        return T_map, Ha, Wa
+
     def interpolate(self, img1, img2, t):
         pos_a, w_a, Ha, Wa, mass_a = get_measures_from_image(img1.to(self.cfg.device), self.cfg.resolution)
         pos_b, w_b, Hb, Wb, mass_b = get_measures_from_image(img2.to(self.cfg.device), self.cfg.resolution)
@@ -177,6 +250,88 @@ class WassersteinInterpolator:
 # EXPERIMENTATIONS
 # ==========================================
 
+def analyze_tearing_condition(interp, img1, img2, t, name=""):
+    """
+    Vérifie la condition de tearing: |det(nabla Xt)| > Delta_grid
+    """
+    logging.info(f"--- Analyse Tearing: {name} (t={t}) ---")
+    
+    # 1. Calculer la carte de transport T(x)
+    # On utilise le canal moyen ou le premier canal pertinent
+    # Pour CIFAR Car -> Noise, utilisons le canal 0 (rouge) ou mean
+    # Ici on prend canal 0
+    T_map, H, W = interp.get_transport_map(img1, img2, channel=0)
+    
+    # 2. Calculer la carte au temps t : X_t(x) = (1-t)x + tT(x)
+    # Grille initiale
+    y = torch.linspace(0, 1, H, device=T_map.device)
+    x = torch.linspace(0, 1, W, device=T_map.device)
+    yy, xx = torch.meshgrid(y, x, indexing="ij")
+    X_0 = torch.stack([xx, yy], dim=-1) # (H, W, 2)
+    
+    X_t = (1 - t) * X_0 + t * T_map
+    
+    # 3. Calculer le Jacobien par différences finies
+    # Delta grid
+    dx = 1.0 / (W - 1) # ou 1/W
+    dy = 1.0 / (H - 1)
+    
+    # Gradients
+    # dX_t/du (variation selon x)
+    # (X_t[:, 1:] - X_t[:, :-1]) / dx
+    dX_du = (X_t[:, 1:, :] - X_t[:, :-1, :]) / dx
+    # Pad pour garder la taille
+    dX_du = F.pad(dX_du.permute(2,0,1), (0,1,0,0)).permute(1,2,0) # (H, W, 2)
+    
+    # dX_t/dv (variation selon y)
+    dX_dv = (X_t[1:, :, :] - X_t[:-1, :, :]) / dy
+    dX_dv = F.pad(dX_dv.permute(2,0,1), (0,0,0,1)).permute(1,2,0) # (H, W, 2)
+    
+    # Matrice Jacobienne J = [[dx_du, dx_dv], [dy_du, dy_dv]]
+    # dX_du contains [dx/du, dy/du]
+    # dX_dv contains [dx/dv, dy/dv]
+    
+    j11 = dX_du[..., 0] # dx/du
+    j12 = dX_dv[..., 0] # dx/dv
+    j21 = dX_du[..., 1] # dy/du
+    j22 = dX_dv[..., 1] # dy/dv
+    
+    # Determinant
+    det_J = j11 * j22 - j12 * j21
+    abs_det_J = torch.abs(det_J)
+    
+    # 4. Vérifier la condition |det| > Delta_grid
+    # Delta_grid est la taille caractéristique de la grille.
+    # Ici det_J est le facteur d'expansion de l'aire.
+    # Si det_J > 1, il y a expansion.
+    # La condition utilisateur est |det(Grad Xt)| > Delta_grid.
+    # Si Delta_grid est genre 0.03 (blur), ou 1/W (~0.015).
+    # Interprétons Delta_grid comme 1/min(H,W).
+    delta_grid = 1.0 / min(H, W)
+    
+    tearing_mask = abs_det_J > delta_grid
+    num_tearing = tearing_mask.sum().item()
+    total_pixels = H * W
+    percent_tearing = (num_tearing / total_pixels) * 100
+    
+    logging.info(f"Grid Size: {H}x{W}, Delta_grid: {delta_grid:.4f}")
+    logging.info(f"Jacobian Det Stats: Min={abs_det_J.min():.4f}, Max={abs_det_J.max():.4f}, Mean={abs_det_J.mean():.4f}")
+    logging.info(f"Tearing Condition (|det| > {delta_grid:.4f}): {num_tearing}/{total_pixels} pixels ({percent_tearing:.2f}%)")
+    
+    if percent_tearing > 50:
+        logging.warning("!!! TEARING MAJEUR DÉTECTÉ !!!")
+    elif percent_tearing > 10:
+        logging.warning("! Tearing Significatif !")
+    else:
+        logging.info("Tearing mineur ou absent.")
+        
+    return abs_det_J.cpu()
+
+
+# ==========================================
+# EXPERIMENTATIONS
+# ==========================================
+
 def load_images():
     # Chemins à adapter
     path1 = "/home/janis/4A/geodata/data/pixelart/images/salameche.jpg" # Salamèche (Cible)
@@ -205,80 +360,187 @@ def load_images():
         img2[2, 30:54, 30:54] = 1.0 
         return img1, img2
 
+def load_cifar_car():
+    path = "/home/janis/4A/geodata/data/cifar10/automobile/0000.jpg"
+    try:
+        img = Image.open(path).convert("RGB")
+        # Resize pour matching dimension avec pixelart si besoin, ou garder 32x32 original
+        img = img.resize((32, 32)) 
+        t_img = torch.from_numpy(np.array(img)).permute(2, 0, 1).float() / 255.0
+        return t_img
+    except Exception as e:
+        print(f"Erreur chargement CIFAR: {e}")
+        return torch.rand(3, 32, 32)
+
 def run_experiments():
     print("Chargement des images...")
-    img1, img2 = load_images() # img1=Fraise(rouge), img2=Salamèche(bleu/orange) -> Inversons pour Salamèche->Fraise
-    # Salamèche est img2, Fraise est img1 dans les paths ci-dessus
+    img1, img2 = load_images() # img1=Fraise, img2=Salamèche
     source = img2 # Salamèche
     target = img1 # Fraise
     
-    # 1. Comparaison Balanced vs Unbalanced (Figure 1)
+    car_img = load_cifar_car() # CIFAR Car
+    # Pour CIFAR, on transporte vers un bruit aléatoire ou une autre image ?
+    # Dans le notebook original, c'était vers un tenseur aléatoire.
+    # Faisons Car -> Noise pour montrer la destruction de structure
+    noise_img = torch.rand_like(car_img)
+    
+    # 1. Comparaison Balanced vs Unbalanced (Figure 1) - GRANDE TAILLE
     print("Génération Figure 1: Balanced vs Unbalanced...")
     
     # Balanced
-    cfg_bal = OTConfig(reach=None, blur=0.05, sigma=0.5) # Sigma fixe pour isoler effet transport
+    cfg_bal = OTConfig(reach=None, blur=0.05, sigma=0.5)
     interp_bal = WassersteinInterpolator(cfg_bal)
-    res_bal = interp_bal.interpolate(source, target, 0.5)
+    res_bal_mid = interp_bal.interpolate(source, target, 0.5)
+    res_bal_end = interp_bal.interpolate(source, target, 1.0)
     
     # Unbalanced
     cfg_unbal = OTConfig(reach=0.1, blur=0.05, sigma=0.5)
     interp_unbal = WassersteinInterpolator(cfg_unbal)
-    res_unbal = interp_unbal.interpolate(source, target, 0.5)
+    res_unbal_mid = interp_unbal.interpolate(source, target, 0.5)
+    res_unbal_end = interp_unbal.interpolate(source, target, 1.0)
     
-    fig1, ax = plt.subplots(1, 3, figsize=(12, 4))
-    ax[0].imshow(source.permute(1,2,0).clamp(0,1))
-    ax[0].set_title("Source (Salamèche)")
-    ax[1].imshow(res_unbal.permute(1,2,0).clamp(0,1))
-    ax[1].set_title("Unbalanced (Reach=0.1)\nFade + Transport")
-    ax[2].imshow(res_bal.permute(1,2,0).clamp(0,1))
-    ax[2].set_title("Balanced\nTransport Forcé (Fantôme)")
-    for a in ax: a.axis('off')
+    fig1, ax = plt.subplots(2, 3, figsize=(18, 12)) # Plus grand
+    # Row 1: t=0.5
+    ax[0,0].imshow(source.permute(1,2,0).clamp(0,1))
+    ax[0,0].set_title("Source (t=0)")
+    ax[0,1].imshow(res_unbal_mid.permute(1,2,0).clamp(0,1))
+    ax[0,1].set_title("Unbalanced (t=0.5)")
+    ax[0,2].imshow(res_bal_mid.permute(1,2,0).clamp(0,1))
+    ax[0,2].set_title("Balanced (t=0.5)")
+    
+    # Row 2: t=1.0
+    ax[1,0].imshow(target.permute(1,2,0).clamp(0,1))
+    ax[1,0].set_title("Cible (Reference)")
+    ax[1,1].imshow(res_unbal_end.permute(1,2,0).clamp(0,1))
+    ax[1,1].set_title("Unbalanced (t=1.0)\nReconstruction Partielle")
+    ax[1,2].imshow(res_bal_end.permute(1,2,0).clamp(0,1))
+    ax[1,2].set_title("Balanced (t=1.0)\nReconstruction Totale")
+    
+    for a in ax.flat: a.axis('off')
     plt.savefig("/home/janis/4A/geodata/refs/reports/image_5838f6.png", bbox_inches='tight')
     print("Sauvegardé: image_5838f6.png")
     
-    # 2. Analyse du Tearing (Figure 2)
-    print("Génération Figure 2: Analyse du Tearing (Reach x Blur)...")
+    # 2. Analyse du Tearing (Reach x Blur) - CIFAR EXPERIMENT
+    print("Génération Figure 2: Analyse du Tearing (CIFAR Car)...")
     
-    # On utilise l'interpolation naïve pour bien visualiser le tearing
     reaches = [0.01, 0.1, 0.5]
-    blurs = [0.01, 0.05]
+    blurs = [0.01, 0.05, 0.1]
     
-    fig2, axes = plt.subplots(len(blurs), len(reaches), figsize=(15, 8))
-    fig2.suptitle("Impact de Reach et Blur sur le Tearing (Interpolation Naïve)", fontsize=16)
+    # Logging de la condition de tearing sur un cas critique
+    # Cas critique: Reach élevé (transport forcé), Blur faible
+    print("Vérification Condition Tearing (Log)...")
+    cfg_critique = OTConfig(reach=0.5, blur=0.01, sigma=0.0)
+    interp_critique = WassersteinInterpolator(cfg_critique)
+    analyze_tearing_condition(interp_critique, car_img, noise_img, 0.5, name="CIFAR_Reach0.5_Blur0.01")
+
+    fig2, axes = plt.subplots(len(blurs), len(reaches), figsize=(18, 12)) # Plus grand
+    fig2.suptitle("Impact Reach/Blur sur Tearing (CIFAR Car -> Noise, t=0.5)", fontsize=20)
     
     for i, blur in enumerate(blurs):
         for j, reach in enumerate(reaches):
-            cfg = OTConfig(reach=reach, blur=blur, sigma=0.0) # Sigma=0 -> Bilinéaire -> Tearing visible
+            # Sigma=0 pour montrer le tearing brut (interpolation bilinéaire)
+            cfg = OTConfig(reach=reach, blur=blur, sigma=0.0) 
             interp = WassersteinInterpolator(cfg)
-            res = interp.interpolate(source, target, 0.5)
+            res = interp.interpolate(car_img, noise_img, 0.5)
             
             ax = axes[i, j]
             ax.imshow(res.permute(1,2,0).clamp(0,1))
-            if i == 0: ax.set_title(f"Reach = {reach}")
-            if j == 0: ax.set_ylabel(f"Blur = {blur}")
+            if i == 0: ax.set_title(f"Reach = {reach}", fontsize=14)
+            if j == 0: ax.set_ylabel(f"Blur = {blur}", fontsize=14)
             ax.axis('off')
             
     plt.tight_layout()
     plt.savefig("/home/janis/4A/geodata/refs/reports/image_56e3bb.png", bbox_inches='tight')
-    print("Sauvegardé: image_56e3bb.png (Grille Tearing)")
+    print("Sauvegardé: image_56e3bb.png (CIFAR Tearing)")
 
-    # 3. Effet du Reach (Nouvelle Figure)
+    # --- NOUVELLE SECTION: ABLATION STUDY SIGMA ---
+    print("Génération Figure 5: Ablation Study - Stratégies Sigma...")
+    # On compare: Bilinéaire (Sigma=0), Sigma Fixe (0.3), Sigma Adaptatif (None -> calculé)
+    # Sur le cas critique identifié plus haut (Reach 0.5, Blur 0.01)
+    
+    strategies = [
+        ("Bilinéaire (sigma=0)", 0.0),
+        ("Sigma Fixe (sigma=0.2)", 0.2),
+        ("Sigma Fixe (sigma=1.0)", 1.0),
+        ("Adaptatif (Heuristique)", None)
+    ]
+    
+    fig5, ax = plt.subplots(1, 4, figsize=(24, 6))
+    cfg_base = OTConfig(reach=0.5, blur=0.01) # Cas sujet au tearing
+    
+    for i, (name, sig) in enumerate(strategies):
+        cfg_ablation = OTConfig(reach=0.5, blur=0.01, sigma=sig)
+        interp_ab = WassersteinInterpolator(cfg_ablation)
+        res_ab = interp_ab.interpolate(car_img, noise_img, 0.5)
+        
+        ax[i].imshow(res_ab.permute(1,2,0).clamp(0,1))
+        ax[i].set_title(name, fontsize=14)
+        ax[i].axis('off')
+        
+    plt.savefig("/home/janis/4A/geodata/refs/reports/image_sigma_ablation.png", bbox_inches='tight')
+    print("Sauvegardé: image_sigma_ablation.png")
+    # ----------------------------------------------
+
+    # 3. Effet du Reach (Nouvelle Figure) - Plus grand
     print("Génération Figure 3: Effet du paramètre Reach (rho)...")
     reaches = [0.01, 0.1, 0.5, None]
-    titles = ["Reach=0.01 (Très local)", "Reach=0.1 (Optimal)", "Reach=0.5 (Large)", "Reach=None (Balanced)"]
+    titles = ["Reach=0.01 (Local)", "Reach=0.1 (Optimal)", "Reach=0.5 (Large)", "Reach=None (Balanced)"]
     
-    fig3, ax = plt.subplots(1, 4, figsize=(20, 5))
+    fig3, ax = plt.subplots(1, 4, figsize=(24, 6)) # Plus grand
     
     for i, r in enumerate(reaches):
         cfg = OTConfig(reach=r, blur=0.05, sigma=0.5)
         interp = WassersteinInterpolator(cfg)
         res = interp.interpolate(source, target, 0.5)
         ax[i].imshow(res.permute(1,2,0).clamp(0,1))
-        ax[i].set_title(titles[i])
+        ax[i].set_title(titles[i], fontsize=14)
         ax[i].axis('off')
         
     plt.savefig("/home/janis/4A/geodata/refs/reports/image_reach_effect.png", bbox_inches='tight')
     print("Sauvegardé: image_reach_effect.png")
+
+    # 4. Inversion Source/Cible (Pikachu/Salamèche) - Plus grand
+    # ... (code identique mais figsize plus grand) ...
+    # Je dois réécrire cette partie car je remplace tout run_experiments
+    
+    print("Génération Figure 4: Inversion Source/Cible...")
+    # Recalage des images pour Pikachu/Salamèche
+    # source=Salamèche, target=Fraise dans le load_images actuel (car j'ai pas changé load_images)
+    # ATTENTION: J'avais changé load_images dans l'appel précédent !
+    # path1 = salameche (Target), path2 = pikachu (Source)
+    # Donc img1 = Salameche, img2 = Pikachu
+    
+    # Re-vérifions load_images
+    source_pikachu = img2 
+    target_salameche = img1
+    
+    cfg_bal = OTConfig(reach=None, blur=0.05, sigma=0.5)
+    cfg_unbal = OTConfig(reach=0.1, blur=0.05, sigma=0.5)
+    
+    interp_bal = WassersteinInterpolator(cfg_bal)
+    interp_unbal = WassersteinInterpolator(cfg_unbal)
+    
+    res_A_bal = interp_bal.interpolate(source_pikachu, target_salameche, 0.5)
+    res_A_unbal = interp_unbal.interpolate(source_pikachu, target_salameche, 0.5)
+    
+    res_B_bal = interp_bal.interpolate(target_salameche, source_pikachu, 0.5)
+    res_B_unbal = interp_unbal.interpolate(target_salameche, source_pikachu, 0.5)
+    
+    fig4, ax = plt.subplots(2, 2, figsize=(16, 16)) # Très grand
+    
+    ax[0,0].imshow(res_A_bal.permute(1,2,0).clamp(0,1))
+    ax[0,0].set_title("Pikachu -> Salamèche (Balanced)\nSymétrique (Flou de masse)", fontsize=14)
+    ax[0,1].imshow(res_A_unbal.permute(1,2,0).clamp(0,1))
+    ax[0,1].set_title("Pikachu -> Salamèche (Unbalanced)\nDestruction Jaune / Création Rouge", fontsize=14)
+    
+    ax[1,0].imshow(res_B_bal.permute(1,2,0).clamp(0,1))
+    ax[1,0].set_title("Salamèche -> Pikachu (Balanced)\nSymétrique", fontsize=14)
+    ax[1,1].imshow(res_B_unbal.permute(1,2,0).clamp(0,1))
+    ax[1,1].set_title("Salamèche -> Pikachu (Unbalanced)\nDestruction Rouge / Création Jaune", fontsize=14)
+    
+    for a in ax.flat: a.axis('off')
+    plt.savefig("/home/janis/4A/geodata/refs/reports/image_swap_source_target.png", bbox_inches='tight')
+    print("Sauvegardé: image_swap_source_target.png")
 
     print("\n--- TERMINÉ ---")
 
