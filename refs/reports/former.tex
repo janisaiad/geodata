@@ -1,0 +1,242 @@
+cursor .\documentclass[sigconf, screen, nonacm]{acmart}
+
+% --- Fix pour conflits potentiels de symboles avec acmart/unicode-math ---
+\let\eth\undefined
+\let\digamma\undefined
+\let\backepsilon\undefined
+
+% --- Packages & Setup ---
+\usepackage[french]{babel}
+% T1 fontenc est conservé pour la compatibilité, bien que optionnel en LuaLaTeX moderne
+\usepackage[T1]{fontenc} 
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{subcaption}
+\usepackage{booktabs}
+
+% --- Macros & Notations (Séjourné et al.) ---
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\Mplus}{\mathcal{M}^+(\mathcal{X})}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\eps}{\varepsilon}
+
+% Définitions d'opérateurs
+\DeclareMathOperator{\aprox}{Aprox}
+\DeclareMathOperator{\smin}{Smin}
+
+% --- Metadata ---
+\title{Interpolation Géométrique et Transport de Masse}
+\subtitle{Analyse, Implémentation et Critique des Divergences de Sinkhorn Non-Équilibrées}
+
+\author{Prénom Nom}
+\affiliation{%
+  \institution{Master MVA - Geometric Data Analysis}
+  \country{France}
+}
+\email{prenom.nom@polytechnique.edu}
+
+% --- Abstract ---
+\begin{abstract}
+L'analyse géométrique de données non-structurées, telles que les images ou les nuages de points, nécessite des métriques respectant la topologie sous-jacente des objets. L'interpolation linéaire standard (Euclidienne) échoue à capturer les déformations géométriques, produisant des effets de superposition. Ce rapport étudie l'application du Transport Optimal (TO) pour définir des géodésiques dans l'espace des mesures. Nous nous concentrons sur la formulation relaxée du TO (Unbalanced Sinkhorn Divergences) introduite par Séjourné et al., essentielle pour traiter des données aux masses variables et aux histogrammes disjoints. Nous détaillons une implémentation numérique robuste exploitant la dualité de Fenchel-Legendre et proposons une méthode de reconstruction par \textit{Gaussian Splatting} adaptatif pour résoudre les problèmes de discrétisation (tearing) inhérents au transport Lagrangien sur des grilles Eulériennes. Nous analysons enfin les limites de l'approche, notamment le compromis flou-continuité.
+\end{abstract}
+
+% --- CSS Concepts ---
+\begin{CCSXML}
+<ccs2012>
+   <concept>
+       <concept_id>10010147.10010178</concept_id>
+       <concept_desc>Computing methodologies~Image processing</concept_desc>
+       <concept_significance>500</concept_significance>
+   </concept>
+   <concept>
+       <concept_id>10002950.10003714</concept_id>
+       <concept_desc>Mathematics of computing~Topology</concept_desc>
+       <concept_significance>300</concept_significance>
+   </concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Computing methodologies~Image processing}
+\ccsdesc[300]{Mathematics of computing~Topology}
+
+\keywords{Transport Optimal, Divergences de Sinkhorn, Analyse Géométrique, Splatting, Interpolation de Déplacement}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction et Contexte}
+
+La comparaison de distributions de probabilités est un problème fondamental en science des données. Les approches classiques reposent souvent sur des comparaisons point-à-point des densités (distance $L^2$, divergence de Kullback-Leibler), ignorant la géométrie du domaine sous-jacent $\X$. En revanche, le Transport Optimal (TO) \cite{peyre2019} munit l'espace des mesures $\Mplus$ d'une structure Riemannienne via la distance de Wasserstein, où la "distance" reflète le coût de déplacement de la masse.
+
+Cependant, le TO classique souffre de deux limitations majeures :
+\begin{enumerate}
+    \item \textbf{Rigidité de la conservation de masse :} La contrainte stricte $\int d\alpha = \int d\beta$ rend le TO indéfini ou instable pour des mesures de masses différentes, et très sensible aux \textit{outliers} ou au bruit de normalisation.
+    \item \textbf{Coût computationnel :} La résolution du problème d'assignation linéaire est cubique en la taille de l'échantillon, $O(N^3)$.
+\end{enumerate}
+
+Pour pallier le coût, Cuturi \cite{cuturi2013} a introduit la régularisation entropique, permettant l'usage de l'algorithme de Sinkhorn ($O(N^2)$). Pour pallier la rigidité, Chizat et al. \cite{chizat2018} ont proposé le Transport Optimal Non-Équilibré (UOT), relaxant les contraintes marginales via des $\varphi$-divergences.
+
+Ce projet se place dans le cadre unifié proposé par Séjourné et al. \cite{sejourne2019}, les \textbf{Divergences de Sinkhorn Non-Équilibrées}, qui combinent ces deux avancées. L'objectif est d'implémenter et d'analyser ces métriques pour l'interpolation d'images (morphing), un cas d'usage où la topologie et l'intensité varient simultanément.
+
+\section{Cadre Théorique}
+
+\subsection{Divergences de Csiszár et UOT}
+Soit $\X$ un espace métrique compact. Pour deux mesures $\alpha, \beta \in \Mplus$, une divergence de Csiszár est définie par une fonction d'entropie convexe $\varphi : \R_+ \to [0, \infty]$ avec $\varphi(1)=0$ :
+\begin{equation}
+D_\varphi(\alpha|\beta) \triangleq \int_{\X} \varphi\left(\frac{d\alpha}{d\beta}(x)\right) d\beta(x) + \varphi'(\infty) \alpha^\perp(\X)
+\end{equation}
+où $\alpha = \frac{d\alpha}{d\beta}\beta + \alpha^\perp$ est la décomposition de Lebesgue.
+Le problème de transport optimal relaxé s'écrit alors :
+\begin{equation}
+OT_{\eps, \rho}(\alpha, \beta) \triangleq \inf_{\pi \in \Mplus(\X^2)} \int C d\pi + \rho D_\varphi(\pi_1 | \alpha) + \rho D_\varphi(\pi_2 | \beta) + \eps \text{KL}(\pi | \alpha \otimes \beta)
+\label{eq:primal}
+\end{equation}
+Ici, $\pi_{1,2}$ sont les marginales du plan de transport $\pi$. $\rho > 0$ contrôle la relaxation des contraintes (*reach*) et $\eps > 0$ la régularisation (*blur*).
+\begin{itemize}
+    \item Si $\varphi(x) = \iota_{\{1\}}(x)$ et $\rho \to \infty$, on retrouve le TO classique (Balanced).
+    \item Si $\varphi(x) = x \log x - x + 1$ (KL), on obtient un transport où la création/destruction de masse a un coût fini.
+\end{itemize}
+
+\subsection{Dualité et Algorithme de Sinkhorn}
+Le problème primal (\ref{eq:primal}) est difficile à résoudre directement. Son dual est une maximisation non-contrainte sur des potentiels continus $(f, g) \in \mathcal{C}(\X)^2$ :
+\begin{equation}
+\sup_{f,g} -\la \alpha, \varphi^*(-f/\rho) \ra \rho - \la \beta, \varphi^*(-g/\rho) \ra \rho - \eps \la \alpha \otimes \beta, e^{\frac{f \oplus g - C}{\eps}} - 1 \ra
+\label{eq:dual}
+\end{equation}
+où $\varphi^*$ est la transformée de Legendre-Fenchel de $\varphi$. 
+
+Les conditions d'optimalité du premier ordre montrent que les potentiels optimaux sont des points fixes. En définissant l'opérateur \textit{Softmin} $\smin_\alpha^\eps(h) \triangleq -\eps \log \la \alpha, e^{-h/\eps} \ra$ et l'opérateur proximal anisotrope :
+\begin{equation}
+\aprox_{\varphi^*}^\eps(p) \triangleq \arg\min_{q \in \R} \eps e^{(p-q)/\eps} + \varphi^*(q)
+\end{equation}
+L'algorithme de Sinkhorn généralisé consiste en des mises à jour alternées :
+\begin{equation}
+f \leftarrow -\aprox_{\varphi^*}^\eps \left( -\smin_\beta^\eps(C - g) \right)
+\end{equation}
+Cette formulation couvre à la fois le cas Balanced ($\aprox(p)=p$) et Unbalanced (ex: pour KL, $\aprox(p) = \frac{\rho}{\rho+\eps}p$).
+
+\subsection{La Divergence de Sinkhorn Débiaisée}
+Le terme entropique $\eps \text{KL}$ introduit un biais : $OT_\eps(\alpha, \alpha) \neq 0$, ce qui empêche $OT_\eps$ d'être une distance métrique. Séjourné et al. définissent la Divergence de Sinkhorn débiaisée :
+\begin{equation}
+S_\eps(\alpha, \beta) = OT_\eps(\alpha, \beta) - \frac{1}{2}OT_\eps(\alpha, \alpha) - \frac{1}{2}OT_\eps(\beta, \beta) + \frac{\eps}{2}(m(\alpha) - m(\beta))^2
+\end{equation}
+\textbf{Théorème (Propriétés Métriques) :} Si le noyau $e^{-C/\eps}$ est défini positif, $S_\eps$ est convexe, positive, définie ($S_\eps(\alpha, \alpha)=0 \iff \alpha=\beta$) et métrise la convergence faible \cite{sejourne2019}. C'est cette propriété cruciale qui justifie son usage pour l'interpolation et l'apprentissage.
+
+\section{Implémentation et Défis Numériques}
+
+L'implémentation a été réalisée en PyTorch avec le module \texttt{GeomLoss}, exploitant \texttt{KeOps} pour des calculs GPU sans allocation mémoire quadratique ($O(N)$ vs $O(N^2)$).
+
+\subsection{Reconstruction du Plan de Transport \texorpdfstring{$\pi$}{pi}}
+Un point critique, souvent omis dans la littérature axée "loss function", est la reconstruction explicite du plan de transport pour l'interpolation.
+La relation primale-duale donne :
+\begin{equation}
+\pi_{ij} = \exp\left( \frac{f(x_i) + g(y_j) - C(x_i, y_j)}{\eps} \right) \alpha_i \beta_j
+\label{eq:pi}
+\end{equation}
+\textbf{Difficulté :} Le module \texttt{GeomLoss} retourne par défaut des potentiels "débiaisés" (gradients de $S_\eps$). Or, la formule (\ref{eq:pi}) requiert les potentiels "bruts" de $OT_\eps$. L'utilisation des mauvais potentiels conduit à une violation massive des contraintes marginales (erreur relative $> 50\%$).
+\textbf{Solution :} Il est impératif de configurer le solveur avec \texttt{debias=False} lors de l'inférence pour récupérer les variables duales canoniques.
+
+\subsection{Gestion des Régimes et Normalisation}
+Le code doit gérer la transition fluide entre les régimes :
+\begin{itemize}
+    \item \textbf{Balanced ($reach=\infty$) :} L'algorithme de Sinkhorn diverge (oscille) si $\sum \alpha \neq \sum \beta$. Une normalisation stricte ($\sum w_i = 1$) est appliquée en pré-traitement.
+    \item \textbf{Unbalanced :} Les masses varient. La normalisation reste nécessaire pour la stabilité numérique des exponentielles ($e^{f/\eps}$), mais la "masse physique" (luminosité) est stockée séparément et réinjectée \textit{a posteriori}.
+\end{itemize}
+Tous les calculs intermédiaires sont effectués dans le domaine logarithmique (\texttt{LogSumExp}) pour éviter les underflows, fréquents avec $\eps \approx 10^{-3}$.
+
+\section{Discrétisation et Reconstruction}
+
+L'interpolation de déplacement (*Displacement Interpolation*) au temps $t$ est définie par le transport (Lagrangien) des particules : $\mu_t = ((1-t)\text{Id} + tT)_\# \pi$. Le problème est de projeter cette mesure discrète sur une grille d'image fixe (Eulérien).
+
+\subsection{Le Problème du "Tearing"}
+Lors d'une expansion spatiale (zoom ou changement de forme), la densité de particules diminue. Si l'écartement moyen entre particules voisines dépasse le pas de la grille cible ($\Delta x$), des pixels vides apparaissent (phénomène de \textit{tearing} ou trous noirs), révélant la nature discrète de l'échantillonnage (Fig. \ref{fig:tearing}).
+
+\subsection{Gaussian Splatting Adaptatif}
+Pour résoudre ce problème de manière géométrique, nous proposons une rasterization par noyaux gaussiens. Chaque particule est modélisée par une distribution $\mathcal{N}(x(t), \sigma(t)^2 I)$.
+Nous avons développé une heuristique pour $\sigma(t)$ :
+\begin{equation}
+\sigma(t) = \sigma_{base} \cdot \max(1, \text{expansion}) + \gamma \cdot 4t(1-t)
+\end{equation}
+\begin{itemize}
+    \item Le premier terme adapte le noyau à la résolution cible (condition de Nyquist-Shannon locale).
+    \item Le second terme (parabolique) ajoute du flou ("boost") à $t=0.5$ pour combler les vides lors du transport chaotique, et rétablit la netteté aux bords ($t=0, 1$).
+\end{itemize}
+Cette approche vectorisée sur GPU permet une reconstruction sans artefact tout en conservant l'énergie globale de l'image via une renormalisation finale.
+
+\section{Expériences et Analyse Critique}
+
+Nous comparons les régimes sur une tâche d'interpolation entre une image de "Pixel Art" (Salamèche, forte structure, couleurs vives) et une image naturelle (Fraise).
+
+\subsection{Conflit Histogramme vs Géométrie}
+\begin{figure}[h]
+    \centering
+    % REMPLACEZ CETTE IMAGE PAR LA VOTRE
+    \includegraphics[width=\linewidth]{image_5838f6.png} 
+    \caption{Comparaison Balanced (droite) vs Unbalanced (milieu). En Balanced, la contrainte de masse force le transport du rouge (source) vers le bleu (cible), créant une image fantomatique. En Unbalanced, la masse rouge est détruite et la bleue créée.}
+    \label{fig:balanced_unbalanced}
+\end{figure}
+
+L'expérience (Fig. \ref{fig:balanced_unbalanced}) illustre la limite fondamentale du TO Balanced : il force le transport entre des régions spectralement disjointes.
+\begin{itemize}
+    \item \textbf{Balanced :} Coût de transport spatial $<$ Coût infini de création. Le transport déplace la géométrie correctement, mais avec la "mauvaise" couleur (intensité). Résultat : superposition visuelle (bien que géométrique).
+    \item \textbf{Unbalanced ($\rho=0.1$) :} Coût de transport spatial $>$ Coût local de création $\rho$. Le transport préfère détruire la masse sur place. Résultat : effet de "fade" localisé combiné au mouvement, visuellement plus plausible.
+\end{itemize}
+
+\subsection{Limites de l'Approche}
+\begin{itemize}
+    \item \textbf{Flou Entropique :} Même avec $\eps$ faible, le transport diffusif "étale" légèrement les textures fines.
+    \item \textbf{Forward Warping :} Notre méthode de splatting est une approximation. Une méthode inverse (Backward Warping) serait plus précise mais nécessite d'inverser la carte de transport $T$, ce qui est instable pour des applications non-difféomorphiques (changements de topologie).
+    \item \textbf{Canaux Indépendants :} Le traitement RGB marginal (canal par canal) ne capture pas les corrélations de couleur. Un transport dans l'espace $(x,y,r,g,b)$ (5D) serait plus rigoureux mais computationnellement plus lourd.
+\end{itemize}
+
+\begin{figure}[h]
+  \centering
+  % REMPLACEZ CETTE IMAGE PAR CELLE DU TEARING vs NO TEARING
+  \includegraphics[width=\linewidth]{image_56e3bb.png}
+  \caption{Résolution du problème de tearing. Gauche: interpolation naïve. Droite: avec Gaussian Splatting adaptatif.}
+  \label{fig:tearing}
+\end{figure}
+
+\section{Conclusion}
+
+Ce travail valide la pertinence des Divergences de Sinkhorn pour l'analyse géométrique. L'approche variationnelle (UOT) offre une flexibilité indispensable pour traiter des données réelles bruitées. Cependant, le succès de l'application dépend crucialement des choix numériques "bas niveau" (log-domaine, splatting adaptatif) pour transformer une théorie continue en un algorithme discret robuste.
+
+% --- Bibliography ---
+\bibliographystyle{ACM-Reference-Format}
+\begin{thebibliography}{9}
+
+\bibitem{sejourne2019}
+Séjourné, T., Feydy, J., Vialard, F. X., Trouvé, A., \& Peyré, G. (2019). 
+\textit{Sinkhorn divergences for unbalanced optimal transport}. 
+arXiv preprint arXiv:1910.12958.
+
+\bibitem{feydy2019}
+Feydy, J., Séjourné, T., Vialard, F. X., Amari, S. I., Trouvé, A., \& Peyré, G. (2019). 
+\textit{Interpolating between optimal transport and MMD using Sinkhorn divergences}. 
+In AISTATS.
+
+\bibitem{peyre2019}
+Peyré, G., \& Cuturi, M. (2019). 
+\textit{Computational optimal transport: With applications to data science}. 
+Foundations and Trends® in Machine Learning.
+
+\bibitem{cuturi2013}
+Cuturi, M. (2013). 
+\textit{Sinkhorn distances: Lightspeed computation of optimal transport}. 
+NeurIPS.
+
+\bibitem{chizat2018}
+Chizat, L., Peyré, G., Schmitzer, B., \& Vialard, F. X. (2018). 
+\textit{Scaling algorithms for unbalanced transport problems}. 
+Mathematics of Computation.
+
+\end{thebibliography}
+
+\end{document}
