@@ -516,16 +516,16 @@ def run_experiments():
 
     for t_val in [0.2, 0.8]:
         fig5, ax = plt.subplots(1, 4, figsize=(24, 6))
-        
-        for i, (name, sig) in enumerate(strategies):
-            cfg_ablation = OTConfig(reach=0.5, blur=0.01, sigma=sig)
-            interp_ab = WassersteinInterpolator(cfg_ablation)
+    
+    for i, (name, sig) in enumerate(strategies):
+        cfg_ablation = OTConfig(reach=0.5, blur=0.01, sigma=sig)
+        interp_ab = WassersteinInterpolator(cfg_ablation)
             res_ab = interp_ab.interpolate(car_img, noise_img, t_val)
-            
-            ax[i].imshow(res_ab.permute(1,2,0).clamp(0,1))
+        
+        ax[i].imshow(res_ab.permute(1,2,0).clamp(0,1))
             ax[i].set_title(f"{name} (t={t_val})", fontsize=14)
-            ax[i].axis('off')
-            
+        ax[i].axis('off')
+        
         filename = f"/home/janis/4A/geodata/refs/reports/results/image_sigma_ablation_t{int(t_val*10)}.png"
         plt.savefig(filename, bbox_inches='tight')
         print(f"Sauvegardé: {filename}")
@@ -568,23 +568,23 @@ def run_experiments():
     for t in time_steps:
         res_A_bal = interp_bal.interpolate(source_pikachu, target_salameche, t)
         res_A_unbal = interp_unbal.interpolate(source_pikachu, target_salameche, t)
-        
+    
         res_B_bal = interp_bal.interpolate(target_salameche, source_pikachu, t)
         res_B_unbal = interp_unbal.interpolate(target_salameche, source_pikachu, t)
-        
-        fig4, ax = plt.subplots(2, 2, figsize=(16, 16)) # Très grand
-        
-        ax[0,0].imshow(res_A_bal.permute(1,2,0).clamp(0,1))
+    
+    fig4, ax = plt.subplots(2, 2, figsize=(16, 16)) # Très grand
+    
+    ax[0,0].imshow(res_A_bal.permute(1,2,0).clamp(0,1))
         ax[0,0].set_title(f"Pikachu -> Salamèche (Balanced, t={t})", fontsize=14)
-        ax[0,1].imshow(res_A_unbal.permute(1,2,0).clamp(0,1))
+    ax[0,1].imshow(res_A_unbal.permute(1,2,0).clamp(0,1))
         ax[0,1].set_title(f"Pikachu -> Salamèche (Unbalanced, t={t})\nDestruction/Création", fontsize=14)
-        
-        ax[1,0].imshow(res_B_bal.permute(1,2,0).clamp(0,1))
+    
+    ax[1,0].imshow(res_B_bal.permute(1,2,0).clamp(0,1))
         ax[1,0].set_title(f"Salamèche -> Pikachu (Balanced, t={t})", fontsize=14)
-        ax[1,1].imshow(res_B_unbal.permute(1,2,0).clamp(0,1))
+    ax[1,1].imshow(res_B_unbal.permute(1,2,0).clamp(0,1))
         ax[1,1].set_title(f"Salamèche -> Pikachu (Unbalanced, t={t})", fontsize=14)
-        
-        for a in ax.flat: a.axis('off')
+    
+    for a in ax.flat: a.axis('off')
         
         fname = f"/home/janis/4A/geodata/refs/reports/results/image_swap_source_target_t{int(t*10)}.png"
         plt.savefig(fname, bbox_inches='tight')
