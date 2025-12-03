@@ -1,0 +1,5 @@
+2025-12-03 00:31:04,017 - INFO - --- Analyse Tearing: CIFAR_Reach0.5_Blur0.01 (t=0.5) ---
+2025-12-03 00:31:04,360 - INFO - Grid Size: 64x64, Delta_grid: 0.0156
+2025-12-03 00:31:04,385 - INFO - Jacobian Det Stats: Min=0.0000, Max=2.6599, Mean=0.9603
+2025-12-03 00:31:04,385 - INFO - Tearing Condition (|det| > 0.0156): 3969/4096 pixels (96.90%)
+2025-12-03 00:31:04,385 - WARNING - !!! TEARING MAJEUR DÉTECTÉ !!!

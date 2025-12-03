@@ -1,4 +1,3 @@
-
 import torch
 import torch.nn.functional as F
 from geomloss import SamplesLoss
@@ -303,7 +302,6 @@ def analyze_tearing_condition(interp, img1, img2, t, name=""):
     # 4. Vérifier la condition |det| > Delta_grid
     # Delta_grid est la taille caractéristique de la grille.
     # Ici det_J est le facteur d'expansion de l'aire.
-    # Si det_J > 1, il y a expansion.
     # La condition utilisateur est |det(Grad Xt)| > Delta_grid.
     # Si Delta_grid est genre 0.03 (blur), ou 1/W (~0.015).
     # Interprétons Delta_grid comme 1/min(H,W).
@@ -327,10 +325,59 @@ def analyze_tearing_condition(interp, img1, img2, t, name=""):
         
     return abs_det_J.cpu()
 
+def plot_particle_tracking(interp, img1, img2, name="tracking"):
+    """
+    Visualise le déplacement de particules (pixels) via la carte de transport.
+    """
+    # Calculer T(x) pour un canal (ex: Canal Bleu pour voir son comportement, ou moyenne)
+    # T_map est (H, W, 2) coordonnées dans [0,1]
+    # On utilise le canal 2 (Bleu) car l'utilisateur s'intéresse à la destruction du bleu
+    try:
+        T_map, H, W = interp.get_transport_map(img1, img2, channel=2)
+    except Exception as e:
+        logging.warning(f"Erreur tracking particules: {e}")
+        return
 
-# ==========================================
-# EXPERIMENTATIONS
-# ==========================================
+    # Sélectionner une grille de points de départ
+    step = 4 # Espacement plus fin
+    y_indices = torch.arange(step//2, H, step)
+    x_indices = torch.arange(step//2, W, step)
+    yy, xx = torch.meshgrid(y_indices, x_indices, indexing="ij")
+    
+    # Coordonnées de départ (normalisées [0,1])
+    start_pts = torch.stack([xx, yy], dim=-1).float() 
+    start_pts[..., 0] /= (W-1)
+    start_pts[..., 1] /= (H-1)
+    
+    # Coordonnées d'arrivée
+    # On sample T_map aux indices choisis
+    end_pts = T_map[yy, xx].cpu() # (Ny, Nx, 2)
+    start_pts = start_pts.cpu()
+    
+    # Plot
+    fig, ax = plt.subplots(1, 1, figsize=(10, 10))
+    # Afficher l'image source assombrie pour mieux voir les flèches
+    ax.imshow(img1.permute(1,2,0).cpu() * 0.6)
+    
+    # Dessiner les flèches
+    sx = start_pts[..., 0] * (W-1)
+    sy = start_pts[..., 1] * (H-1)
+    ex = end_pts[..., 0] * (W-1)
+    ey = end_pts[..., 1] * (H-1)
+    
+    # Colorer les flèches selon la longueur du déplacement
+    dist = np.sqrt((ex-sx)**2 + (ey-sy)**2)
+    
+    ax.quiver(sx.numpy(), sy.numpy(), (ex-sx).numpy(), (ey-sy).numpy(), dist,
+              angles='xy', scale_units='xy', scale=1, cmap='coolwarm', alpha=0.9)
+    
+    ax.set_title(f"Suivi de Particules (Canal Bleu)\n{name}", fontsize=15)
+    ax.axis('off')
+    
+    fname = f"/home/janis/4A/geodata/refs/reports/results/image_particle_tracking_{name}.png"
+    plt.savefig(fname, bbox_inches='tight')
+    print(f"Sauvegardé: {fname}")
+    plt.close(fig)
 
 def load_images():
     # Chemins à adapter
@@ -417,8 +464,8 @@ def run_experiments():
     ax[1,2].set_title("Balanced (t=1.0)\nReconstruction Totale")
     
     for a in ax.flat: a.axis('off')
-    plt.savefig("/home/janis/4A/geodata/refs/reports/image_5838f6.png", bbox_inches='tight')
-    print("Sauvegardé: image_5838f6.png")
+    plt.savefig("/home/janis/4A/geodata/refs/reports/results/image_5838f6.png", bbox_inches='tight')
+    print("Sauvegardé: results/image_5838f6.png")
     
     # 2. Analyse du Tearing (Reach x Blur) - CIFAR EXPERIMENT
     print("Génération Figure 2: Analyse du Tearing (CIFAR Car)...")
@@ -450,11 +497,11 @@ def run_experiments():
             ax.axis('off')
             
     plt.tight_layout()
-    plt.savefig("/home/janis/4A/geodata/refs/reports/image_56e3bb.png", bbox_inches='tight')
-    print("Sauvegardé: image_56e3bb.png (CIFAR Tearing)")
+    plt.savefig("/home/janis/4A/geodata/refs/reports/results/image_56e3bb.png", bbox_inches='tight')
+    print("Sauvegardé: results/image_56e3bb.png (CIFAR Tearing)")
 
     # --- NOUVELLE SECTION: ABLATION STUDY SIGMA ---
-    print("Génération Figure 5: Ablation Study - Stratégies Sigma...")
+    print("Génération Figure 5: Ablation Study - Stratégies Sigma (t=0.2 et t=0.8)...")
     # On compare: Bilinéaire (Sigma=0), Sigma Fixe (0.3), Sigma Adaptatif (None -> calculé)
     # Sur le cas critique identifié plus haut (Reach 0.5, Blur 0.01)
     
@@ -465,20 +512,24 @@ def run_experiments():
         ("Adaptatif (Heuristique)", None)
     ]
     
-    fig5, ax = plt.subplots(1, 4, figsize=(24, 6))
     cfg_base = OTConfig(reach=0.5, blur=0.01) # Cas sujet au tearing
-    
-    for i, (name, sig) in enumerate(strategies):
-        cfg_ablation = OTConfig(reach=0.5, blur=0.01, sigma=sig)
-        interp_ab = WassersteinInterpolator(cfg_ablation)
-        res_ab = interp_ab.interpolate(car_img, noise_img, 0.5)
+
+    for t_val in [0.2, 0.8]:
+        fig5, ax = plt.subplots(1, 4, figsize=(24, 6))
         
-        ax[i].imshow(res_ab.permute(1,2,0).clamp(0,1))
-        ax[i].set_title(name, fontsize=14)
-        ax[i].axis('off')
-        
-    plt.savefig("/home/janis/4A/geodata/refs/reports/image_sigma_ablation.png", bbox_inches='tight')
-    print("Sauvegardé: image_sigma_ablation.png")
+        for i, (name, sig) in enumerate(strategies):
+            cfg_ablation = OTConfig(reach=0.5, blur=0.01, sigma=sig)
+            interp_ab = WassersteinInterpolator(cfg_ablation)
+            res_ab = interp_ab.interpolate(car_img, noise_img, t_val)
+            
+            ax[i].imshow(res_ab.permute(1,2,0).clamp(0,1))
+            ax[i].set_title(f"{name} (t={t_val})", fontsize=14)
+            ax[i].axis('off')
+            
+        filename = f"/home/janis/4A/geodata/refs/reports/results/image_sigma_ablation_t{int(t_val*10)}.png"
+        plt.savefig(filename, bbox_inches='tight')
+        print(f"Sauvegardé: {filename}")
+        plt.close(fig5)
     # ----------------------------------------------
 
     # 3. Effet du Reach (Nouvelle Figure) - Plus grand
@@ -496,19 +547,11 @@ def run_experiments():
         ax[i].set_title(titles[i], fontsize=14)
         ax[i].axis('off')
         
-    plt.savefig("/home/janis/4A/geodata/refs/reports/image_reach_effect.png", bbox_inches='tight')
-    print("Sauvegardé: image_reach_effect.png")
+    plt.savefig("/home/janis/4A/geodata/refs/reports/results/image_reach_effect.png", bbox_inches='tight')
+    print("Sauvegardé: results/image_reach_effect.png")
 
     # 4. Inversion Source/Cible (Pikachu/Salamèche) - Plus grand
-    # ... (code identique mais figsize plus grand) ...
-    # Je dois réécrire cette partie car je remplace tout run_experiments
-    
-    print("Génération Figure 4: Inversion Source/Cible...")
-    # Recalage des images pour Pikachu/Salamèche
-    # source=Salamèche, target=Fraise dans le load_images actuel (car j'ai pas changé load_images)
-    # ATTENTION: J'avais changé load_images dans l'appel précédent !
-    # path1 = salameche (Target), path2 = pikachu (Source)
-    # Donc img1 = Salameche, img2 = Pikachu
+    print("Génération Figure 4: Inversion Source/Cible (Séquence t=0.1, 0.2, 0.8, 0.9)...")
     
     # Re-vérifions load_images
     source_pikachu = img2 
@@ -520,30 +563,44 @@ def run_experiments():
     interp_bal = WassersteinInterpolator(cfg_bal)
     interp_unbal = WassersteinInterpolator(cfg_unbal)
     
-    res_A_bal = interp_bal.interpolate(source_pikachu, target_salameche, 0.5)
-    res_A_unbal = interp_unbal.interpolate(source_pikachu, target_salameche, 0.5)
+    time_steps = [0.1, 0.2, 0.8, 0.9]
     
-    res_B_bal = interp_bal.interpolate(target_salameche, source_pikachu, 0.5)
-    res_B_unbal = interp_unbal.interpolate(target_salameche, source_pikachu, 0.5)
-    
-    fig4, ax = plt.subplots(2, 2, figsize=(16, 16)) # Très grand
-    
-    ax[0,0].imshow(res_A_bal.permute(1,2,0).clamp(0,1))
-    ax[0,0].set_title("Pikachu -> Salamèche (Balanced)\nSymétrique (Flou de masse)", fontsize=14)
-    ax[0,1].imshow(res_A_unbal.permute(1,2,0).clamp(0,1))
-    ax[0,1].set_title("Pikachu -> Salamèche (Unbalanced)\nDestruction Jaune / Création Rouge", fontsize=14)
-    
-    ax[1,0].imshow(res_B_bal.permute(1,2,0).clamp(0,1))
-    ax[1,0].set_title("Salamèche -> Pikachu (Balanced)\nSymétrique", fontsize=14)
-    ax[1,1].imshow(res_B_unbal.permute(1,2,0).clamp(0,1))
-    ax[1,1].set_title("Salamèche -> Pikachu (Unbalanced)\nDestruction Rouge / Création Jaune", fontsize=14)
-    
-    for a in ax.flat: a.axis('off')
-    plt.savefig("/home/janis/4A/geodata/refs/reports/image_swap_source_target.png", bbox_inches='tight')
-    print("Sauvegardé: image_swap_source_target.png")
+    for t in time_steps:
+        res_A_bal = interp_bal.interpolate(source_pikachu, target_salameche, t)
+        res_A_unbal = interp_unbal.interpolate(source_pikachu, target_salameche, t)
+        
+        res_B_bal = interp_bal.interpolate(target_salameche, source_pikachu, t)
+        res_B_unbal = interp_unbal.interpolate(target_salameche, source_pikachu, t)
+        
+        fig4, ax = plt.subplots(2, 2, figsize=(16, 16)) # Très grand
+        
+        ax[0,0].imshow(res_A_bal.permute(1,2,0).clamp(0,1))
+        ax[0,0].set_title(f"Pikachu -> Salamèche (Balanced, t={t})", fontsize=14)
+        ax[0,1].imshow(res_A_unbal.permute(1,2,0).clamp(0,1))
+        ax[0,1].set_title(f"Pikachu -> Salamèche (Unbalanced, t={t})\nDestruction/Création", fontsize=14)
+        
+        ax[1,0].imshow(res_B_bal.permute(1,2,0).clamp(0,1))
+        ax[1,0].set_title(f"Salamèche -> Pikachu (Balanced, t={t})", fontsize=14)
+        ax[1,1].imshow(res_B_unbal.permute(1,2,0).clamp(0,1))
+        ax[1,1].set_title(f"Salamèche -> Pikachu (Unbalanced, t={t})", fontsize=14)
+        
+        for a in ax.flat: a.axis('off')
+        
+        fname = f"/home/janis/4A/geodata/refs/reports/results/image_swap_source_target_t{int(t*10)}.png"
+        plt.savefig(fname, bbox_inches='tight')
+        print(f"Sauvegardé: {fname}")
+        plt.close(fig4)
+
+    # 5. TRACKING PARTICULES (Nouveau)
+    print("Génération Figure Tracking Particules...")
+    # On regarde le transport de Salamèche vers Fraise (Bleu à détruire/déplacer)
+    # Salamèche n'a pas bcp de bleu, mais Fraise en a un peu dans le fond ? Non pixel art c'est Pikachu/Salamèche.
+    # Pikachu (jaune) -> Salamèche (Orange). Le bleu est dans le fond ?
+    # Testons sur source -> target
+    plot_particle_tracking(interp_bal, source, target, name="Balanced")
+    plot_particle_tracking(interp_unbal, source, target, name="Unbalanced")
 
     print("\n--- TERMINÉ ---")
 
 if __name__ == "__main__":
     run_experiments()
-
