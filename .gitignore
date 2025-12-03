@@ -1,3 +1,6 @@
+.notebooks/test_barycenters_backup.ipynb
+.notebooks/test_barycenters.ipynb
+.notebooks/test.ipynb
 # Python-specific directories
 SCIML.egg-info/
 .venv/
