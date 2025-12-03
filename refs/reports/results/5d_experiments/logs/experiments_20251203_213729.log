@@ -1,0 +1,123 @@
+2025-12-03 21:37:29,981 - __main__ - INFO - Logging initialisé. Fichier: /home/janis/4A/geodata/refs/reports/results/5d_experiments/logs/experiments_20251203_213729.log
+2025-12-03 21:37:29,982 - __main__ - INFO - ExperimentRunner initialisé. Output dir: /home/janis/4A/geodata/refs/reports/results/5d_experiments
+2025-12-03 21:37:29,982 - __main__ - INFO - Fichier de log: /home/janis/4A/geodata/refs/reports/results/5d_experiments/logs/experiments_20251203_213729.log
+2025-12-03 21:37:29,982 - __main__ - INFO - ================================================================================
+2025-12-03 21:37:29,982 - __main__ - INFO - DÉMARRAGE DES EXPÉRIENCES MASSIVES 5D
+2025-12-03 21:37:29,982 - __main__ - INFO - ================================================================================
+2025-12-03 21:37:29,982 - __main__ - INFO - Device: cuda
+2025-12-03 21:37:29,982 - __main__ - INFO - Paires d'images: 3
+2025-12-03 21:37:29,982 - __main__ - INFO - Résolutions: [32, 48, 64, 96, 128]
+2025-12-03 21:37:29,982 - __main__ - INFO - Lambdas: [0.0, 0.5, 1.0, 1.5, 2.0]
+2025-12-03 21:37:29,982 - __main__ - INFO - Blurs: [0.01, 0.03, 0.05, 0.1, 0.2, 0.3]
+2025-12-03 21:37:29,983 - __main__ - INFO - Reaches: [None, 0.01, 0.05, 0.1, 0.3, 0.5]
+2025-12-03 21:37:29,983 - __main__ - DEBUG - Mémoire GPU début: 0.01 GB allouée / 0.03 GB réservée / 8.59 GB total (max: 0.02 GB)
+2025-12-03 21:37:29,983 - __main__ - INFO - ================================================================================
+2025-12-03 21:37:29,983 - __main__ - INFO - 
+>>> Expérience 1: Ablation Lambda
+2025-12-03 21:37:29,983 - __main__ - INFO - === Expérience 1: Ablation Lambda ===
+2025-12-03 21:37:29,983 - __main__ - INFO - Chargement paire classique: cifar_car_airplane
+2025-12-03 21:37:42,350 - __main__ - INFO - Images chargées: torch.Size([3, 64, 64]) et torch.Size([3, 64, 64])
+2025-12-03 21:37:42,351 - __main__ - INFO - Expérience 1: cifar_car_airplane, res=32, λ=0.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:37:42,351 - __main__ - DEBUG - Mémoire GPU avant exp 1: 0.01 GB allouée / 0.03 GB réservée / 8.59 GB total (max: 0.02 GB)
+2025-12-03 21:37:42,351 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:37:42,352 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:37:42,352 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:37:42,384 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:37:42,414 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 33.20it/s]
+2025-12-03 21:37:42,415 - __main__ - DEBUG - Mémoire GPU après exp 1: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:37:42,415 - __main__ - INFO - Expérience 1 terminée en 0.06s (Sinkhorn: 0.06s, Interpolation: 0.00s, 0.06s/frame)
+2025-12-03 21:37:42,415 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:37:42,436 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp1_res32_lam0.0_eps0.030_rho0.10.pt (shape: torch.Size([41580]))
+2025-12-03 21:37:42,455 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp1_t0.5.png
+2025-12-03 21:37:42,455 - __main__ - INFO - Expérience 2: cifar_car_airplane, res=32, λ=0.5, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:37:42,455 - __main__ - DEBUG - Mémoire GPU avant exp 2: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:37:42,455 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:37:42,456 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:37:42,457 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:37:42,491 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:37:42,501 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 103.33it/s]
+2025-12-03 21:37:42,501 - __main__ - DEBUG - Mémoire GPU après exp 2: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:37:42,502 - __main__ - INFO - Expérience 2 terminée en 0.05s (Sinkhorn: 0.05s, Interpolation: 0.00s, 0.05s/frame)
+2025-12-03 21:37:42,502 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:37:42,507 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp2_res32_lam0.5_eps0.030_rho0.10.pt (shape: torch.Size([20072]))
+2025-12-03 21:37:42,511 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp2_t0.5.png
+2025-12-03 21:37:42,511 - __main__ - INFO - Expérience 3: cifar_car_airplane, res=32, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:37:42,511 - __main__ - DEBUG - Mémoire GPU avant exp 3: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:37:42,511 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:37:42,513 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:37:42,513 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:37:42,543 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:37:42,548 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 215.50it/s]
+2025-12-03 21:37:42,549 - __main__ - DEBUG - Mémoire GPU après exp 3: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:37:42,549 - __main__ - INFO - Expérience 3 terminée en 0.04s (Sinkhorn: 0.04s, Interpolation: 0.00s, 0.04s/frame)
+2025-12-03 21:37:42,549 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:37:42,552 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp3_res32_lam1.0_eps0.030_rho0.10.pt (shape: torch.Size([12191]))
+2025-12-03 21:37:42,554 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp3_t0.5.png
+2025-12-03 21:37:42,555 - __main__ - INFO - Expérience 4: cifar_car_airplane, res=32, λ=1.5, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:37:42,555 - __main__ - DEBUG - Mémoire GPU avant exp 4: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:37:42,555 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:37:42,557 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:37:42,557 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:37:42,592 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:37:42,595 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 383.22it/s]
+2025-12-03 21:37:42,596 - __main__ - DEBUG - Mémoire GPU après exp 4: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:37:42,596 - __main__ - INFO - Expérience 4 terminée en 0.04s (Sinkhorn: 0.04s, Interpolation: 0.00s, 0.04s/frame)
+2025-12-03 21:37:42,596 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:37:42,599 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp4_res32_lam1.5_eps0.030_rho0.10.pt (shape: torch.Size([7982]))
+2025-12-03 21:37:42,602 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp4_t0.5.png
+2025-12-03 21:37:42,602 - __main__ - INFO - Expérience 5: cifar_car_airplane, res=32, λ=2.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:37:42,603 - __main__ - DEBUG - Mémoire GPU avant exp 5: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:37:42,603 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:37:42,606 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:37:42,606 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:37:42,637 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:37:42,640 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 473.99it/s]
+2025-12-03 21:37:42,640 - __main__ - DEBUG - Mémoire GPU après exp 5: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:37:42,640 - __main__ - INFO - Expérience 5 terminée en 0.04s (Sinkhorn: 0.04s, Interpolation: 0.00s, 0.04s/frame)
+2025-12-03 21:37:42,640 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:37:42,643 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp5_res32_lam2.0_eps0.030_rho0.10.pt (shape: torch.Size([5882]))
+2025-12-03 21:37:42,646 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp5_t0.5.png
+2025-12-03 21:37:42,651 - __main__ - INFO - 
+>>> Expérience 2: Comparaison 2D vs 5D
+2025-12-03 21:37:42,652 - __main__ - INFO - === Expérience 2: Comparaison 2D vs 5D ===
+2025-12-03 21:37:42,652 - __main__ - INFO - Chargement paire classique: cifar_car_airplane
+2025-12-03 21:37:55,012 - __main__ - INFO - Images chargées: torch.Size([3, 64, 64]) et torch.Size([3, 64, 64])
+2025-12-03 21:37:55,013 - __main__ - INFO - Expérience 6: cifar_car_airplane, res=32, λ=0.0, ε=0.03, ρ=0.1, 17 temps
+2025-12-03 21:37:55,013 - __main__ - DEBUG - Mémoire GPU avant exp 6: 0.01 GB allouée / 0.02 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:37:55,013 - __main__ - DEBUG - Interpolation 5D: 17 temps
+2025-12-03 21:37:55,015 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:37:55,015 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:37:55,056 - __main__ - INFO - Interpolation 5D:   0%|          | 0/17 [00:00<?, ?it/s]
+2025-12-03 21:37:55,173 - __main__ - INFO - Interpolation 5D:  29%|##9       | 5/17 [00:00<00:00, 42.87it/s]
+2025-12-03 21:37:55,287 - __main__ - INFO - Interpolation 5D:  59%|#####8    | 10/17 [00:00<00:00, 43.59it/s]
+2025-12-03 21:37:55,340 - __main__ - INFO - Interpolation 5D: 100%|##########| 17/17 [00:00<00:00, 60.03it/s]
+2025-12-03 21:37:55,340 - __main__ - DEBUG - Mémoire GPU après exp 6: 0.01 GB allouée / 0.46 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:37:55,340 - __main__ - INFO - Expérience 6 terminée en 0.33s (Sinkhorn: 0.33s, Interpolation: 0.00s, 0.02s/frame)
+2025-12-03 21:37:55,340 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:37:55,352 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp6_res32_lam0.0_eps0.030_rho0.10.pt (shape: torch.Size([41580]))
+2025-12-03 21:37:55,355 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.0.png
+2025-12-03 21:37:55,361 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.2.png
+2025-12-03 21:37:55,368 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.5.png
+2025-12-03 21:37:55,372 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.8.png
+2025-12-03 21:37:55,380 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t1.0.png
+2025-12-03 21:37:55,380 - __main__ - INFO - Expérience 7: cifar_car_airplane, res=32, λ=1.0, ε=0.03, ρ=0.1, 17 temps
+2025-12-03 21:37:55,381 - __main__ - DEBUG - Mémoire GPU avant exp 7: 0.01 GB allouée / 0.46 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:37:55,381 - __main__ - DEBUG - Interpolation 5D: 17 temps
+2025-12-03 21:37:55,382 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:37:55,382 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:37:55,408 - __main__ - INFO - Interpolation 5D:   0%|          | 0/17 [00:00<?, ?it/s]
+2025-12-03 21:37:55,453 - __main__ - INFO - Interpolation 5D: 100%|##########| 17/17 [00:00<00:00, 386.05it/s]
+2025-12-03 21:37:55,454 - __main__ - DEBUG - Mémoire GPU après exp 7: 0.01 GB allouée / 0.46 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:37:55,454 - __main__ - INFO - Expérience 7 terminée en 0.07s (Sinkhorn: 0.07s, Interpolation: 0.00s, 0.00s/frame)
+2025-12-03 21:37:55,454 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:37:55,455 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp7_res32_lam1.0_eps0.030_rho0.10.pt (shape: torch.Size([12191]))
+2025-12-03 21:37:55,458 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.0.png
+2025-12-03 21:37:55,465 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.2.png
+2025-12-03 21:37:55,471 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.5.png
+2025-12-03 21:37:55,477 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.8.png
+2025-12-03 21:37:55,484 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t1.0.png
+2025-12-03 21:37:55,489 - __main__ - INFO - 
+>>> Expérience 3: Impact Splatting
+2025-12-03 21:37:55,489 - __main__ - INFO - === Expérience 3: Impact Splatting ===
+2025-12-03 21:37:55,490 - __main__ - INFO - Chargement paire classique: cifar_car_airplane
+2025-12-03 21:38:07,731 - __main__ - INFO - Images chargées: torch.Size([3, 64, 64]) et torch.Size([3, 64, 64])

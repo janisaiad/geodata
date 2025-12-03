@@ -323,6 +323,59 @@ class OT5DInterpolator:
             results.append(img_t.cpu())
         
         return results
+    
+    def get_displacement_field(self, img_source, img_target):
+        """
+        Calcule le champ de déplacement spatial T(x) - x depuis le plan de transport 5D.
+        Retourne le champ de déplacement et des métriques de smoothness.
+        """
+        # Préparation 5D
+        X_a, w_a, colors_a, Ha, Wa = get_5d_cloud(
+            img_source.to(self.cfg.device),
+            self.cfg.resolution[0],
+            self.cfg.lambda_color,
+        )
+        X_b, w_b, colors_b, Hb, Wb = get_5d_cloud(
+            img_target.to(self.cfg.device),
+            self.cfg.resolution[1],
+            self.cfg.lambda_color,
+        )
+        
+        # Sinkhorn & Plan pi
+        F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+        F_pot, G_pot = F_pot.flatten(), G_pot.flatten()
+        
+        dist_sq = torch.cdist(X_a, X_b, p=2) ** 2
+        C_matrix = dist_sq / 2.0
+        epsilon = self.cfg.blur**2
+        
+        log_pi = (
+            (F_pot[:, None] + G_pot[None, :] - C_matrix) / epsilon
+            + torch.log(w_a.flatten()[:, None])
+            + torch.log(w_b.flatten()[None, :])
+        )
+        pi = torch.exp(log_pi).squeeze()
+        
+        # Projection barycentrique spatiale: T(x_i) = sum_j y_j * pi_{ij} / sum_k pi_{ik}
+        # On utilise uniquement la partie spatiale (2D) de X_b
+        pos_b_spatial = X_b[:, :2]  # (M, 2)
+        pos_a_spatial = X_a[:, :2]  # (N, 2)
+        
+        # Normalisation conditionnelle P(y|x)
+        log_row_sum = torch.logsumexp(log_pi, dim=1, keepdim=True)
+        log_cond_prob = log_pi - log_row_sum
+        cond_prob = torch.exp(log_cond_prob)  # (N, M)
+        
+        # Barycentric projection: T = P * Y_spatial
+        T_map_flat = torch.mm(cond_prob, pos_b_spatial)  # (N, 2)
+        
+        # Champ de déplacement: displacement = T(x) - x
+        displacement_flat = T_map_flat - pos_a_spatial  # (N, 2)
+        
+        # Reshape en grille (H, W, 2)
+        displacement_field = displacement_flat.view(Ha, Wa, 2)
+        
+        return displacement_field, Ha, Wa
 
 
 # ============================================================================
@@ -626,15 +679,25 @@ class ExperimentRunner:
                 'sinkhorn_time': sinkhorn_time,
                 'interpolation_time': interpolation_time,
                 'memory_allocated_gb': mem_after.get('allocated_gb', 0.0) if 'allocated_gb' in mem_after else 0.0,
-                'memory_max_allocated_gb': mem_after.get('max_allocated_gb', 0.0) if 'max_allocated_gb' in mem_after else 0.0
+                'memory_max_allocated_gb': mem_after.get('max_allocated_gb', 0.0) if 'max_allocated_gb' in mem_after else 0.0,
+                # Métriques de smoothness (None pour les expériences normales)
+                'regime': None,
+                'mean_displacement': None,
+                'max_displacement': None,
+                'std_displacement': None,
+                'mean_divergence': None,
+                'mean_curl': None,
+                'mean_laplacian': None,
+                'smoothness_score': None
             }
             experiment_results.append(result)
             
-            # Sauvegarde image si demandé
-            if self.exp_config.save_images and t in [0.0, 0.2, 0.5, 0.8, 1.0]:
-                img_path = self.output_dir / "images" / f"exp{exp_id}_t{t:.1f}.png"
+            # Sauvegarde image - TOUTES les images maintenant !
+            if self.exp_config.save_images:
+                # Format: exp{id}_t{t:.3f}.png pour tous les temps
+                img_path = self.output_dir / "images" / f"exp{exp_id}_t{t:.3f}.png"
                 frame_np = frame.permute(1, 2, 0).clamp(0, 1).numpy()
-                plt.imsave(str(img_path), frame_np)
+                plt.imsave(str(img_path), frame_np, dpi=150)
                 logger.debug(f"Image sauvegardée: {img_path}")
         
         return experiment_results
@@ -726,13 +789,12 @@ class ExperimentRunner:
                 image_pair_name = pair_name
             
             for resolution in [32, 48, 64]:
-                for use_splatting in self.exp_config.use_splatting:
-                    results = self.run_single_experiment(
-                        img_source, img_target, image_pair_name,
-                        resolution, lambda_val, blur, reach, times
-                    )
-                    if results:
-                        self.results.extend(results)
+                results = self.run_single_experiment(
+                    img_source, img_target, image_pair_name,
+                    resolution, lambda_val, blur, reach, times
+                )
+                if results:
+                    self.results.extend(results)
         
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
@@ -754,14 +816,156 @@ class ExperimentRunner:
                 img_source, img_target = load_classic_ot_image_pair(pair_name, target_size=64)
                 image_pair_name = pair_name
             
-            for blur in [0.01, 0.03, 0.05]:
-                for reach in [0.1, 0.3, 0.5]:
+            for blur in [0.01, 0.03, 0.05, 0.1, 0.2, 0.3]:
+                for reach in [None, 0.01, 0.05, 0.1, 0.3, 0.5]:
                     results = self.run_single_experiment(
                         img_source, img_target, image_pair_name,
                         resolution, lambda_val, blur, reach, times
                     )
                     if results:
                         self.results.extend(results)
+        
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+    
+    def run_experiment_6_displacement_robustness(self):
+        """Expérience 6: Robustesse du champ de déplacement selon les régimes (ε, ρ)."""
+        logger.info("=== Expérience 6: Robustesse Champ de Déplacement ===")
+        
+        resolution = 32
+        lambda_val = 1.0
+        times = [0.5]  # Focus sur t=0.5
+        
+        # Trois régimes à tester:
+        # 1. Unbalanced OT (ρ fini, ε petit) - overfitting, non-lisse
+        # 2. Entropy-regularized OT (ε grand, ρ = None) - lisse mais sensible aux artefacts
+        # 3. Unbalanced, entropy-regularized OT (valeurs intermédiaires) - robuste et lisse
+        
+        regimes = [
+            {"name": "Unbalanced_OT", "blur": 0.01, "reach": 0.1, "description": "ρ fini, ε petit"},
+            {"name": "Entropy_Regularized", "blur": 0.1, "reach": None, "description": "ε grand, ρ = ∞"},
+            {"name": "Unbalanced_Entropy", "blur": 0.03, "reach": 0.3, "description": "ε et ρ intermédiaires"},
+        ]
+        
+        for pair_name in self.exp_config.image_pairs[:1]:
+            if isinstance(pair_name, tuple):
+                img1_name, img2_name = pair_name
+                img_source, img_target = load_image_pair(img1_name, img2_name, self.exp_config.data_dir)
+                image_pair_name = f"{img1_name.split('.')[0]}_{img2_name.split('.')[0]}"
+            else:
+                img_source, img_target = load_classic_ot_image_pair(pair_name, target_size=64)
+                image_pair_name = pair_name
+            
+            for regime in regimes:
+                logger.info(f"Régime: {regime['name']} ({regime['description']})")
+                blur = regime['blur']
+                reach = regime['reach']
+                
+                # Configuration OT
+                ot_config = OTConfig(
+                    resolution=(resolution, resolution),
+                    blur=blur,
+                    reach=reach,
+                    lambda_color=lambda_val,
+                    device=self.exp_config.device
+                )
+                
+                # Interpolateur
+                interpolator = OT5DInterpolator(ot_config)
+                
+                try:
+                    # Calculer le champ de déplacement
+                    displacement_field, H, W = interpolator.get_displacement_field(img_source, img_target)
+                    
+                    # Métriques de smoothness
+                    smoothness_metrics = compute_displacement_smoothness(displacement_field)
+                    
+                    # Sauvegarder le champ de déplacement
+                    disp_dir = self.output_dir / "displacement_fields"
+                    disp_dir.mkdir(parents=True, exist_ok=True)
+                    
+                    # Visualisation du champ de déplacement
+                    fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+                    
+                    # 1. Magnitude du déplacement
+                    magnitude = torch.sqrt(displacement_field[..., 0]**2 + displacement_field[..., 1]**2)
+                    im1 = axes[0].imshow(magnitude.cpu().numpy(), cmap='hot')
+                    axes[0].set_title(f"Magnitude du Déplacement\n{regime['name']}")
+                    axes[0].axis('off')
+                    plt.colorbar(im1, ax=axes[0])
+                    
+                    # 2. Champ vectoriel (quiver)
+                    step = 4
+                    y_indices = torch.arange(step//2, H, step)
+                    x_indices = torch.arange(step//2, W, step)
+                    yy, xx = torch.meshgrid(y_indices, x_indices, indexing="ij")
+                    
+                    disp_sampled = displacement_field[yy, xx].cpu()
+                    axes[1].imshow(img_source.permute(1, 2, 0).cpu() * 0.6)
+                    axes[1].quiver(xx.numpy(), yy.numpy(), 
+                                  disp_sampled[..., 0].numpy() * (W-1),
+                                  disp_sampled[..., 1].numpy() * (H-1),
+                                  magnitude[yy, xx].cpu().numpy(),
+                                  cmap='coolwarm', angles='xy', scale_units='xy', scale=1, alpha=0.8)
+                    axes[1].set_title(f"Champ Vectoriel\n{regime['name']}")
+                    axes[1].axis('off')
+                    
+                    # 3. Divergence (expansion/contraction)
+                    disp_np = displacement_field.cpu().numpy()
+                    grad_x = np.gradient(disp_np[..., 0], axis=1)
+                    grad_y = np.gradient(disp_np[..., 1], axis=0)
+                    divergence = grad_x + grad_y
+                    im3 = axes[2].imshow(divergence, cmap='RdBu', vmin=-np.abs(divergence).max(), 
+                                        vmax=np.abs(divergence).max())
+                    axes[2].set_title(f"Divergence (Expansion/Contraction)\n{regime['name']}")
+                    axes[2].axis('off')
+                    plt.colorbar(im3, ax=axes[2])
+                    
+                    plt.tight_layout()
+                    fig_path = disp_dir / f"displacement_field_{regime['name']}.png"
+                    plt.savefig(fig_path, dpi=150, bbox_inches='tight')
+                    plt.close()
+                    logger.info(f"Champ de déplacement sauvegardé: {fig_path}")
+                    
+                    # Ajouter les métriques aux résultats
+                    self.experiment_id += 1
+                    exp_id = self.experiment_id
+                    result = {
+                        'experiment_id': exp_id,
+                        'image_pair': image_pair_name,
+                        'resolution': resolution,
+                        'lambda': lambda_val,
+                        'blur': blur,
+                        'reach': reach if reach is not None else 'balanced',
+                        'splatting': True,
+                        't': 0.5,
+                        'regime': regime['name'],
+                        'mean_displacement': smoothness_metrics['mean_displacement'],
+                        'max_displacement': smoothness_metrics['max_displacement'],
+                        'std_displacement': smoothness_metrics['std_displacement'],
+                        'mean_divergence': smoothness_metrics['mean_divergence'],
+                        'mean_curl': smoothness_metrics['mean_curl'],
+                        'mean_laplacian': smoothness_metrics['mean_laplacian'],
+                        'smoothness_score': smoothness_metrics['smoothness_score'],
+                        'psnr': None,  # Pas calculé pour cette expérience
+                        'delta_e': None,
+                        'tearing_pct': None,
+                        'coverage': None,
+                        'mass_error': None,
+                        'sharpness': None,
+                        'compute_time_total': 0.0,
+                        'compute_time_per_frame': 0.0,
+                        'sinkhorn_time': 0.0,
+                        'interpolation_time': 0.0,
+                        'memory_allocated_gb': 0.0,
+                        'memory_max_allocated_gb': 0.0
+                    }
+                    self.results.append(result)
+                    logger.info(f"Régime {regime['name']}: smoothness_score={smoothness_metrics['smoothness_score']:.4f}, "
+                               f"mean_laplacian={smoothness_metrics['mean_laplacian']:.4f}")
+                    
+                except Exception as e:
+                    logger.error(f"Erreur calcul champ de déplacement pour {regime['name']}: {e}", exc_info=True)
         
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
@@ -773,7 +977,6 @@ class ExperimentRunner:
         lambda_val = 1.0
         blur = 0.03
         reach = 0.1
-        use_splatting = True
         times = [0.5]
         
         # Résolutions à tester progressivement - Augmentées
@@ -810,7 +1013,7 @@ class ExperimentRunner:
                             try:
                                 results_96 = self.run_single_experiment(
                                     img_source, img_target, image_pair_name,
-                                    96, lambda_val, blur, reach, use_splatting, times
+                                    96, lambda_val, blur, reach, times
                                 )
                                 if results_96:
                                     self.results.extend(results_96)
@@ -821,7 +1024,7 @@ class ExperimentRunner:
                                     try:
                                         results_128 = self.run_single_experiment(
                                             img_source, img_target, image_pair_name,
-                                            128, lambda_val, blur, reach, use_splatting, times
+                                            128, lambda_val, blur, reach, times
                                         )
                                         if results_128:
                                             self.results.extend(results_128)
@@ -899,13 +1102,24 @@ class ExperimentRunner:
             'experiment_id', 'image_pair', 'resolution', 'lambda', 'blur', 'reach',
             'splatting', 't', 'psnr', 'delta_e', 'tearing_pct', 'coverage',
             'mass_error', 'sharpness', 'compute_time_total', 'compute_time_per_frame',
-            'sinkhorn_time', 'interpolation_time', 'memory_allocated_gb', 'memory_max_allocated_gb'
+            'sinkhorn_time', 'interpolation_time', 'memory_allocated_gb', 'memory_max_allocated_gb',
+            'regime', 'mean_displacement', 'max_displacement', 'std_displacement',
+            'mean_divergence', 'mean_curl', 'mean_laplacian', 'smoothness_score'
         ]
         
         with open(csv_path, 'w', newline='') as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
-            writer.writerows(self.results)
+            # Remplacer None par des valeurs par défaut pour CSV
+            for row in self.results:
+                csv_row = {}
+                for key in fieldnames:
+                    value = row.get(key, None)
+                    if value is None:
+                        csv_row[key] = ''
+                    else:
+                        csv_row[key] = value
+                writer.writerow(csv_row)
         
         logger.info(f"Résultats sauvegardés: {csv_path} ({len(self.results)} lignes)")
         logger.info(f"Résumé: {len(set(r['experiment_id'] for r in self.results))} expériences, "
@@ -988,13 +1202,16 @@ class ExperimentRunner:
         # Figure 5: Heatmaps paramètres
         self._plot_parameter_heatmaps(df)
         
+        # Figure 6: Comparaison robustesse des régimes
+        self._plot_displacement_robustness_comparison(df)
+        
         logger.info("Visualisations générées")
     
     def _plot_2d_vs_5d_comparison(self, df):
         """Figure principale: Comparaison 2D vs 5D."""
         # Filtrer les données pertinentes
         subset = df[(df['resolution'] == 32) & (df['blur'] == 0.03) & 
-                    (df['reach'] == 0.1) & (df['splatting'] == True)]
+                    (df['reach'] == 0.1)]
         
         times = sorted(subset['t'].unique())
         fig, axes = plt.subplots(2, len(times), figsize=(4*len(times), 8))
@@ -1027,7 +1244,7 @@ class ExperimentRunner:
     def _plot_lambda_ablation(self, df):
         """Ablation Lambda à t=0.5."""
         subset = df[(df['t'] == 0.5) & (df['resolution'] == 32) & 
-                    (df['blur'] == 0.03) & (df['reach'] == 0.1) & (df['splatting'] == True)]
+                    (df['blur'] == 0.03) & (df['reach'] == 0.1)]
         
         lambdas = sorted(subset['lambda'].unique())
         fig, axes = plt.subplots(1, len(lambdas), figsize=(4*len(lambdas), 4))
@@ -1047,33 +1264,33 @@ class ExperimentRunner:
         plt.close()
     
     def _plot_splatting_impact(self, df):
-        """Impact du Splatting sur différentes résolutions."""
+        """Impact de la résolution sur le splatting adaptatif."""
         subset = df[(df['t'] == 0.5) & (df['lambda'] == 1.0) & 
                     (df['blur'] == 0.03) & (df['reach'] == 0.1)]
         
         resolutions = sorted(subset['resolution'].unique())
-        fig, axes = plt.subplots(2, len(resolutions), figsize=(4*len(resolutions), 8))
+        if len(resolutions) == 0:
+            logger.warning("Aucune donnée pour la visualisation du splatting")
+            return
+        
+        fig, axes = plt.subplots(1, len(resolutions), figsize=(4*len(resolutions), 4))
+        if len(resolutions) == 1:
+            axes = [axes]
         
         for i, res in enumerate(resolutions):
-            # Sans splatting
-            row_no = subset[(subset['resolution'] == res) & (subset['splatting'] == False)]
-            if not row_no.empty:
-                img_path = self.output_dir / "images" / f"exp{int(row_no.iloc[0]['experiment_id'])}_t0.5.png"
+            row = subset[subset['resolution'] == res]
+            if not row.empty:
+                exp_id = int(row.iloc[0]['experiment_id'])
+                # Chercher l'image avec le bon format de temps
+                img_path = self.output_dir / "images" / f"exp{exp_id}_t0.500.png"
+                if not img_path.exists():
+                    # Essayer avec format .1f
+                    img_path = self.output_dir / "images" / f"exp{exp_id}_t0.5.png"
                 if img_path.exists():
                     img = plt.imread(str(img_path))
-                    axes[0, i].imshow(img)
-            axes[0, i].set_title(f"Sans Splatting\n{res}×{res}")
-            axes[0, i].axis('off')
-            
-            # Avec splatting
-            row_yes = subset[(subset['resolution'] == res) & (subset['splatting'] == True)]
-            if not row_yes.empty:
-                img_path = self.output_dir / "images" / f"exp{int(row_yes.iloc[0]['experiment_id'])}_t0.5.png"
-                if img_path.exists():
-                    img = plt.imread(str(img_path))
-                    axes[1, i].imshow(img)
-            axes[1, i].set_title(f"Avec Splatting\n{res}×{res}")
-            axes[1, i].axis('off')
+                    axes[i].imshow(img)
+            axes[i].set_title(f"Résolution {res}×{res}\nSplatting Adaptatif")
+            axes[i].axis('off')
         
         plt.tight_layout()
         plt.savefig(self.output_dir / "images" / "splatting_impact.png", dpi=150, bbox_inches='tight')
@@ -1082,7 +1299,7 @@ class ExperimentRunner:
     def _plot_metric_curves(self, df):
         """Courbes de métriques en fonction du temps."""
         subset = df[(df['resolution'] == 32) & (df['blur'] == 0.03) & 
-                    (df['reach'] == 0.1) & (df['splatting'] == True)]
+                    (df['reach'] == 0.1)]
         
         times = sorted(subset['t'].unique())
         fig, axes = plt.subplots(2, 2, figsize=(12, 10))
@@ -1134,7 +1351,7 @@ class ExperimentRunner:
     def _plot_parameter_heatmaps(self, df):
         """Heatmaps de sensibilité aux paramètres."""
         subset = df[(df['t'] == 0.5) & (df['resolution'] == 32) & 
-                    (df['lambda'] == 1.0) & (df['splatting'] == True)]
+                    (df['lambda'] == 1.0)]
         
         blurs = sorted(subset['blur'].unique())
         reaches = sorted([r for r in subset['reach'].unique() if r != 'balanced'], key=lambda x: float(x) if isinstance(x, str) else x)
@@ -1181,6 +1398,62 @@ class ExperimentRunner:
         plt.savefig(self.output_dir / "images" / "parameter_heatmaps.png", dpi=150, bbox_inches='tight')
         plt.close()
     
+    def _plot_displacement_robustness_comparison(self, df):
+        """Comparaison de la robustesse des différents régimes."""
+        # Filtrer les résultats de l'expérience 6
+        subset = df[df['regime'].notna()]
+        
+        if subset.empty:
+            logger.warning("Aucune donnée pour la comparaison de robustesse")
+            return
+        
+        regimes = subset['regime'].unique()
+        if len(regimes) == 0:
+            return
+        
+        fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+        
+        # 1. Smoothness Score
+        smoothness_data = [subset[subset['regime'] == r]['smoothness_score'].values[0] 
+                          if len(subset[subset['regime'] == r]) > 0 else 0 
+                          for r in regimes]
+        axes[0, 0].bar(regimes, smoothness_data, color=['red', 'blue', 'green'])
+        axes[0, 0].set_ylabel('Smoothness Score')
+        axes[0, 0].set_title('Smoothness du Champ de Déplacement')
+        axes[0, 0].set_ylim([0, 1])
+        axes[0, 0].grid(True, alpha=0.3)
+        
+        # 2. Mean Laplacian (plus petit = plus lisse)
+        laplacian_data = [subset[subset['regime'] == r]['mean_laplacian'].values[0] 
+                         if len(subset[subset['regime'] == r]) > 0 else 0 
+                         for r in regimes]
+        axes[0, 1].bar(regimes, laplacian_data, color=['red', 'blue', 'green'])
+        axes[0, 1].set_ylabel('Mean Laplacian')
+        axes[0, 1].set_title('Rugosité du Champ (Laplacien)')
+        axes[0, 1].grid(True, alpha=0.3)
+        
+        # 3. Mean Displacement
+        disp_data = [subset[subset['regime'] == r]['mean_displacement'].values[0] 
+                    if len(subset[subset['regime'] == r]) > 0 else 0 
+                    for r in regimes]
+        axes[1, 0].bar(regimes, disp_data, color=['red', 'blue', 'green'])
+        axes[1, 0].set_ylabel('Mean Displacement')
+        axes[1, 0].set_title('Amplitude Moyenne du Déplacement')
+        axes[1, 0].grid(True, alpha=0.3)
+        
+        # 4. Mean Divergence
+        div_data = [subset[subset['regime'] == r]['mean_divergence'].values[0] 
+                   if len(subset[subset['regime'] == r]) > 0 else 0 
+                   for r in regimes]
+        axes[1, 1].bar(regimes, div_data, color=['red', 'blue', 'green'])
+        axes[1, 1].set_ylabel('Mean |Divergence|')
+        axes[1, 1].set_title('Expansion/Contraction Moyenne')
+        axes[1, 1].grid(True, alpha=0.3)
+        
+        plt.tight_layout()
+        plt.savefig(self.output_dir / "images" / "displacement_robustness_comparison.png", dpi=150, bbox_inches='tight')
+        plt.close()
+    
     def run_all_experiments(self):
         """Exécute toutes les expériences."""
         logger.info("=" * 80)
@@ -1213,6 +1486,9 @@ class ExperimentRunner:
         
         logger.info("\n>>> Expérience 5: Scalabilité")
         self.run_experiment_5_scalability()
+        
+        logger.info("\n>>> Expérience 6: Robustesse Champ de Déplacement")
+        self.run_experiment_6_displacement_robustness()
         
         total_time = time.time() - total_start
         

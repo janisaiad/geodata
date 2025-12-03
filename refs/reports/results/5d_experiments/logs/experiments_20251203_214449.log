@@ -1,0 +1,1082 @@
+2025-12-03 21:44:49,615 - __main__ - INFO - Logging initialisé. Fichier: /home/janis/4A/geodata/refs/reports/results/5d_experiments/logs/experiments_20251203_214449.log
+2025-12-03 21:44:49,615 - __main__ - INFO - ExperimentRunner initialisé. Output dir: /home/janis/4A/geodata/refs/reports/results/5d_experiments
+2025-12-03 21:44:49,615 - __main__ - INFO - Fichier de log: /home/janis/4A/geodata/refs/reports/results/5d_experiments/logs/experiments_20251203_214449.log
+2025-12-03 21:44:49,615 - __main__ - INFO - ================================================================================
+2025-12-03 21:44:49,615 - __main__ - INFO - DÉMARRAGE DES EXPÉRIENCES MASSIVES 5D
+2025-12-03 21:44:49,615 - __main__ - INFO - ================================================================================
+2025-12-03 21:44:49,615 - __main__ - INFO - Device: cuda
+2025-12-03 21:44:49,616 - __main__ - INFO - Paires d'images: 3
+2025-12-03 21:44:49,616 - __main__ - INFO - Résolutions: [32, 48, 64, 96, 128]
+2025-12-03 21:44:49,616 - __main__ - INFO - Lambdas: [0.0, 0.5, 1.0, 1.5, 2.0]
+2025-12-03 21:44:49,616 - __main__ - INFO - Blurs: [0.01, 0.03, 0.05, 0.1, 0.2, 0.3]
+2025-12-03 21:44:49,616 - __main__ - INFO - Reaches: [None, 0.01, 0.05, 0.1, 0.3, 0.5]
+2025-12-03 21:44:49,616 - __main__ - DEBUG - Mémoire GPU début: 0.01 GB allouée / 0.03 GB réservée / 8.59 GB total (max: 0.02 GB)
+2025-12-03 21:44:49,616 - __main__ - INFO - ================================================================================
+2025-12-03 21:44:49,616 - __main__ - INFO - 
+>>> Expérience 1: Ablation Lambda
+2025-12-03 21:44:49,616 - __main__ - INFO - === Expérience 1: Ablation Lambda ===
+2025-12-03 21:44:49,616 - __main__ - INFO - Chargement paire classique: cifar_car_airplane
+2025-12-03 21:45:00,325 - __main__ - INFO - Images chargées: torch.Size([3, 64, 64]) et torch.Size([3, 64, 64])
+2025-12-03 21:45:00,326 - __main__ - INFO - Expérience 1: cifar_car_airplane, res=32, λ=0.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:45:00,326 - __main__ - DEBUG - Mémoire GPU avant exp 1: 0.01 GB allouée / 0.03 GB réservée / 8.59 GB total (max: 0.02 GB)
+2025-12-03 21:45:00,326 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:00,330 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:00,330 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:00,501 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:00,517 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 64.90it/s]
+2025-12-03 21:45:00,517 - __main__ - DEBUG - Mémoire GPU après exp 1: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:00,518 - __main__ - INFO - Expérience 1 terminée en 0.19s (Sinkhorn: 0.19s, Interpolation: 0.00s, 0.19s/frame)
+2025-12-03 21:45:00,518 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:45:00,523 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp1_res32_lam0.0_eps0.030_rho0.10.pt (shape: torch.Size([41580]))
+2025-12-03 21:45:00,531 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp1_t0.500.png
+2025-12-03 21:45:00,531 - __main__ - INFO - Expérience 2: cifar_car_airplane, res=32, λ=0.5, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:45:00,531 - __main__ - DEBUG - Mémoire GPU avant exp 2: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:00,531 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:00,532 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:00,532 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:00,550 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:00,557 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 154.04it/s]
+2025-12-03 21:45:00,557 - __main__ - DEBUG - Mémoire GPU après exp 2: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:00,557 - __main__ - INFO - Expérience 2 terminée en 0.03s (Sinkhorn: 0.03s, Interpolation: 0.00s, 0.03s/frame)
+2025-12-03 21:45:00,558 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:45:00,560 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp2_res32_lam0.5_eps0.030_rho0.10.pt (shape: torch.Size([20072]))
+2025-12-03 21:45:00,562 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp2_t0.500.png
+2025-12-03 21:45:00,562 - __main__ - INFO - Expérience 3: cifar_car_airplane, res=32, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:45:00,563 - __main__ - DEBUG - Mémoire GPU avant exp 3: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:00,563 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:00,564 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:00,564 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:00,584 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:00,588 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 351.22it/s]
+2025-12-03 21:45:00,588 - __main__ - DEBUG - Mémoire GPU après exp 3: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:00,588 - __main__ - INFO - Expérience 3 terminée en 0.02s (Sinkhorn: 0.02s, Interpolation: 0.00s, 0.02s/frame)
+2025-12-03 21:45:00,588 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:45:00,590 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp3_res32_lam1.0_eps0.030_rho0.10.pt (shape: torch.Size([12191]))
+2025-12-03 21:45:00,592 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp3_t0.500.png
+2025-12-03 21:45:00,592 - __main__ - INFO - Expérience 4: cifar_car_airplane, res=32, λ=1.5, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:45:00,593 - __main__ - DEBUG - Mémoire GPU avant exp 4: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:00,593 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:00,594 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:00,594 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:00,616 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:00,618 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 590.41it/s]
+2025-12-03 21:45:00,619 - __main__ - DEBUG - Mémoire GPU après exp 4: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:00,619 - __main__ - INFO - Expérience 4 terminée en 0.03s (Sinkhorn: 0.03s, Interpolation: 0.00s, 0.03s/frame)
+2025-12-03 21:45:00,619 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:45:00,620 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp4_res32_lam1.5_eps0.030_rho0.10.pt (shape: torch.Size([7982]))
+2025-12-03 21:45:00,622 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp4_t0.500.png
+2025-12-03 21:45:00,623 - __main__ - INFO - Expérience 5: cifar_car_airplane, res=32, λ=2.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:45:00,623 - __main__ - DEBUG - Mémoire GPU avant exp 5: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:00,623 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:00,625 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:00,625 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:00,647 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:00,648 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 822.90it/s]
+2025-12-03 21:45:00,648 - __main__ - DEBUG - Mémoire GPU après exp 5: 0.01 GB allouée / 0.40 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:00,648 - __main__ - INFO - Expérience 5 terminée en 0.02s (Sinkhorn: 0.02s, Interpolation: 0.00s, 0.02s/frame)
+2025-12-03 21:45:00,649 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:45:00,650 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp5_res32_lam2.0_eps0.030_rho0.10.pt (shape: torch.Size([5882]))
+2025-12-03 21:45:00,652 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp5_t0.500.png
+2025-12-03 21:45:00,657 - __main__ - INFO - 
+>>> Expérience 2: Comparaison 2D vs 5D
+2025-12-03 21:45:00,657 - __main__ - INFO - === Expérience 2: Comparaison 2D vs 5D ===
+2025-12-03 21:45:00,657 - __main__ - INFO - Chargement paire classique: cifar_car_airplane
+2025-12-03 21:45:10,759 - __main__ - INFO - Images chargées: torch.Size([3, 64, 64]) et torch.Size([3, 64, 64])
+2025-12-03 21:45:10,759 - __main__ - INFO - Expérience 6: cifar_car_airplane, res=32, λ=0.0, ε=0.03, ρ=0.1, 17 temps
+2025-12-03 21:45:10,760 - __main__ - DEBUG - Mémoire GPU avant exp 6: 0.01 GB allouée / 0.02 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:10,760 - __main__ - DEBUG - Interpolation 5D: 17 temps
+2025-12-03 21:45:10,766 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:10,766 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:10,875 - __main__ - INFO - Interpolation 5D:   0%|          | 0/17 [00:00<?, ?it/s]
+2025-12-03 21:45:10,976 - __main__ - INFO - Interpolation 5D:  59%|#####8    | 10/17 [00:00<00:00, 98.80it/s]
+2025-12-03 21:45:11,005 - __main__ - INFO - Interpolation 5D: 100%|##########| 17/17 [00:00<00:00, 131.22it/s]
+2025-12-03 21:45:11,005 - __main__ - DEBUG - Mémoire GPU après exp 6: 0.01 GB allouée / 0.46 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:11,005 - __main__ - INFO - Expérience 6 terminée en 0.25s (Sinkhorn: 0.25s, Interpolation: 0.00s, 0.01s/frame)
+2025-12-03 21:45:11,005 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:45:11,008 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp6_res32_lam0.0_eps0.030_rho0.10.pt (shape: torch.Size([41580]))
+2025-12-03 21:45:11,011 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.000.png
+2025-12-03 21:45:11,012 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.050.png
+2025-12-03 21:45:11,014 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.100.png
+2025-12-03 21:45:11,015 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.150.png
+2025-12-03 21:45:11,017 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.200.png
+2025-12-03 21:45:11,018 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.250.png
+2025-12-03 21:45:11,019 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.300.png
+2025-12-03 21:45:11,021 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.400.png
+2025-12-03 21:45:11,023 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.500.png
+2025-12-03 21:45:11,025 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.600.png
+2025-12-03 21:45:11,027 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.700.png
+2025-12-03 21:45:11,029 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.750.png
+2025-12-03 21:45:11,030 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.800.png
+2025-12-03 21:45:11,032 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.850.png
+2025-12-03 21:45:11,034 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.900.png
+2025-12-03 21:45:11,036 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t0.950.png
+2025-12-03 21:45:11,038 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp6_t1.000.png
+2025-12-03 21:45:11,038 - __main__ - INFO - Expérience 7: cifar_car_airplane, res=32, λ=1.0, ε=0.03, ρ=0.1, 17 temps
+2025-12-03 21:45:11,038 - __main__ - DEBUG - Mémoire GPU avant exp 7: 0.01 GB allouée / 0.46 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:11,039 - __main__ - DEBUG - Interpolation 5D: 17 temps
+2025-12-03 21:45:11,040 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:11,040 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:11,056 - __main__ - INFO - Interpolation 5D:   0%|          | 0/17 [00:00<?, ?it/s]
+2025-12-03 21:45:11,087 - __main__ - INFO - Interpolation 5D: 100%|##########| 17/17 [00:00<00:00, 560.31it/s]
+2025-12-03 21:45:11,087 - __main__ - DEBUG - Mémoire GPU après exp 7: 0.01 GB allouée / 0.46 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:11,088 - __main__ - INFO - Expérience 7 terminée en 0.05s (Sinkhorn: 0.05s, Interpolation: 0.00s, 0.00s/frame)
+2025-12-03 21:45:11,088 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:45:11,089 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp7_res32_lam1.0_eps0.030_rho0.10.pt (shape: torch.Size([12191]))
+2025-12-03 21:45:11,092 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.000.png
+2025-12-03 21:45:11,093 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.050.png
+2025-12-03 21:45:11,095 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.100.png
+2025-12-03 21:45:11,096 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.150.png
+2025-12-03 21:45:11,097 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.200.png
+2025-12-03 21:45:11,098 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.250.png
+2025-12-03 21:45:11,099 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.300.png
+2025-12-03 21:45:11,100 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.400.png
+2025-12-03 21:45:11,102 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.500.png
+2025-12-03 21:45:11,105 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.600.png
+2025-12-03 21:45:11,107 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.700.png
+2025-12-03 21:45:11,109 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.750.png
+2025-12-03 21:45:11,110 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.800.png
+2025-12-03 21:45:11,111 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.850.png
+2025-12-03 21:45:11,112 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.900.png
+2025-12-03 21:45:11,113 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t0.950.png
+2025-12-03 21:45:11,114 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp7_t1.000.png
+2025-12-03 21:45:11,119 - __main__ - INFO - 
+>>> Expérience 3: Impact Splatting
+2025-12-03 21:45:11,119 - __main__ - INFO - === Expérience 3: Impact Splatting ===
+2025-12-03 21:45:11,119 - __main__ - INFO - Chargement paire classique: cifar_car_airplane
+2025-12-03 21:45:20,975 - __main__ - INFO - Images chargées: torch.Size([3, 64, 64]) et torch.Size([3, 64, 64])
+2025-12-03 21:45:20,976 - __main__ - INFO - Expérience 8: cifar_car_airplane, res=32, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:45:20,976 - __main__ - DEBUG - Mémoire GPU avant exp 8: 0.01 GB allouée / 0.02 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:20,976 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:20,980 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:20,980 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:21,169 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:21,176 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 161.70it/s]
+2025-12-03 21:45:21,176 - __main__ - DEBUG - Mémoire GPU après exp 8: 0.01 GB allouée / 0.14 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:21,176 - __main__ - INFO - Expérience 8 terminée en 0.20s (Sinkhorn: 0.20s, Interpolation: 0.00s, 0.20s/frame)
+2025-12-03 21:45:21,176 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 0.28 GB)
+2025-12-03 21:45:21,181 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp8_res32_lam1.0_eps0.030_rho0.10.pt (shape: torch.Size([12191]))
+2025-12-03 21:45:21,184 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp8_t0.500.png
+2025-12-03 21:45:21,184 - __main__ - INFO - Expérience 9: cifar_car_airplane, res=48, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:45:21,184 - __main__ - DEBUG - Mémoire GPU avant exp 9: 0.01 GB allouée / 0.14 GB réservée / 8.59 GB total (max: 0.28 GB)
+2025-12-03 21:45:21,184 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:21,186 - __main__ - DEBUG - Nuages 5D: Source 2304 points, Target 2304 points
+2025-12-03 21:45:21,186 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:21,253 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:21,274 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 49.62it/s]
+2025-12-03 21:45:21,274 - __main__ - DEBUG - Mémoire GPU après exp 9: 0.03 GB allouée / 0.64 GB réservée / 8.59 GB total (max: 0.43 GB)
+2025-12-03 21:45:21,274 - __main__ - INFO - Expérience 9 terminée en 0.09s (Sinkhorn: 0.09s, Interpolation: 0.00s, 0.09s/frame)
+2025-12-03 21:45:21,274 - __main__ - INFO -   Mémoire GPU: 0.03 GB allouée (max: 0.43 GB)
+2025-12-03 21:45:21,277 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp9_res48_lam1.0_eps0.030_rho0.10.pt (shape: torch.Size([54273]))
+2025-12-03 21:45:21,279 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp9_t0.500.png
+2025-12-03 21:45:21,279 - __main__ - INFO - Expérience 10: cifar_car_airplane, res=64, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:45:21,280 - __main__ - DEBUG - Mémoire GPU avant exp 10: 0.01 GB allouée / 0.64 GB réservée / 8.59 GB total (max: 0.43 GB)
+2025-12-03 21:45:21,280 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:21,280 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-03 21:45:21,280 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:21,572 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:21,623 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 19.57it/s]
+2025-12-03 21:45:21,624 - __main__ - DEBUG - Mémoire GPU après exp 10: 0.08 GB allouée / 2.08 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:21,624 - __main__ - INFO - Expérience 10 terminée en 0.34s (Sinkhorn: 0.34s, Interpolation: 0.00s, 0.34s/frame)
+2025-12-03 21:45:21,624 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:21,629 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp10_res64_lam1.0_eps0.030_rho0.10.pt (shape: torch.Size([167032]))
+2025-12-03 21:45:21,633 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp10_t0.500.png
+2025-12-03 21:45:21,650 - __main__ - INFO - 
+>>> Expérience 4: Sensibilité Paramètres
+2025-12-03 21:45:21,650 - __main__ - INFO - === Expérience 4: Sensibilité Paramètres ===
+2025-12-03 21:45:21,650 - __main__ - INFO - Chargement paire classique: cifar_car_airplane
+2025-12-03 21:45:31,751 - __main__ - INFO - Images chargées: torch.Size([3, 64, 64]) et torch.Size([3, 64, 64])
+2025-12-03 21:45:31,751 - __main__ - INFO - Expérience 11: cifar_car_airplane, res=32, λ=1.0, ε=0.01, ρ=None, 1 temps
+2025-12-03 21:45:31,751 - __main__ - DEBUG - Mémoire GPU avant exp 11: 0.01 GB allouée / 0.02 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:31,752 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:31,757 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:31,757 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:31,882 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:31,886 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 324.24it/s]
+2025-12-03 21:45:31,886 - __main__ - DEBUG - Mémoire GPU après exp 11: 0.01 GB allouée / 0.07 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:31,886 - __main__ - INFO - Expérience 11 terminée en 0.13s (Sinkhorn: 0.13s, Interpolation: 0.00s, 0.13s/frame)
+2025-12-03 21:45:31,886 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:31,887 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp11_res32_lam1.0_eps0.010_rhobalanced.pt (shape: torch.Size([4062]))
+2025-12-03 21:45:31,889 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp11_t0.500.png
+2025-12-03 21:45:31,889 - __main__ - INFO - Expérience 12: cifar_car_airplane, res=32, λ=1.0, ε=0.01, ρ=0.01, 1 temps
+2025-12-03 21:45:31,890 - __main__ - DEBUG - Mémoire GPU avant exp 12: 0.01 GB allouée / 0.07 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:31,890 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:31,891 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:31,891 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:31,915 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:31,916 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 996.04it/s]
+2025-12-03 21:45:31,917 - __main__ - DEBUG - Mémoire GPU après exp 12: 0.01 GB allouée / 0.07 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:31,917 - __main__ - INFO - Expérience 12 terminée en 0.03s (Sinkhorn: 0.03s, Interpolation: 0.00s, 0.03s/frame)
+2025-12-03 21:45:31,917 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:31,918 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp12_res32_lam1.0_eps0.010_rho0.01.pt (shape: torch.Size([132]))
+2025-12-03 21:45:31,921 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp12_t0.500.png
+2025-12-03 21:45:31,921 - __main__ - INFO - Expérience 13: cifar_car_airplane, res=32, λ=1.0, ε=0.01, ρ=0.05, 1 temps
+2025-12-03 21:45:31,922 - __main__ - DEBUG - Mémoire GPU avant exp 13: 0.01 GB allouée / 0.07 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:31,922 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:31,923 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:31,923 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:31,948 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:31,951 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 475.81it/s]
+2025-12-03 21:45:31,951 - __main__ - DEBUG - Mémoire GPU après exp 13: 0.01 GB allouée / 0.07 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:31,951 - __main__ - INFO - Expérience 13 terminée en 0.03s (Sinkhorn: 0.03s, Interpolation: 0.00s, 0.03s/frame)
+2025-12-03 21:45:31,951 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:31,953 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp13_res32_lam1.0_eps0.010_rho0.05.pt (shape: torch.Size([1929]))
+2025-12-03 21:45:31,956 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp13_t0.500.png
+2025-12-03 21:45:31,956 - __main__ - INFO - Expérience 14: cifar_car_airplane, res=32, λ=1.0, ε=0.01, ρ=0.1, 1 temps
+2025-12-03 21:45:31,956 - __main__ - DEBUG - Mémoire GPU avant exp 14: 0.01 GB allouée / 0.07 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:31,957 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:31,959 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:31,959 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:31,984 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:31,986 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 906.09it/s]
+2025-12-03 21:45:31,986 - __main__ - DEBUG - Mémoire GPU après exp 14: 0.01 GB allouée / 0.07 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:31,986 - __main__ - INFO - Expérience 14 terminée en 0.03s (Sinkhorn: 0.03s, Interpolation: 0.00s, 0.03s/frame)
+2025-12-03 21:45:31,986 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:31,987 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp14_res32_lam1.0_eps0.010_rho0.10.pt (shape: torch.Size([2910]))
+2025-12-03 21:45:31,990 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp14_t0.500.png
+2025-12-03 21:45:31,990 - __main__ - INFO - Expérience 15: cifar_car_airplane, res=32, λ=1.0, ε=0.01, ρ=0.3, 1 temps
+2025-12-03 21:45:31,990 - __main__ - DEBUG - Mémoire GPU avant exp 15: 0.01 GB allouée / 0.07 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:31,990 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:31,992 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:31,992 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,016 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,018 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 796.64it/s]
+2025-12-03 21:45:32,018 - __main__ - DEBUG - Mémoire GPU après exp 15: 0.01 GB allouée / 0.07 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,018 - __main__ - INFO - Expérience 15 terminée en 0.03s (Sinkhorn: 0.03s, Interpolation: 0.00s, 0.03s/frame)
+2025-12-03 21:45:32,018 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,020 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp15_res32_lam1.0_eps0.010_rho0.30.pt (shape: torch.Size([3647]))
+2025-12-03 21:45:32,022 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp15_t0.500.png
+2025-12-03 21:45:32,022 - __main__ - INFO - Expérience 16: cifar_car_airplane, res=32, λ=1.0, ε=0.01, ρ=0.5, 1 temps
+2025-12-03 21:45:32,023 - __main__ - DEBUG - Mémoire GPU avant exp 16: 0.01 GB allouée / 0.07 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,023 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,024 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,024 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,045 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,047 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 692.02it/s]
+2025-12-03 21:45:32,047 - __main__ - DEBUG - Mémoire GPU après exp 16: 0.01 GB allouée / 0.07 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,047 - __main__ - INFO - Expérience 16 terminée en 0.02s (Sinkhorn: 0.02s, Interpolation: 0.00s, 0.02s/frame)
+2025-12-03 21:45:32,047 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,048 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp16_res32_lam1.0_eps0.010_rho0.50.pt (shape: torch.Size([3828]))
+2025-12-03 21:45:32,051 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp16_t0.500.png
+2025-12-03 21:45:32,051 - __main__ - INFO - Expérience 17: cifar_car_airplane, res=32, λ=1.0, ε=0.03, ρ=None, 1 temps
+2025-12-03 21:45:32,052 - __main__ - DEBUG - Mémoire GPU avant exp 17: 0.01 GB allouée / 0.07 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,052 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,053 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,053 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,072 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,080 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 123.16it/s]
+2025-12-03 21:45:32,083 - __main__ - DEBUG - Mémoire GPU après exp 17: 0.01 GB allouée / 0.23 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,083 - __main__ - INFO - Expérience 17 terminée en 0.03s (Sinkhorn: 0.03s, Interpolation: 0.00s, 0.03s/frame)
+2025-12-03 21:45:32,083 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,084 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp17_res32_lam1.0_eps0.030_rhobalanced.pt (shape: torch.Size([21543]))
+2025-12-03 21:45:32,087 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp17_t0.500.png
+2025-12-03 21:45:32,087 - __main__ - INFO - Expérience 18: cifar_car_airplane, res=32, λ=1.0, ε=0.03, ρ=0.01, 1 temps
+2025-12-03 21:45:32,087 - __main__ - DEBUG - Mémoire GPU avant exp 18: 0.01 GB allouée / 0.23 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,087 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,089 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,089 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,110 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,111 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 962.66it/s]
+2025-12-03 21:45:32,112 - __main__ - DEBUG - Mémoire GPU après exp 18: 0.01 GB allouée / 0.23 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,112 - __main__ - INFO - Expérience 18 terminée en 0.02s (Sinkhorn: 0.02s, Interpolation: 0.00s, 0.02s/frame)
+2025-12-03 21:45:32,112 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,113 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp18_res32_lam1.0_eps0.030_rho0.01.pt (shape: torch.Size([2068]))
+2025-12-03 21:45:32,115 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp18_t0.500.png
+2025-12-03 21:45:32,115 - __main__ - INFO - Expérience 19: cifar_car_airplane, res=32, λ=1.0, ε=0.03, ρ=0.05, 1 temps
+2025-12-03 21:45:32,116 - __main__ - DEBUG - Mémoire GPU avant exp 19: 0.01 GB allouée / 0.23 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,116 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,117 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,117 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,139 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,140 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 607.25it/s]
+2025-12-03 21:45:32,141 - __main__ - DEBUG - Mémoire GPU après exp 19: 0.01 GB allouée / 0.23 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,141 - __main__ - INFO - Expérience 19 terminée en 0.02s (Sinkhorn: 0.02s, Interpolation: 0.00s, 0.02s/frame)
+2025-12-03 21:45:32,141 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,142 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp19_res32_lam1.0_eps0.030_rho0.05.pt (shape: torch.Size([7332]))
+2025-12-03 21:45:32,144 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp19_t0.500.png
+2025-12-03 21:45:32,145 - __main__ - INFO - Expérience 20: cifar_car_airplane, res=32, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:45:32,145 - __main__ - DEBUG - Mémoire GPU avant exp 20: 0.01 GB allouée / 0.23 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,145 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,146 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,146 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,164 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,167 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 392.06it/s]
+2025-12-03 21:45:32,168 - __main__ - DEBUG - Mémoire GPU après exp 20: 0.01 GB allouée / 0.23 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,168 - __main__ - INFO - Expérience 20 terminée en 0.02s (Sinkhorn: 0.02s, Interpolation: 0.00s, 0.02s/frame)
+2025-12-03 21:45:32,168 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,169 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp20_res32_lam1.0_eps0.030_rho0.10.pt (shape: torch.Size([12191]))
+2025-12-03 21:45:32,172 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp20_t0.500.png
+2025-12-03 21:45:32,172 - __main__ - INFO - Expérience 21: cifar_car_airplane, res=32, λ=1.0, ε=0.03, ρ=0.3, 1 temps
+2025-12-03 21:45:32,173 - __main__ - DEBUG - Mémoire GPU avant exp 21: 0.01 GB allouée / 0.23 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,173 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,174 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,174 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,195 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,200 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 223.60it/s]
+2025-12-03 21:45:32,201 - __main__ - DEBUG - Mémoire GPU après exp 21: 0.01 GB allouée / 0.23 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,201 - __main__ - INFO - Expérience 21 terminée en 0.03s (Sinkhorn: 0.03s, Interpolation: 0.00s, 0.03s/frame)
+2025-12-03 21:45:32,201 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,202 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp21_res32_lam1.0_eps0.030_rho0.30.pt (shape: torch.Size([18336]))
+2025-12-03 21:45:32,205 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp21_t0.500.png
+2025-12-03 21:45:32,205 - __main__ - INFO - Expérience 22: cifar_car_airplane, res=32, λ=1.0, ε=0.03, ρ=0.5, 1 temps
+2025-12-03 21:45:32,206 - __main__ - DEBUG - Mémoire GPU avant exp 22: 0.01 GB allouée / 0.23 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,206 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,207 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,207 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,227 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,232 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 206.82it/s]
+2025-12-03 21:45:32,232 - __main__ - DEBUG - Mémoire GPU après exp 22: 0.01 GB allouée / 0.23 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,232 - __main__ - INFO - Expérience 22 terminée en 0.03s (Sinkhorn: 0.03s, Interpolation: 0.00s, 0.03s/frame)
+2025-12-03 21:45:32,232 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,235 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp22_res32_lam1.0_eps0.030_rho0.50.pt (shape: torch.Size([19913]))
+2025-12-03 21:45:32,237 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp22_t0.500.png
+2025-12-03 21:45:32,237 - __main__ - INFO - Expérience 23: cifar_car_airplane, res=32, λ=1.0, ε=0.05, ρ=None, 1 temps
+2025-12-03 21:45:32,238 - __main__ - DEBUG - Mémoire GPU avant exp 23: 0.01 GB allouée / 0.23 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,238 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,239 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,239 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,258 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,278 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 53.03it/s]
+2025-12-03 21:45:32,278 - __main__ - DEBUG - Mémoire GPU après exp 23: 0.01 GB allouée / 0.62 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,278 - __main__ - INFO - Expérience 23 terminée en 0.04s (Sinkhorn: 0.04s, Interpolation: 0.00s, 0.04s/frame)
+2025-12-03 21:45:32,278 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,281 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp23_res32_lam1.0_eps0.050_rhobalanced.pt (shape: torch.Size([53710]))
+2025-12-03 21:45:32,283 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp23_t0.500.png
+2025-12-03 21:45:32,283 - __main__ - INFO - Expérience 24: cifar_car_airplane, res=32, λ=1.0, ε=0.05, ρ=0.01, 1 temps
+2025-12-03 21:45:32,283 - __main__ - DEBUG - Mémoire GPU avant exp 24: 0.01 GB allouée / 0.62 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,284 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,285 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,285 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,301 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,304 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 438.78it/s]
+2025-12-03 21:45:32,305 - __main__ - DEBUG - Mémoire GPU après exp 24: 0.01 GB allouée / 0.62 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,305 - __main__ - INFO - Expérience 24 terminée en 0.02s (Sinkhorn: 0.02s, Interpolation: 0.00s, 0.02s/frame)
+2025-12-03 21:45:32,305 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,306 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp24_res32_lam1.0_eps0.050_rho0.01.pt (shape: torch.Size([12104]))
+2025-12-03 21:45:32,309 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp24_t0.500.png
+2025-12-03 21:45:32,309 - __main__ - INFO - Expérience 25: cifar_car_airplane, res=32, λ=1.0, ε=0.05, ρ=0.05, 1 temps
+2025-12-03 21:45:32,310 - __main__ - DEBUG - Mémoire GPU avant exp 25: 0.01 GB allouée / 0.62 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,310 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,311 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,311 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,329 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,334 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 197.56it/s]
+2025-12-03 21:45:32,335 - __main__ - DEBUG - Mémoire GPU après exp 25: 0.01 GB allouée / 0.62 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,335 - __main__ - INFO - Expérience 25 terminée en 0.02s (Sinkhorn: 0.02s, Interpolation: 0.00s, 0.02s/frame)
+2025-12-03 21:45:32,335 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,336 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp25_res32_lam1.0_eps0.050_rho0.05.pt (shape: torch.Size([20581]))
+2025-12-03 21:45:32,339 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp25_t0.500.png
+2025-12-03 21:45:32,339 - __main__ - INFO - Expérience 26: cifar_car_airplane, res=32, λ=1.0, ε=0.05, ρ=0.1, 1 temps
+2025-12-03 21:45:32,339 - __main__ - DEBUG - Mémoire GPU avant exp 26: 0.01 GB allouée / 0.62 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,339 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,340 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,340 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,357 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,365 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 134.45it/s]
+2025-12-03 21:45:32,366 - __main__ - DEBUG - Mémoire GPU après exp 26: 0.01 GB allouée / 0.62 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,366 - __main__ - INFO - Expérience 26 terminée en 0.03s (Sinkhorn: 0.03s, Interpolation: 0.00s, 0.03s/frame)
+2025-12-03 21:45:32,366 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,367 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp26_res32_lam1.0_eps0.050_rho0.10.pt (shape: torch.Size([29289]))
+2025-12-03 21:45:32,369 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp26_t0.500.png
+2025-12-03 21:45:32,369 - __main__ - INFO - Expérience 27: cifar_car_airplane, res=32, λ=1.0, ε=0.05, ρ=0.3, 1 temps
+2025-12-03 21:45:32,370 - __main__ - DEBUG - Mémoire GPU avant exp 27: 0.01 GB allouée / 0.62 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,370 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,371 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,371 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,391 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,402 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 93.29it/s]
+2025-12-03 21:45:32,403 - __main__ - DEBUG - Mémoire GPU après exp 27: 0.01 GB allouée / 0.62 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,403 - __main__ - INFO - Expérience 27 terminée en 0.03s (Sinkhorn: 0.03s, Interpolation: 0.00s, 0.03s/frame)
+2025-12-03 21:45:32,403 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,405 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp27_res32_lam1.0_eps0.050_rho0.30.pt (shape: torch.Size([42409]))
+2025-12-03 21:45:32,407 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp27_t0.500.png
+2025-12-03 21:45:32,408 - __main__ - INFO - Expérience 28: cifar_car_airplane, res=32, λ=1.0, ε=0.05, ρ=0.5, 1 temps
+2025-12-03 21:45:32,408 - __main__ - DEBUG - Mémoire GPU avant exp 28: 0.01 GB allouée / 0.62 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,409 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,410 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,410 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,428 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,440 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 86.64it/s]
+2025-12-03 21:45:32,441 - __main__ - DEBUG - Mémoire GPU après exp 28: 0.01 GB allouée / 0.62 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,441 - __main__ - INFO - Expérience 28 terminée en 0.03s (Sinkhorn: 0.03s, Interpolation: 0.00s, 0.03s/frame)
+2025-12-03 21:45:32,441 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,444 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp28_res32_lam1.0_eps0.050_rho0.50.pt (shape: torch.Size([45923]))
+2025-12-03 21:45:32,446 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp28_t0.500.png
+2025-12-03 21:45:32,447 - __main__ - INFO - Expérience 29: cifar_car_airplane, res=32, λ=1.0, ε=0.1, ρ=None, 1 temps
+2025-12-03 21:45:32,447 - __main__ - DEBUG - Mémoire GPU avant exp 29: 0.01 GB allouée / 0.62 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,447 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,448 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,448 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,465 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,522 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 17.47it/s]
+2025-12-03 21:45:32,523 - __main__ - DEBUG - Mémoire GPU après exp 29: 0.02 GB allouée / 1.99 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,523 - __main__ - INFO - Expérience 29 terminée en 0.08s (Sinkhorn: 0.08s, Interpolation: 0.00s, 0.08s/frame)
+2025-12-03 21:45:32,523 - __main__ - INFO -   Mémoire GPU: 0.02 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,529 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp29_res32_lam1.0_eps0.100_rhobalanced.pt (shape: torch.Size([186770]))
+2025-12-03 21:45:32,532 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp29_t0.500.png
+2025-12-03 21:45:32,532 - __main__ - INFO - Expérience 30: cifar_car_airplane, res=32, λ=1.0, ε=0.1, ρ=0.01, 1 temps
+2025-12-03 21:45:32,532 - __main__ - DEBUG - Mémoire GPU avant exp 30: 0.01 GB allouée / 1.99 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,532 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,533 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,533 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,548 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,573 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 39.88it/s]
+2025-12-03 21:45:32,573 - __main__ - DEBUG - Mémoire GPU après exp 30: 0.01 GB allouée / 1.99 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,574 - __main__ - INFO - Expérience 30 terminée en 0.04s (Sinkhorn: 0.04s, Interpolation: 0.00s, 0.04s/frame)
+2025-12-03 21:45:32,574 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,578 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp30_res32_lam1.0_eps0.100_rho0.01.pt (shape: torch.Size([98611]))
+2025-12-03 21:45:32,581 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp30_t0.500.png
+2025-12-03 21:45:32,581 - __main__ - INFO - Expérience 31: cifar_car_airplane, res=32, λ=1.0, ε=0.1, ρ=0.05, 1 temps
+2025-12-03 21:45:32,581 - __main__ - DEBUG - Mémoire GPU avant exp 31: 0.01 GB allouée / 1.99 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,582 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,583 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,583 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,597 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,624 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 37.21it/s]
+2025-12-03 21:45:32,625 - __main__ - DEBUG - Mémoire GPU après exp 31: 0.01 GB allouée / 1.99 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,625 - __main__ - INFO - Expérience 31 terminée en 0.04s (Sinkhorn: 0.04s, Interpolation: 0.00s, 0.04s/frame)
+2025-12-03 21:45:32,625 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,629 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp31_res32_lam1.0_eps0.100_rho0.05.pt (shape: torch.Size([105205]))
+2025-12-03 21:45:32,631 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp31_t0.500.png
+2025-12-03 21:45:32,632 - __main__ - INFO - Expérience 32: cifar_car_airplane, res=32, λ=1.0, ε=0.1, ρ=0.1, 1 temps
+2025-12-03 21:45:32,632 - __main__ - DEBUG - Mémoire GPU avant exp 32: 0.01 GB allouée / 1.99 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,632 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,633 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,633 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,650 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,679 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 34.40it/s]
+2025-12-03 21:45:32,680 - __main__ - DEBUG - Mémoire GPU après exp 32: 0.01 GB allouée / 1.99 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,680 - __main__ - INFO - Expérience 32 terminée en 0.05s (Sinkhorn: 0.05s, Interpolation: 0.00s, 0.05s/frame)
+2025-12-03 21:45:32,680 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,684 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp32_res32_lam1.0_eps0.100_rho0.10.pt (shape: torch.Size([117401]))
+2025-12-03 21:45:32,687 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp32_t0.500.png
+2025-12-03 21:45:32,687 - __main__ - INFO - Expérience 33: cifar_car_airplane, res=32, λ=1.0, ε=0.1, ρ=0.3, 1 temps
+2025-12-03 21:45:32,688 - __main__ - DEBUG - Mémoire GPU avant exp 33: 0.01 GB allouée / 1.99 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,688 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,689 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,689 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,706 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,739 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 30.18it/s]
+2025-12-03 21:45:32,740 - __main__ - DEBUG - Mémoire GPU après exp 33: 0.01 GB allouée / 1.99 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,740 - __main__ - INFO - Expérience 33 terminée en 0.05s (Sinkhorn: 0.05s, Interpolation: 0.00s, 0.05s/frame)
+2025-12-03 21:45:32,740 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,744 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp33_res32_lam1.0_eps0.100_rho0.30.pt (shape: torch.Size([142123]))
+2025-12-03 21:45:32,747 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp33_t0.500.png
+2025-12-03 21:45:32,747 - __main__ - INFO - Expérience 34: cifar_car_airplane, res=32, λ=1.0, ε=0.1, ρ=0.5, 1 temps
+2025-12-03 21:45:32,747 - __main__ - DEBUG - Mémoire GPU avant exp 34: 0.01 GB allouée / 1.99 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,747 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,748 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,748 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,765 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:32,802 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 27.35it/s]
+2025-12-03 21:45:32,803 - __main__ - DEBUG - Mémoire GPU après exp 34: 0.02 GB allouée / 1.99 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,803 - __main__ - INFO - Expérience 34 terminée en 0.05s (Sinkhorn: 0.05s, Interpolation: 0.00s, 0.05s/frame)
+2025-12-03 21:45:32,803 - __main__ - INFO -   Mémoire GPU: 0.02 GB allouée (max: 1.31 GB)
+2025-12-03 21:45:32,808 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp34_res32_lam1.0_eps0.100_rho0.50.pt (shape: torch.Size([155392]))
+2025-12-03 21:45:32,812 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp34_t0.500.png
+2025-12-03 21:45:32,812 - __main__ - INFO - Expérience 35: cifar_car_airplane, res=32, λ=1.0, ε=0.2, ρ=None, 1 temps
+2025-12-03 21:45:32,813 - __main__ - DEBUG - Mémoire GPU avant exp 35: 0.01 GB allouée / 1.99 GB réservée / 8.59 GB total (max: 1.31 GB)
+2025-12-03 21:45:32,813 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:32,814 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:32,814 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:32,826 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:33,014 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  5.30it/s]
+2025-12-03 21:45:33,015 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  5.29it/s]
+2025-12-03 21:45:33,015 - __main__ - DEBUG - Mémoire GPU après exp 35: 0.02 GB allouée / 6.55 GB réservée / 8.59 GB total (max: 3.81 GB)
+2025-12-03 21:45:33,015 - __main__ - INFO - Expérience 35 terminée en 0.20s (Sinkhorn: 0.20s, Interpolation: 0.00s, 0.20s/frame)
+2025-12-03 21:45:33,015 - __main__ - INFO -   Mémoire GPU: 0.02 GB allouée (max: 3.81 GB)
+2025-12-03 21:45:33,031 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp35_res32_lam1.0_eps0.200_rhobalanced.pt (shape: torch.Size([626561]))
+2025-12-03 21:45:33,034 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp35_t0.500.png
+2025-12-03 21:45:33,035 - __main__ - INFO - Expérience 36: cifar_car_airplane, res=32, λ=1.0, ε=0.2, ρ=0.01, 1 temps
+2025-12-03 21:45:33,035 - __main__ - DEBUG - Mémoire GPU avant exp 36: 0.01 GB allouée / 6.55 GB réservée / 8.59 GB total (max: 3.81 GB)
+2025-12-03 21:45:33,035 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:33,036 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:33,036 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:33,047 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:33,154 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  9.37it/s]
+2025-12-03 21:45:33,154 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  9.34it/s]
+2025-12-03 21:45:33,154 - __main__ - DEBUG - Mémoire GPU après exp 36: 0.02 GB allouée / 6.55 GB réservée / 8.59 GB total (max: 3.81 GB)
+2025-12-03 21:45:33,155 - __main__ - INFO - Expérience 36 terminée en 0.12s (Sinkhorn: 0.12s, Interpolation: 0.00s, 0.12s/frame)
+2025-12-03 21:45:33,155 - __main__ - INFO -   Mémoire GPU: 0.02 GB allouée (max: 3.81 GB)
+2025-12-03 21:45:33,167 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp36_res32_lam1.0_eps0.200_rho0.01.pt (shape: torch.Size([494309]))
+2025-12-03 21:45:33,170 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp36_t0.500.png
+2025-12-03 21:45:33,170 - __main__ - INFO - Expérience 37: cifar_car_airplane, res=32, λ=1.0, ε=0.2, ρ=0.05, 1 temps
+2025-12-03 21:45:33,171 - __main__ - DEBUG - Mémoire GPU avant exp 37: 0.01 GB allouée / 6.55 GB réservée / 8.59 GB total (max: 3.81 GB)
+2025-12-03 21:45:33,171 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:33,172 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:33,172 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:33,185 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:33,292 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  9.36it/s]
+2025-12-03 21:45:33,292 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  9.32it/s]
+2025-12-03 21:45:33,293 - __main__ - DEBUG - Mémoire GPU après exp 37: 0.02 GB allouée / 6.55 GB réservée / 8.59 GB total (max: 3.81 GB)
+2025-12-03 21:45:33,293 - __main__ - INFO - Expérience 37 terminée en 0.12s (Sinkhorn: 0.12s, Interpolation: 0.00s, 0.12s/frame)
+2025-12-03 21:45:33,293 - __main__ - INFO -   Mémoire GPU: 0.02 GB allouée (max: 3.81 GB)
+2025-12-03 21:45:33,312 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp37_res32_lam1.0_eps0.200_rho0.05.pt (shape: torch.Size([496400]))
+2025-12-03 21:45:33,315 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp37_t0.500.png
+2025-12-03 21:45:33,315 - __main__ - INFO - Expérience 38: cifar_car_airplane, res=32, λ=1.0, ε=0.2, ρ=0.1, 1 temps
+2025-12-03 21:45:33,315 - __main__ - DEBUG - Mémoire GPU avant exp 38: 0.01 GB allouée / 6.55 GB réservée / 8.59 GB total (max: 3.81 GB)
+2025-12-03 21:45:33,315 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:33,317 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:33,317 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:33,329 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:33,438 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  9.20it/s]
+2025-12-03 21:45:33,438 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  9.17it/s]
+2025-12-03 21:45:33,439 - __main__ - DEBUG - Mémoire GPU après exp 38: 0.02 GB allouée / 6.55 GB réservée / 8.59 GB total (max: 3.81 GB)
+2025-12-03 21:45:33,439 - __main__ - INFO - Expérience 38 terminée en 0.12s (Sinkhorn: 0.12s, Interpolation: 0.00s, 0.12s/frame)
+2025-12-03 21:45:33,439 - __main__ - INFO -   Mémoire GPU: 0.02 GB allouée (max: 3.81 GB)
+2025-12-03 21:45:33,450 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp38_res32_lam1.0_eps0.200_rho0.10.pt (shape: torch.Size([501006]))
+2025-12-03 21:45:33,454 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp38_t0.500.png
+2025-12-03 21:45:33,454 - __main__ - INFO - Expérience 39: cifar_car_airplane, res=32, λ=1.0, ε=0.2, ρ=0.3, 1 temps
+2025-12-03 21:45:33,455 - __main__ - DEBUG - Mémoire GPU avant exp 39: 0.01 GB allouée / 6.55 GB réservée / 8.59 GB total (max: 3.81 GB)
+2025-12-03 21:45:33,455 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:33,456 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:33,456 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:33,469 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:33,585 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  8.61it/s]
+2025-12-03 21:45:33,585 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  8.59it/s]
+2025-12-03 21:45:33,586 - __main__ - DEBUG - Mémoire GPU après exp 39: 0.02 GB allouée / 6.55 GB réservée / 8.59 GB total (max: 3.81 GB)
+2025-12-03 21:45:33,586 - __main__ - INFO - Expérience 39 terminée en 0.13s (Sinkhorn: 0.13s, Interpolation: 0.00s, 0.13s/frame)
+2025-12-03 21:45:33,586 - __main__ - INFO -   Mémoire GPU: 0.02 GB allouée (max: 3.81 GB)
+2025-12-03 21:45:33,599 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp39_res32_lam1.0_eps0.200_rho0.30.pt (shape: torch.Size([534517]))
+2025-12-03 21:45:33,601 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp39_t0.500.png
+2025-12-03 21:45:33,602 - __main__ - INFO - Expérience 40: cifar_car_airplane, res=32, λ=1.0, ε=0.2, ρ=0.5, 1 temps
+2025-12-03 21:45:33,602 - __main__ - DEBUG - Mémoire GPU avant exp 40: 0.01 GB allouée / 6.55 GB réservée / 8.59 GB total (max: 3.81 GB)
+2025-12-03 21:45:33,602 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:33,604 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:33,604 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:33,615 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:33,737 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  8.25it/s]
+2025-12-03 21:45:33,737 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  8.23it/s]
+2025-12-03 21:45:33,737 - __main__ - DEBUG - Mémoire GPU après exp 40: 0.02 GB allouée / 6.55 GB réservée / 8.59 GB total (max: 3.81 GB)
+2025-12-03 21:45:33,737 - __main__ - INFO - Expérience 40 terminée en 0.13s (Sinkhorn: 0.13s, Interpolation: 0.00s, 0.13s/frame)
+2025-12-03 21:45:33,737 - __main__ - INFO -   Mémoire GPU: 0.02 GB allouée (max: 3.81 GB)
+2025-12-03 21:45:33,751 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp40_res32_lam1.0_eps0.200_rho0.50.pt (shape: torch.Size([563576]))
+2025-12-03 21:45:33,753 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp40_t0.500.png
+2025-12-03 21:45:33,753 - __main__ - INFO - Expérience 41: cifar_car_airplane, res=32, λ=1.0, ε=0.3, ρ=None, 1 temps
+2025-12-03 21:45:33,754 - __main__ - DEBUG - Mémoire GPU avant exp 41: 0.01 GB allouée / 6.55 GB réservée / 8.59 GB total (max: 3.81 GB)
+2025-12-03 21:45:33,754 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:33,755 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:33,755 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:33,767 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:38,122 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:04<00:00,  4.35s/it]
+2025-12-03 21:45:38,123 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:04<00:00,  4.36s/it]
+2025-12-03 21:45:38,126 - __main__ - DEBUG - Mémoire GPU après exp 41: 0.03 GB allouée / 10.52 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:45:38,126 - __main__ - INFO - Expérience 41 terminée en 4.37s (Sinkhorn: 4.37s, Interpolation: 0.00s, 4.37s/frame)
+2025-12-03 21:45:38,126 - __main__ - INFO -   Mémoire GPU: 0.03 GB allouée (max: 5.53 GB)
+2025-12-03 21:45:38,185 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp41_res32_lam1.0_eps0.300_rhobalanced.pt (shape: torch.Size([912653]))
+2025-12-03 21:45:38,197 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp41_t0.500.png
+2025-12-03 21:45:38,197 - __main__ - INFO - Expérience 42: cifar_car_airplane, res=32, λ=1.0, ε=0.3, ρ=0.01, 1 temps
+2025-12-03 21:45:38,199 - __main__ - DEBUG - Mémoire GPU avant exp 42: 0.01 GB allouée / 10.52 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:45:38,200 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:38,203 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:38,203 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:38,227 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:40,312 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:02<00:00,  2.08s/it]
+2025-12-03 21:45:40,312 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:02<00:00,  2.08s/it]
+2025-12-03 21:45:40,312 - __main__ - DEBUG - Mémoire GPU après exp 42: 0.03 GB allouée / 10.52 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:45:40,312 - __main__ - INFO - Expérience 42 terminée en 2.11s (Sinkhorn: 2.11s, Interpolation: 0.00s, 2.11s/frame)
+2025-12-03 21:45:40,312 - __main__ - INFO -   Mémoire GPU: 0.03 GB allouée (max: 5.53 GB)
+2025-12-03 21:45:40,353 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp42_res32_lam1.0_eps0.300_rho0.01.pt (shape: torch.Size([855301]))
+2025-12-03 21:45:40,355 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp42_t0.500.png
+2025-12-03 21:45:40,355 - __main__ - INFO - Expérience 43: cifar_car_airplane, res=32, λ=1.0, ε=0.3, ρ=0.05, 1 temps
+2025-12-03 21:45:40,356 - __main__ - DEBUG - Mémoire GPU avant exp 43: 0.01 GB allouée / 10.52 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:45:40,356 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:40,357 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:40,357 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:40,370 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:43,080 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:02<00:00,  2.71s/it]
+2025-12-03 21:45:43,080 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:02<00:00,  2.71s/it]
+2025-12-03 21:45:43,080 - __main__ - DEBUG - Mémoire GPU après exp 43: 0.03 GB allouée / 10.52 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:45:43,080 - __main__ - INFO - Expérience 43 terminée en 2.72s (Sinkhorn: 2.72s, Interpolation: 0.00s, 2.72s/frame)
+2025-12-03 21:45:43,080 - __main__ - INFO -   Mémoire GPU: 0.03 GB allouée (max: 5.53 GB)
+2025-12-03 21:45:43,121 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp43_res32_lam1.0_eps0.300_rho0.05.pt (shape: torch.Size([856412]))
+2025-12-03 21:45:43,125 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp43_t0.500.png
+2025-12-03 21:45:43,125 - __main__ - INFO - Expérience 44: cifar_car_airplane, res=32, λ=1.0, ε=0.3, ρ=0.1, 1 temps
+2025-12-03 21:45:43,125 - __main__ - DEBUG - Mémoire GPU avant exp 44: 0.01 GB allouée / 10.52 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:45:43,126 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:43,127 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:43,127 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:43,139 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:45,211 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:02<00:00,  2.07s/it]
+2025-12-03 21:45:45,211 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:02<00:00,  2.07s/it]
+2025-12-03 21:45:45,212 - __main__ - DEBUG - Mémoire GPU après exp 44: 0.03 GB allouée / 10.52 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:45:45,212 - __main__ - INFO - Expérience 44 terminée en 2.09s (Sinkhorn: 2.09s, Interpolation: 0.00s, 2.09s/frame)
+2025-12-03 21:45:45,212 - __main__ - INFO -   Mémoire GPU: 0.03 GB allouée (max: 5.53 GB)
+2025-12-03 21:45:45,260 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp44_res32_lam1.0_eps0.300_rho0.10.pt (shape: torch.Size([858083]))
+2025-12-03 21:45:45,263 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp44_t0.500.png
+2025-12-03 21:45:45,263 - __main__ - INFO - Expérience 45: cifar_car_airplane, res=32, λ=1.0, ε=0.3, ρ=0.3, 1 temps
+2025-12-03 21:45:45,263 - __main__ - DEBUG - Mémoire GPU avant exp 45: 0.01 GB allouée / 10.52 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:45:45,264 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:45,265 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:45,265 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:45,279 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:47,911 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:02<00:00,  2.63s/it]
+2025-12-03 21:45:47,911 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:02<00:00,  2.63s/it]
+2025-12-03 21:45:47,912 - __main__ - DEBUG - Mémoire GPU après exp 45: 0.03 GB allouée / 10.52 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:45:47,912 - __main__ - INFO - Expérience 45 terminée en 2.65s (Sinkhorn: 2.65s, Interpolation: 0.00s, 2.65s/frame)
+2025-12-03 21:45:47,912 - __main__ - INFO -   Mémoire GPU: 0.03 GB allouée (max: 5.53 GB)
+2025-12-03 21:45:47,949 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp45_res32_lam1.0_eps0.300_rho0.30.pt (shape: torch.Size([863528]))
+2025-12-03 21:45:47,951 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp45_t0.500.png
+2025-12-03 21:45:47,951 - __main__ - INFO - Expérience 46: cifar_car_airplane, res=32, λ=1.0, ε=0.3, ρ=0.5, 1 temps
+2025-12-03 21:45:47,952 - __main__ - DEBUG - Mémoire GPU avant exp 46: 0.01 GB allouée / 10.52 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:45:47,952 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:45:47,953 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:45:47,953 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:45:47,968 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:45:50,145 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:02<00:00,  2.18s/it]
+2025-12-03 21:45:50,145 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:02<00:00,  2.18s/it]
+2025-12-03 21:45:50,146 - __main__ - DEBUG - Mémoire GPU après exp 46: 0.03 GB allouée / 10.52 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:45:50,146 - __main__ - INFO - Expérience 46 terminée en 2.19s (Sinkhorn: 2.19s, Interpolation: 0.00s, 2.19s/frame)
+2025-12-03 21:45:50,146 - __main__ - INFO -   Mémoire GPU: 0.03 GB allouée (max: 5.53 GB)
+2025-12-03 21:45:50,183 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp46_res32_lam1.0_eps0.300_rho0.50.pt (shape: torch.Size([873664]))
+2025-12-03 21:45:50,186 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp46_t0.500.png
+2025-12-03 21:45:50,561 - __main__ - INFO - 
+>>> Expérience 5: Scalabilité
+2025-12-03 21:45:50,562 - __main__ - INFO - === Expérience 5: Scalabilité ===
+2025-12-03 21:45:50,562 - __main__ - INFO - Test progressif: résolutions [32, 48, 64]
+2025-12-03 21:45:50,562 - __main__ - INFO - Chargement paire classique: cifar_car_airplane
+2025-12-03 21:46:02,778 - __main__ - INFO - Images chargées: torch.Size([3, 64, 64]) et torch.Size([3, 64, 64])
+2025-12-03 21:46:02,779 - __main__ - INFO - Test résolution 32×32...
+2025-12-03 21:46:02,779 - __main__ - INFO - Expérience 47: cifar_car_airplane, res=32, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:46:02,780 - __main__ - DEBUG - Mémoire GPU avant exp 47: 0.01 GB allouée / 0.02 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:46:02,780 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:46:02,787 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-03 21:46:02,787 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:46:02,867 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:46:02,885 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 58.68it/s]
+2025-12-03 21:46:02,885 - __main__ - DEBUG - Mémoire GPU après exp 47: 0.01 GB allouée / 0.14 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:46:02,885 - __main__ - INFO - Expérience 47 terminée en 0.10s (Sinkhorn: 0.10s, Interpolation: 0.00s, 0.10s/frame)
+2025-12-03 21:46:02,885 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 5.53 GB)
+2025-12-03 21:46:02,889 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp47_res32_lam1.0_eps0.030_rho0.10.pt (shape: torch.Size([12191]))
+2025-12-03 21:46:02,897 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp47_t0.500.png
+2025-12-03 21:46:02,897 - __main__ - INFO - ✓ Résolution 32×32 réussie
+2025-12-03 21:46:02,897 - __main__ - INFO - Test résolution 48×48...
+2025-12-03 21:46:02,897 - __main__ - INFO - Expérience 48: cifar_car_airplane, res=48, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:46:02,897 - __main__ - DEBUG - Mémoire GPU avant exp 48: 0.01 GB allouée / 0.14 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:46:02,897 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:46:02,899 - __main__ - DEBUG - Nuages 5D: Source 2304 points, Target 2304 points
+2025-12-03 21:46:02,899 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:46:03,010 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:46:03,033 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 44.78it/s]
+2025-12-03 21:46:03,033 - __main__ - DEBUG - Mémoire GPU après exp 48: 0.03 GB allouée / 0.64 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:46:03,033 - __main__ - INFO - Expérience 48 terminée en 0.14s (Sinkhorn: 0.14s, Interpolation: 0.00s, 0.14s/frame)
+2025-12-03 21:46:03,034 - __main__ - INFO -   Mémoire GPU: 0.03 GB allouée (max: 5.53 GB)
+2025-12-03 21:46:03,037 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp48_res48_lam1.0_eps0.030_rho0.10.pt (shape: torch.Size([54273]))
+2025-12-03 21:46:03,041 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp48_t0.500.png
+2025-12-03 21:46:03,041 - __main__ - INFO - ✓ Résolution 48×48 réussie
+2025-12-03 21:46:03,041 - __main__ - INFO - Test résolution 64×64...
+2025-12-03 21:46:03,041 - __main__ - INFO - Expérience 49: cifar_car_airplane, res=64, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:46:03,042 - __main__ - DEBUG - Mémoire GPU avant exp 49: 0.01 GB allouée / 0.64 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:46:03,042 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:46:03,043 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-03 21:46:03,043 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:46:03,378 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:46:03,439 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 16.48it/s]
+2025-12-03 21:46:03,439 - __main__ - DEBUG - Mémoire GPU après exp 49: 0.08 GB allouée / 2.08 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:46:03,439 - __main__ - INFO - Expérience 49 terminée en 0.40s (Sinkhorn: 0.40s, Interpolation: 0.00s, 0.40s/frame)
+2025-12-03 21:46:03,440 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 5.53 GB)
+2025-12-03 21:46:03,447 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp49_res64_lam1.0_eps0.030_rho0.10.pt (shape: torch.Size([167032]))
+2025-12-03 21:46:03,454 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp49_t0.500.png
+2025-12-03 21:46:03,454 - __main__ - INFO - ✓ Résolution 64×64 réussie
+2025-12-03 21:46:03,455 - __main__ - INFO - Test résolution 96×96...
+2025-12-03 21:46:03,455 - __main__ - INFO - Expérience 50: cifar_car_airplane, res=96, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:46:03,455 - __main__ - DEBUG - Mémoire GPU avant exp 50: 0.01 GB allouée / 2.08 GB réservée / 8.59 GB total (max: 5.53 GB)
+2025-12-03 21:46:03,455 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:46:03,456 - __main__ - DEBUG - Nuages 5D: Source 9216 points, Target 9216 points
+2025-12-03 21:46:03,457 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:46:03,673 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:46:04,760 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:01<00:00,  1.09s/it]
+2025-12-03 21:46:04,760 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:01<00:00,  1.09s/it]
+2025-12-03 21:46:04,761 - __main__ - DEBUG - Mémoire GPU après exp 50: 0.36 GB allouée / 9.55 GB réservée / 8.59 GB total (max: 6.21 GB)
+2025-12-03 21:46:04,761 - __main__ - INFO - Expérience 50 terminée en 1.31s (Sinkhorn: 1.31s, Interpolation: 0.00s, 1.31s/frame)
+2025-12-03 21:46:04,761 - __main__ - INFO -   Mémoire GPU: 0.36 GB allouée (max: 6.21 GB)
+2025-12-03 21:46:04,807 - __main__ - DEBUG - Plan de transport sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/transport_plans/plan_exp50_res96_lam1.0_eps0.030_rho0.10.pt (shape: torch.Size([788475]))
+2025-12-03 21:46:04,824 - __main__ - DEBUG - Image sauvegardée: /home/janis/4A/geodata/refs/reports/results/5d_experiments/images/exp50_t0.500.png
+2025-12-03 21:46:04,824 - __main__ - INFO - ✓ Résolution 96×96 réussie
+2025-12-03 21:46:04,825 - __main__ - INFO - Test résolution 128×128...
+2025-12-03 21:46:04,825 - __main__ - INFO - Expérience 51: cifar_car_airplane, res=128, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-03 21:46:04,825 - __main__ - DEBUG - Mémoire GPU avant exp 51: 0.01 GB allouée / 9.55 GB réservée / 8.59 GB total (max: 6.21 GB)
+2025-12-03 21:46:04,825 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-03 21:46:04,827 - __main__ - DEBUG - Nuages 5D: Source 16384 points, Target 16384 points
+2025-12-03 21:46:04,827 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-03 21:46:06,968 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-03 21:46:18,715 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:11<?, ?it/s]
+2025-12-03 21:46:18,738 - __main__ - ERROR - Erreur interpolation exp 51: CUDA out of memory. Tried to allocate 1.08 GiB. GPU 0 has a total capacity of 8.00 GiB of which 0 bytes is free. Process 135326 has 17179869184.00 GiB memory in use. Including non-PyTorch memory, this process has 17179869184.00 GiB memory in use. Of the allocated memory 13.39 GiB is allocated by PyTorch, and 634.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/janis/4A/geodata/notebooks/experiments_5d_massive.py", line 615, in run_single_experiment
+    frames = interpolator.interpolate(img_source, img_target, times)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/janis/4A/geodata/notebooks/experiments_5d_massive.py", line 319, in interpolate
+    img_t = vectorized_gaussian_splatting(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/janis/4A/geodata/notebooks/experiments_5d_massive.py", line 205, in vectorized_gaussian_splatting
+    contrib_weights = (gauss_weights * weights.unsqueeze(1)) * mask.float()
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.08 GiB. GPU 0 has a total capacity of 8.00 GiB of which 0 bytes is free. Process 135326 has 17179869184.00 GiB memory in use. Including non-PyTorch memory, this process has 17179869184.00 GiB memory in use. Of the allocated memory 13.39 GiB is allocated by PyTorch, and 634.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-03 21:46:19,855 - __main__ - INFO - 
+>>> Expérience 6: Robustesse Champ de Déplacement
+2025-12-03 21:46:19,857 - __main__ - INFO - === Expérience 6: Robustesse Champ de Déplacement ===
+2025-12-03 21:46:19,857 - __main__ - INFO - Chargement paire classique: cifar_car_airplane
+2025-12-03 21:46:34,533 - __main__ - INFO - Images chargées: torch.Size([3, 64, 64]) et torch.Size([3, 64, 64])
+2025-12-03 21:46:34,535 - __main__ - INFO - Régime: Unbalanced_OT (ρ fini, ε petit)
+2025-12-03 21:46:34,752 - __main__ - ERROR - Erreur calcul champ de déplacement pour Unbalanced_OT: name 'compute_displacement_smoothness' is not defined
+Traceback (most recent call last):
+  File "/home/janis/4A/geodata/notebooks/experiments_5d_massive.py", line 881, in run_experiment_6_displacement_robustness
+    smoothness_metrics = compute_displacement_smoothness(displacement_field)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'compute_displacement_smoothness' is not defined
+2025-12-03 21:46:34,756 - __main__ - INFO - Régime: Entropy_Regularized (ε grand, ρ = ∞)
+2025-12-03 21:46:34,788 - __main__ - ERROR - Erreur calcul champ de déplacement pour Entropy_Regularized: name 'compute_displacement_smoothness' is not defined
+Traceback (most recent call last):
+  File "/home/janis/4A/geodata/notebooks/experiments_5d_massive.py", line 881, in run_experiment_6_displacement_robustness
+    smoothness_metrics = compute_displacement_smoothness(displacement_field)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'compute_displacement_smoothness' is not defined
+2025-12-03 21:46:34,788 - __main__ - INFO - Régime: Unbalanced_Entropy (ε et ρ intermédiaires)
+2025-12-03 21:46:34,811 - __main__ - ERROR - Erreur calcul champ de déplacement pour Unbalanced_Entropy: name 'compute_displacement_smoothness' is not defined
+Traceback (most recent call last):
+  File "/home/janis/4A/geodata/notebooks/experiments_5d_massive.py", line 881, in run_experiment_6_displacement_robustness
+    smoothness_metrics = compute_displacement_smoothness(displacement_field)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'compute_displacement_smoothness' is not defined
+2025-12-03 21:46:34,815 - __main__ - INFO - 
+================================================================================
+2025-12-03 21:46:34,815 - __main__ - INFO - SAUVEGARDE DES RÉSULTATS
+2025-12-03 21:46:34,815 - __main__ - INFO - ================================================================================
+2025-12-03 21:46:34,833 - __main__ - INFO - Résultats sauvegardés: /home/janis/4A/geodata/refs/reports/results/5d_experiments/metrics/all_experiments.csv (82 lignes)
+2025-12-03 21:46:34,833 - __main__ - INFO - Résumé: 50 expériences, 1 paires d'images
+2025-12-03 21:46:35,043 - __main__ - INFO - Résumé des temps sauvegardé: /home/janis/4A/geodata/refs/reports/results/5d_experiments/metrics/timing_summary.csv et /home/janis/4A/geodata/refs/reports/results/5d_experiments/metrics/timing_summary.tex
+2025-12-03 21:46:35,043 - __main__ - INFO - 
+================================================================================
+2025-12-03 21:46:35,043 - __main__ - INFO - GÉNÉRATION DES VISUALISATIONS
+2025-12-03 21:46:35,043 - __main__ - INFO - ================================================================================
+2025-12-03 21:46:35,409 - matplotlib.pyplot - DEBUG - Loaded backend agg version v2.2.
+2025-12-03 21:46:35,459 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0.
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,461 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-MI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Vector-Bold.otf', name='MathJax_Vector-Bold', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSans-Italic[wdth,wght].ttf', name='Ubuntu Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Fraktur-Regular.otf', name='MathJax_Fraktur', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-B.ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Main-Regular.otf', name='MathJax_Main', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-RI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-L.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,462 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-C.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 0.25
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Fraktur-Bold.otf', name='MathJax_Fraktur', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono[wght].ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 10.535
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Vector-Regular.otf', name='MathJax_Vector', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Script-Regular.otf', name='MathJax_Script', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_SansSerif-Bold.otf', name='MathJax_SansSerif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Size3-Regular.otf', name='MathJax_Size3', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Caligraphic-Regular.otf', name='MathJax_Caligraphic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Math-Regular.otf', name='MathJax_Math', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-Italic[wght].ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-ExtraLight.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=200, stretch='normal', size='scalable')) = 0.24
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-BI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSansMono[wght].ttf', name='Ubuntu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Main-Bold.otf', name='MathJax_Main', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Math-Italic.otf', name='MathJax_Math', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_AMS-Regular.otf', name='MathJax_AMS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Size1-Regular.otf', name='MathJax_Size1', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='condensed', size='scalable')) = 11.25
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-Th.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSans[wdth,wght].ttf', name='Ubuntu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Size4-Regular.otf', name='MathJax_Size4', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_WinIE6-Regular.otf', name='MathJax_WinIE6', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-M.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,463 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu[wdth,wght].ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='condensed', size='scalable')) = 11.535
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_SansSerif-Italic.otf', name='MathJax_SansSerif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Size2-Regular.otf', name='MathJax_Size2', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSansMono-Italic[wght].ttf', name='Ubuntu Sans Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Math-BoldItalic.otf', name='MathJax_Math', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 0.5349999999999999
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='condensed', size='scalable')) = 1.535
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuMathTeXGyre.ttf', name='DejaVu Math TeX Gyre', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Main-Italic.otf', name='MathJax_Main', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Caligraphic-Bold.otf', name='MathJax_Caligraphic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-BI.ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-R.ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_SansSerif-Regular.otf', name='MathJax_SansSerif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 10.25
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-LI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_WinChrome-Regular.otf', name='MathJax_WinChrome', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='condensed', size='scalable')) = 1.25
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Typewriter-Regular.otf', name='MathJax_Typewriter', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-RI.ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-Italic[wdth,wght].ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:35,464 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+2025-12-03 21:46:36,883 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,884 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,884 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,884 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 1994
+2025-12-03 21:46:36,892 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,892 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,892 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,892 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 2016
+2025-12-03 21:46:36,896 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,896 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,896 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,896 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 1813
+2025-12-03 21:46:36,898 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,898 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,899 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,899 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 1918
+2025-12-03 21:46:36,900 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,900 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,900 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,900 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 1813
+2025-12-03 21:46:36,901 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,901 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,901 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,901 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 1918
+2025-12-03 21:46:36,903 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,903 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,903 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,903 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 1823
+2025-12-03 21:46:36,905 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,905 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,905 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,905 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 1975
+2025-12-03 21:46:36,907 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,907 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,908 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,908 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 2001
+2025-12-03 21:46:36,909 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,909 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,909 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,909 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 2262
+2025-12-03 21:46:36,911 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,911 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,911 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,911 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 2001
+2025-12-03 21:46:36,912 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,912 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,912 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,912 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 2262
+2025-12-03 21:46:36,913 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,913 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,913 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,913 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 2001
+2025-12-03 21:46:36,914 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,914 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,914 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,915 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 2262
+2025-12-03 21:46:36,917 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,917 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,917 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,917 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 2120
+2025-12-03 21:46:36,919 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:36,919 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:36,919 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:36,919 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 2342
+2025-12-03 21:46:37,069 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0.
+2025-12-03 21:46:37,069 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-MI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Vector-Bold.otf', name='MathJax_Vector-Bold', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSans-Italic[wdth,wght].ttf', name='Ubuntu Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Fraktur-Regular.otf', name='MathJax_Fraktur', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-B.ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Main-Regular.otf', name='MathJax_Main', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-RI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-L.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-C.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 0.25
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Fraktur-Bold.otf', name='MathJax_Fraktur', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono[wght].ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:37,070 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 10.535
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Vector-Regular.otf', name='MathJax_Vector', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Script-Regular.otf', name='MathJax_Script', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_SansSerif-Bold.otf', name='MathJax_SansSerif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Size3-Regular.otf', name='MathJax_Size3', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Caligraphic-Regular.otf', name='MathJax_Caligraphic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Math-Regular.otf', name='MathJax_Math', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-Italic[wght].ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-ExtraLight.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=200, stretch='normal', size='scalable')) = 0.24
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-BI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSansMono[wght].ttf', name='Ubuntu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Main-Bold.otf', name='MathJax_Main', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Math-Italic.otf', name='MathJax_Math', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_AMS-Regular.otf', name='MathJax_AMS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Size1-Regular.otf', name='MathJax_Size1', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='condensed', size='scalable')) = 11.25
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-Th.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSans[wdth,wght].ttf', name='Ubuntu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Size4-Regular.otf', name='MathJax_Size4', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_WinIE6-Regular.otf', name='MathJax_WinIE6', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-M.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu[wdth,wght].ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='condensed', size='scalable')) = 11.535
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_SansSerif-Italic.otf', name='MathJax_SansSerif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Size2-Regular.otf', name='MathJax_Size2', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSansMono-Italic[wght].ttf', name='Ubuntu Sans Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Math-BoldItalic.otf', name='MathJax_Math', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 0.5349999999999999
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='condensed', size='scalable')) = 1.535
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuMathTeXGyre.ttf', name='DejaVu Math TeX Gyre', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Main-Italic.otf', name='MathJax_Main', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Caligraphic-Bold.otf', name='MathJax_Caligraphic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-BI.ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-R.ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_SansSerif-Regular.otf', name='MathJax_SansSerif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 10.25
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-LI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_WinChrome-Regular.otf', name='MathJax_WinChrome', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,071 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='condensed', size='scalable')) = 1.25
+2025-12-03 21:46:37,072 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Typewriter-Regular.otf', name='MathJax_Typewriter', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-12-03 21:46:37,072 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-RI.ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,072 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-Italic[wdth,wght].ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-12-03 21:46:37,072 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0 to DejaVu Sans ('/home/janis/4A/geodata/.venv/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+2025-12-03 21:46:38,154 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:38,154 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:38,154 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:38,154 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 1823
+2025-12-03 21:46:38,155 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:38,155 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:38,155 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:38,155 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 2078
+2025-12-03 21:46:38,156 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:38,157 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:38,157 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:38,157 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 1975
+2025-12-03 21:46:38,158 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:38,158 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:38,158 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:38,158 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 1964
+2025-12-03 21:46:38,159 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:38,159 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:38,160 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:38,160 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 1961
+2025-12-03 21:46:38,437 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:38,437 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:38,438 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:38,438 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 1975
+2025-12-03 21:46:38,439 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:38,439 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:38,439 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:38,439 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 4076
+2025-12-03 21:46:38,440 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:38,440 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:38,440 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:38,440 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 6891
+2025-12-03 21:46:38,441 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-12-03 21:46:38,441 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 41 58
+2025-12-03 21:46:38,441 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 111 9
+2025-12-03 21:46:38,441 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 132 13284
+2025-12-03 21:46:39,163 - matplotlib.colorbar - DEBUG - locator: <matplotlib.ticker.AutoLocator object at 0x7fa349fd2610>
+2025-12-03 21:46:39,179 - matplotlib.colorbar - DEBUG - locator: <matplotlib.ticker.AutoLocator object at 0x7fa3501c72d0>
+2025-12-03 21:46:39,359 - __main__ - WARNING - Aucune donnée pour la comparaison de robustesse
+2025-12-03 21:46:39,360 - __main__ - INFO - Visualisations générées
+2025-12-03 21:46:39,360 - __main__ - INFO - 
+================================================================================
+2025-12-03 21:46:39,360 - __main__ - INFO - TOUTES LES EXPÉRIENCES TERMINÉES
+2025-12-03 21:46:39,360 - __main__ - INFO - ================================================================================
+2025-12-03 21:46:39,360 - __main__ - INFO - Total: 82 résultats
+2025-12-03 21:46:39,360 - __main__ - INFO - Temps total: 105.20s (1.75 minutes)
+2025-12-03 21:46:39,362 - __main__ - DEBUG - Mémoire GPU fin: 0.01 GB allouée / 0.02 GB réservée / 8.59 GB total (max: 14.38 GB)
+2025-12-03 21:46:39,362 - __main__ - INFO - Pic mémoire GPU: 14.38 GB
+2025-12-03 21:46:39,362 - __main__ - INFO - Fichier de log: /home/janis/4A/geodata/refs/reports/results/5d_experiments/logs/experiments_20251203_214449.log
+2025-12-03 21:46:39,362 - __main__ - INFO - ================================================================================
