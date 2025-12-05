@@ -191,44 +191,55 @@ class OT5DInterpolator:
             img_t = img_t / count.unsqueeze(0)
             
             results.append(img_t.cpu())
-        return results, pos_a_spatial.cpu(), pos_b_spatial.cpu(), weights_ij.cpu(), I_idx, J_idx, Ha, Wa
+        return results, pos_a_spatial.cpu(), pos_b_spatial.cpu(), weights_ij.cpu(), I_idx, J_idx, Ha, Wa, X_a.cpu(), X_b.cpu(), pi.cpu()
 
-def compute_displacement_field(pos_a, pos_b, weights_ij, I_idx, J_idx, Ha, Wa):
-    """Calcule le champ de déplacement à partir du plan de transport."""
-    # Positions source (grille régulière)
+def compute_displacement_field(X_a, X_b, pi, Ha, Wa):
+    """Calcule le champ de déplacement à partir du plan de transport complet.
+    
+    Utilise le plan de transport pi pour calculer le déplacement barycentrique
+    pour chaque pixel de la grille source.
+    """
+    # Positions spatiales (2 premières dimensions de X_a et X_b)
+    pos_a_spatial = X_a[:, :2]  # (N_a, 2) positions source
+    pos_b_spatial = X_b[:, :2]  # (N_b, 2) positions target
+    
+    # Positions source (grille régulière normalisée [0,1])
     y_coords = torch.linspace(0, 1, Ha)
     x_coords = torch.linspace(0, 1, Wa)
     yy, xx = torch.meshgrid(y_coords, x_coords, indexing='ij')
     grid_positions = torch.stack([xx, yy], dim=-1).reshape(-1, 2)  # (H*W, 2)
     
-    # Initialiser les accumulateurs
-    displacement_sum = torch.zeros(Ha * Wa, 2)
-    weight_sums = torch.zeros(Ha * Wa)
+    # Initialiser le champ de déplacement
+    displacement_field = torch.zeros(Ha * Wa, 2)
     
-    # Pour chaque connexion dans le plan de transport
-    for i in range(len(I_idx)):
-        src_pos = pos_a[I_idx[i]]
-        tgt_pos = pos_b[J_idx[i]]
-        weight = weights_ij[i]
+    # Pour chaque pixel de la grille source, calculer le déplacement barycentrique
+    for grid_idx in range(Ha * Wa):
+        grid_pos = grid_positions[grid_idx]
         
-        # Trouver le pixel de grille le plus proche de src_pos
-        dists = torch.norm(grid_positions - src_pos.unsqueeze(0), dim=1)
-        closest_grid_idx = dists.argmin()
+        # Trouver le pixel source le plus proche dans X_a
+        dists = torch.norm(pos_a_spatial - grid_pos.unsqueeze(0), dim=1)
+        closest_idx = dists.argmin()
         
-        # Calculer le déplacement (tgt - src)
-        disp = tgt_pos - src_pos
+        # Calculer le déplacement barycentrique : T(x_i) = sum_j y_j * pi_ij / sum_k pi_ik
+        # où pi_ij est le plan de transport de la source i vers la target j
+        pi_row = pi[closest_idx, :]  # (N_b,) plan de transport depuis ce pixel source
         
-        # Accumuler le déplacement pondéré
-        displacement_sum[closest_grid_idx] += weight * disp
-        weight_sums[closest_grid_idx] += weight
-    
-    # Normaliser par les poids totaux
-    weight_sums = weight_sums.clamp(min=1e-6)
-    displacement = displacement_sum / weight_sums.unsqueeze(1)
+        # Normaliser pour obtenir la distribution conditionnelle P(y|x)
+        pi_row_sum = pi_row.sum()
+        if pi_row_sum > 1e-6:
+            # Déplacement barycentrique : moyenne pondérée des positions target
+            weighted_target = (pi_row.unsqueeze(1) * pos_b_spatial).sum(dim=0) / pi_row_sum
+            displacement = weighted_target - grid_pos
+            displacement_field[grid_idx] = displacement
     
     # Reshape en grille
-    displacement_field = displacement.reshape(Ha, Wa, 2)
-    displacement_magnitude = torch.norm(displacement_field, dim=2)
+    displacement_field = displacement_field.reshape(Ha, Wa, 2)
+    
+    # Calculer la magnitude (en pixels, pas en coordonnées normalisées)
+    displacement_magnitude = torch.norm(
+        displacement_field * torch.tensor([Wa, Ha], dtype=displacement_field.dtype), 
+        dim=2
+    )
     
     return displacement_field, displacement_magnitude
 
@@ -265,7 +276,7 @@ def plot_lambda_timelines(img_source, img_target, lambdas, times):
         
         interpolator = OT5DInterpolator(config)
         # Utiliser sigma minimal pour voir l'effet pur de lambda (sans flou du splatting)
-        frames, _, _, _, _, _, _, _ = interpolator.interpolate(img_source, img_target, times, use_minimal_sigma=True)
+        frames, _, _, _, _, _, _, _, _, _, _ = interpolator.interpolate(img_source, img_target, times, use_minimal_sigma=True)
         
         for j, (t, frame) in enumerate(zip(times, frames)):
             ax = axes[i, j]
@@ -285,78 +296,81 @@ def plot_lambda_timelines(img_source, img_target, lambdas, times):
     print(f"\n✓ Sauvegardé: {output_path}")
 
 def plot_displacement_fields(img_source, img_target, lambdas):
-    """Génère un plot montrant les champs de déplacement et leur magnitude pour différentes valeurs de lambda."""
+    """Génère un plot montrant les champs de déplacement et leur magnitude pour lambda = 10."""
     print("\n" + "=" * 80)
-    print("GÉNÉRATION DES CHAMPS DE DÉPLACEMENT POUR DIFFÉRENTES VALEURS DE LAMBDA")
+    print("GÉNÉRATION DES CHAMPS DE DÉPLACEMENT POUR LAMBDA = 10")
     print("=" * 80)
     
-    n_lambdas = len(lambdas)
-    fig, axes = plt.subplots(n_lambdas, 2, figsize=(12, n_lambdas * 3))
-    if n_lambdas == 1:
-        axes = axes.reshape(1, -1)
+    # Ne garder que lambda = 10
+    lambda_val = 10.0
+    if lambda_val not in lambdas:
+        print(f"Attention: lambda={lambda_val} n'est pas dans la liste. Utilisation de la valeur la plus proche.")
+        lambda_val = min(lambdas, key=lambda x: abs(x - 10.0))
+        print(f"Utilisation de lambda={lambda_val}")
     
-    for i, lambda_val in enumerate(lambdas):
-        print(f"\nCalcul pour λ = {lambda_val:.1f}...")
-        config = OTConfig(
-            resolution=(48, 48),
-            blur=0.05,
-            reach=0.3,
-            lambda_color=lambda_val,
-            sigma_start=1.2,
-            sigma_end=0.5,
-            sigma_boost=0.5
-        )
-        
-        interpolator = OT5DInterpolator(config)
-        times = [0.0, 0.5, 1.0]  # On a juste besoin du plan de transport
-        _, pos_a, pos_b, weights_ij, I_idx, J_idx, Ha, Wa = interpolator.interpolate(
-            img_source, img_target, times, use_minimal_sigma=True
-        )
-        
-        # Calcul du champ de déplacement
-        displacement_field, displacement_magnitude = compute_displacement_field(
-            pos_a, pos_b, weights_ij, I_idx, J_idx, Ha, Wa
-        )
-        
-        # Plot du champ de déplacement (vecteurs)
-        ax1 = axes[i, 0]
-        # Sous-échantillonnage pour la visualisation
-        step = max(1, min(Ha, Wa) // 15)
-        y_coords = np.linspace(0, Ha-1, Ha)
-        x_coords = np.linspace(0, Wa-1, Wa)
-        Y, X = np.meshgrid(y_coords, x_coords, indexing='ij')
-        
-        # Convertir les déplacements normalisés [0,1] en pixels
-        U = displacement_field[::step, ::step, 0].numpy() * Wa
-        V = displacement_field[::step, ::step, 1].numpy() * Ha
-        X_sub = X[::step, ::step]
-        Y_sub = Y[::step, ::step]
-        
-        # Afficher l'image source en arrière-plan
-        img_source_np = img_source.permute(1, 2, 0).numpy()
-        if img_source_np.shape[:2] != (Ha, Wa):
-            img_source_resized = F.interpolate(
-                img_source.unsqueeze(0), size=(Ha, Wa), mode='bilinear'
-            ).squeeze(0).permute(1, 2, 0).numpy()
-        else:
-            img_source_resized = img_source_np
-        
-        ax1.imshow(img_source_resized, origin='upper', extent=[0, Wa, Ha, 0])
-        ax1.quiver(X_sub, Y_sub, U, V, scale=1.0, scale_units='xy', angles='xy', 
-                   color='cyan', width=0.002, alpha=0.7, headwidth=3, headlength=3)
-        ax1.set_title(f"Displacement Field ($\\lambda={lambda_val:.1f}$)", fontsize=16)
-        ax1.set_xlabel("$x$ (pixels)")
-        ax1.set_ylabel("$y$ (pixels)")
-        ax1.set_aspect('equal')
-        
-        # Plot de la magnitude
-        ax2 = axes[i, 1]
-        mag_np = displacement_magnitude.numpy()
-        im = ax2.imshow(mag_np, cmap='hot', origin='lower')
-        ax2.set_title(f"Displacement Magnitude ($\\lambda={lambda_val:.1f}$)", fontsize=16)
-        ax2.set_xlabel("$x$")
-        ax2.set_ylabel("$y$")
-        plt.colorbar(im, ax=ax2, label="Magnitude")
+    fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+    
+    print(f"\nCalcul pour λ = {lambda_val:.1f}...")
+    config = OTConfig(
+        resolution=(48, 48),
+        blur=0.05,
+        reach=0.3,
+        lambda_color=lambda_val,
+        sigma_start=1.2,
+        sigma_end=0.5,
+        sigma_boost=0.5
+    )
+    
+    interpolator = OT5DInterpolator(config)
+    times = [0.0, 0.5, 1.0]  # On a juste besoin du plan de transport
+    _, pos_a, pos_b, weights_ij, I_idx, J_idx, Ha, Wa, X_a, X_b, pi = interpolator.interpolate(
+        img_source, img_target, times, use_minimal_sigma=True
+    )
+    
+    # Calcul du champ de déplacement
+    displacement_field, displacement_magnitude = compute_displacement_field(
+        X_a, X_b, pi, Ha, Wa
+    )
+    
+    # Plot du champ de déplacement (vecteurs)
+    ax1 = axes[0]
+    # Sous-échantillonnage pour la visualisation
+    step = max(1, min(Ha, Wa) // 15)
+    y_coords = np.linspace(0, Ha-1, Ha)
+    x_coords = np.linspace(0, Wa-1, Wa)
+    Y, X = np.meshgrid(y_coords, x_coords, indexing='ij')
+    
+    # Convertir les déplacements normalisés [0,1] en pixels
+    U = displacement_field[::step, ::step, 0].numpy() * Wa
+    V = displacement_field[::step, ::step, 1].numpy() * Ha
+    X_sub = X[::step, ::step]
+    Y_sub = Y[::step, ::step]
+    
+    # Afficher l'image source en arrière-plan
+    img_source_np = img_source.permute(1, 2, 0).numpy()
+    if img_source_np.shape[:2] != (Ha, Wa):
+        img_source_resized = F.interpolate(
+            img_source.unsqueeze(0), size=(Ha, Wa), mode='bilinear'
+        ).squeeze(0).permute(1, 2, 0).numpy()
+    else:
+        img_source_resized = img_source_np
+    
+    ax1.imshow(img_source_resized, origin='upper', extent=[0, Wa, Ha, 0])
+    ax1.quiver(X_sub, Y_sub, U, V, scale=1.0, scale_units='xy', angles='xy', 
+               color='cyan', width=0.002, alpha=0.7, headwidth=3, headlength=3)
+    ax1.set_title(f"Displacement Field ($\\lambda={lambda_val:.1f}$)", fontsize=16)
+    ax1.set_xlabel("$x$ (pixels)")
+    ax1.set_ylabel("$y$ (pixels)")
+    ax1.set_aspect('equal')
+    
+    # Plot de la magnitude
+    ax2 = axes[1]
+    mag_np = displacement_magnitude.numpy()
+    im = ax2.imshow(mag_np, cmap='hot', origin='lower')
+    ax2.set_title(f"Displacement Magnitude ($\\lambda={lambda_val:.1f}$)", fontsize=16)
+    ax2.set_xlabel("$x$")
+    ax2.set_ylabel("$y$")
+    plt.colorbar(im, ax=ax2, label="Magnitude")
     
     plt.tight_layout()
     output_path = OUTPUT_DIR / "lambda_ablation_displacement_fields.png"
