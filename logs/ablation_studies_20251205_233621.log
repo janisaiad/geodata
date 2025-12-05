@@ -1362,3 +1362,15 @@
 [226/2560] exp_0226_eps0.010_rho0.15_lam3.0_debiasFalse_dynrastFalse_adapsigmaTrue
 2025-12-05 23:48:34,661 - INFO -   eps=0.010, rho=0.15, lambda=3.0, debias=False, dyn_rast=False, adapt_sigma=True
 2025-12-05 23:48:34,721 - INFO -   Cloud sizes: source=12160, target=12160
+2025-12-05 23:48:37,766 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/faces/exp_0226_eps0.010_rho0.15_lam3.0_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:48:37,767 - INFO -   Taille plan: torch.Size([12160, 12160]), Mémoire: 564.06 MB
+2025-12-05 23:48:37,833 - INFO - 
+[227/2560] exp_0227_eps0.010_rho0.15_lam3.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:48:37,833 - INFO -   eps=0.010, rho=0.15, lambda=3.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:48:37,892 - INFO -   Cloud sizes: source=12160, target=12160
+2025-12-05 23:48:40,943 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/faces/exp_0227_eps0.010_rho0.15_lam3.0_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:48:40,943 - INFO -   Taille plan: torch.Size([12160, 12160]), Mémoire: 564.06 MB
+2025-12-05 23:48:41,010 - INFO - 
+[228/2560] exp_0228_eps0.010_rho0.15_lam3.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:48:41,010 - INFO -   eps=0.010, rho=0.15, lambda=3.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:48:41,067 - INFO -   Cloud sizes: source=12160, target=12160
