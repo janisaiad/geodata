@@ -290,7 +290,7 @@ def plot_dynamic_vs_fixed_grid(img_source, img_target, times):
         ax2.set_yticks([])
     
     plt.tight_layout()
-    output_path = OUTPUT_DIR / "dynamic_rasterization_comparison.png"
+    output_path = OUTPUT_DIR / "dynamic_rasterization_comparison_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Saved: {output_path}")
@@ -333,7 +333,7 @@ def plot_resolution_evolution(times, Ha, Wa, Hb, Wb):
     ax2.legend(fontsize=12)
     
     plt.tight_layout()
-    output_path = OUTPUT_DIR / "resolution_evolution.png"
+    output_path = OUTPUT_DIR / "resolution_evolution_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Saved: {output_path}")
@@ -530,7 +530,7 @@ def plot_sinkhorn_evolution_comparison(img_source, img_target, times):
              ha='center', fontsize=10, family='monospace')
     
     plt.tight_layout(rect=[0, 0.05, 1, 1])
-    output_path = OUTPUT_DIR / "dynamic_grid_sinkhorn_evolution.png"
+    output_path = OUTPUT_DIR / "dynamic_grid_sinkhorn_evolution_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Saved: {output_path}")
@@ -626,7 +626,7 @@ def plot_dynamic_rasterization_multiple_targets(img_source, img_target, times):
              ha='center', fontsize=10, family='monospace')
     
     plt.tight_layout(rect=[0, 0.05, 1, 1])
-    output_path = OUTPUT_DIR / "dynamic_rasterization_multiple_targets.png"
+    output_path = OUTPUT_DIR / "dynamic_rasterization_multiple_targets_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Saved: {output_path}")
@@ -695,7 +695,7 @@ def plot_aliasing_comparison(img_source, img_target):
     ax3.set_yticks([])
     
     plt.tight_layout()
-    output_path = OUTPUT_DIR / "aliasing_comparison.png"
+    output_path = OUTPUT_DIR / "aliasing_comparison_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Saved: {output_path}")

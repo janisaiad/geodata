@@ -204,9 +204,9 @@ def run_ablation_studies():
             blur=eps,
             reach=rho,
             lambda_color=lambda_color,
-            sigma_start=1.2,
-            sigma_end=0.5,
-            sigma_boost=0.5,
+            sigma_start=0.15,
+            sigma_end=0.15,
+            sigma_boost=0.15,
             use_debias=use_debias,
             use_dynamic_rasterization=use_dyn_rast,
             use_adaptive_sigma=use_adapt_sigma

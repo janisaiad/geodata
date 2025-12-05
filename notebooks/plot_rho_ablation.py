@@ -36,6 +36,19 @@ DATA_DIR = Path("/Data/janis.aiad/geodata/data/faces")
 OUTPUT_DIR = Path("/Data/janis.aiad/geodata/refs/reports/figures")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
+@dataclass
+class OTConfig:
+    """Configuration pour Transport Optimal 5D."""
+    resolution: tuple[int] = (48, 48)
+    blur: float = 0.05
+    scaling: float = 0.9
+    reach: Optional[float] = 0.3
+    lambda_color: float = 2.0
+    device: str = "cuda" if torch.cuda.is_available() else "cpu"
+    sigma_start: float = 1.2
+    sigma_end: float = 0.5
+    sigma_boost: float = 0.5
+
 def format_hyperparameters(config: OTConfig, varying_param: str = None, varying_value: str = None):
     """Formate les hyperparamètres pour affichage sur les figures."""
     params = []
@@ -53,19 +66,6 @@ def format_hyperparameters(config: OTConfig, varying_param: str = None, varying_
     if varying_param and varying_value:
         param_str = f"{varying_param}={varying_value} | " + param_str
     return param_str
-
-@dataclass
-class OTConfig:
-    """Configuration pour Transport Optimal 5D."""
-    resolution: tuple[int] = (48, 48)
-    blur: float = 0.05
-    scaling: float = 0.9
-    reach: Optional[float] = 0.3
-    lambda_color: float = 2.0
-    device: str = "cuda" if torch.cuda.is_available() else "cpu"
-    sigma_start: float = 1.2
-    sigma_end: float = 0.5
-    sigma_boost: float = 0.5
 
 def get_5d_cloud(img: torch.Tensor, res: int, lambda_c: float):
     """Convertit une image (C, H, W) en nuage de points 5D (N, 5)."""
@@ -239,7 +239,7 @@ def plot_rho_timelines(img_source, img_target, rhos, times):
              ha='center', fontsize=10, family='monospace')
     
     plt.tight_layout(rect=[0, 0.05, 1, 1])
-    output_path = OUTPUT_DIR / "rho_ablation_timelines.png"
+    output_path = OUTPUT_DIR / "rho_ablation_timelines_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Sauvegardé: {output_path}")
@@ -308,7 +308,7 @@ def plot_rho_comparison(img_source, img_target, rhos, t=0.5):
              ha='center', fontsize=10, family='monospace')
     
     plt.tight_layout(rect=[0, 0.05, 1, 1])
-    output_path = OUTPUT_DIR / "rho_ablation_comparison.png"
+    output_path = OUTPUT_DIR / "rho_ablation_comparison_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Sauvegardé: {output_path}")
@@ -353,7 +353,7 @@ def plot_foreground_background_effect(img_source, img_target, rhos, t=0.5):
         ax.set_yticks([])
     
     plt.tight_layout()
-    output_path = OUTPUT_DIR / "rho_foreground_background_effect.png"
+    output_path = OUTPUT_DIR / "rho_foreground_background_effect_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Sauvegardé: {output_path}")
@@ -490,7 +490,7 @@ def plot_rho_displacement_fields(img_source, img_target, rhos):
              ha='center', fontsize=10, family='monospace')
     
     plt.tight_layout(rect=[0, 0.05, 1, 1])
-    output_path = OUTPUT_DIR / "rho_displacement_fields.png"
+    output_path = OUTPUT_DIR / "rho_displacement_fields_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Sauvegardé: {output_path}")
@@ -581,7 +581,7 @@ def plot_rho_displacement_statistics(img_source, img_target, rhos):
         ax2.legend()
     
     plt.tight_layout()
-    output_path = OUTPUT_DIR / "rho_displacement_statistics.png"
+    output_path = OUTPUT_DIR / "rho_displacement_statistics_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Sauvegardé: {output_path}")

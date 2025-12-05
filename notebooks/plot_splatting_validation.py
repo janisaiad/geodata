@@ -265,7 +265,7 @@ def plot_sigma_comparison(img_source, img_target, times):
         ax2.set_yticks([])
     
     plt.tight_layout()
-    output_path = OUTPUT_DIR / "splatting_adaptive_vs_fixed.png"
+    output_path = OUTPUT_DIR / "splatting_adaptive_vs_fixed_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Saved: {output_path}")
@@ -310,7 +310,7 @@ def plot_sinkhorn_evolution(img_source, img_target, times):
     ax.grid(True, linestyle="--", alpha=0.6)
     ax.legend(fontsize=14)
     plt.tight_layout()
-    output_path = OUTPUT_DIR / "sinkhorn_evolution_comparison.png"
+    output_path = OUTPUT_DIR / "sinkhorn_evolution_comparison_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Saved: {output_path}")
@@ -356,7 +356,7 @@ def plot_sigma_evolution(times):
     ax.grid(True, linestyle="--", alpha=0.6)
     ax.legend(fontsize=14)
     plt.tight_layout()
-    output_path = OUTPUT_DIR / "sigma_evolution.png"
+    output_path = OUTPUT_DIR / "sigma_evolution_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Saved: {output_path}")

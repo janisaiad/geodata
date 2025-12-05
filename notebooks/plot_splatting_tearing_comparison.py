@@ -328,7 +328,7 @@ def plot_splatting_tearing_comparison(img_source, img_target, times):
         ax.set_yticks([])
     
     plt.tight_layout()
-    output_path = OUTPUT_DIR / "splatting_tearing_comparison.png"
+    output_path = OUTPUT_DIR / "splatting_tearing_comparison_faces.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n✓ Sauvegardé: {output_path}")
