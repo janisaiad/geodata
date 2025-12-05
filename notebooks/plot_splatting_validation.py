@@ -32,7 +32,7 @@ plt.rcParams['ytick.right'] = True
 plt.rcParams['xtick.top'] = True
 
 # Paths
-DATA_DIR = Path("/Data/janis.aiad/geodata/data/pixelart/images")
+DATA_DIR = Path("/Data/janis.aiad/geodata/data/faces")
 OUTPUT_DIR = Path("/Data/janis.aiad/geodata/refs/reports/figures")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -368,8 +368,8 @@ def main():
     
     # Load images
     print("\nLoading images...")
-    img_source = load_image(DATA_DIR / "salameche.webp")
-    img_target = load_image(DATA_DIR / "strawberry.jpg")
+    img_source = load_image(DATA_DIR / "before.jpg")
+    img_target = load_image(DATA_DIR / "after.jpg")
     print(f"Source: {img_source.shape}, Target: {img_target.shape}")
     
     # Interpolation times

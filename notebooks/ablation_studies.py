@@ -19,8 +19,8 @@ import itertools
 import gc
 
 # Configuration
-DATA_DIR = Path("/Data/janis.aiad/geodata/data/pixelart/images")
-EXPERIMENTS_DIR = Path("/Data/janis.aiad/geodata/experiments")
+DATA_DIR = Path("/Data/janis.aiad/geodata/data/faces")
+EXPERIMENTS_DIR = Path("/Data/janis.aiad/geodata/experiments/faces")
 LOGS_DIR = Path("/Data/janis.aiad/geodata/logs")
 EXPERIMENTS_DIR.mkdir(parents=True, exist_ok=True)
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
@@ -74,13 +74,25 @@ def get_5d_cloud(img: torch.Tensor, res: int, lambda_c: float):
 class OT5DInterpolator:
     def __init__(self, config: OTConfig):
         self.cfg = config
-        self.loss_layer = SamplesLoss(
-            loss="sinkhorn", p=2, blur=config.blur, reach=config.reach,
-            debias=config.use_debias, potentials=True, scaling=config.scaling, backend="auto"
-        )
+        # Use tensorized backend to avoid KeOps compilation issues that can cause segfaults
+        try:
+            self.loss_layer = SamplesLoss(
+                loss="sinkhorn", p=2, blur=config.blur, reach=config.reach,
+                debias=config.use_debias, potentials=True, scaling=config.scaling, backend="tensorized"
+            )
+        except Exception as e:
+            logger.warning(f"tensorized backend failed, trying auto: {e}")
+            self.loss_layer = SamplesLoss(
+                loss="sinkhorn", p=2, blur=config.blur, reach=config.reach,
+                debias=config.use_debias, potentials=True, scaling=config.scaling, backend="auto"
+            )
 
     def compute_transport_plan(self, img_source, img_target):
         """Calcule le plan de transport pi entre source et target."""
+        # Clear GPU cache before computation
+        if self.cfg.device == "cuda":
+            torch.cuda.empty_cache()
+        
         X_a, w_a, colors_a, Ha, Wa = get_5d_cloud(
             img_source.to(self.cfg.device), self.cfg.resolution[0], self.cfg.lambda_color
         )
@@ -88,7 +100,25 @@ class OT5DInterpolator:
             img_target.to(self.cfg.device), self.cfg.resolution[1], self.cfg.lambda_color
         )
         
-        F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+        logger.info(f"  Cloud sizes: source={X_a.shape[0]}, target={X_b.shape[0]}")
+        
+        # Clear cache before Sinkhorn computation
+        if self.cfg.device == "cuda":
+            torch.cuda.empty_cache()
+            gc.collect()
+        
+        try:
+            F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+        except RuntimeError as e:
+            if "out of memory" in str(e).lower() or "CUDA" in str(e):
+                logger.warning(f"  OOM error during Sinkhorn computation. Clearing cache and retrying...")
+                if self.cfg.device == "cuda":
+                    torch.cuda.empty_cache()
+                gc.collect()
+                # Retry once
+                F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+            else:
+                raise
         F_pot, G_pot = F_pot.flatten(), G_pot.flatten()
         
         dist_sq = torch.cdist(X_a, X_b, p=2) ** 2
@@ -130,21 +160,29 @@ def run_ablation_studies():
     logger.info("=" * 80)
     
     # Chargement des images
-    logger.info("Chargement des images...")
-    img_source = load_image(DATA_DIR / "salameche.webp")
-    img_target = load_image(DATA_DIR / "strawberry.jpg")
+    logger.info("Loading images...")
+    img_source = load_image(DATA_DIR / "before.jpg")
+    img_target = load_image(DATA_DIR / "after.jpg")
     logger.info(f"Source: {img_source.shape}, Target: {img_target.shape}")
+    
+    # Use native resolutions, but cap at reasonable maximum to avoid memory issues
+    _, H_source, W_source = img_source.shape
+    _, H_target, W_target = img_target.shape
+    max_res = 128  # Cap at 128 to avoid OOM/segfaults
+    res_source = min(max(H_source, W_source), max_res)
+    res_target = min(max(H_target, W_target), max_res)
+    resolution = (res_source, res_target)
+    logger.info(f"Source image: {H_source}x{W_source}, Target image: {H_target}x{W_target}")
+    logger.info(f"Using resolutions: source={res_source}, target={res_target} (capped at {max_res})")
+    logger.info(f"Resolution config: {resolution}")
     
     # Grille d'hyperparamètres
     epsilons = [0.01, 0.02, 0.03, 0.05, 0.07, 0.10, 0.15, 0.20]
     rhos = [None, 0.01, 0.02, 0.05, 0.10, 0.15, 0.30, 0.50]
     lambdas = [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 10.0, 50.0, 100.0]
-    debias_options = [False, True]
+    debias_options = [False]
     dynamic_rasterization_options = [False, True]
     adaptive_sigma_options = [False, True]
-    
-    # Résolution fixe (comme dans le papier)
-    resolution = (48, 48)
     
     # Génération de toutes les combinaisons
     total_experiments = len(epsilons) * len(rhos) * len(lambdas) * len(debias_options) * len(dynamic_rasterization_options) * len(adaptive_sigma_options)
@@ -184,6 +222,11 @@ def run_ablation_studies():
         logger.info(f"  eps={eps:.3f}, rho={rho}, lambda={lambda_color:.1f}, debias={use_debias}, dyn_rast={use_dyn_rast}, adapt_sigma={use_adapt_sigma}")
         
         try:
+            # Clear memory before experiment
+            if config.device == "cuda":
+                torch.cuda.empty_cache()
+            gc.collect()
+            
             # Calcul du plan de transport
             interpolator = OT5DInterpolator(config)
             transport_data = interpolator.compute_transport_plan(img_source, img_target)

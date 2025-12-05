@@ -1,0 +1,1077 @@
+2025-12-05 23:30:28,389 - INFO - ================================================================================
+2025-12-05 23:30:28,389 - INFO - DÉMARRAGE DES ÉTUDES D'ABLATION
+2025-12-05 23:30:28,389 - INFO - ================================================================================
+2025-12-05 23:30:28,389 - INFO - Chargement des images...
+2025-12-05 23:30:28,554 - INFO - Source: torch.Size([3, 458, 343]), Target: torch.Size([3, 457, 341])
+2025-12-05 23:30:28,554 - INFO - Nombre total d'expériences: 5120
+2025-12-05 23:30:28,554 - INFO - Lambda values: [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 10.0, 50.0, 100.0]
+2025-12-05 23:30:28,555 - INFO - 
+[1/5120] exp_0001_eps0.010_rhobalanced_lam0.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:28,555 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:28,857 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0001_eps0.010_rhobalanced_lam0.0_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:28,857 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:28,897 - INFO - 
+[2/5120] exp_0002_eps0.010_rhobalanced_lam0.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:28,897 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:28,924 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0002_eps0.010_rhobalanced_lam0.0_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:28,925 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:28,963 - INFO - 
+[3/5120] exp_0003_eps0.010_rhobalanced_lam0.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:28,963 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:28,989 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0003_eps0.010_rhobalanced_lam0.0_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:28,989 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,024 - INFO - 
+[4/5120] exp_0004_eps0.010_rhobalanced_lam0.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:29,024 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:29,048 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0004_eps0.010_rhobalanced_lam0.0_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:29,048 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,087 - INFO - 
+[5/5120] exp_0005_eps0.010_rhobalanced_lam0.0_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:29,087 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:29,125 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0005_eps0.010_rhobalanced_lam0.0_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:29,125 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,165 - INFO - 
+[6/5120] exp_0006_eps0.010_rhobalanced_lam0.0_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:29,165 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:29,203 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0006_eps0.010_rhobalanced_lam0.0_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:29,203 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,238 - INFO - 
+[7/5120] exp_0007_eps0.010_rhobalanced_lam0.0_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:29,239 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:29,276 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0007_eps0.010_rhobalanced_lam0.0_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:29,277 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,314 - INFO - 
+[8/5120] exp_0008_eps0.010_rhobalanced_lam0.0_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:29,314 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:29,353 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0008_eps0.010_rhobalanced_lam0.0_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:29,353 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,390 - INFO - 
+[9/5120] exp_0009_eps0.010_rhobalanced_lam0.5_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:29,391 - INFO -   eps=0.010, rho=None, lambda=0.5, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:29,416 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0009_eps0.010_rhobalanced_lam0.5_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:29,416 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,454 - INFO - 
+[10/5120] exp_0010_eps0.010_rhobalanced_lam0.5_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:29,454 - INFO -   eps=0.010, rho=None, lambda=0.5, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:29,479 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0010_eps0.010_rhobalanced_lam0.5_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:29,479 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,515 - INFO - 
+[11/5120] exp_0011_eps0.010_rhobalanced_lam0.5_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:29,516 - INFO -   eps=0.010, rho=None, lambda=0.5, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:29,540 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0011_eps0.010_rhobalanced_lam0.5_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:29,541 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,578 - INFO - 
+[12/5120] exp_0012_eps0.010_rhobalanced_lam0.5_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:29,578 - INFO -   eps=0.010, rho=None, lambda=0.5, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:29,603 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0012_eps0.010_rhobalanced_lam0.5_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:29,603 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,640 - INFO - 
+[13/5120] exp_0013_eps0.010_rhobalanced_lam0.5_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:29,640 - INFO -   eps=0.010, rho=None, lambda=0.5, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:29,679 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0013_eps0.010_rhobalanced_lam0.5_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:29,679 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,717 - INFO - 
+[14/5120] exp_0014_eps0.010_rhobalanced_lam0.5_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:29,717 - INFO -   eps=0.010, rho=None, lambda=0.5, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:29,756 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0014_eps0.010_rhobalanced_lam0.5_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:29,756 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,795 - INFO - 
+[15/5120] exp_0015_eps0.010_rhobalanced_lam0.5_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:29,795 - INFO -   eps=0.010, rho=None, lambda=0.5, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:29,834 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0015_eps0.010_rhobalanced_lam0.5_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:29,834 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,870 - INFO - 
+[16/5120] exp_0016_eps0.010_rhobalanced_lam0.5_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:29,870 - INFO -   eps=0.010, rho=None, lambda=0.5, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:29,908 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0016_eps0.010_rhobalanced_lam0.5_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:29,909 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:29,946 - INFO - 
+[17/5120] exp_0017_eps0.010_rhobalanced_lam1.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:29,946 - INFO -   eps=0.010, rho=None, lambda=1.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:29,971 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0017_eps0.010_rhobalanced_lam1.0_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:29,971 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,007 - INFO - 
+[18/5120] exp_0018_eps0.010_rhobalanced_lam1.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:30,007 - INFO -   eps=0.010, rho=None, lambda=1.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:30,032 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0018_eps0.010_rhobalanced_lam1.0_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:30,032 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,068 - INFO - 
+[19/5120] exp_0019_eps0.010_rhobalanced_lam1.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:30,068 - INFO -   eps=0.010, rho=None, lambda=1.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:30,093 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0019_eps0.010_rhobalanced_lam1.0_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:30,093 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,128 - INFO - 
+[20/5120] exp_0020_eps0.010_rhobalanced_lam1.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:30,128 - INFO -   eps=0.010, rho=None, lambda=1.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:30,153 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0020_eps0.010_rhobalanced_lam1.0_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:30,153 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,190 - INFO - 
+[21/5120] exp_0021_eps0.010_rhobalanced_lam1.0_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:30,190 - INFO -   eps=0.010, rho=None, lambda=1.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:30,229 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0021_eps0.010_rhobalanced_lam1.0_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:30,229 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,265 - INFO - 
+[22/5120] exp_0022_eps0.010_rhobalanced_lam1.0_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:30,266 - INFO -   eps=0.010, rho=None, lambda=1.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:30,305 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0022_eps0.010_rhobalanced_lam1.0_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:30,305 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,340 - INFO - 
+[23/5120] exp_0023_eps0.010_rhobalanced_lam1.0_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:30,341 - INFO -   eps=0.010, rho=None, lambda=1.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:30,380 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0023_eps0.010_rhobalanced_lam1.0_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:30,380 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,415 - INFO - 
+[24/5120] exp_0024_eps0.010_rhobalanced_lam1.0_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:30,415 - INFO -   eps=0.010, rho=None, lambda=1.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:30,454 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0024_eps0.010_rhobalanced_lam1.0_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:30,454 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,489 - INFO - 
+[25/5120] exp_0025_eps0.010_rhobalanced_lam1.5_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:30,489 - INFO -   eps=0.010, rho=None, lambda=1.5, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:30,514 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0025_eps0.010_rhobalanced_lam1.5_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:30,514 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,543 - INFO - 
+[26/5120] exp_0026_eps0.010_rhobalanced_lam1.5_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:30,543 - INFO -   eps=0.010, rho=None, lambda=1.5, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:30,568 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0026_eps0.010_rhobalanced_lam1.5_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:30,568 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,600 - INFO - 
+[27/5120] exp_0027_eps0.010_rhobalanced_lam1.5_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:30,600 - INFO -   eps=0.010, rho=None, lambda=1.5, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:30,625 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0027_eps0.010_rhobalanced_lam1.5_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:30,625 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,659 - INFO - 
+[28/5120] exp_0028_eps0.010_rhobalanced_lam1.5_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:30,659 - INFO -   eps=0.010, rho=None, lambda=1.5, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:30,684 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0028_eps0.010_rhobalanced_lam1.5_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:30,685 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,718 - INFO - 
+[29/5120] exp_0029_eps0.010_rhobalanced_lam1.5_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:30,718 - INFO -   eps=0.010, rho=None, lambda=1.5, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:30,759 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0029_eps0.010_rhobalanced_lam1.5_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:30,759 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,795 - INFO - 
+[30/5120] exp_0030_eps0.010_rhobalanced_lam1.5_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:30,796 - INFO -   eps=0.010, rho=None, lambda=1.5, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:30,836 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0030_eps0.010_rhobalanced_lam1.5_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:30,836 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,870 - INFO - 
+[31/5120] exp_0031_eps0.010_rhobalanced_lam1.5_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:30,871 - INFO -   eps=0.010, rho=None, lambda=1.5, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:30,911 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0031_eps0.010_rhobalanced_lam1.5_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:30,912 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:30,945 - INFO - 
+[32/5120] exp_0032_eps0.010_rhobalanced_lam1.5_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:30,945 - INFO -   eps=0.010, rho=None, lambda=1.5, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:30,986 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0032_eps0.010_rhobalanced_lam1.5_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:30,986 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,019 - INFO - 
+[33/5120] exp_0033_eps0.010_rhobalanced_lam2.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:31,019 - INFO -   eps=0.010, rho=None, lambda=2.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:31,044 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0033_eps0.010_rhobalanced_lam2.0_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:31,044 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,077 - INFO - 
+[34/5120] exp_0034_eps0.010_rhobalanced_lam2.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:31,077 - INFO -   eps=0.010, rho=None, lambda=2.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:31,103 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0034_eps0.010_rhobalanced_lam2.0_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:31,103 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,135 - INFO - 
+[35/5120] exp_0035_eps0.010_rhobalanced_lam2.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:31,135 - INFO -   eps=0.010, rho=None, lambda=2.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:31,161 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0035_eps0.010_rhobalanced_lam2.0_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:31,161 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,193 - INFO - 
+[36/5120] exp_0036_eps0.010_rhobalanced_lam2.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:31,193 - INFO -   eps=0.010, rho=None, lambda=2.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:31,219 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0036_eps0.010_rhobalanced_lam2.0_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:31,219 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,250 - INFO - 
+[37/5120] exp_0037_eps0.010_rhobalanced_lam2.0_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:31,251 - INFO -   eps=0.010, rho=None, lambda=2.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:31,292 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0037_eps0.010_rhobalanced_lam2.0_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:31,292 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,324 - INFO - 
+[38/5120] exp_0038_eps0.010_rhobalanced_lam2.0_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:31,324 - INFO -   eps=0.010, rho=None, lambda=2.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:31,366 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0038_eps0.010_rhobalanced_lam2.0_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:31,366 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,398 - INFO - 
+[39/5120] exp_0039_eps0.010_rhobalanced_lam2.0_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:31,398 - INFO -   eps=0.010, rho=None, lambda=2.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:31,440 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0039_eps0.010_rhobalanced_lam2.0_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:31,440 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,473 - INFO - 
+[40/5120] exp_0040_eps0.010_rhobalanced_lam2.0_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:31,473 - INFO -   eps=0.010, rho=None, lambda=2.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:31,514 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0040_eps0.010_rhobalanced_lam2.0_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:31,515 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,548 - INFO - 
+[41/5120] exp_0041_eps0.010_rhobalanced_lam2.5_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:31,548 - INFO -   eps=0.010, rho=None, lambda=2.5, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:31,574 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0041_eps0.010_rhobalanced_lam2.5_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:31,574 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,605 - INFO - 
+[42/5120] exp_0042_eps0.010_rhobalanced_lam2.5_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:31,605 - INFO -   eps=0.010, rho=None, lambda=2.5, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:31,631 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0042_eps0.010_rhobalanced_lam2.5_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:31,631 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,663 - INFO - 
+[43/5120] exp_0043_eps0.010_rhobalanced_lam2.5_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:31,663 - INFO -   eps=0.010, rho=None, lambda=2.5, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:31,689 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0043_eps0.010_rhobalanced_lam2.5_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:31,689 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,720 - INFO - 
+[44/5120] exp_0044_eps0.010_rhobalanced_lam2.5_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:31,721 - INFO -   eps=0.010, rho=None, lambda=2.5, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:31,746 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0044_eps0.010_rhobalanced_lam2.5_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:31,746 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,778 - INFO - 
+[45/5120] exp_0045_eps0.010_rhobalanced_lam2.5_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:31,778 - INFO -   eps=0.010, rho=None, lambda=2.5, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:31,821 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0045_eps0.010_rhobalanced_lam2.5_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:31,821 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,852 - INFO - 
+[46/5120] exp_0046_eps0.010_rhobalanced_lam2.5_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:31,852 - INFO -   eps=0.010, rho=None, lambda=2.5, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:31,894 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0046_eps0.010_rhobalanced_lam2.5_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:31,895 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:31,928 - INFO - 
+[47/5120] exp_0047_eps0.010_rhobalanced_lam2.5_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:31,928 - INFO -   eps=0.010, rho=None, lambda=2.5, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:31,970 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0047_eps0.010_rhobalanced_lam2.5_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:31,971 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,005 - INFO - 
+[48/5120] exp_0048_eps0.010_rhobalanced_lam2.5_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:32,005 - INFO -   eps=0.010, rho=None, lambda=2.5, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:32,048 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0048_eps0.010_rhobalanced_lam2.5_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:32,048 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,081 - INFO - 
+[49/5120] exp_0049_eps0.010_rhobalanced_lam3.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:32,081 - INFO -   eps=0.010, rho=None, lambda=3.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:32,107 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0049_eps0.010_rhobalanced_lam3.0_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:32,107 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,140 - INFO - 
+[50/5120] exp_0050_eps0.010_rhobalanced_lam3.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:32,140 - INFO -   eps=0.010, rho=None, lambda=3.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:32,166 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0050_eps0.010_rhobalanced_lam3.0_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:32,166 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,197 - INFO - 
+[51/5120] exp_0051_eps0.010_rhobalanced_lam3.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:32,197 - INFO -   eps=0.010, rho=None, lambda=3.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:32,224 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0051_eps0.010_rhobalanced_lam3.0_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:32,224 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,256 - INFO - 
+[52/5120] exp_0052_eps0.010_rhobalanced_lam3.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:32,256 - INFO -   eps=0.010, rho=None, lambda=3.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:32,282 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0052_eps0.010_rhobalanced_lam3.0_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:32,282 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,314 - INFO - 
+[53/5120] exp_0053_eps0.010_rhobalanced_lam3.0_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:32,315 - INFO -   eps=0.010, rho=None, lambda=3.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:32,357 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0053_eps0.010_rhobalanced_lam3.0_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:32,357 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,389 - INFO - 
+[54/5120] exp_0054_eps0.010_rhobalanced_lam3.0_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:32,389 - INFO -   eps=0.010, rho=None, lambda=3.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:32,432 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0054_eps0.010_rhobalanced_lam3.0_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:32,432 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,464 - INFO - 
+[55/5120] exp_0055_eps0.010_rhobalanced_lam3.0_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:32,464 - INFO -   eps=0.010, rho=None, lambda=3.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:32,506 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0055_eps0.010_rhobalanced_lam3.0_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:32,506 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,539 - INFO - 
+[56/5120] exp_0056_eps0.010_rhobalanced_lam3.0_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:32,539 - INFO -   eps=0.010, rho=None, lambda=3.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:32,581 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0056_eps0.010_rhobalanced_lam3.0_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:32,582 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,614 - INFO - 
+[57/5120] exp_0057_eps0.010_rhobalanced_lam10_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:32,614 - INFO -   eps=0.010, rho=None, lambda=10.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:32,643 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0057_eps0.010_rhobalanced_lam10_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:32,643 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,674 - INFO - 
+[58/5120] exp_0058_eps0.010_rhobalanced_lam10_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:32,674 - INFO -   eps=0.010, rho=None, lambda=10.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:32,703 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0058_eps0.010_rhobalanced_lam10_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:32,703 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,734 - INFO - 
+[59/5120] exp_0059_eps0.010_rhobalanced_lam10_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:32,735 - INFO -   eps=0.010, rho=None, lambda=10.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:32,763 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0059_eps0.010_rhobalanced_lam10_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:32,764 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,797 - INFO - 
+[60/5120] exp_0060_eps0.010_rhobalanced_lam10_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:32,797 - INFO -   eps=0.010, rho=None, lambda=10.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:32,826 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0060_eps0.010_rhobalanced_lam10_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:32,826 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,858 - INFO - 
+[61/5120] exp_0061_eps0.010_rhobalanced_lam10_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:32,858 - INFO -   eps=0.010, rho=None, lambda=10.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:32,907 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0061_eps0.010_rhobalanced_lam10_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:32,907 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:32,940 - INFO - 
+[62/5120] exp_0062_eps0.010_rhobalanced_lam10_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:32,940 - INFO -   eps=0.010, rho=None, lambda=10.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:32,989 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0062_eps0.010_rhobalanced_lam10_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:32,989 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:33,022 - INFO - 
+[63/5120] exp_0063_eps0.010_rhobalanced_lam10_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:33,022 - INFO -   eps=0.010, rho=None, lambda=10.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:33,071 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0063_eps0.010_rhobalanced_lam10_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:33,071 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:33,103 - INFO - 
+[64/5120] exp_0064_eps0.010_rhobalanced_lam10_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:33,103 - INFO -   eps=0.010, rho=None, lambda=10.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:33,152 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0064_eps0.010_rhobalanced_lam10_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:33,152 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:33,185 - INFO - 
+[65/5120] exp_0065_eps0.010_rhobalanced_lam50_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:33,185 - INFO -   eps=0.010, rho=None, lambda=50.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:33,218 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0065_eps0.010_rhobalanced_lam50_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:33,218 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:33,250 - INFO - 
+[66/5120] exp_0066_eps0.010_rhobalanced_lam50_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:33,250 - INFO -   eps=0.010, rho=None, lambda=50.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:33,283 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0066_eps0.010_rhobalanced_lam50_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:33,283 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:33,315 - INFO - 
+[67/5120] exp_0067_eps0.010_rhobalanced_lam50_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:33,316 - INFO -   eps=0.010, rho=None, lambda=50.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:33,348 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0067_eps0.010_rhobalanced_lam50_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:33,348 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:33,381 - INFO - 
+[68/5120] exp_0068_eps0.010_rhobalanced_lam50_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:33,381 - INFO -   eps=0.010, rho=None, lambda=50.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:33,414 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0068_eps0.010_rhobalanced_lam50_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:33,414 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:33,447 - INFO - 
+[69/5120] exp_0069_eps0.010_rhobalanced_lam50_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:33,447 - INFO -   eps=0.010, rho=None, lambda=50.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:33,503 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0069_eps0.010_rhobalanced_lam50_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:33,503 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:33,536 - INFO - 
+[70/5120] exp_0070_eps0.010_rhobalanced_lam50_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:33,536 - INFO -   eps=0.010, rho=None, lambda=50.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:33,592 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0070_eps0.010_rhobalanced_lam50_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:33,592 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:33,624 - INFO - 
+[71/5120] exp_0071_eps0.010_rhobalanced_lam50_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:33,624 - INFO -   eps=0.010, rho=None, lambda=50.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:33,680 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0071_eps0.010_rhobalanced_lam50_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:33,680 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:33,712 - INFO - 
+[72/5120] exp_0072_eps0.010_rhobalanced_lam50_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:33,712 - INFO -   eps=0.010, rho=None, lambda=50.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:33,768 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0072_eps0.010_rhobalanced_lam50_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:33,768 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:33,801 - INFO - 
+[73/5120] exp_0073_eps0.010_rhobalanced_lam100_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:33,801 - INFO -   eps=0.010, rho=None, lambda=100.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:33,834 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0073_eps0.010_rhobalanced_lam100_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:33,835 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:33,867 - INFO - 
+[74/5120] exp_0074_eps0.010_rhobalanced_lam100_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:33,867 - INFO -   eps=0.010, rho=None, lambda=100.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:33,902 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0074_eps0.010_rhobalanced_lam100_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:33,902 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:33,935 - INFO - 
+[75/5120] exp_0075_eps0.010_rhobalanced_lam100_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:33,935 - INFO -   eps=0.010, rho=None, lambda=100.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:33,970 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0075_eps0.010_rhobalanced_lam100_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:33,970 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,004 - INFO - 
+[76/5120] exp_0076_eps0.010_rhobalanced_lam100_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:34,004 - INFO -   eps=0.010, rho=None, lambda=100.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:34,039 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0076_eps0.010_rhobalanced_lam100_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:34,039 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,071 - INFO - 
+[77/5120] exp_0077_eps0.010_rhobalanced_lam100_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:34,071 - INFO -   eps=0.010, rho=None, lambda=100.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:34,130 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0077_eps0.010_rhobalanced_lam100_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:34,130 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,163 - INFO - 
+[78/5120] exp_0078_eps0.010_rhobalanced_lam100_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:34,163 - INFO -   eps=0.010, rho=None, lambda=100.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:34,222 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0078_eps0.010_rhobalanced_lam100_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:34,222 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,256 - INFO - 
+[79/5120] exp_0079_eps0.010_rhobalanced_lam100_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:34,256 - INFO -   eps=0.010, rho=None, lambda=100.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:34,315 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0079_eps0.010_rhobalanced_lam100_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:34,315 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,348 - INFO - 
+[80/5120] exp_0080_eps0.010_rhobalanced_lam100_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:34,349 - INFO -   eps=0.010, rho=None, lambda=100.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:34,408 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0080_eps0.010_rhobalanced_lam100_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:34,408 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,440 - INFO - 
+[81/5120] exp_0081_eps0.010_rho0.01_lam0.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:34,440 - INFO -   eps=0.010, rho=0.01, lambda=0.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:34,463 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0081_eps0.010_rho0.01_lam0.0_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:34,463 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,496 - INFO - 
+[82/5120] exp_0082_eps0.010_rho0.01_lam0.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:34,496 - INFO -   eps=0.010, rho=0.01, lambda=0.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:34,520 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0082_eps0.010_rho0.01_lam0.0_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:34,520 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,552 - INFO - 
+[83/5120] exp_0083_eps0.010_rho0.01_lam0.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:34,552 - INFO -   eps=0.010, rho=0.01, lambda=0.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:34,576 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0083_eps0.010_rho0.01_lam0.0_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:34,576 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,607 - INFO - 
+[84/5120] exp_0084_eps0.010_rho0.01_lam0.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:34,608 - INFO -   eps=0.010, rho=0.01, lambda=0.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:34,631 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0084_eps0.010_rho0.01_lam0.0_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:34,631 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,663 - INFO - 
+[85/5120] exp_0085_eps0.010_rho0.01_lam0.0_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:34,664 - INFO -   eps=0.010, rho=0.01, lambda=0.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:34,701 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0085_eps0.010_rho0.01_lam0.0_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:34,701 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,733 - INFO - 
+[86/5120] exp_0086_eps0.010_rho0.01_lam0.0_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:34,733 - INFO -   eps=0.010, rho=0.01, lambda=0.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:34,770 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0086_eps0.010_rho0.01_lam0.0_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:34,770 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,803 - INFO - 
+[87/5120] exp_0087_eps0.010_rho0.01_lam0.0_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:34,803 - INFO -   eps=0.010, rho=0.01, lambda=0.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:34,840 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0087_eps0.010_rho0.01_lam0.0_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:34,840 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,872 - INFO - 
+[88/5120] exp_0088_eps0.010_rho0.01_lam0.0_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:34,872 - INFO -   eps=0.010, rho=0.01, lambda=0.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:34,908 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0088_eps0.010_rho0.01_lam0.0_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:34,909 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,941 - INFO - 
+[89/5120] exp_0089_eps0.010_rho0.01_lam0.5_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:34,941 - INFO -   eps=0.010, rho=0.01, lambda=0.5, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:34,965 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0089_eps0.010_rho0.01_lam0.5_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:34,965 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:34,999 - INFO - 
+[90/5120] exp_0090_eps0.010_rho0.01_lam0.5_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:35,000 - INFO -   eps=0.010, rho=0.01, lambda=0.5, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:35,023 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0090_eps0.010_rho0.01_lam0.5_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:35,023 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,054 - INFO - 
+[91/5120] exp_0091_eps0.010_rho0.01_lam0.5_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:35,054 - INFO -   eps=0.010, rho=0.01, lambda=0.5, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:35,077 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0091_eps0.010_rho0.01_lam0.5_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:35,077 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,109 - INFO - 
+[92/5120] exp_0092_eps0.010_rho0.01_lam0.5_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:35,109 - INFO -   eps=0.010, rho=0.01, lambda=0.5, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:35,133 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0092_eps0.010_rho0.01_lam0.5_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:35,133 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,165 - INFO - 
+[93/5120] exp_0093_eps0.010_rho0.01_lam0.5_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:35,166 - INFO -   eps=0.010, rho=0.01, lambda=0.5, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:35,204 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0093_eps0.010_rho0.01_lam0.5_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:35,204 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,237 - INFO - 
+[94/5120] exp_0094_eps0.010_rho0.01_lam0.5_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:35,237 - INFO -   eps=0.010, rho=0.01, lambda=0.5, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:35,275 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0094_eps0.010_rho0.01_lam0.5_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:35,275 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,309 - INFO - 
+[95/5120] exp_0095_eps0.010_rho0.01_lam0.5_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:35,309 - INFO -   eps=0.010, rho=0.01, lambda=0.5, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:35,347 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0095_eps0.010_rho0.01_lam0.5_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:35,347 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,379 - INFO - 
+[96/5120] exp_0096_eps0.010_rho0.01_lam0.5_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:35,379 - INFO -   eps=0.010, rho=0.01, lambda=0.5, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:35,417 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0096_eps0.010_rho0.01_lam0.5_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:35,417 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,450 - INFO - 
+[97/5120] exp_0097_eps0.010_rho0.01_lam1.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:35,450 - INFO -   eps=0.010, rho=0.01, lambda=1.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:35,474 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0097_eps0.010_rho0.01_lam1.0_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:35,475 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,508 - INFO - 
+[98/5120] exp_0098_eps0.010_rho0.01_lam1.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:35,508 - INFO -   eps=0.010, rho=0.01, lambda=1.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:35,533 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0098_eps0.010_rho0.01_lam1.0_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:35,533 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,566 - INFO - 
+[99/5120] exp_0099_eps0.010_rho0.01_lam1.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:35,566 - INFO -   eps=0.010, rho=0.01, lambda=1.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:35,591 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0099_eps0.010_rho0.01_lam1.0_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:35,591 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,624 - INFO - 
+[100/5120] exp_0100_eps0.010_rho0.01_lam1.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:35,625 - INFO -   eps=0.010, rho=0.01, lambda=1.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:35,649 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0100_eps0.010_rho0.01_lam1.0_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:35,649 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,681 - INFO - 
+[101/5120] exp_0101_eps0.010_rho0.01_lam1.0_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:35,682 - INFO -   eps=0.010, rho=0.01, lambda=1.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:35,721 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0101_eps0.010_rho0.01_lam1.0_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:35,721 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,753 - INFO - 
+[102/5120] exp_0102_eps0.010_rho0.01_lam1.0_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:35,754 - INFO -   eps=0.010, rho=0.01, lambda=1.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:35,793 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0102_eps0.010_rho0.01_lam1.0_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:35,793 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,826 - INFO - 
+[103/5120] exp_0103_eps0.010_rho0.01_lam1.0_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:35,826 - INFO -   eps=0.010, rho=0.01, lambda=1.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:35,865 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0103_eps0.010_rho0.01_lam1.0_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:35,866 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,899 - INFO - 
+[104/5120] exp_0104_eps0.010_rho0.01_lam1.0_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:35,899 - INFO -   eps=0.010, rho=0.01, lambda=1.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:35,938 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0104_eps0.010_rho0.01_lam1.0_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:35,938 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:35,972 - INFO - 
+[105/5120] exp_0105_eps0.010_rho0.01_lam1.5_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:35,972 - INFO -   eps=0.010, rho=0.01, lambda=1.5, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:35,997 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0105_eps0.010_rho0.01_lam1.5_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:35,997 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,031 - INFO - 
+[106/5120] exp_0106_eps0.010_rho0.01_lam1.5_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:36,032 - INFO -   eps=0.010, rho=0.01, lambda=1.5, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:36,057 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0106_eps0.010_rho0.01_lam1.5_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:36,057 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,090 - INFO - 
+[107/5120] exp_0107_eps0.010_rho0.01_lam1.5_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:36,090 - INFO -   eps=0.010, rho=0.01, lambda=1.5, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:36,115 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0107_eps0.010_rho0.01_lam1.5_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:36,115 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,149 - INFO - 
+[108/5120] exp_0108_eps0.010_rho0.01_lam1.5_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:36,149 - INFO -   eps=0.010, rho=0.01, lambda=1.5, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:36,174 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0108_eps0.010_rho0.01_lam1.5_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:36,174 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,208 - INFO - 
+[109/5120] exp_0109_eps0.010_rho0.01_lam1.5_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:36,209 - INFO -   eps=0.010, rho=0.01, lambda=1.5, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:36,251 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0109_eps0.010_rho0.01_lam1.5_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:36,251 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,285 - INFO - 
+[110/5120] exp_0110_eps0.010_rho0.01_lam1.5_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:36,285 - INFO -   eps=0.010, rho=0.01, lambda=1.5, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:36,326 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0110_eps0.010_rho0.01_lam1.5_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:36,326 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,359 - INFO - 
+[111/5120] exp_0111_eps0.010_rho0.01_lam1.5_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:36,359 - INFO -   eps=0.010, rho=0.01, lambda=1.5, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:36,399 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0111_eps0.010_rho0.01_lam1.5_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:36,399 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,433 - INFO - 
+[112/5120] exp_0112_eps0.010_rho0.01_lam1.5_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:36,433 - INFO -   eps=0.010, rho=0.01, lambda=1.5, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:36,473 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0112_eps0.010_rho0.01_lam1.5_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:36,473 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,508 - INFO - 
+[113/5120] exp_0113_eps0.010_rho0.01_lam2.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:36,509 - INFO -   eps=0.010, rho=0.01, lambda=2.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:36,534 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0113_eps0.010_rho0.01_lam2.0_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:36,534 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,568 - INFO - 
+[114/5120] exp_0114_eps0.010_rho0.01_lam2.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:36,568 - INFO -   eps=0.010, rho=0.01, lambda=2.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:36,593 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0114_eps0.010_rho0.01_lam2.0_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:36,593 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,628 - INFO - 
+[115/5120] exp_0115_eps0.010_rho0.01_lam2.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:36,629 - INFO -   eps=0.010, rho=0.01, lambda=2.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:36,654 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0115_eps0.010_rho0.01_lam2.0_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:36,654 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,688 - INFO - 
+[116/5120] exp_0116_eps0.010_rho0.01_lam2.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:36,688 - INFO -   eps=0.010, rho=0.01, lambda=2.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:36,713 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0116_eps0.010_rho0.01_lam2.0_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:36,714 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,746 - INFO - 
+[117/5120] exp_0117_eps0.010_rho0.01_lam2.0_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:36,747 - INFO -   eps=0.010, rho=0.01, lambda=2.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:36,789 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0117_eps0.010_rho0.01_lam2.0_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:36,790 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,821 - INFO - 
+[118/5120] exp_0118_eps0.010_rho0.01_lam2.0_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:36,821 - INFO -   eps=0.010, rho=0.01, lambda=2.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:36,864 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0118_eps0.010_rho0.01_lam2.0_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:36,864 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,897 - INFO - 
+[119/5120] exp_0119_eps0.010_rho0.01_lam2.0_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:36,897 - INFO -   eps=0.010, rho=0.01, lambda=2.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:36,938 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0119_eps0.010_rho0.01_lam2.0_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:36,939 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:36,972 - INFO - 
+[120/5120] exp_0120_eps0.010_rho0.01_lam2.0_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:36,972 - INFO -   eps=0.010, rho=0.01, lambda=2.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:37,014 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0120_eps0.010_rho0.01_lam2.0_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:37,014 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,051 - INFO - 
+[121/5120] exp_0121_eps0.010_rho0.01_lam2.5_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:37,051 - INFO -   eps=0.010, rho=0.01, lambda=2.5, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:37,077 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0121_eps0.010_rho0.01_lam2.5_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:37,077 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,111 - INFO - 
+[122/5120] exp_0122_eps0.010_rho0.01_lam2.5_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:37,111 - INFO -   eps=0.010, rho=0.01, lambda=2.5, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:37,138 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0122_eps0.010_rho0.01_lam2.5_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:37,138 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,170 - INFO - 
+[123/5120] exp_0123_eps0.010_rho0.01_lam2.5_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:37,171 - INFO -   eps=0.010, rho=0.01, lambda=2.5, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:37,197 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0123_eps0.010_rho0.01_lam2.5_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:37,197 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,231 - INFO - 
+[124/5120] exp_0124_eps0.010_rho0.01_lam2.5_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:37,231 - INFO -   eps=0.010, rho=0.01, lambda=2.5, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:37,257 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0124_eps0.010_rho0.01_lam2.5_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:37,257 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,290 - INFO - 
+[125/5120] exp_0125_eps0.010_rho0.01_lam2.5_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:37,290 - INFO -   eps=0.010, rho=0.01, lambda=2.5, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:37,333 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0125_eps0.010_rho0.01_lam2.5_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:37,333 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,366 - INFO - 
+[126/5120] exp_0126_eps0.010_rho0.01_lam2.5_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:37,367 - INFO -   eps=0.010, rho=0.01, lambda=2.5, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:37,409 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0126_eps0.010_rho0.01_lam2.5_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:37,409 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,442 - INFO - 
+[127/5120] exp_0127_eps0.010_rho0.01_lam2.5_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:37,442 - INFO -   eps=0.010, rho=0.01, lambda=2.5, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:37,485 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0127_eps0.010_rho0.01_lam2.5_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:37,485 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,518 - INFO - 
+[128/5120] exp_0128_eps0.010_rho0.01_lam2.5_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:37,518 - INFO -   eps=0.010, rho=0.01, lambda=2.5, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:37,561 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0128_eps0.010_rho0.01_lam2.5_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:37,561 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,595 - INFO - 
+[129/5120] exp_0129_eps0.010_rho0.01_lam3.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:37,595 - INFO -   eps=0.010, rho=0.01, lambda=3.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:37,621 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0129_eps0.010_rho0.01_lam3.0_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:37,621 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,653 - INFO - 
+[130/5120] exp_0130_eps0.010_rho0.01_lam3.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:37,653 - INFO -   eps=0.010, rho=0.01, lambda=3.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:37,679 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0130_eps0.010_rho0.01_lam3.0_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:37,680 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,712 - INFO - 
+[131/5120] exp_0131_eps0.010_rho0.01_lam3.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:37,713 - INFO -   eps=0.010, rho=0.01, lambda=3.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:37,739 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0131_eps0.010_rho0.01_lam3.0_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:37,739 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,771 - INFO - 
+[132/5120] exp_0132_eps0.010_rho0.01_lam3.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:37,772 - INFO -   eps=0.010, rho=0.01, lambda=3.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:37,798 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0132_eps0.010_rho0.01_lam3.0_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:37,798 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,830 - INFO - 
+[133/5120] exp_0133_eps0.010_rho0.01_lam3.0_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:37,830 - INFO -   eps=0.010, rho=0.01, lambda=3.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:37,873 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0133_eps0.010_rho0.01_lam3.0_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:37,873 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,905 - INFO - 
+[134/5120] exp_0134_eps0.010_rho0.01_lam3.0_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:37,906 - INFO -   eps=0.010, rho=0.01, lambda=3.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:37,949 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0134_eps0.010_rho0.01_lam3.0_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:37,949 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:37,983 - INFO - 
+[135/5120] exp_0135_eps0.010_rho0.01_lam3.0_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:37,983 - INFO -   eps=0.010, rho=0.01, lambda=3.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:38,026 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0135_eps0.010_rho0.01_lam3.0_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:38,027 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,061 - INFO - 
+[136/5120] exp_0136_eps0.010_rho0.01_lam3.0_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:38,061 - INFO -   eps=0.010, rho=0.01, lambda=3.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:38,104 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0136_eps0.010_rho0.01_lam3.0_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:38,104 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,136 - INFO - 
+[137/5120] exp_0137_eps0.010_rho0.01_lam10_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:38,136 - INFO -   eps=0.010, rho=0.01, lambda=10.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:38,165 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0137_eps0.010_rho0.01_lam10_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:38,165 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,197 - INFO - 
+[138/5120] exp_0138_eps0.010_rho0.01_lam10_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:38,197 - INFO -   eps=0.010, rho=0.01, lambda=10.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:38,226 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0138_eps0.010_rho0.01_lam10_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:38,227 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,260 - INFO - 
+[139/5120] exp_0139_eps0.010_rho0.01_lam10_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:38,260 - INFO -   eps=0.010, rho=0.01, lambda=10.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:38,289 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0139_eps0.010_rho0.01_lam10_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:38,289 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,320 - INFO - 
+[140/5120] exp_0140_eps0.010_rho0.01_lam10_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:38,321 - INFO -   eps=0.010, rho=0.01, lambda=10.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:38,349 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0140_eps0.010_rho0.01_lam10_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:38,349 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,380 - INFO - 
+[141/5120] exp_0141_eps0.010_rho0.01_lam10_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:38,380 - INFO -   eps=0.010, rho=0.01, lambda=10.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:38,431 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0141_eps0.010_rho0.01_lam10_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:38,431 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,464 - INFO - 
+[142/5120] exp_0142_eps0.010_rho0.01_lam10_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:38,465 - INFO -   eps=0.010, rho=0.01, lambda=10.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:38,514 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0142_eps0.010_rho0.01_lam10_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:38,515 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,547 - INFO - 
+[143/5120] exp_0143_eps0.010_rho0.01_lam10_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:38,547 - INFO -   eps=0.010, rho=0.01, lambda=10.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:38,596 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0143_eps0.010_rho0.01_lam10_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:38,596 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,628 - INFO - 
+[144/5120] exp_0144_eps0.010_rho0.01_lam10_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:38,628 - INFO -   eps=0.010, rho=0.01, lambda=10.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:38,677 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0144_eps0.010_rho0.01_lam10_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:38,677 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,709 - INFO - 
+[145/5120] exp_0145_eps0.010_rho0.01_lam50_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:38,709 - INFO -   eps=0.010, rho=0.01, lambda=50.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:38,742 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0145_eps0.010_rho0.01_lam50_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:38,742 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,773 - INFO - 
+[146/5120] exp_0146_eps0.010_rho0.01_lam50_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:38,773 - INFO -   eps=0.010, rho=0.01, lambda=50.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:38,806 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0146_eps0.010_rho0.01_lam50_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:38,806 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,837 - INFO - 
+[147/5120] exp_0147_eps0.010_rho0.01_lam50_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:38,837 - INFO -   eps=0.010, rho=0.01, lambda=50.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:38,870 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0147_eps0.010_rho0.01_lam50_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:38,870 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,900 - INFO - 
+[148/5120] exp_0148_eps0.010_rho0.01_lam50_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:38,901 - INFO -   eps=0.010, rho=0.01, lambda=50.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:38,933 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0148_eps0.010_rho0.01_lam50_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:38,933 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:38,966 - INFO - 
+[149/5120] exp_0149_eps0.010_rho0.01_lam50_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:38,966 - INFO -   eps=0.010, rho=0.01, lambda=50.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:39,023 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0149_eps0.010_rho0.01_lam50_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:39,023 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:39,057 - INFO - 
+[150/5120] exp_0150_eps0.010_rho0.01_lam50_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:39,057 - INFO -   eps=0.010, rho=0.01, lambda=50.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:39,114 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0150_eps0.010_rho0.01_lam50_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:39,114 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:39,145 - INFO - 
+[151/5120] exp_0151_eps0.010_rho0.01_lam50_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:39,145 - INFO -   eps=0.010, rho=0.01, lambda=50.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:39,201 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0151_eps0.010_rho0.01_lam50_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:39,202 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:39,235 - INFO - 
+[152/5120] exp_0152_eps0.010_rho0.01_lam50_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:39,235 - INFO -   eps=0.010, rho=0.01, lambda=50.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:39,290 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0152_eps0.010_rho0.01_lam50_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:39,291 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:39,323 - INFO - 
+[153/5120] exp_0153_eps0.010_rho0.01_lam100_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:39,323 - INFO -   eps=0.010, rho=0.01, lambda=100.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:39,357 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0153_eps0.010_rho0.01_lam100_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:39,357 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:39,388 - INFO - 
+[154/5120] exp_0154_eps0.010_rho0.01_lam100_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:39,388 - INFO -   eps=0.010, rho=0.01, lambda=100.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:39,422 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0154_eps0.010_rho0.01_lam100_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:39,422 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:39,453 - INFO - 
+[155/5120] exp_0155_eps0.010_rho0.01_lam100_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:39,453 - INFO -   eps=0.010, rho=0.01, lambda=100.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:39,486 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0155_eps0.010_rho0.01_lam100_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:39,487 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:39,519 - INFO - 
+[156/5120] exp_0156_eps0.010_rho0.01_lam100_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:39,519 - INFO -   eps=0.010, rho=0.01, lambda=100.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:39,552 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0156_eps0.010_rho0.01_lam100_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:39,553 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:39,584 - INFO - 
+[157/5120] exp_0157_eps0.010_rho0.01_lam100_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:39,584 - INFO -   eps=0.010, rho=0.01, lambda=100.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:39,643 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0157_eps0.010_rho0.01_lam100_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:39,643 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:39,677 - INFO - 
+[158/5120] exp_0158_eps0.010_rho0.01_lam100_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:39,678 - INFO -   eps=0.010, rho=0.01, lambda=100.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:39,736 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0158_eps0.010_rho0.01_lam100_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:39,736 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:39,768 - INFO - 
+[159/5120] exp_0159_eps0.010_rho0.01_lam100_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:39,769 - INFO -   eps=0.010, rho=0.01, lambda=100.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:39,828 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0159_eps0.010_rho0.01_lam100_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:39,828 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:39,861 - INFO - 
+[160/5120] exp_0160_eps0.010_rho0.01_lam100_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:39,861 - INFO -   eps=0.010, rho=0.01, lambda=100.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:39,921 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0160_eps0.010_rho0.01_lam100_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:39,921 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:39,952 - INFO - 
+[161/5120] exp_0161_eps0.010_rho0.02_lam0.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:39,953 - INFO -   eps=0.010, rho=0.02, lambda=0.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:39,976 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0161_eps0.010_rho0.02_lam0.0_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:39,976 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,009 - INFO - 
+[162/5120] exp_0162_eps0.010_rho0.02_lam0.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:40,009 - INFO -   eps=0.010, rho=0.02, lambda=0.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:40,032 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0162_eps0.010_rho0.02_lam0.0_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:40,033 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,066 - INFO - 
+[163/5120] exp_0163_eps0.010_rho0.02_lam0.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:40,066 - INFO -   eps=0.010, rho=0.02, lambda=0.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:40,090 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0163_eps0.010_rho0.02_lam0.0_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:40,090 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,130 - INFO - 
+[164/5120] exp_0164_eps0.010_rho0.02_lam0.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:40,130 - INFO -   eps=0.010, rho=0.02, lambda=0.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:40,153 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0164_eps0.010_rho0.02_lam0.0_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:40,153 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,185 - INFO - 
+[165/5120] exp_0165_eps0.010_rho0.02_lam0.0_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:40,185 - INFO -   eps=0.010, rho=0.02, lambda=0.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:40,222 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0165_eps0.010_rho0.02_lam0.0_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:40,222 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,255 - INFO - 
+[166/5120] exp_0166_eps0.010_rho0.02_lam0.0_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:40,255 - INFO -   eps=0.010, rho=0.02, lambda=0.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:40,292 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0166_eps0.010_rho0.02_lam0.0_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:40,292 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,325 - INFO - 
+[167/5120] exp_0167_eps0.010_rho0.02_lam0.0_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:40,325 - INFO -   eps=0.010, rho=0.02, lambda=0.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:40,362 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0167_eps0.010_rho0.02_lam0.0_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:40,362 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,394 - INFO - 
+[168/5120] exp_0168_eps0.010_rho0.02_lam0.0_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:40,395 - INFO -   eps=0.010, rho=0.02, lambda=0.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:40,432 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0168_eps0.010_rho0.02_lam0.0_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:40,432 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,466 - INFO - 
+[169/5120] exp_0169_eps0.010_rho0.02_lam0.5_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:40,466 - INFO -   eps=0.010, rho=0.02, lambda=0.5, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:40,490 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0169_eps0.010_rho0.02_lam0.5_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:40,490 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,521 - INFO - 
+[170/5120] exp_0170_eps0.010_rho0.02_lam0.5_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:40,522 - INFO -   eps=0.010, rho=0.02, lambda=0.5, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:40,545 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0170_eps0.010_rho0.02_lam0.5_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:40,545 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,578 - INFO - 
+[171/5120] exp_0171_eps0.010_rho0.02_lam0.5_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:40,578 - INFO -   eps=0.010, rho=0.02, lambda=0.5, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:40,601 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0171_eps0.010_rho0.02_lam0.5_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:40,602 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,633 - INFO - 
+[172/5120] exp_0172_eps0.010_rho0.02_lam0.5_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:40,633 - INFO -   eps=0.010, rho=0.02, lambda=0.5, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:40,657 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0172_eps0.010_rho0.02_lam0.5_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:40,657 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,690 - INFO - 
+[173/5120] exp_0173_eps0.010_rho0.02_lam0.5_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:40,690 - INFO -   eps=0.010, rho=0.02, lambda=0.5, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:40,728 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0173_eps0.010_rho0.02_lam0.5_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:40,728 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,760 - INFO - 
+[174/5120] exp_0174_eps0.010_rho0.02_lam0.5_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:40,760 - INFO -   eps=0.010, rho=0.02, lambda=0.5, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:40,798 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0174_eps0.010_rho0.02_lam0.5_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:40,798 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,831 - INFO - 
+[175/5120] exp_0175_eps0.010_rho0.02_lam0.5_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:40,831 - INFO -   eps=0.010, rho=0.02, lambda=0.5, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:40,869 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0175_eps0.010_rho0.02_lam0.5_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:40,869 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,902 - INFO - 
+[176/5120] exp_0176_eps0.010_rho0.02_lam0.5_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:40,902 - INFO -   eps=0.010, rho=0.02, lambda=0.5, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:40,939 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0176_eps0.010_rho0.02_lam0.5_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:40,940 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:40,971 - INFO - 
+[177/5120] exp_0177_eps0.010_rho0.02_lam1.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:40,971 - INFO -   eps=0.010, rho=0.02, lambda=1.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:40,995 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0177_eps0.010_rho0.02_lam1.0_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:40,995 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,027 - INFO - 
+[178/5120] exp_0178_eps0.010_rho0.02_lam1.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:41,028 - INFO -   eps=0.010, rho=0.02, lambda=1.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:41,052 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0178_eps0.010_rho0.02_lam1.0_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:41,052 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,086 - INFO - 
+[179/5120] exp_0179_eps0.010_rho0.02_lam1.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:41,086 - INFO -   eps=0.010, rho=0.02, lambda=1.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:41,110 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0179_eps0.010_rho0.02_lam1.0_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:41,110 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,142 - INFO - 
+[180/5120] exp_0180_eps0.010_rho0.02_lam1.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:41,143 - INFO -   eps=0.010, rho=0.02, lambda=1.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:41,167 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0180_eps0.010_rho0.02_lam1.0_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:41,167 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,200 - INFO - 
+[181/5120] exp_0181_eps0.010_rho0.02_lam1.0_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:41,201 - INFO -   eps=0.010, rho=0.02, lambda=1.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:41,240 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0181_eps0.010_rho0.02_lam1.0_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:41,240 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,275 - INFO - 
+[182/5120] exp_0182_eps0.010_rho0.02_lam1.0_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:41,275 - INFO -   eps=0.010, rho=0.02, lambda=1.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:41,314 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0182_eps0.010_rho0.02_lam1.0_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:41,314 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,347 - INFO - 
+[183/5120] exp_0183_eps0.010_rho0.02_lam1.0_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:41,347 - INFO -   eps=0.010, rho=0.02, lambda=1.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:41,386 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0183_eps0.010_rho0.02_lam1.0_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:41,386 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,419 - INFO - 
+[184/5120] exp_0184_eps0.010_rho0.02_lam1.0_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:41,420 - INFO -   eps=0.010, rho=0.02, lambda=1.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:41,459 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0184_eps0.010_rho0.02_lam1.0_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:41,459 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,493 - INFO - 
+[185/5120] exp_0185_eps0.010_rho0.02_lam1.5_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:41,494 - INFO -   eps=0.010, rho=0.02, lambda=1.5, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:41,519 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0185_eps0.010_rho0.02_lam1.5_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:41,519 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,552 - INFO - 
+[186/5120] exp_0186_eps0.010_rho0.02_lam1.5_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:41,552 - INFO -   eps=0.010, rho=0.02, lambda=1.5, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:41,577 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0186_eps0.010_rho0.02_lam1.5_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:41,578 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,609 - INFO - 
+[187/5120] exp_0187_eps0.010_rho0.02_lam1.5_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:41,610 - INFO -   eps=0.010, rho=0.02, lambda=1.5, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:41,635 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0187_eps0.010_rho0.02_lam1.5_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:41,635 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,667 - INFO - 
+[188/5120] exp_0188_eps0.010_rho0.02_lam1.5_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:41,667 - INFO -   eps=0.010, rho=0.02, lambda=1.5, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:41,692 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0188_eps0.010_rho0.02_lam1.5_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:41,692 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,725 - INFO - 
+[189/5120] exp_0189_eps0.010_rho0.02_lam1.5_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:41,725 - INFO -   eps=0.010, rho=0.02, lambda=1.5, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:41,766 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0189_eps0.010_rho0.02_lam1.5_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:41,766 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,801 - INFO - 
+[190/5120] exp_0190_eps0.010_rho0.02_lam1.5_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:41,801 - INFO -   eps=0.010, rho=0.02, lambda=1.5, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:41,841 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0190_eps0.010_rho0.02_lam1.5_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:41,842 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,874 - INFO - 
+[191/5120] exp_0191_eps0.010_rho0.02_lam1.5_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:41,874 - INFO -   eps=0.010, rho=0.02, lambda=1.5, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:41,914 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0191_eps0.010_rho0.02_lam1.5_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:41,914 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:41,946 - INFO - 
+[192/5120] exp_0192_eps0.010_rho0.02_lam1.5_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:41,947 - INFO -   eps=0.010, rho=0.02, lambda=1.5, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:41,987 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0192_eps0.010_rho0.02_lam1.5_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:41,987 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,020 - INFO - 
+[193/5120] exp_0193_eps0.010_rho0.02_lam2.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:42,020 - INFO -   eps=0.010, rho=0.02, lambda=2.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:42,045 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0193_eps0.010_rho0.02_lam2.0_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:42,045 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,077 - INFO - 
+[194/5120] exp_0194_eps0.010_rho0.02_lam2.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:42,077 - INFO -   eps=0.010, rho=0.02, lambda=2.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:42,102 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0194_eps0.010_rho0.02_lam2.0_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:42,103 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,137 - INFO - 
+[195/5120] exp_0195_eps0.010_rho0.02_lam2.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:42,137 - INFO -   eps=0.010, rho=0.02, lambda=2.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:42,163 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0195_eps0.010_rho0.02_lam2.0_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:42,163 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,195 - INFO - 
+[196/5120] exp_0196_eps0.010_rho0.02_lam2.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:42,195 - INFO -   eps=0.010, rho=0.02, lambda=2.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:42,221 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0196_eps0.010_rho0.02_lam2.0_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:42,221 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,255 - INFO - 
+[197/5120] exp_0197_eps0.010_rho0.02_lam2.0_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:42,255 - INFO -   eps=0.010, rho=0.02, lambda=2.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:42,296 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0197_eps0.010_rho0.02_lam2.0_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:42,296 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,329 - INFO - 
+[198/5120] exp_0198_eps0.010_rho0.02_lam2.0_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:42,330 - INFO -   eps=0.010, rho=0.02, lambda=2.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:42,371 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0198_eps0.010_rho0.02_lam2.0_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:42,371 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,402 - INFO - 
+[199/5120] exp_0199_eps0.010_rho0.02_lam2.0_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:42,403 - INFO -   eps=0.010, rho=0.02, lambda=2.0, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:42,444 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0199_eps0.010_rho0.02_lam2.0_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:42,444 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,477 - INFO - 
+[200/5120] exp_0200_eps0.010_rho0.02_lam2.0_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:42,477 - INFO -   eps=0.010, rho=0.02, lambda=2.0, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:42,518 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0200_eps0.010_rho0.02_lam2.0_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:42,518 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,552 - INFO - 
+[201/5120] exp_0201_eps0.010_rho0.02_lam2.5_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:42,553 - INFO -   eps=0.010, rho=0.02, lambda=2.5, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:42,579 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0201_eps0.010_rho0.02_lam2.5_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:42,579 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,613 - INFO - 
+[202/5120] exp_0202_eps0.010_rho0.02_lam2.5_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:42,613 - INFO -   eps=0.010, rho=0.02, lambda=2.5, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:42,639 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0202_eps0.010_rho0.02_lam2.5_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:42,640 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,672 - INFO - 
+[203/5120] exp_0203_eps0.010_rho0.02_lam2.5_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:42,672 - INFO -   eps=0.010, rho=0.02, lambda=2.5, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:42,698 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0203_eps0.010_rho0.02_lam2.5_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:42,698 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,731 - INFO - 
+[204/5120] exp_0204_eps0.010_rho0.02_lam2.5_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:42,732 - INFO -   eps=0.010, rho=0.02, lambda=2.5, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:42,757 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0204_eps0.010_rho0.02_lam2.5_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:42,758 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,789 - INFO - 
+[205/5120] exp_0205_eps0.010_rho0.02_lam2.5_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:42,789 - INFO -   eps=0.010, rho=0.02, lambda=2.5, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:42,831 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0205_eps0.010_rho0.02_lam2.5_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:42,831 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,865 - INFO - 
+[206/5120] exp_0206_eps0.010_rho0.02_lam2.5_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:42,865 - INFO -   eps=0.010, rho=0.02, lambda=2.5, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:42,907 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0206_eps0.010_rho0.02_lam2.5_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:42,908 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:42,941 - INFO - 
+[207/5120] exp_0207_eps0.010_rho0.02_lam2.5_debiasTrue_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:42,941 - INFO -   eps=0.010, rho=0.02, lambda=2.5, debias=True, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:42,983 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0207_eps0.010_rho0.02_lam2.5_debiasTrue_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:42,984 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:43,017 - INFO - 
+[208/5120] exp_0208_eps0.010_rho0.02_lam2.5_debiasTrue_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:43,017 - INFO -   eps=0.010, rho=0.02, lambda=2.5, debias=True, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:43,059 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0208_eps0.010_rho0.02_lam2.5_debiasTrue_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:43,059 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:43,092 - INFO - 
+[209/5120] exp_0209_eps0.010_rho0.02_lam3.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:43,092 - INFO -   eps=0.010, rho=0.02, lambda=3.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:43,118 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0209_eps0.010_rho0.02_lam3.0_debiasFalse_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:43,119 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:43,151 - INFO - 
+[210/5120] exp_0210_eps0.010_rho0.02_lam3.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:43,151 - INFO -   eps=0.010, rho=0.02, lambda=3.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:43,178 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0210_eps0.010_rho0.02_lam3.0_debiasFalse_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:43,178 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:43,211 - INFO - 
+[211/5120] exp_0211_eps0.010_rho0.02_lam3.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:30:43,211 - INFO -   eps=0.010, rho=0.02, lambda=3.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:30:43,238 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0211_eps0.010_rho0.02_lam3.0_debiasFalse_dynrastTrue_adapsigmaFalse.pt
+2025-12-05 23:30:43,238 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:43,272 - INFO - 
+[212/5120] exp_0212_eps0.010_rho0.02_lam3.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:30:43,272 - INFO -   eps=0.010, rho=0.02, lambda=3.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:30:43,298 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0212_eps0.010_rho0.02_lam3.0_debiasFalse_dynrastTrue_adapsigmaTrue.pt
+2025-12-05 23:30:43,298 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:43,330 - INFO - 
+[213/5120] exp_0213_eps0.010_rho0.02_lam3.0_debiasTrue_dynrastFalse_adapsigmaFalse
+2025-12-05 23:30:43,330 - INFO -   eps=0.010, rho=0.02, lambda=3.0, debias=True, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:30:43,373 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0213_eps0.010_rho0.02_lam3.0_debiasTrue_dynrastFalse_adapsigmaFalse.pt
+2025-12-05 23:30:43,373 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
+2025-12-05 23:30:43,406 - INFO - 
+[214/5120] exp_0214_eps0.010_rho0.02_lam3.0_debiasTrue_dynrastFalse_adapsigmaTrue
+2025-12-05 23:30:43,406 - INFO -   eps=0.010, rho=0.02, lambda=3.0, debias=True, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:30:43,449 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/exp_0214_eps0.010_rho0.02_lam3.0_debiasTrue_dynrastFalse_adapsigmaTrue.pt
+2025-12-05 23:30:43,449 - INFO -   Taille plan: torch.Size([1680, 1680]), Mémoire: 10.77 MB
