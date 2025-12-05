@@ -138,24 +138,25 @@ def run_ablation_studies():
     # Grille d'hyperparamètres
     epsilons = [0.01, 0.02, 0.03, 0.05, 0.07, 0.10, 0.15, 0.20]
     rhos = [None, 0.01, 0.02, 0.05, 0.10, 0.15, 0.30, 0.50]
+    lambdas = [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 10.0, 50.0, 100.0]
     debias_options = [False, True]
     dynamic_rasterization_options = [False, True]
     adaptive_sigma_options = [False, True]
     
-    # Résolution et lambda fixes (comme dans le papier)
+    # Résolution fixe (comme dans le papier)
     resolution = (48, 48)
-    lambda_color = 2.0
     
     # Génération de toutes les combinaisons
-    total_experiments = len(epsilons) * len(rhos) * len(debias_options) * len(dynamic_rasterization_options) * len(adaptive_sigma_options)
+    total_experiments = len(epsilons) * len(rhos) * len(lambdas) * len(debias_options) * len(dynamic_rasterization_options) * len(adaptive_sigma_options)
     logger.info(f"Nombre total d'expériences: {total_experiments}")
+    logger.info(f"Lambda values: {lambdas}")
     
     experiment_id = 0
     successful = 0
     failed = 0
     
-    for eps, rho, use_debias, use_dyn_rast, use_adapt_sigma in itertools.product(
-        epsilons, rhos, debias_options, dynamic_rasterization_options, adaptive_sigma_options
+    for eps, rho, lambda_color, use_debias, use_dyn_rast, use_adapt_sigma in itertools.product(
+        epsilons, rhos, lambdas, debias_options, dynamic_rasterization_options, adaptive_sigma_options
     ):
         experiment_id += 1
         
@@ -175,11 +176,12 @@ def run_ablation_studies():
         
         # Nom du fichier
         rho_str = "balanced" if rho is None else f"{rho:.2f}"
-        exp_name = f"exp_{experiment_id:04d}_eps{eps:.3f}_rho{rho_str}_debias{use_debias}_dynrast{use_dyn_rast}_adapsigma{use_adapt_sigma}"
+        lambda_str = f"{lambda_color:.1f}" if lambda_color < 10 else f"{lambda_color:.0f}"
+        exp_name = f"exp_{experiment_id:04d}_eps{eps:.3f}_rho{rho_str}_lam{lambda_str}_debias{use_debias}_dynrast{use_dyn_rast}_adapsigma{use_adapt_sigma}"
         output_path = EXPERIMENTS_DIR / f"{exp_name}.pt"
         
         logger.info(f"\n[{experiment_id}/{total_experiments}] {exp_name}")
-        logger.info(f"  eps={eps:.3f}, rho={rho}, debias={use_debias}, dyn_rast={use_dyn_rast}, adapt_sigma={use_adapt_sigma}")
+        logger.info(f"  eps={eps:.3f}, rho={rho}, lambda={lambda_color:.1f}, debias={use_debias}, dyn_rast={use_dyn_rast}, adapt_sigma={use_adapt_sigma}")
         
         try:
             # Calcul du plan de transport
