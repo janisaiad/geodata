@@ -13,7 +13,7 @@ Métriques implémentées:
 import torch
 import torch.nn.functional as F
 import numpy as np
-from typing import Tuple, Optional
+from typing import Tuple, Optional, Dict
 import logging
 
 logger = logging.getLogger(__name__)
@@ -314,4 +314,59 @@ class MetricsComputer:
             metrics['tearing_pct'] = None
         
         return metrics
+
+
+def compute_displacement_smoothness(displacement_field: torch.Tensor) -> Dict[str, float]:
+    """
+    Calcule des métriques de 'smoothness' pour un champ de déplacement.
+    
+    Args:
+        displacement_field: Tensor (H, W, 2) représentant le champ de déplacement (T(x) - x).
+    
+    Returns:
+        Dict de métriques de smoothness.
+    """
+    H, W, _ = displacement_field.shape
+    device = displacement_field.device
+
+    # Magnitude du déplacement
+    magnitude = torch.norm(displacement_field, dim=-1)
+    mean_displacement = magnitude.mean().item()
+    max_displacement = magnitude.max().item()
+    std_displacement = magnitude.std().item()
+
+    # Calcul des gradients pour divergence, curl, laplacien
+    # dx_du, dy_du (gradients selon x)
+    # dx_dv, dy_dv (gradients selon y)
+    grad_x_field = torch.gradient(displacement_field[..., 0], dim=1, spacing=torch.tensor(1.0/(W-1), device=device))[0]
+    grad_y_field = torch.gradient(displacement_field[..., 1], dim=0, spacing=torch.tensor(1.0/(H-1), device=device))[0]
+
+    # Divergence: div(F) = dFx/dx + dFy/dy
+    divergence = grad_x_field + grad_y_field
+    mean_divergence = divergence.abs().mean().item()
+
+    # Curl (pour un champ 2D, c'est un scalaire): curl(F) = dFy/dx - dFx/dy
+    curl = torch.gradient(displacement_field[..., 1], dim=1, spacing=torch.tensor(1.0/(W-1), device=device))[0] - \
+           torch.gradient(displacement_field[..., 0], dim=0, spacing=torch.tensor(1.0/(H-1), device=device))[0]
+    mean_curl = curl.abs().mean().item()
+
+    # Laplacien (smoothness): sum(d^2F/dx^2 + d^2F/dy^2)
+    laplacian_x = torch.gradient(grad_x_field, dim=1, spacing=torch.tensor(1.0/(W-1), device=device))[0]
+    laplacian_y = torch.gradient(grad_y_field, dim=0, spacing=torch.tensor(1.0/(H-1), device=device))[0]
+    mean_laplacian = (laplacian_x.abs().mean() + laplacian_y.abs().mean()).item()
+
+    # Score de smoothness (heuristique, à affiner)
+    # Plus la divergence, curl, laplacien sont faibles, plus c'est lisse
+    # Normalisation pour un score entre 0 et 1 (plus haut = plus lisse)
+    smoothness_score = 1.0 / (1.0 + mean_divergence + mean_curl + mean_laplacian)
+
+    return {
+        'mean_displacement': mean_displacement,
+        'max_displacement': max_displacement,
+        'std_displacement': std_displacement,
+        'mean_divergence': mean_divergence,
+        'mean_curl': mean_curl,
+        'mean_laplacian': mean_laplacian,
+        'smoothness_score': smoothness_score
+    }
 

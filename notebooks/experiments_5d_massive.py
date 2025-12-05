@@ -35,7 +35,7 @@ import torchvision.transforms as transforms
 sys.path.append(str(Path(__file__).parent))
 
 # Imports depuis les modules existants
-from metrics_5d import MetricsComputer, compute_psnr, compute_delta_e, compute_coverage, compute_mass_error, compute_sharpness
+from metrics_5d import MetricsComputer, compute_psnr, compute_delta_e, compute_coverage, compute_mass_error, compute_sharpness, compute_displacement_smoothness
 
 # Imports depuis 5d_transport (on va extraire les classes)
 # Pour l'instant, on va les redéfinir ici pour éviter les problèmes d'imports
