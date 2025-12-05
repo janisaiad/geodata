@@ -36,6 +36,24 @@ DATA_DIR = Path("/Data/janis.aiad/geodata/data/pixelart/images")
 OUTPUT_DIR = Path("/Data/janis.aiad/geodata/refs/reports/figures")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
+def format_hyperparameters(config: OTConfig, varying_param: str = None, varying_value: str = None):
+    """Formate les hyperparamètres pour affichage sur les figures."""
+    params = []
+    params.append(f"res={config.resolution[0]}×{config.resolution[1]}")
+    params.append(f"ε={config.blur:.3f}")
+    if config.reach is None:
+        params.append("ρ=Balanced")
+    else:
+        params.append(f"ρ={config.reach:.2f}")
+    params.append(f"λ={config.lambda_color:.1f}")
+    params.append(f"σ_start={config.sigma_start:.1f}")
+    params.append(f"σ_end={config.sigma_end:.1f}")
+    params.append(f"γ={config.sigma_boost:.1f}")
+    param_str = ", ".join(params)
+    if varying_param and varying_value:
+        param_str = f"{varying_param}={varying_value} | " + param_str
+    return param_str
+
 @dataclass
 class OTConfig:
     """Configuration pour Transport Optimal 5D."""
@@ -206,7 +224,21 @@ def plot_rho_timelines(img_source, img_target, rhos, times):
             ax.set_xticks([])
             ax.set_yticks([])
     
-    plt.tight_layout()
+    # Ajouter les hyperparamètres
+    base_config = OTConfig(
+        resolution=(48, 48),
+        blur=0.05,
+        reach=0.3,
+        lambda_color=2.0,
+        sigma_start=1.2,
+        sigma_end=0.5,
+        sigma_boost=0.5
+    )
+    param_text = format_hyperparameters(base_config, varying_param="ρ", varying_value="varied")
+    fig.text(0.5, 0.02, f"Hyperparameters (varying ρ): {param_text}", 
+             ha='center', fontsize=10, family='monospace')
+    
+    plt.tight_layout(rect=[0, 0.05, 1, 1])
     output_path = OUTPUT_DIR / "rho_ablation_timelines.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
@@ -261,7 +293,21 @@ def plot_rho_comparison(img_source, img_target, rhos, t=0.5):
     axes[-1].set_xticks([])
     axes[-1].set_yticks([])
     
-    plt.tight_layout()
+    # Ajouter les hyperparamètres
+    base_config = OTConfig(
+        resolution=(48, 48),
+        blur=0.05,
+        reach=0.3,
+        lambda_color=2.0,
+        sigma_start=1.2,
+        sigma_end=0.5,
+        sigma_boost=0.5
+    )
+    param_text = format_hyperparameters(base_config, varying_param="ρ", varying_value="varied")
+    fig.text(0.5, 0.02, f"Hyperparameters (varying ρ): {param_text}", 
+             ha='center', fontsize=10, family='monospace')
+    
+    plt.tight_layout(rect=[0, 0.05, 1, 1])
     output_path = OUTPUT_DIR / "rho_ablation_comparison.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
@@ -429,7 +475,21 @@ def plot_rho_displacement_fields(img_source, img_target, rhos):
         ax2.set_yticks([])
         plt.colorbar(im, ax=ax2, label='Magnitude (pixels)')
     
-    plt.tight_layout()
+    # Ajouter les hyperparamètres
+    base_config = OTConfig(
+        resolution=(48, 48),
+        blur=0.05,
+        reach=0.3,
+        lambda_color=2.0,
+        sigma_start=1.2,
+        sigma_end=0.5,
+        sigma_boost=0.5
+    )
+    param_text = format_hyperparameters(base_config, varying_param="ρ", varying_value="varied")
+    fig.text(0.5, 0.02, f"Hyperparameters (varying ρ): {param_text}", 
+             ha='center', fontsize=10, family='monospace')
+    
+    plt.tight_layout(rect=[0, 0.05, 1, 1])
     output_path = OUTPUT_DIR / "rho_displacement_fields.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()

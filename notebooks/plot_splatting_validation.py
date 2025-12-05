@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Visualisations pour la validation qualitative du splatting adaptatif.
-Compare le splatting adaptatif vs fixe et montre l'évolution de la divergence de Sinkhorn.
+Visualizations for qualitative validation of adaptive splatting.
+Compares adaptive vs fixed splatting and shows Sinkhorn divergence evolution.
 """
 
 import torch
@@ -16,7 +16,7 @@ from typing import List, Optional
 from tqdm import tqdm
 from pathlib import Path
 
-# Configuration matplotlib pour LaTeX
+# Matplotlib configuration for LaTeX
 plt.rcParams['figure.figsize'] = [6, 6]
 plt.rcParams['font.size'] = 18
 mpl.rcParams['mathtext.fontset'] = 'cm'
@@ -31,14 +31,14 @@ mpl.rcParams['ytick.minor.visible'] = True
 plt.rcParams['ytick.right'] = True
 plt.rcParams['xtick.top'] = True
 
-# Chemins
+# Paths
 DATA_DIR = Path("/Data/janis.aiad/geodata/data/pixelart/images")
 OUTPUT_DIR = Path("/Data/janis.aiad/geodata/refs/reports/figures")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 @dataclass
 class OTConfig:
-    """Configuration pour Transport Optimal 5D."""
+    """Configuration for 5D Optimal Transport."""
     resolution: tuple[int] = (48, 48)
     blur: float = 0.05
     scaling: float = 0.9
@@ -50,7 +50,7 @@ class OTConfig:
     sigma_boost: float = 0.5
 
 def get_5d_cloud(img: torch.Tensor, res: int, lambda_c: float):
-    """Convertit une image (C, H, W) en nuage de points 5D (N, 5)."""
+    """Converts an image (C, H, W) to a 5D point cloud (N, 5)."""
     C, H, W = img.shape
     scale = res / max(H, W)
     new_H, new_W = int(H * scale), int(W * scale)
@@ -67,7 +67,7 @@ def get_5d_cloud(img: torch.Tensor, res: int, lambda_c: float):
     return cloud_5d, weights, colors, new_H, new_W
 
 def vectorized_gaussian_splatting(positions_2d, attributes, weights, H, W, sigma):
-    """Splatting Vectorisé (Nadaraya-Watson Kernel Regression)."""
+    """Vectorized Splatting (Nadaraya-Watson Kernel Regression)."""
     device = positions_2d.device
     N = positions_2d.shape[0]
     pos_pix = positions_2d * torch.tensor([W - 1, H - 1], device=device)
@@ -100,7 +100,7 @@ def vectorized_gaussian_splatting(positions_2d, attributes, weights, H, W, sigma
     return out_img
 
 def compute_sinkhorn_evolution(frames, img_target, config):
-    """Calcule la divergence de Sinkhorn S_eps(frame_t, target) pour chaque frame."""
+    """Computes Sinkhorn divergence S_eps(frame_t, target) for each frame."""
     metric_loss = SamplesLoss(
         loss="sinkhorn", p=2, blur=config.blur, reach=config.reach,
         scaling=config.scaling, debias=True
@@ -109,7 +109,7 @@ def compute_sinkhorn_evolution(frames, img_target, config):
     target_cloud, target_weights, _, _, _ = get_5d_cloud(
         img_target.to(config.device), config.resolution[1], config.lambda_color
     )
-    print("Calcul des distances de Sinkhorn...")
+    print("Computing Sinkhorn distances...")
     for i, frame in enumerate(frames):
         current_cloud, current_weights, _, _, _ = get_5d_cloud(
             frame.to(config.device), config.resolution[0], config.lambda_color
@@ -128,7 +128,7 @@ class OT5DInterpolator:
         )
 
     def interpolate(self, img_source, img_target, times: List[float], use_adaptive_sigma=True, fixed_sigma=None):
-        """Interpolation avec splatting adaptatif ou fixe."""
+        """Interpolation with adaptive or fixed splatting."""
         img_source_device = img_source.to(self.cfg.device)
         X_a, w_a, colors_a, Ha, Wa = get_5d_cloud(
             img_source_device, self.cfg.resolution[0], self.cfg.lambda_color
@@ -157,7 +157,7 @@ class OT5DInterpolator:
         results = []
         N_active = weights_ij.shape[0]
         
-        # Préparer les images source et target redimensionnées
+        # Prepare resized source and target images
         img_source_resized = F.interpolate(
             img_source_device.unsqueeze(0), 
             size=(Ha, Wa), mode='bilinear'
@@ -168,34 +168,34 @@ class OT5DInterpolator:
         ).squeeze(0)
         
         for t in tqdm(times, desc=f"Interpolation (adaptive={use_adaptive_sigma})", leave=False):
-            # À t=0, retourner l'image source directement
+            # At t=0, return source image directly
             if abs(t) < 1e-6:
                 results.append(img_source_resized.cpu())
                 continue
             
-            # À t=1, retourner l'image target directement
+            # At t=1, return target image directly
             if abs(t - 1.0) < 1e-6:
                 results.append(img_target_resized.cpu())
                 continue
             
-            # Interpolation intermédiaire
+            # Intermediate interpolation
             pos_t = (1 - t) * pos_a_spatial + t * pos_b_spatial
             col_t = (1 - t) * col_a_real + t * col_b_real
             Ht = int((1 - t) * Ha + t * Hb)
             Wt = int((1 - t) * Wa + t * Wb)
             
-            # Calcul du sigma
+            # Compute sigma
             if use_adaptive_sigma:
-                # Sigma adaptatif
+                # Adaptive sigma
                 sigma_intrinsic = (1 - t) * self.cfg.sigma_start + t * self.cfg.sigma_end
                 sigma_expansion = self.cfg.sigma_boost * 4 * t * (1 - t)
                 current_spacing = np.sqrt((Ht * Wt) / (N_active + 1e-6))
                 min_sigma_t = current_spacing / 2.0
                 sigma_t = max(sigma_intrinsic + sigma_expansion, min_sigma_t * 0.8)
             else:
-                # Sigma fixe
+                # Fixed sigma
                 if fixed_sigma is None:
-                    fixed_sigma = 0.5  # Valeur par défaut
+                    fixed_sigma = 0.5  # Default value
                 current_spacing = np.sqrt((Ht * Wt) / (N_active + 1e-6))
                 min_sigma_t = current_spacing / 2.0
                 sigma_t = max(fixed_sigma, min_sigma_t * 0.8)
@@ -207,15 +207,15 @@ class OT5DInterpolator:
         return results
 
 def load_image(path: Path) -> torch.Tensor:
-    """Charge une image et la convertit en tensor (C, H, W) normalisé."""
+    """Loads an image and converts it to a normalized tensor (C, H, W)."""
     img_pil = Image.open(path).convert("RGB")
     img = torch.from_numpy(np.array(img_pil)).permute(2, 0, 1).float() / 255.0
     return img
 
 def plot_sigma_comparison(img_source, img_target, times):
-    """Compare le splatting adaptatif vs fixe."""
+    """Compares adaptive vs fixed splatting."""
     print("\n" + "=" * 80)
-    print("COMPARAISON SPLATTING ADAPTATIF VS FIXE")
+    print("ADAPTIVE VS FIXED SPLATTING COMPARISON")
     print("=" * 80)
     
     config = OTConfig(
@@ -231,18 +231,18 @@ def plot_sigma_comparison(img_source, img_target, times):
     n_times = len(times)
     fig, axes = plt.subplots(2, n_times, figsize=(n_times * 2.5, 5))
     
-    # Splatting adaptatif
-    print("\nCalcul avec splatting adaptatif...")
+    # Adaptive splatting
+    print("\nComputing with adaptive splatting...")
     interpolator_adaptive = OT5DInterpolator(config)
     frames_adaptive = interpolator_adaptive.interpolate(img_source, img_target, times, use_adaptive_sigma=True)
     
-    # Splatting fixe (sigma = 0.5)
-    print("\nCalcul avec splatting fixe (σ=0.5)...")
+    # Fixed splatting (sigma = 0.5)
+    print("\nComputing with fixed splatting (σ=0.5)...")
     interpolator_fixed = OT5DInterpolator(config)
     frames_fixed = interpolator_fixed.interpolate(img_source, img_target, times, use_adaptive_sigma=False, fixed_sigma=0.5)
     
     for j, (t, frame_adapt, frame_fixed) in enumerate(zip(times, frames_adaptive, frames_fixed)):
-        # Ligne 1: Adaptatif
+        # Row 1: Adaptive
         ax1 = axes[0, j]
         np_img_adapt = frame_adapt.permute(1, 2, 0).clamp(0, 1).numpy()
         ax1.imshow(np_img_adapt)
@@ -255,7 +255,7 @@ def plot_sigma_comparison(img_source, img_target, times):
         ax1.set_xticks([])
         ax1.set_yticks([])
         
-        # Ligne 2: Fixe
+        # Row 2: Fixed
         ax2 = axes[1, j]
         np_img_fixed = frame_fixed.permute(1, 2, 0).clamp(0, 1).numpy()
         ax2.imshow(np_img_fixed)
@@ -268,12 +268,12 @@ def plot_sigma_comparison(img_source, img_target, times):
     output_path = OUTPUT_DIR / "splatting_adaptive_vs_fixed.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
-    print(f"\n✓ Sauvegardé: {output_path}")
+    print(f"\n✓ Saved: {output_path}")
 
 def plot_sinkhorn_evolution(img_source, img_target, times):
-    """Génère un plot montrant l'évolution de la divergence de Sinkhorn."""
+    """Generates a plot showing Sinkhorn divergence evolution."""
     print("\n" + "=" * 80)
-    print("ÉVOLUTION DE LA DIVERGENCE DE SINKHORN")
+    print("SINKHORN DIVERGENCE EVOLUTION")
     print("=" * 80)
     
     config = OTConfig(
@@ -286,14 +286,14 @@ def plot_sinkhorn_evolution(img_source, img_target, times):
         sigma_boost=0.5
     )
     
-    # Calcul avec splatting adaptatif
-    print("\nCalcul avec splatting adaptatif...")
+    # Compute with adaptive splatting
+    print("\nComputing with adaptive splatting...")
     interpolator_adaptive = OT5DInterpolator(config)
     frames_adaptive = interpolator_adaptive.interpolate(img_source, img_target, times, use_adaptive_sigma=True)
     distances_adaptive = compute_sinkhorn_evolution(frames_adaptive, img_target, config)
     
-    # Calcul avec splatting fixe
-    print("\nCalcul avec splatting fixe (σ=0.5)...")
+    # Compute with fixed splatting
+    print("\nComputing with fixed splatting (σ=0.5)...")
     interpolator_fixed = OT5DInterpolator(config)
     frames_fixed = interpolator_fixed.interpolate(img_source, img_target, times, use_adaptive_sigma=False, fixed_sigma=0.5)
     distances_fixed = compute_sinkhorn_evolution(frames_fixed, img_target, config)
@@ -304,38 +304,38 @@ def plot_sinkhorn_evolution(img_source, img_target, times):
             linewidth=2, markersize=8, label="Adaptive $\\sigma(t)$")
     ax.plot(times, distances_fixed, marker="s", linestyle="--", color="r", 
             linewidth=2, markersize=8, label="Fixed $\\sigma=0.5$")
-    ax.set_xlabel("Temps d'interpolation $t$")
-    ax.set_ylabel("Divergence de Sinkhorn $S_{\\varepsilon}(\\mu_t, \\nu)$")
-    ax.set_title("Convergence vers la Cible dans l'espace de Wasserstein 5D")
+    ax.set_xlabel("Interpolation time $t$")
+    ax.set_ylabel("Sinkhorn divergence $S_{\\varepsilon}(\\mu_t, \\nu)$")
+    ax.set_title("Convergence to Target in 5D Wasserstein Space")
     ax.grid(True, linestyle="--", alpha=0.6)
     ax.legend(fontsize=14)
     plt.tight_layout()
     output_path = OUTPUT_DIR / "sinkhorn_evolution_comparison.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
-    print(f"\n✓ Sauvegardé: {output_path}")
+    print(f"\n✓ Saved: {output_path}")
     
-    # Afficher les valeurs dans un tableau
+    # Display values in a table
     print("\n" + "=" * 80)
-    print("VALEURS DE LA DIVERGENCE DE SINKHORN")
+    print("SINKHORN DIVERGENCE VALUES")
     print("=" * 80)
-    print(f"{'t':<8} {'Adaptive σ(t)':<15} {'Fixed σ=0.5':<15} {'Différence':<15}")
+    print(f"{'t':<8} {'Adaptive σ(t)':<15} {'Fixed σ=0.5':<15} {'Difference':<15}")
     print("-" * 60)
     for t, d_adapt, d_fixed in zip(times, distances_adaptive, distances_fixed):
         diff = d_fixed - d_adapt
         print(f"{t:<8.2f} {d_adapt:<15.4f} {d_fixed:<15.4f} {diff:<15.4f}")
 
 def plot_sigma_evolution(times):
-    """Génère un plot montrant l'évolution de sigma(t) pour le splatting adaptatif."""
+    """Generates a plot showing sigma(t) evolution for adaptive splatting."""
     print("\n" + "=" * 80)
-    print("ÉVOLUTION DE σ(t) POUR LE SPLATTING ADAPTATIF")
+    print("σ(t) EVOLUTION FOR ADAPTIVE SPLATTING")
     print("=" * 80)
     
     sigma_start = 1.2
     sigma_end = 0.5
     sigma_boost = 0.5
     
-    # Calcul de sigma(t)
+    # Compute sigma(t)
     sigma_adaptive = []
     sigma_fixed = 0.5
     
@@ -350,38 +350,38 @@ def plot_sigma_evolution(times):
     ax.plot(times, sigma_adaptive, marker="o", linestyle="-", color="b", 
             linewidth=2, markersize=8, label="Adaptive $\\sigma(t)$")
     ax.axhline(y=sigma_fixed, color="r", linestyle="--", linewidth=2, label="Fixed $\\sigma=0.5$")
-    ax.set_xlabel("Temps d'interpolation $t$")
+    ax.set_xlabel("Interpolation time $t$")
     ax.set_ylabel("Kernel width $\\sigma(t)$")
-    ax.set_title("Évolution de la largeur du noyau pour le splatting adaptatif")
+    ax.set_title("Kernel width evolution for adaptive splatting")
     ax.grid(True, linestyle="--", alpha=0.6)
     ax.legend(fontsize=14)
     plt.tight_layout()
     output_path = OUTPUT_DIR / "sigma_evolution.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
-    print(f"\n✓ Sauvegardé: {output_path}")
+    print(f"\n✓ Saved: {output_path}")
 
 def main():
     print("=" * 80)
-    print("VALIDATION QUALITATIVE DU SPLATTING ADAPTATIF")
+    print("QUALITATIVE VALIDATION OF ADAPTIVE SPLATTING")
     print("=" * 80)
     
-    # Chargement des images
-    print("\nChargement des images...")
+    # Load images
+    print("\nLoading images...")
     img_source = load_image(DATA_DIR / "salameche.webp")
     img_target = load_image(DATA_DIR / "strawberry.jpg")
     print(f"Source: {img_source.shape}, Target: {img_target.shape}")
     
-    # Temps d'interpolation
+    # Interpolation times
     times = [0.0, 0.25, 0.5, 0.75, 1.0]
     
-    # Génération des plots
+    # Generate plots
     plot_sigma_comparison(img_source, img_target, times)
     plot_sinkhorn_evolution(img_source, img_target, times)
     plot_sigma_evolution(times)
     
     print("\n" + "=" * 80)
-    print("TERMINÉ - Toutes les visualisations ont été créées dans:")
+    print("COMPLETE - All visualizations have been created in:")
     print(f"  {OUTPUT_DIR}")
     print("=" * 80)
 
