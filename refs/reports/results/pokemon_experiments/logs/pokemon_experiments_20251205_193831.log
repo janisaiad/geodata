@@ -1,0 +1,336 @@
+2025-12-05 19:38:31,211 - __main__ - INFO - Logging initialisé. Fichier: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/logs/pokemon_experiments_20251205_193831.log
+2025-12-05 19:38:31,211 - __main__ - INFO - Chargement des images Pokemon...
+2025-12-05 19:38:31,211 - __main__ - INFO - Chargement images Pokemon: salameche.jpg -> pikachu.webp
+2025-12-05 19:38:31,230 - PIL.TiffImagePlugin - DEBUG - tag: Orientation (274) - type: short (3) - value: b'\x01\x00'
+2025-12-05 19:38:31,230 - PIL.TiffImagePlugin - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 34 - Data Location: 176 - value: b'`\x00\x00\x00\x01\x00\x00\x00'
+2025-12-05 19:38:31,230 - PIL.TiffImagePlugin - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 46 - Data Location: 184 - value: b'`\x00\x00\x00\x01\x00\x00\x00'
+2025-12-05 19:38:31,230 - PIL.TiffImagePlugin - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x02\x00'
+2025-12-05 19:38:31,230 - PIL.TiffImagePlugin - DEBUG - tag: YCbCrPositioning (531) - type: short (3) - value: b'\x01\x00'
+2025-12-05 19:38:31,230 - PIL.TiffImagePlugin - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'V\x00\x00\x00'
+2025-12-05 19:38:31,232 - PIL.Image - DEBUG - Importing AvifImagePlugin
+2025-12-05 19:38:31,233 - PIL.Image - DEBUG - Importing BlpImagePlugin
+2025-12-05 19:38:31,235 - PIL.Image - DEBUG - Importing BmpImagePlugin
+2025-12-05 19:38:31,235 - PIL.Image - DEBUG - Importing BufrStubImagePlugin
+2025-12-05 19:38:31,235 - PIL.Image - DEBUG - Importing CurImagePlugin
+2025-12-05 19:38:31,236 - PIL.Image - DEBUG - Importing DcxImagePlugin
+2025-12-05 19:38:31,236 - PIL.Image - DEBUG - Importing DdsImagePlugin
+2025-12-05 19:38:31,239 - PIL.Image - DEBUG - Importing EpsImagePlugin
+2025-12-05 19:38:31,240 - PIL.Image - DEBUG - Importing FitsImagePlugin
+2025-12-05 19:38:31,241 - PIL.Image - DEBUG - Importing FliImagePlugin
+2025-12-05 19:38:31,241 - PIL.Image - DEBUG - Importing FpxImagePlugin
+2025-12-05 19:38:31,243 - PIL.Image - DEBUG - Image: failed to import FpxImagePlugin: No module named 'olefile'
+2025-12-05 19:38:31,243 - PIL.Image - DEBUG - Importing FtexImagePlugin
+2025-12-05 19:38:31,243 - PIL.Image - DEBUG - Importing GbrImagePlugin
+2025-12-05 19:38:31,244 - PIL.Image - DEBUG - Importing GifImagePlugin
+2025-12-05 19:38:31,244 - PIL.Image - DEBUG - Importing GribStubImagePlugin
+2025-12-05 19:38:31,244 - PIL.Image - DEBUG - Importing Hdf5StubImagePlugin
+2025-12-05 19:38:31,244 - PIL.Image - DEBUG - Importing IcnsImagePlugin
+2025-12-05 19:38:31,248 - PIL.Image - DEBUG - Importing IcoImagePlugin
+2025-12-05 19:38:31,249 - PIL.Image - DEBUG - Importing ImImagePlugin
+2025-12-05 19:38:31,250 - PIL.Image - DEBUG - Importing ImtImagePlugin
+2025-12-05 19:38:31,250 - PIL.Image - DEBUG - Importing IptcImagePlugin
+2025-12-05 19:38:31,251 - PIL.Image - DEBUG - Importing JpegImagePlugin
+2025-12-05 19:38:31,251 - PIL.Image - DEBUG - Importing Jpeg2KImagePlugin
+2025-12-05 19:38:31,251 - PIL.Image - DEBUG - Importing McIdasImagePlugin
+2025-12-05 19:38:31,251 - PIL.Image - DEBUG - Importing MicImagePlugin
+2025-12-05 19:38:31,251 - PIL.Image - DEBUG - Image: failed to import MicImagePlugin: No module named 'olefile'
+2025-12-05 19:38:31,251 - PIL.Image - DEBUG - Importing MpegImagePlugin
+2025-12-05 19:38:31,252 - PIL.Image - DEBUG - Importing MpoImagePlugin
+2025-12-05 19:38:31,252 - PIL.Image - DEBUG - Importing MspImagePlugin
+2025-12-05 19:38:31,253 - PIL.Image - DEBUG - Importing PalmImagePlugin
+2025-12-05 19:38:31,254 - PIL.Image - DEBUG - Importing PcdImagePlugin
+2025-12-05 19:38:31,254 - PIL.Image - DEBUG - Importing PcxImagePlugin
+2025-12-05 19:38:31,254 - PIL.Image - DEBUG - Importing PdfImagePlugin
+2025-12-05 19:38:31,260 - PIL.Image - DEBUG - Importing PixarImagePlugin
+2025-12-05 19:38:31,260 - PIL.Image - DEBUG - Importing PngImagePlugin
+2025-12-05 19:38:31,260 - PIL.Image - DEBUG - Importing PpmImagePlugin
+2025-12-05 19:38:31,260 - PIL.Image - DEBUG - Importing PsdImagePlugin
+2025-12-05 19:38:31,261 - PIL.Image - DEBUG - Importing QoiImagePlugin
+2025-12-05 19:38:31,262 - PIL.Image - DEBUG - Importing SgiImagePlugin
+2025-12-05 19:38:31,262 - PIL.Image - DEBUG - Importing SpiderImagePlugin
+2025-12-05 19:38:31,263 - PIL.Image - DEBUG - Importing SunImagePlugin
+2025-12-05 19:38:31,264 - PIL.Image - DEBUG - Importing TgaImagePlugin
+2025-12-05 19:38:31,264 - PIL.Image - DEBUG - Importing TiffImagePlugin
+2025-12-05 19:38:31,264 - PIL.Image - DEBUG - Importing WebPImagePlugin
+2025-12-05 19:38:31,266 - PIL.Image - DEBUG - Importing WmfImagePlugin
+2025-12-05 19:38:31,266 - PIL.Image - DEBUG - Importing XbmImagePlugin
+2025-12-05 19:38:31,267 - PIL.Image - DEBUG - Importing XpmImagePlugin
+2025-12-05 19:38:31,267 - PIL.Image - DEBUG - Importing XVThumbImagePlugin
+2025-12-05 19:38:31,286 - __main__ - INFO - Images chargées: torch.Size([3, 256, 256]) et torch.Size([3, 256, 256])
+2025-12-05 19:38:31,286 - __main__ - INFO - Images Pokemon chargées: torch.Size([3, 256, 256]) -> torch.Size([3, 256, 256])
+2025-12-05 19:38:31,286 - __main__ - INFO - ExperimentRunner initialisé. Output dir: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments
+2025-12-05 19:38:31,286 - __main__ - INFO - Fichier de log: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/logs/pokemon_experiments_20251205_193831.log
+2025-12-05 19:38:31,286 - __main__ - INFO - ================================================================================
+2025-12-05 19:38:31,286 - __main__ - INFO - DÉMARRAGE DES EXPÉRIENCES POKEMON À GRANDE ÉCHELLE
+2025-12-05 19:38:31,286 - __main__ - INFO - ================================================================================
+2025-12-05 19:38:31,286 - __main__ - INFO - Paire d'images: salameche_pikachu
+2025-12-05 19:38:31,286 - __main__ - INFO - Source: salameche.jpg
+2025-12-05 19:38:31,286 - __main__ - INFO - Target: pikachu.webp
+2025-12-05 19:38:31,286 - __main__ - INFO - Device: cuda
+2025-12-05 19:38:31,286 - __main__ - INFO - Résolutions: [32, 48, 64, 96, 128, 160, 192, 256]
+2025-12-05 19:38:31,286 - __main__ - INFO - Lambdas: [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.5, 3.0]
+2025-12-05 19:38:31,286 - __main__ - INFO - Blurs: [0.01, 0.02, 0.03, 0.05, 0.07, 0.1, 0.15, 0.2, 0.3, 0.5]
+2025-12-05 19:38:31,286 - __main__ - INFO - Reaches: [None, 0.01, 0.02, 0.05, 0.1, 0.15, 0.3, 0.5, 0.7, 1.0]
+2025-12-05 19:38:31,299 - __main__ - DEBUG - Mémoire GPU début: 0.00 GB allouée / 0.00 GB réservée / 20.97 GB total (max: 0.00 GB)
+2025-12-05 19:38:31,299 - __main__ - INFO - ================================================================================
+2025-12-05 19:38:31,299 - __main__ - INFO - 
+>>> Expérience 1: Ablation Lambda (Large Scale)
+2025-12-05 19:38:31,299 - __main__ - INFO - === Expérience 1: Ablation Lambda (Large Scale) ===
+2025-12-05 19:38:31,300 - __main__ - INFO - Expérience 1: salameche_pikachu, res=64, λ=0.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:31,300 - __main__ - DEBUG - Mémoire GPU avant exp 1: 0.00 GB allouée / 0.00 GB réservée / 20.97 GB total (max: 0.00 GB)
+2025-12-05 19:38:31,300 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:31,404 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:31,404 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:31,675 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:31,784 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  9.17it/s]
+2025-12-05 19:38:31,784 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  9.16it/s]
+2025-12-05 19:38:31,784 - __main__ - DEBUG - Mémoire GPU après exp 1: 0.09 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:31,784 - __main__ - INFO - Expérience 1 terminée en 0.48s (Sinkhorn: 0.48s, Interpolation: 0.00s, 0.48s/frame)
+2025-12-05 19:38:31,784 - __main__ - INFO -   Mémoire GPU: 0.09 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:31,792 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp1_res64_lam0.0_eps0.030_rho0.10.pt
+2025-12-05 19:38:31,795 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp1_t0.500.png
+2025-12-05 19:38:31,795 - __main__ - INFO - Expérience 2: salameche_pikachu, res=64, λ=0.25, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:31,795 - __main__ - DEBUG - Mémoire GPU avant exp 2: 0.01 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:31,795 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:31,795 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:31,795 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:31,977 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:32,039 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 16.04it/s]
+2025-12-05 19:38:32,039 - __main__ - DEBUG - Mémoire GPU après exp 2: 0.08 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:32,039 - __main__ - INFO - Expérience 2 terminée en 0.24s (Sinkhorn: 0.24s, Interpolation: 0.00s, 0.24s/frame)
+2025-12-05 19:38:32,039 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:32,044 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp2_res64_lam0.2_eps0.030_rho0.10.pt
+2025-12-05 19:38:32,046 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp2_t0.500.png
+2025-12-05 19:38:32,046 - __main__ - INFO - Expérience 3: salameche_pikachu, res=64, λ=0.5, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:32,047 - __main__ - DEBUG - Mémoire GPU avant exp 3: 0.01 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:32,047 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:32,047 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:32,047 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:32,237 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:32,292 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 18.31it/s]
+2025-12-05 19:38:32,292 - __main__ - DEBUG - Mémoire GPU après exp 3: 0.08 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:32,292 - __main__ - INFO - Expérience 3 terminée en 0.24s (Sinkhorn: 0.24s, Interpolation: 0.00s, 0.24s/frame)
+2025-12-05 19:38:32,292 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:32,296 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp3_res64_lam0.5_eps0.030_rho0.10.pt
+2025-12-05 19:38:32,298 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp3_t0.500.png
+2025-12-05 19:38:32,298 - __main__ - INFO - Expérience 4: salameche_pikachu, res=64, λ=0.75, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:32,299 - __main__ - DEBUG - Mémoire GPU avant exp 4: 0.01 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:32,299 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:32,299 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:32,299 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:32,493 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:32,544 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 19.82it/s]
+2025-12-05 19:38:32,544 - __main__ - DEBUG - Mémoire GPU après exp 4: 0.08 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:32,544 - __main__ - INFO - Expérience 4 terminée en 0.25s (Sinkhorn: 0.25s, Interpolation: 0.00s, 0.25s/frame)
+2025-12-05 19:38:32,544 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:32,547 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp4_res64_lam0.8_eps0.030_rho0.10.pt
+2025-12-05 19:38:32,548 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp4_t0.500.png
+2025-12-05 19:38:32,549 - __main__ - INFO - Expérience 5: salameche_pikachu, res=64, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:32,549 - __main__ - DEBUG - Mémoire GPU avant exp 5: 0.01 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:32,549 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:32,549 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:32,549 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:32,748 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:32,795 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 21.03it/s]
+2025-12-05 19:38:32,795 - __main__ - DEBUG - Mémoire GPU après exp 5: 0.08 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:32,795 - __main__ - INFO - Expérience 5 terminée en 0.25s (Sinkhorn: 0.25s, Interpolation: 0.00s, 0.25s/frame)
+2025-12-05 19:38:32,795 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:32,798 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp5_res64_lam1.0_eps0.030_rho0.10.pt
+2025-12-05 19:38:32,800 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp5_t0.500.png
+2025-12-05 19:38:32,800 - __main__ - INFO - Expérience 6: salameche_pikachu, res=64, λ=1.25, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:32,800 - __main__ - DEBUG - Mémoire GPU avant exp 6: 0.01 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:32,800 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:32,801 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:32,801 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:33,007 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:33,054 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 21.62it/s]
+2025-12-05 19:38:33,054 - __main__ - DEBUG - Mémoire GPU après exp 6: 0.08 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:33,054 - __main__ - INFO - Expérience 6 terminée en 0.25s (Sinkhorn: 0.25s, Interpolation: 0.00s, 0.25s/frame)
+2025-12-05 19:38:33,054 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:33,057 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp6_res64_lam1.2_eps0.030_rho0.10.pt
+2025-12-05 19:38:33,058 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp6_t0.500.png
+2025-12-05 19:38:33,058 - __main__ - INFO - Expérience 7: salameche_pikachu, res=64, λ=1.5, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:33,059 - __main__ - DEBUG - Mémoire GPU avant exp 7: 0.01 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:33,059 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:33,059 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:33,059 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:33,270 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:33,315 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 22.05it/s]
+2025-12-05 19:38:33,315 - __main__ - DEBUG - Mémoire GPU après exp 7: 0.08 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:33,315 - __main__ - INFO - Expérience 7 terminée en 0.26s (Sinkhorn: 0.26s, Interpolation: 0.00s, 0.26s/frame)
+2025-12-05 19:38:33,315 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:33,318 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp7_res64_lam1.5_eps0.030_rho0.10.pt
+2025-12-05 19:38:33,320 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp7_t0.500.png
+2025-12-05 19:38:33,320 - __main__ - INFO - Expérience 8: salameche_pikachu, res=64, λ=1.75, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:33,320 - __main__ - DEBUG - Mémoire GPU avant exp 8: 0.01 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:33,320 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:33,320 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:33,320 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:33,535 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:33,580 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 22.39it/s]
+2025-12-05 19:38:33,580 - __main__ - DEBUG - Mémoire GPU après exp 8: 0.08 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:33,580 - __main__ - INFO - Expérience 8 terminée en 0.26s (Sinkhorn: 0.26s, Interpolation: 0.00s, 0.26s/frame)
+2025-12-05 19:38:33,580 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:33,583 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp8_res64_lam1.8_eps0.030_rho0.10.pt
+2025-12-05 19:38:33,585 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp8_t0.500.png
+2025-12-05 19:38:33,585 - __main__ - INFO - Expérience 9: salameche_pikachu, res=64, λ=2.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:33,585 - __main__ - DEBUG - Mémoire GPU avant exp 9: 0.01 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:33,585 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:33,585 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:33,585 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:33,804 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:33,848 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 22.75it/s]
+2025-12-05 19:38:33,848 - __main__ - DEBUG - Mémoire GPU après exp 9: 0.08 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:33,848 - __main__ - INFO - Expérience 9 terminée en 0.26s (Sinkhorn: 0.26s, Interpolation: 0.00s, 0.26s/frame)
+2025-12-05 19:38:33,848 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:33,852 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp9_res64_lam2.0_eps0.030_rho0.10.pt
+2025-12-05 19:38:33,853 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp9_t0.500.png
+2025-12-05 19:38:33,853 - __main__ - INFO - Expérience 10: salameche_pikachu, res=64, λ=2.5, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:33,854 - __main__ - DEBUG - Mémoire GPU avant exp 10: 0.01 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:33,854 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:33,854 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:33,854 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:34,082 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:34,125 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 23.46it/s]
+2025-12-05 19:38:34,125 - __main__ - DEBUG - Mémoire GPU après exp 10: 0.08 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:34,125 - __main__ - INFO - Expérience 10 terminée en 0.27s (Sinkhorn: 0.27s, Interpolation: 0.00s, 0.27s/frame)
+2025-12-05 19:38:34,125 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:34,127 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp10_res64_lam2.5_eps0.030_rho0.10.pt
+2025-12-05 19:38:34,129 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp10_t0.500.png
+2025-12-05 19:38:34,129 - __main__ - INFO - Expérience 11: salameche_pikachu, res=64, λ=3.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:34,129 - __main__ - DEBUG - Mémoire GPU avant exp 11: 0.01 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:34,130 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:34,130 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:34,130 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:34,365 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:34,407 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 24.21it/s]
+2025-12-05 19:38:34,407 - __main__ - DEBUG - Mémoire GPU après exp 11: 0.08 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:34,407 - __main__ - INFO - Expérience 11 terminée en 0.28s (Sinkhorn: 0.28s, Interpolation: 0.00s, 0.28s/frame)
+2025-12-05 19:38:34,407 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:34,410 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp11_res64_lam3.0_eps0.030_rho0.10.pt
+2025-12-05 19:38:34,411 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp11_t0.500.png
+2025-12-05 19:38:34,433 - __main__ - INFO - 
+>>> Expérience 2: Comparaison 2D vs 5D
+2025-12-05 19:38:34,433 - __main__ - INFO - === Expérience 2: Comparaison 2D vs 5D ===
+2025-12-05 19:38:34,433 - __main__ - INFO - Expérience 12: salameche_pikachu, res=64, λ=0.0, ε=0.03, ρ=0.1, 21 temps
+2025-12-05 19:38:34,433 - __main__ - DEBUG - Mémoire GPU avant exp 12: 0.01 GB allouée / 0.02 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:34,433 - __main__ - DEBUG - Interpolation 5D: 21 temps
+2025-12-05 19:38:34,434 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:34,434 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:34,631 - __main__ - INFO - Interpolation 5D:   0%|          | 0/21 [00:00<?, ?it/s]
+2025-12-05 19:38:34,769 - __main__ - INFO - Interpolation 5D:  10%|9         | 2/21 [00:00<00:01, 14.51it/s]
+2025-12-05 19:38:34,941 - __main__ - INFO - Interpolation 5D:  19%|#9        | 4/21 [00:00<00:01, 12.68it/s]
+2025-12-05 19:38:35,146 - __main__ - INFO - Interpolation 5D:  29%|##8       | 6/21 [00:00<00:01, 11.13it/s]
+2025-12-05 19:38:35,350 - __main__ - INFO - Interpolation 5D:  38%|###8      | 8/21 [00:00<00:01, 10.57it/s]
+2025-12-05 19:38:35,553 - __main__ - INFO - Interpolation 5D:  48%|####7     | 10/21 [00:00<00:01, 10.30it/s]
+2025-12-05 19:38:35,721 - __main__ - INFO - Interpolation 5D:  57%|#####7    | 12/21 [00:01<00:00, 10.80it/s]
+2025-12-05 19:38:35,853 - __main__ - INFO - Interpolation 5D:  67%|######6   | 14/21 [00:01<00:00, 11.91it/s]
+2025-12-05 19:38:35,985 - __main__ - INFO - Interpolation 5D:  76%|#######6  | 16/21 [00:01<00:00, 12.78it/s]
+2025-12-05 19:38:36,104 - __main__ - INFO - Interpolation 5D:  90%|######### | 19/21 [00:01<00:00, 15.99it/s]
+2025-12-05 19:38:36,144 - __main__ - INFO - Interpolation 5D: 100%|##########| 21/21 [00:01<00:00, 13.88it/s]
+2025-12-05 19:38:36,144 - __main__ - DEBUG - Mémoire GPU après exp 12: 0.09 GB allouée / 6.42 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:36,144 - __main__ - INFO - Expérience 12 terminée en 1.71s (Sinkhorn: 1.71s, Interpolation: 0.00s, 0.08s/frame)
+2025-12-05 19:38:36,144 - __main__ - INFO -   Mémoire GPU: 0.09 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:36,151 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp12_res64_lam0.0_eps0.030_rho0.10.pt
+2025-12-05 19:38:36,153 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.000.png
+2025-12-05 19:38:36,155 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.050.png
+2025-12-05 19:38:36,156 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.100.png
+2025-12-05 19:38:36,157 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.150.png
+2025-12-05 19:38:36,159 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.200.png
+2025-12-05 19:38:36,160 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.250.png
+2025-12-05 19:38:36,162 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.300.png
+2025-12-05 19:38:36,163 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.350.png
+2025-12-05 19:38:36,164 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.400.png
+2025-12-05 19:38:36,165 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.450.png
+2025-12-05 19:38:36,167 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.500.png
+2025-12-05 19:38:36,168 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.550.png
+2025-12-05 19:38:36,169 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.600.png
+2025-12-05 19:38:36,170 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.650.png
+2025-12-05 19:38:36,172 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.700.png
+2025-12-05 19:38:36,173 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.750.png
+2025-12-05 19:38:36,174 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.800.png
+2025-12-05 19:38:36,175 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.850.png
+2025-12-05 19:38:36,177 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.900.png
+2025-12-05 19:38:36,178 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t0.950.png
+2025-12-05 19:38:36,179 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp12_t1.000.png
+2025-12-05 19:38:36,179 - __main__ - INFO - Expérience 13: salameche_pikachu, res=64, λ=1.0, ε=0.03, ρ=0.1, 21 temps
+2025-12-05 19:38:36,180 - __main__ - DEBUG - Mémoire GPU avant exp 13: 0.01 GB allouée / 6.42 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:36,180 - __main__ - DEBUG - Interpolation 5D: 21 temps
+2025-12-05 19:38:36,180 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:36,180 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:36,378 - __main__ - INFO - Interpolation 5D:   0%|          | 0/21 [00:00<?, ?it/s]
+2025-12-05 19:38:36,521 - __main__ - INFO - Interpolation 5D:  19%|#9        | 4/21 [00:00<00:00, 28.08it/s]
+2025-12-05 19:38:36,663 - __main__ - INFO - Interpolation 5D:  33%|###3      | 7/21 [00:00<00:00, 23.93it/s]
+2025-12-05 19:38:36,805 - __main__ - INFO - Interpolation 5D:  48%|####7     | 10/21 [00:00<00:00, 22.66it/s]
+2025-12-05 19:38:36,914 - __main__ - INFO - Interpolation 5D:  62%|######1   | 13/21 [00:00<00:00, 24.32it/s]
+2025-12-05 19:38:37,024 - __main__ - INFO - Interpolation 5D:  81%|########  | 17/21 [00:00<00:00, 28.24it/s]
+2025-12-05 19:38:37,078 - __main__ - INFO - Interpolation 5D: 100%|##########| 21/21 [00:00<00:00, 30.03it/s]
+2025-12-05 19:38:37,078 - __main__ - DEBUG - Mémoire GPU après exp 13: 0.08 GB allouée / 6.42 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:37,078 - __main__ - INFO - Expérience 13 terminée en 0.90s (Sinkhorn: 0.90s, Interpolation: 0.00s, 0.04s/frame)
+2025-12-05 19:38:37,078 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:37,081 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp13_res64_lam1.0_eps0.030_rho0.10.pt
+2025-12-05 19:38:37,083 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.000.png
+2025-12-05 19:38:37,084 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.050.png
+2025-12-05 19:38:37,085 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.100.png
+2025-12-05 19:38:37,086 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.150.png
+2025-12-05 19:38:37,087 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.200.png
+2025-12-05 19:38:37,088 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.250.png
+2025-12-05 19:38:37,090 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.300.png
+2025-12-05 19:38:37,091 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.350.png
+2025-12-05 19:38:37,092 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.400.png
+2025-12-05 19:38:37,093 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.450.png
+2025-12-05 19:38:37,094 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.500.png
+2025-12-05 19:38:37,095 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.550.png
+2025-12-05 19:38:37,097 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.600.png
+2025-12-05 19:38:37,098 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.650.png
+2025-12-05 19:38:37,099 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.700.png
+2025-12-05 19:38:37,100 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.750.png
+2025-12-05 19:38:37,101 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.800.png
+2025-12-05 19:38:37,103 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.850.png
+2025-12-05 19:38:37,104 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.900.png
+2025-12-05 19:38:37,105 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t0.950.png
+2025-12-05 19:38:37,107 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp13_t1.000.png
+2025-12-05 19:38:37,133 - __main__ - INFO - 
+>>> Expérience 3: Impact Splatting
+2025-12-05 19:38:37,133 - __main__ - INFO - === Expérience 3: Impact Splatting ===
+2025-12-05 19:38:37,133 - __main__ - INFO - Expérience 14: salameche_pikachu, res=32, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:37,133 - __main__ - DEBUG - Mémoire GPU avant exp 14: 0.01 GB allouée / 0.02 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:37,133 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:37,134 - __main__ - DEBUG - Nuages 5D: Source 1024 points, Target 1024 points
+2025-12-05 19:38:37,134 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:37,140 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:37,148 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 130.62it/s]
+2025-12-05 19:38:37,148 - __main__ - DEBUG - Mémoire GPU après exp 14: 0.01 GB allouée / 0.20 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:37,148 - __main__ - INFO - Expérience 14 terminée en 0.01s (Sinkhorn: 0.01s, Interpolation: 0.00s, 0.01s/frame)
+2025-12-05 19:38:37,148 - __main__ - INFO -   Mémoire GPU: 0.01 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:37,149 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp14_res32_lam1.0_eps0.030_rho0.10.pt
+2025-12-05 19:38:37,150 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp14_t0.500.png
+2025-12-05 19:38:37,150 - __main__ - INFO - Expérience 15: salameche_pikachu, res=48, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:37,150 - __main__ - DEBUG - Mémoire GPU avant exp 15: 0.01 GB allouée / 0.20 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:37,150 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:37,150 - __main__ - DEBUG - Nuages 5D: Source 2304 points, Target 2304 points
+2025-12-05 19:38:37,150 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:37,181 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:37,203 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 47.01it/s]
+2025-12-05 19:38:37,203 - __main__ - DEBUG - Mémoire GPU après exp 15: 0.03 GB allouée / 0.91 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:37,203 - __main__ - INFO - Expérience 15 terminée en 0.05s (Sinkhorn: 0.05s, Interpolation: 0.00s, 0.05s/frame)
+2025-12-05 19:38:37,203 - __main__ - INFO -   Mémoire GPU: 0.03 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:37,205 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp15_res48_lam1.0_eps0.030_rho0.10.pt
+2025-12-05 19:38:37,206 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp15_t0.500.png
+2025-12-05 19:38:37,206 - __main__ - INFO - Expérience 16: salameche_pikachu, res=64, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:37,206 - __main__ - DEBUG - Mémoire GPU avant exp 16: 0.01 GB allouée / 0.91 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:37,206 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:37,206 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 19:38:37,206 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 19:38:37,409 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 19:38:37,457 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00, 20.89it/s]
+2025-12-05 19:38:37,457 - __main__ - DEBUG - Mémoire GPU après exp 16: 0.08 GB allouée / 3.00 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:37,457 - __main__ - INFO - Expérience 16 terminée en 0.25s (Sinkhorn: 0.25s, Interpolation: 0.00s, 0.25s/frame)
+2025-12-05 19:38:37,457 - __main__ - INFO -   Mémoire GPU: 0.08 GB allouée (max: 4.26 GB)
+2025-12-05 19:38:37,461 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/transport_plans/plan_exp16_res64_lam1.0_eps0.030_rho0.10.pt
+2025-12-05 19:38:37,463 - __main__ - DEBUG - Image sauvegardée: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments/images/exp16_t0.500.png
+2025-12-05 19:38:37,463 - __main__ - INFO - Expérience 17: salameche_pikachu, res=96, λ=1.0, ε=0.03, ρ=0.1, 1 temps
+2025-12-05 19:38:37,463 - __main__ - DEBUG - Mémoire GPU avant exp 17: 0.01 GB allouée / 3.00 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 19:38:37,463 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 19:38:37,463 - __main__ - DEBUG - Nuages 5D: Source 9216 points, Target 9216 points
+2025-12-05 19:38:37,463 - __main__ - DEBUG - Calcul Sinkhorn...

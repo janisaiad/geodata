@@ -1,0 +1,156 @@
+2025-12-05 21:55:46,471 - __main__ - INFO - Logging initialisé. Fichier: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments_salameche_strawberry/logs/pokemon_experiments_20251205_215546.log
+2025-12-05 21:55:46,472 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:46,472 - __main__ - INFO - CHARGEMENT DES IMAGES POKEMON
+2025-12-05 21:55:46,472 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:46,472 - __main__ - INFO - Source: salameche.webp
+2025-12-05 21:55:46,472 - __main__ - INFO - Target: strawberry.jpg
+2025-12-05 21:55:46,472 - __main__ - INFO - Répertoire: /Data/janis.aiad/geodata/data/pixelart/images
+2025-12-05 21:55:46,472 - __main__ - INFO - Chargement images Pokemon: salameche.jpg -> strawberry.jpg
+2025-12-05 21:55:46,476 - PIL.TiffImagePlugin - DEBUG - tag: Orientation (274) - type: short (3) - value: b'\x01\x00'
+2025-12-05 21:55:46,476 - PIL.TiffImagePlugin - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 34 - Data Location: 176 - value: b'`\x00\x00\x00\x01\x00\x00\x00'
+2025-12-05 21:55:46,476 - PIL.TiffImagePlugin - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 46 - Data Location: 184 - value: b'`\x00\x00\x00\x01\x00\x00\x00'
+2025-12-05 21:55:46,476 - PIL.TiffImagePlugin - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x02\x00'
+2025-12-05 21:55:46,476 - PIL.TiffImagePlugin - DEBUG - tag: YCbCrPositioning (531) - type: short (3) - value: b'\x01\x00'
+2025-12-05 21:55:46,476 - PIL.TiffImagePlugin - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'V\x00\x00\x00'
+2025-12-05 21:55:46,657 - __main__ - INFO - Images chargées: torch.Size([3, 256, 256]) et torch.Size([3, 256, 256])
+2025-12-05 21:55:46,657 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:46,662 - __main__ - INFO - INFORMATIONS SUR LES IMAGES CHARGÉES
+2025-12-05 21:55:46,662 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:46,663 - __main__ - INFO - Image Source:
+2025-12-05 21:55:46,663 - __main__ - INFO -   Shape: torch.Size([3, 256, 256])
+2025-12-05 21:55:46,663 - __main__ - INFO -   Taille: 256×256 pixels
+2025-12-05 21:55:46,663 - __main__ - INFO -   Canaux: 3
+2025-12-05 21:55:46,795 - __main__ - INFO -   Min: 0.0000, Max: 1.0000
+2025-12-05 21:55:46,865 - __main__ - INFO -   Mean: 0.7692, Std: 0.3952
+2025-12-05 21:55:46,865 - __main__ - INFO - Image Target:
+2025-12-05 21:55:46,865 - __main__ - INFO -   Shape: torch.Size([3, 256, 256])
+2025-12-05 21:55:46,865 - __main__ - INFO -   Taille: 256×256 pixels
+2025-12-05 21:55:46,865 - __main__ - INFO -   Canaux: 3
+2025-12-05 21:55:46,984 - __main__ - INFO -   Min: 0.0000, Max: 1.0000
+2025-12-05 21:55:47,057 - __main__ - INFO -   Mean: 0.4682, Std: 0.2058
+2025-12-05 21:55:47,057 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:47,057 - __main__ - INFO - ExperimentRunner initialisé. Output dir: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments_salameche_strawberry
+2025-12-05 21:55:47,057 - __main__ - INFO - Fichier de log: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments_salameche_strawberry/logs/pokemon_experiments_20251205_215546.log
+2025-12-05 21:55:47,057 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:47,057 - __main__ - INFO - DÉMARRAGE DES EXPÉRIENCES POKEMON À GRANDE ÉCHELLE
+2025-12-05 21:55:47,057 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:47,057 - __main__ - INFO - Paire d'images: salameche_strawberry
+2025-12-05 21:55:47,057 - __main__ - INFO - Source: salameche.webp
+2025-12-05 21:55:47,057 - __main__ - INFO - Target: strawberry.jpg
+2025-12-05 21:55:47,057 - __main__ - INFO - Device: cuda
+2025-12-05 21:55:47,057 - __main__ - INFO - 
+2025-12-05 21:55:47,057 - __main__ - INFO - CONFIGURATION DES EXPÉRIENCES:
+2025-12-05 21:55:47,057 - __main__ - INFO -   Résolutions: [32, 48, 64, 96, 128, 160, 192, 256]
+2025-12-05 21:55:47,057 - __main__ - INFO -     Nombre: 8
+2025-12-05 21:55:47,057 - __main__ - INFO -     Min: 32, Max: 256
+2025-12-05 21:55:47,057 - __main__ - INFO -   Lambdas: [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.5, 3.0]
+2025-12-05 21:55:47,058 - __main__ - INFO -     Nombre: 11
+2025-12-05 21:55:47,058 - __main__ - INFO -     Min: 0.00, Max: 3.00
+2025-12-05 21:55:47,058 - __main__ - INFO -   Blurs: [0.01, 0.02, 0.03, 0.05, 0.07, 0.1, 0.15, 0.2, 0.3, 0.5]
+2025-12-05 21:55:47,058 - __main__ - INFO -     Nombre: 10
+2025-12-05 21:55:47,058 - __main__ - INFO -     Min: 0.010, Max: 0.500
+2025-12-05 21:55:47,058 - __main__ - INFO -   Reaches: [None, 0.01, 0.02, 0.05, 0.1, 0.15, 0.3, 0.5, 0.7, 1.0]
+2025-12-05 21:55:47,058 - __main__ - INFO -     Nombre: 10
+2025-12-05 21:55:47,058 - __main__ - INFO -   Temps d'interpolation: 21 points
+2025-12-05 21:55:47,058 - __main__ - INFO -     De t=0.00 à t=1.00
+2025-12-05 21:55:47,058 - __main__ - INFO - 
+2025-12-05 21:55:47,058 - __main__ - INFO - OPTIONS:
+2025-12-05 21:55:47,058 - __main__ - INFO -   Sauvegarder images: True
+2025-12-05 21:55:47,058 - __main__ - INFO -   Sauvegarder métriques: True
+2025-12-05 21:55:47,058 - __main__ - INFO -   Sauvegarder plans de transport: True
+2025-12-05 21:55:47,058 - __main__ - INFO -   Résolution progressive: True
+2025-12-05 21:55:47,058 - __main__ - INFO - 
+2025-12-05 21:55:47,072 - __main__ - DEBUG - Mémoire GPU début: 0.00 GB allouée / 0.00 GB réservée / 20.97 GB total (max: 0.00 GB)
+2025-12-05 21:55:47,072 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:47,072 - __main__ - INFO - 
+>>> Expérience 1: Ablation Lambda (Large Scale)
+2025-12-05 21:55:47,072 - __main__ - INFO - === Expérience 1: Ablation Lambda (Large Scale) ===
+2025-12-05 21:55:47,072 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:47,072 - __main__ - INFO - EXPÉRIENCE 1
+2025-12-05 21:55:47,072 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:47,072 - __main__ - INFO - Paire d'images: salameche_strawberry
+2025-12-05 21:55:47,072 - __main__ - INFO - Résolution: 64×64 pixels
+2025-12-05 21:55:47,072 - __main__ - INFO - Lambda (λ): 0.0
+2025-12-05 21:55:47,072 - __main__ - INFO - Blur (ε): 0.03
+2025-12-05 21:55:47,072 - __main__ - INFO - Reach (ρ): 0.1
+2025-12-05 21:55:47,072 - __main__ - INFO - Temps d'interpolation: [0.5]
+2025-12-05 21:55:47,072 - __main__ - INFO - Nombre de frames: 1
+2025-12-05 21:55:47,073 - __main__ - DEBUG - Résolution 64: mémoire estimée 0.07 GB, disponible 20.97 GB
+2025-12-05 21:55:47,073 - __main__ - INFO - Image source redimensionnée: torch.Size([3, 64, 64])
+2025-12-05 21:55:47,073 - __main__ - INFO -   Taille: 64×64 pixels
+2025-12-05 21:55:47,073 - __main__ - INFO -   Canaux: 3
+2025-12-05 21:55:47,073 - __main__ - INFO -   Min: 0.0000, Max: 1.0000
+2025-12-05 21:55:47,073 - __main__ - INFO -   Mean: 0.7690, Std: 0.3912
+2025-12-05 21:55:47,073 - __main__ - INFO - Image target redimensionnée: torch.Size([3, 64, 64])
+2025-12-05 21:55:47,073 - __main__ - INFO -   Taille: 64×64 pixels
+2025-12-05 21:55:47,073 - __main__ - INFO -   Canaux: 3
+2025-12-05 21:55:47,074 - __main__ - INFO -   Min: 0.0059, Max: 0.9990
+2025-12-05 21:55:47,074 - __main__ - INFO -   Mean: 0.4671, Std: 0.2002
+2025-12-05 21:55:47,074 - __main__ - INFO - Nombre de pixels par image: 4096
+2025-12-05 21:55:47,074 - __main__ - INFO - Nombre total de points 5D (source): 4096
+2025-12-05 21:55:47,074 - __main__ - INFO - Nombre total de points 5D (target): 4096
+2025-12-05 21:55:47,074 - __main__ - INFO - Taille matrice de coût estimée: 4096 × 4096
+2025-12-05 21:55:47,074 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:47,074 - __main__ - DEBUG - Mémoire GPU avant exp 1: 0.00 GB allouée / 0.00 GB réservée / 20.97 GB total (max: 0.00 GB)
+2025-12-05 21:55:47,074 - __main__ - DEBUG - Interpolation 5D: 1 temps
+2025-12-05 21:55:47,237 - __main__ - DEBUG - Nuages 5D: Source 4096 points, Target 4096 points
+2025-12-05 21:55:47,237 - __main__ - DEBUG - Calcul Sinkhorn...
+2025-12-05 21:55:47,684 - __main__ - INFO - Interpolation 5D:   0%|          | 0/1 [00:00<?, ?it/s]
+2025-12-05 21:55:47,801 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  8.60it/s]
+2025-12-05 21:55:47,801 - __main__ - INFO - Interpolation 5D: 100%|##########| 1/1 [00:00<00:00,  8.57it/s]
+2025-12-05 21:55:47,802 - __main__ - DEBUG - Mémoire GPU après exp 1: 0.09 GB allouée / 5.10 GB réservée / 20.97 GB total (max: 4.26 GB)
+2025-12-05 21:55:47,802 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:47,802 - __main__ - INFO - EXPÉRIENCE 1 TERMINÉE
+2025-12-05 21:55:47,802 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:47,802 - __main__ - INFO - Temps total: 0.73s
+2025-12-05 21:55:47,802 - __main__ - INFO -   - Sinkhorn: 0.73s (100.0%)
+2025-12-05 21:55:47,802 - __main__ - INFO -   - Interpolation: 0.00s (0.0%)
+2025-12-05 21:55:47,802 - __main__ - INFO -   - Temps par frame: 0.727s
+2025-12-05 21:55:47,803 - __main__ - INFO - Nombre de frames générées: 1
+2025-12-05 21:55:47,803 - __main__ - INFO - Shape des frames: torch.Size([3, 64, 64])
+2025-12-05 21:55:47,803 - __main__ - INFO -   - Canaux: 3
+2025-12-05 21:55:47,803 - __main__ - INFO -   - Hauteur: 64 pixels
+2025-12-05 21:55:47,803 - __main__ - INFO -   - Largeur: 64 pixels
+2025-12-05 21:55:47,803 - __main__ - INFO - Mémoire GPU:
+2025-12-05 21:55:47,803 - __main__ - INFO -   - Allouée: 0.09 GB
+2025-12-05 21:55:47,803 - __main__ - INFO -   - Max allouée: 4.26 GB
+2025-12-05 21:55:47,804 - __main__ - INFO -   - Réservée: 5.10 GB
+2025-12-05 21:55:47,804 - __main__ - INFO - ================================================================================
+2025-12-05 21:55:47,817 - __main__ - DEBUG - Plan de transport sauvegardé: /Data/janis.aiad/geodata/refs/reports/results/pokemon_experiments_salameche_strawberry/transport_plans/plan_exp1_res64_lam0.0_eps0.030_rho0.10.pt
+2025-12-05 21:55:47,911 - __main__ - INFO - Calcul des métriques pour 1 frames...
+2025-12-05 21:55:47,945 - __main__ - INFO -   Frame t=0.50 (milieu):
+2025-12-05 21:55:47,945 - __main__ - INFO -     PSNR: 12.51 dB
+2025-12-05 21:55:47,946 - __main__ - INFO -     ΔE: 27.04
+2025-12-05 21:55:47,946 - __main__ - INFO -     Sharpness: 0.0382
+2025-12-05 21:55:47,946 - __main__ - INFO -     Coverage: 1.0000
+2025-12-05 21:55:47,946 - __main__ - INFO -     Mass Error: 0.000404
+2025-12-05 21:55:47,946 - __main__ - CRITICAL - Erreur fatale non gérée: unsupported format string passed to NoneType.__format__
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/experiments_pokemon_large_scale.py", line 1329, in <module>
+    runner.run_all_experiments()
+  File "/Data/janis.aiad/geodata/notebooks/experiments_pokemon_large_scale.py", line 1255, in run_all_experiments
+    self.run_experiment_1_lambda_ablation()
+  File "/Data/janis.aiad/geodata/notebooks/experiments_pokemon_large_scale.py", line 852, in run_experiment_1_lambda_ablation
+    results = self.run_single_experiment(resolution, lambda_val, blur, reach, times)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/experiments_pokemon_large_scale.py", line 799, in run_single_experiment
+    logger.info(f"    Tearing: {metrics['tearing_pct']:.2f}%")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported format string passed to NoneType.__format__
+2025-12-05 21:55:47,947 - __main__ - CRITICAL - Type: TypeError
+2025-12-05 21:55:47,948 - __main__ - CRITICAL - Traceback complet:
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/experiments_pokemon_large_scale.py", line 1329, in <module>
+    runner.run_all_experiments()
+  File "/Data/janis.aiad/geodata/notebooks/experiments_pokemon_large_scale.py", line 1255, in run_all_experiments
+    self.run_experiment_1_lambda_ablation()
+  File "/Data/janis.aiad/geodata/notebooks/experiments_pokemon_large_scale.py", line 852, in run_experiment_1_lambda_ablation
+    results = self.run_single_experiment(resolution, lambda_val, blur, reach, times)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/experiments_pokemon_large_scale.py", line 799, in run_single_experiment
+    logger.info(f"    Tearing: {metrics['tearing_pct']:.2f}%")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported format string passed to NoneType.__format__
+
+2025-12-05 21:55:47,948 - __main__ - WARNING - Aucun résultat à sauvegarder
+2025-12-05 21:55:47,948 - __main__ - CRITICAL - Résultats sauvegardés avant arrêt.

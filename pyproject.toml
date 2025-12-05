@@ -7,6 +7,7 @@ requires-python = ">=3.11"
 dependencies = [
     "geomloss>=0.2.6",
     "jupyter>=1.1.1",
+    "jupytext>=1.18.1",
     "matplotlib>=3.9.3",
     "numba>=0.61.0",
     "numpy>=2.1.3",
@@ -16,8 +17,8 @@ dependencies = [
     "ruff>=0.8.2",
     "scikit-learn>=1.7.2",
     "scipy>=1.16.2",
+    "seaborn>=0.13.2",
     "tach>=0.16.3",
-    "tensorflow>=2.14.0",
     "torch>=2.9.0",
     "torchvision>=0.24.0",
     "tqdm>=4.67.1",
