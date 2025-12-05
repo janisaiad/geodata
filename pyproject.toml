@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "geomloss>=0.2.6",
+    "imageio>=2.37.2",
     "jupyter>=1.1.1",
     "jupytext>=1.18.1",
     "matplotlib>=3.9.3",

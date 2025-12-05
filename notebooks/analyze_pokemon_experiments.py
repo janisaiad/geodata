@@ -15,8 +15,21 @@ from pathlib import Path
 import warnings
 import json
 import sys
-import torch
-import torchvision
+
+# Imports optionnels pour torch/torchvision (utilisés seulement dans les fonctions utilitaires)
+try:
+    import torch
+    TORCH_AVAILABLE = True
+except ImportError:
+    TORCH_AVAILABLE = False
+    torch = None
+
+try:
+    import torchvision
+    TORCHVISION_AVAILABLE = True
+except (ImportError, RuntimeError):
+    TORCHVISION_AVAILABLE = False
+    torchvision = None
 
 warnings.filterwarnings('ignore')
 
@@ -42,7 +55,7 @@ plt.rcParams['xtick.top'] = True
 # Fonctions utilitaires pour l'affichage d'images
 def imshow(images, mean=0.5, std=0.5):
     """Affiche une grille d'images avec normalisation."""
-    if isinstance(images, torch.Tensor):
+    if TORCH_AVAILABLE and TORCHVISION_AVAILABLE and isinstance(images, torch.Tensor):
         img = torchvision.utils.make_grid(images)
         # Unnormalize the image
         if images.shape[1] > 1:  # Multi channels
@@ -68,7 +81,7 @@ def imshow(images, mean=0.5, std=0.5):
 
 def cvtImg(img):
     """Convertit un tensor d'image en numpy array normalisé."""
-    if isinstance(img, torch.Tensor):
+    if TORCH_AVAILABLE and isinstance(img, torch.Tensor):
         # Unnormalize the image 
         img = img.permute([0, 2, 3, 1])
         img = img - img.min()
@@ -103,7 +116,7 @@ def show_examples(x, n_examples=25, n_cols=5):
 # Compute nearest neighbors of an image in a dataset 
 def compute_knn(dataset, x, k=3):
     """Calcule les k plus proches voisins d'une image dans un dataset."""
-    if isinstance(dataset, torch.Tensor) and isinstance(x, torch.Tensor):
+    if TORCH_AVAILABLE and isinstance(dataset, torch.Tensor) and isinstance(x, torch.Tensor):
         dist = torch.norm(dataset - x, dim=(1, 2, 3), p=None)
         knn = dist.topk(k, largest=False)
         return knn
