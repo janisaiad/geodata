@@ -381,7 +381,6 @@ def plot_rho_l2_comparison():
                 results[eps]['rhos'],
                 results[eps]['mean_displacements'],
                 marker='o',
-                label=rf'$\varepsilon = {eps:.3f}$' + (' (optimal)' if eps in [0.05, 0.07] else ''),
                 color=color,
                 linewidth=linewidth,
                 markersize=6,
@@ -426,15 +425,11 @@ def plot_rho_l2_comparison():
         logger.info(f"  Observed maximum: rho = {rho_max:.6f}")
         logger.info(f"  Difference: {abs(rho_max - rho_theoretical):.6f} ({abs(rho_max - rho_theoretical) / rho_theoretical * 100:.2f}%)")
         
-        # Plot vertical line at maximum point
-        ax.axvline(x=rho_max, color='red', linestyle='--', linewidth=2.5, 
-                   label=rf'Maximum: $\rho = {rho_max:.3f}$ ($\varepsilon = {eps_target:.2f}$)',
-                   zorder=10)
+        # Plot vertical line at maximum point (without label, legend will be in caption)
+        ax.axvline(x=rho_max, color='red', linestyle='--', linewidth=2.5, zorder=10)
         
-        # Plot vertical line at theoretical prediction
-        ax.axvline(x=rho_theoretical, color='blue', linestyle=':', linewidth=2.5, 
-                   label=rf'Theoretical: $\rho = {rho_theoretical:.3f} = \mathbb{{E}}[||x-y||^2]/2$',
-                   zorder=10)
+        # Plot vertical line at theoretical prediction (without label, legend will be in caption)
+        ax.axvline(x=rho_theoretical, color='blue', linestyle=':', linewidth=2.5, zorder=10)
         
         logger.info(f"Maximum for eps={eps_target}: rho={rho_max:.4f}, displacement={disp_max:.4f}")
         
@@ -447,7 +442,6 @@ def plot_rho_l2_comparison():
     ax.set_xlabel(r'$\rho$ (Reach parameter)', fontsize=12)
     ax.set_ylabel('Mean Displacement (pixels)', fontsize=12)
     ax.set_title(rf'Mean Displacement at $t=0.5$ ($\lambda = {lambda_color}$)', fontsize=14)
-    ax.legend(loc='best', fontsize=10)
     ax.grid(True, alpha=0.3)
     ax.set_xscale('log')
     

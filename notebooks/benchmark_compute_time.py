@@ -78,23 +78,19 @@ def plot_compute_times(json_path: Path):
     ax.set_title(f'Computation Time vs $\\varepsilon$ ($\\rho={data["rho"]:.1f}$, $\\lambda={data["lambda_color"]:.1f}$) [Log-Log]', fontsize=14)
     ax.grid(True, alpha=0.3, which='both')
     
-    # Add thumb rule lines
+    # Add thumb rule lines (without labels, legend will be in caption)
     y_min, y_max = ax.get_ylim()
-    ax.axvline(eps_rule_max, color='green', linestyle='--', linewidth=2, alpha=0.7, 
-               label=f'Thumb rule: $\\varepsilon = 0.01 \\times C_{{max}} = {eps_rule_max:.4f}$')
-    ax.axvline(eps_rule_mean, color='orange', linestyle='--', linewidth=2, alpha=0.7,
-               label=f'Thumb rule: $\\varepsilon = 0.01 \\times C_{{mean}} = {eps_rule_mean:.4f}$')
+    ax.axvline(eps_rule_max, color='green', linestyle='--', linewidth=2, alpha=0.7)
+    ax.axvline(eps_rule_mean, color='orange', linestyle='--', linewidth=2, alpha=0.7)
     
-    # Highlight eps = 0.01
+    # Highlight eps = 0.01 (without label, legend will be in caption)
     if 0.01 in epsilons:
         idx = np.where(np.abs(epsilons - 0.01) < 1e-6)[0]
         if len(idx) > 0:
             idx = idx[0]
             ax.plot(epsilons[idx], compute_times[idx], marker='o', markersize=12, 
                     color='red', markeredgewidth=2, markeredgecolor='darkred', 
-                    label='$\\varepsilon=0.01$ (chosen)', zorder=10)
-    
-    ax.legend(fontsize=9, loc='best')
+                    zorder=10)
     
     plt.tight_layout()
     plot_path = OUTPUT_DIR / "compute_times_rho1.0.png"
