@@ -1,0 +1,25 @@
+2025-12-06 18:07:37,691 - INFO - ================================================================================
+2025-12-06 18:07:37,691 - INFO - TRANSPORT TIMELINES FOR MULTIPLE EPS AND RHO
+2025-12-06 18:07:37,691 - INFO - ================================================================================
+2025-12-06 18:07:37,691 - INFO - Loading images...
+2025-12-06 18:07:37,708 - INFO - Source: torch.Size([3, 500, 500]), Target: torch.Size([3, 500, 500])
+2025-12-06 18:07:37,708 - INFO - 
+Loading transport plans...
+2025-12-06 18:07:37,708 - WARNING -   Not found: eps=0.050, rho=0.50
+2025-12-06 18:07:37,708 - WARNING -   Not found: eps=0.050, rho=0.70
+2025-12-06 18:07:37,708 - WARNING -   Not found: eps=0.050, rho=1.00
+2025-12-06 18:07:37,709 - WARNING -   Not found: eps=0.070, rho=0.50
+2025-12-06 18:07:37,721 - INFO -   Loaded: eps=0.070, rho=0.70
+2025-12-06 18:07:37,721 - WARNING -   Not found: eps=0.070, rho=1.00
+2025-12-06 18:07:37,721 - WARNING -   Not found: eps=0.100, rho=0.50
+2025-12-06 18:07:37,721 - WARNING -   Not found: eps=0.100, rho=0.70
+2025-12-06 18:07:37,721 - WARNING -   Not found: eps=0.100, rho=1.00
+2025-12-06 18:07:37,721 - INFO - 
+Computing interpolations...
+2025-12-06 18:07:40,883 - INFO - 
+Plotting timelines...
+2025-12-06 18:07:41,319 - INFO - ✓ Saved timeline: /Data/janis.aiad/geodata/experiments/pixelart/transport_timelines_eps3_rho3.png
+2025-12-06 18:07:41,319 - INFO - 
+================================================================================
+2025-12-06 18:07:41,319 - INFO - COMPLETED
+2025-12-06 18:07:41,319 - INFO - ================================================================================

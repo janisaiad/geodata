@@ -17,6 +17,8 @@ import logging
 from datetime import datetime
 import itertools
 import gc
+import json
+import time
 
 # Configuration
 DATA_DIR = Path("/Data/janis.aiad/geodata/data/pixelart/images")
@@ -176,6 +178,95 @@ def load_image(path: Path) -> torch.Tensor:
     img_pil = Image.open(path).convert("RGB")
     img = torch.from_numpy(np.array(img_pil)).permute(2, 0, 1).float() / 255.0
     return img
+
+def measure_compute_time(config: OTConfig, img_source, img_target):
+    """Measure computation time for transport plan calculation."""
+    start_time = time.time()
+    
+    interpolator = OT5DInterpolator(config)
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+    
+    compute_time = time.time() - start_time
+    
+    # Clean up
+    del transport_data, interpolator
+    if config.device == "cuda":
+        torch.cuda.empty_cache()
+    gc.collect()
+    
+    return compute_time
+
+def run_compute_time_benchmark():
+    """Benchmark computation times for rho=1.0 with various epsilon values."""
+    
+    logger.info("=" * 80)
+    logger.info("COMPUTE TIME BENCHMARK: rho=1.0, various epsilon")
+    logger.info("=" * 80)
+    
+    # Chargement des images
+    logger.info("Loading images...")
+    img_source = load_image(DATA_DIR / "salameche.webp")
+    img_target = load_image(DATA_DIR / "strawberry.jpg")
+    logger.info(f"Source: {img_source.shape}, Target: {img_target.shape}")
+    
+    # Fixed resolution
+    resolution = (64, 64)
+    
+    # Parameters for benchmark
+    rho = 1.0
+    epsilons = [0.01, 0.02, 0.03, 0.05, 0.07, 0.10, 0.15, 0.20]
+    lambda_color = 2.5
+    sigma_min = 0.1
+    use_debias = True
+    use_adaptive_sigma = True
+    
+    results = {
+        'rho': rho,
+        'lambda_color': lambda_color,
+        'sigma_min': sigma_min,
+        'resolution': resolution,
+        'use_debias': use_debias,
+        'use_adaptive_sigma': use_adaptive_sigma,
+        'compute_times': []
+    }
+    
+    logger.info(f"\nTesting {len(epsilons)} epsilon values with rho={rho}")
+    
+    for eps in epsilons:
+        logger.info(f"\nTesting eps={eps:.3f}...")
+        
+        config = OTConfig(
+            resolution=resolution,
+            blur=eps,
+            reach=rho,
+            lambda_color=lambda_color,
+            sigma_min=sigma_min,
+            use_debias=use_debias,
+            use_adaptive_sigma=use_adaptive_sigma
+        )
+        
+        try:
+            compute_time = measure_compute_time(config, img_source, img_target)
+            results['compute_times'].append({
+                'epsilon': eps,
+                'compute_time_seconds': compute_time
+            })
+            logger.info(f"  ✓ eps={eps:.3f}: {compute_time:.2f} seconds")
+        except Exception as e:
+            logger.error(f"  ✗ eps={eps:.3f} failed: {e}")
+            results['compute_times'].append({
+                'epsilon': eps,
+                'compute_time_seconds': None,
+                'error': str(e)
+            })
+    
+    # Save to JSON
+    json_path = EXPERIMENTS_DIR / "compute_times_rho1.0.json"
+    with open(json_path, 'w') as f:
+        json.dump(results, f, indent=2)
+    logger.info(f"\n✓ Saved compute times to: {json_path}")
+    
+    return results
 
 def run_ablation_studies():
     """Exécute les études d'ablation à grande échelle."""

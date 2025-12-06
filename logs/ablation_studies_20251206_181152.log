@@ -1,0 +1,770 @@
+2025-12-06 18:11:52,862 - INFO - ================================================================================
+2025-12-06 18:11:52,862 - INFO - TRANSPORT TIMELINES FOR MULTIPLE EPS AND RHO
+2025-12-06 18:11:52,862 - INFO - ================================================================================
+2025-12-06 18:11:52,862 - INFO - 
+Finding transport plan files...
+2025-12-06 18:11:52,862 - INFO - Found 152 transport plan files
+2025-12-06 18:11:52,862 - INFO - 
+Processing: eps=0.010, rho=0.01
+2025-12-06 18:11:52,876 - INFO -   Loaded transport plan
+2025-12-06 18:11:56,050 - INFO -   Plotting...
+2025-12-06 18:11:56,284 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.01.png
+2025-12-06 18:11:56,284 - INFO - 
+Processing: eps=0.010, rho=0.02
+2025-12-06 18:11:56,297 - INFO -   Loaded transport plan
+2025-12-06 18:11:59,385 - INFO -   Plotting...
+2025-12-06 18:11:59,592 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.02.png
+2025-12-06 18:11:59,592 - INFO - 
+Processing: eps=0.010, rho=0.04
+2025-12-06 18:11:59,604 - INFO -   Loaded transport plan
+2025-12-06 18:12:02,827 - INFO -   Plotting...
+2025-12-06 18:12:03,035 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.04.png
+2025-12-06 18:12:03,035 - INFO - 
+Processing: eps=0.010, rho=0.05
+2025-12-06 18:12:03,047 - INFO -   Loaded transport plan
+2025-12-06 18:12:06,146 - INFO -   Plotting...
+2025-12-06 18:12:06,354 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.05.png
+2025-12-06 18:12:06,354 - INFO - 
+Processing: eps=0.010, rho=0.07
+2025-12-06 18:12:06,366 - INFO -   Loaded transport plan
+2025-12-06 18:12:09,461 - INFO -   Plotting...
+2025-12-06 18:12:09,670 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.07.png
+2025-12-06 18:12:09,670 - INFO - 
+Processing: eps=0.010, rho=0.09
+2025-12-06 18:12:09,683 - INFO -   Loaded transport plan
+2025-12-06 18:12:12,793 - INFO -   Plotting...
+2025-12-06 18:12:13,001 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.09.png
+2025-12-06 18:12:13,001 - INFO - 
+Processing: eps=0.010, rho=0.12
+2025-12-06 18:12:13,014 - INFO -   Loaded transport plan
+2025-12-06 18:12:16,120 - INFO -   Plotting...
+2025-12-06 18:12:16,330 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.12.png
+2025-12-06 18:12:16,331 - INFO - 
+Processing: eps=0.010, rho=0.15
+2025-12-06 18:12:16,343 - INFO -   Loaded transport plan
+2025-12-06 18:12:19,447 - INFO -   Plotting...
+2025-12-06 18:12:19,658 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.15.png
+2025-12-06 18:12:19,658 - INFO - 
+Processing: eps=0.010, rho=0.18
+2025-12-06 18:12:19,670 - INFO -   Loaded transport plan
+2025-12-06 18:12:22,771 - INFO -   Plotting...
+2025-12-06 18:12:22,982 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.18.png
+2025-12-06 18:12:22,982 - INFO - 
+Processing: eps=0.010, rho=0.20
+2025-12-06 18:12:22,995 - INFO -   Loaded transport plan
+2025-12-06 18:12:26,091 - INFO -   Plotting...
+2025-12-06 18:12:26,301 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.20.png
+2025-12-06 18:12:26,301 - INFO - 
+Processing: eps=0.010, rho=0.25
+2025-12-06 18:12:26,314 - INFO -   Loaded transport plan
+2025-12-06 18:12:29,428 - INFO -   Plotting...
+2025-12-06 18:12:29,638 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.25.png
+2025-12-06 18:12:29,638 - INFO - 
+Processing: eps=0.010, rho=0.30
+2025-12-06 18:12:29,651 - INFO -   Loaded transport plan
+2025-12-06 18:12:32,764 - INFO -   Plotting...
+2025-12-06 18:12:32,975 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.30.png
+2025-12-06 18:12:32,975 - INFO - 
+Processing: eps=0.010, rho=0.50
+2025-12-06 18:12:32,987 - INFO -   Loaded transport plan
+2025-12-06 18:12:36,094 - INFO -   Plotting...
+2025-12-06 18:12:36,306 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.50.png
+2025-12-06 18:12:36,306 - INFO - 
+Processing: eps=0.010, rho=0.70
+2025-12-06 18:12:36,318 - INFO -   Loaded transport plan
+2025-12-06 18:12:39,432 - INFO -   Plotting...
+2025-12-06 18:12:39,643 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho0.70.png
+2025-12-06 18:12:39,643 - INFO - 
+Processing: eps=0.010, rho=1.00
+2025-12-06 18:12:39,655 - INFO -   Loaded transport plan
+2025-12-06 18:12:42,774 - INFO -   Plotting...
+2025-12-06 18:12:42,986 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho1.00.png
+2025-12-06 18:12:42,986 - INFO - 
+Processing: eps=0.020, rho=0.01
+2025-12-06 18:12:42,998 - INFO -   Loaded transport plan
+2025-12-06 18:12:46,098 - INFO -   Plotting...
+2025-12-06 18:12:46,301 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.01.png
+2025-12-06 18:12:46,301 - INFO - 
+Processing: eps=0.020, rho=0.02
+2025-12-06 18:12:46,314 - INFO -   Loaded transport plan
+2025-12-06 18:12:49,430 - INFO -   Plotting...
+2025-12-06 18:12:49,632 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.02.png
+2025-12-06 18:12:49,633 - INFO - 
+Processing: eps=0.020, rho=0.04
+2025-12-06 18:12:49,645 - INFO -   Loaded transport plan
+2025-12-06 18:12:52,748 - INFO -   Plotting...
+2025-12-06 18:12:52,957 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.04.png
+2025-12-06 18:12:52,957 - INFO - 
+Processing: eps=0.020, rho=0.05
+2025-12-06 18:12:52,969 - INFO -   Loaded transport plan
+2025-12-06 18:12:56,067 - INFO -   Plotting...
+2025-12-06 18:12:56,277 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.05.png
+2025-12-06 18:12:56,277 - INFO - 
+Processing: eps=0.020, rho=0.07
+2025-12-06 18:12:56,290 - INFO -   Loaded transport plan
+2025-12-06 18:12:59,396 - INFO -   Plotting...
+2025-12-06 18:12:59,605 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.07.png
+2025-12-06 18:12:59,605 - INFO - 
+Processing: eps=0.020, rho=0.09
+2025-12-06 18:12:59,618 - INFO -   Loaded transport plan
+2025-12-06 18:13:02,798 - INFO -   Plotting...
+2025-12-06 18:13:03,009 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.09.png
+2025-12-06 18:13:03,009 - INFO - 
+Processing: eps=0.020, rho=0.12
+2025-12-06 18:13:03,022 - INFO -   Loaded transport plan
+2025-12-06 18:13:06,133 - INFO -   Plotting...
+2025-12-06 18:13:06,343 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.12.png
+2025-12-06 18:13:06,343 - INFO - 
+Processing: eps=0.020, rho=0.15
+2025-12-06 18:13:06,355 - INFO -   Loaded transport plan
+2025-12-06 18:13:09,477 - INFO -   Plotting...
+2025-12-06 18:13:09,685 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.15.png
+2025-12-06 18:13:09,686 - INFO - 
+Processing: eps=0.020, rho=0.18
+2025-12-06 18:13:09,698 - INFO -   Loaded transport plan
+2025-12-06 18:13:12,814 - INFO -   Plotting...
+2025-12-06 18:13:13,027 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.18.png
+2025-12-06 18:13:13,027 - INFO - 
+Processing: eps=0.020, rho=0.20
+2025-12-06 18:13:13,039 - INFO -   Loaded transport plan
+2025-12-06 18:13:16,159 - INFO -   Plotting...
+2025-12-06 18:13:16,369 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.20.png
+2025-12-06 18:13:16,369 - INFO - 
+Processing: eps=0.020, rho=0.25
+2025-12-06 18:13:16,382 - INFO -   Loaded transport plan
+2025-12-06 18:13:19,502 - INFO -   Plotting...
+2025-12-06 18:13:19,713 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.25.png
+2025-12-06 18:13:19,713 - INFO - 
+Processing: eps=0.020, rho=0.30
+2025-12-06 18:13:19,725 - INFO -   Loaded transport plan
+2025-12-06 18:13:22,837 - INFO -   Plotting...
+2025-12-06 18:13:23,050 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.30.png
+2025-12-06 18:13:23,050 - INFO - 
+Processing: eps=0.020, rho=0.50
+2025-12-06 18:13:23,062 - INFO -   Loaded transport plan
+2025-12-06 18:13:26,173 - INFO -   Plotting...
+2025-12-06 18:13:26,385 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.50.png
+2025-12-06 18:13:26,385 - INFO - 
+Processing: eps=0.020, rho=0.70
+2025-12-06 18:13:26,397 - INFO -   Loaded transport plan
+2025-12-06 18:13:29,504 - INFO -   Plotting...
+2025-12-06 18:13:29,713 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho0.70.png
+2025-12-06 18:13:29,714 - INFO - 
+Processing: eps=0.020, rho=1.00
+2025-12-06 18:13:29,725 - INFO -   Loaded transport plan
+2025-12-06 18:13:32,839 - INFO -   Plotting...
+2025-12-06 18:13:33,051 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho1.00.png
+2025-12-06 18:13:33,051 - INFO - 
+Processing: eps=0.030, rho=0.01
+2025-12-06 18:13:33,063 - INFO -   Loaded transport plan
+2025-12-06 18:13:36,165 - INFO -   Plotting...
+2025-12-06 18:13:36,367 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.01.png
+2025-12-06 18:13:36,367 - INFO - 
+Processing: eps=0.030, rho=0.02
+2025-12-06 18:13:36,379 - INFO -   Loaded transport plan
+2025-12-06 18:13:39,489 - INFO -   Plotting...
+2025-12-06 18:13:39,693 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.02.png
+2025-12-06 18:13:39,693 - INFO - 
+Processing: eps=0.030, rho=0.04
+2025-12-06 18:13:39,704 - INFO -   Loaded transport plan
+2025-12-06 18:13:42,819 - INFO -   Plotting...
+2025-12-06 18:13:43,028 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.04.png
+2025-12-06 18:13:43,028 - INFO - 
+Processing: eps=0.030, rho=0.05
+2025-12-06 18:13:43,039 - INFO -   Loaded transport plan
+2025-12-06 18:13:46,149 - INFO -   Plotting...
+2025-12-06 18:13:46,358 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.05.png
+2025-12-06 18:13:46,358 - INFO - 
+Processing: eps=0.030, rho=0.07
+2025-12-06 18:13:46,370 - INFO -   Loaded transport plan
+2025-12-06 18:13:49,485 - INFO -   Plotting...
+2025-12-06 18:13:49,696 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.07.png
+2025-12-06 18:13:49,696 - INFO - 
+Processing: eps=0.030, rho=0.09
+2025-12-06 18:13:49,707 - INFO -   Loaded transport plan
+2025-12-06 18:13:52,838 - INFO -   Plotting...
+2025-12-06 18:13:53,050 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.09.png
+2025-12-06 18:13:53,050 - INFO - 
+Processing: eps=0.030, rho=0.12
+2025-12-06 18:13:53,061 - INFO -   Loaded transport plan
+2025-12-06 18:13:56,203 - INFO -   Plotting...
+2025-12-06 18:13:56,414 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.12.png
+2025-12-06 18:13:56,414 - INFO - 
+Processing: eps=0.030, rho=0.15
+2025-12-06 18:13:56,425 - INFO -   Loaded transport plan
+2025-12-06 18:13:59,576 - INFO -   Plotting...
+2025-12-06 18:13:59,788 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.15.png
+2025-12-06 18:13:59,788 - INFO - 
+Processing: eps=0.030, rho=0.18
+2025-12-06 18:13:59,800 - INFO -   Loaded transport plan
+2025-12-06 18:14:03,019 - INFO -   Plotting...
+2025-12-06 18:14:03,232 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.18.png
+2025-12-06 18:14:03,232 - INFO - 
+Processing: eps=0.030, rho=0.20
+2025-12-06 18:14:03,243 - INFO -   Loaded transport plan
+2025-12-06 18:14:06,373 - INFO -   Plotting...
+2025-12-06 18:14:06,585 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.20.png
+2025-12-06 18:14:06,585 - INFO - 
+Processing: eps=0.030, rho=0.25
+2025-12-06 18:14:06,597 - INFO -   Loaded transport plan
+2025-12-06 18:14:09,727 - INFO -   Plotting...
+2025-12-06 18:14:09,940 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.25.png
+2025-12-06 18:14:09,940 - INFO - 
+Processing: eps=0.030, rho=0.30
+2025-12-06 18:14:09,951 - INFO -   Loaded transport plan
+2025-12-06 18:14:13,106 - INFO -   Plotting...
+2025-12-06 18:14:13,319 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.30.png
+2025-12-06 18:14:13,319 - INFO - 
+Processing: eps=0.030, rho=0.50
+2025-12-06 18:14:13,331 - INFO -   Loaded transport plan
+2025-12-06 18:14:16,463 - INFO -   Plotting...
+2025-12-06 18:14:16,672 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.50.png
+2025-12-06 18:14:16,672 - INFO - 
+Processing: eps=0.030, rho=0.70
+2025-12-06 18:14:16,683 - INFO -   Loaded transport plan
+2025-12-06 18:14:19,835 - INFO -   Plotting...
+2025-12-06 18:14:20,046 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho0.70.png
+2025-12-06 18:14:20,046 - INFO - 
+Processing: eps=0.030, rho=1.00
+2025-12-06 18:14:20,058 - INFO -   Loaded transport plan
+2025-12-06 18:14:23,191 - INFO -   Plotting...
+2025-12-06 18:14:23,402 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho1.00.png
+2025-12-06 18:14:23,402 - INFO - 
+Processing: eps=0.050, rho=0.01
+2025-12-06 18:14:23,414 - INFO -   Loaded transport plan
+2025-12-06 18:14:26,549 - INFO -   Plotting...
+2025-12-06 18:14:26,755 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.01.png
+2025-12-06 18:14:26,755 - INFO - 
+Processing: eps=0.050, rho=0.02
+2025-12-06 18:14:26,766 - INFO -   Loaded transport plan
+2025-12-06 18:14:29,892 - INFO -   Plotting...
+2025-12-06 18:14:30,097 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.02.png
+2025-12-06 18:14:30,097 - INFO - 
+Processing: eps=0.050, rho=0.04
+2025-12-06 18:14:30,108 - INFO -   Loaded transport plan
+2025-12-06 18:14:33,230 - INFO -   Plotting...
+2025-12-06 18:14:33,438 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.04.png
+2025-12-06 18:14:33,438 - INFO - 
+Processing: eps=0.050, rho=0.05
+2025-12-06 18:14:33,450 - INFO -   Loaded transport plan
+2025-12-06 18:14:36,592 - INFO -   Plotting...
+2025-12-06 18:14:36,802 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.05.png
+2025-12-06 18:14:36,802 - INFO - 
+Processing: eps=0.050, rho=0.07
+2025-12-06 18:14:36,813 - INFO -   Loaded transport plan
+2025-12-06 18:14:39,953 - INFO -   Plotting...
+2025-12-06 18:14:40,163 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.07.png
+2025-12-06 18:14:40,163 - INFO - 
+Processing: eps=0.050, rho=0.09
+2025-12-06 18:14:40,175 - INFO -   Loaded transport plan
+2025-12-06 18:14:43,326 - INFO -   Plotting...
+2025-12-06 18:14:43,537 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.09.png
+2025-12-06 18:14:43,537 - INFO - 
+Processing: eps=0.050, rho=0.12
+2025-12-06 18:14:43,549 - INFO -   Loaded transport plan
+2025-12-06 18:14:46,696 - INFO -   Plotting...
+2025-12-06 18:14:46,907 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.12.png
+2025-12-06 18:14:46,907 - INFO - 
+Processing: eps=0.050, rho=0.15
+2025-12-06 18:14:46,919 - INFO -   Loaded transport plan
+2025-12-06 18:14:50,066 - INFO -   Plotting...
+2025-12-06 18:14:50,278 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.15.png
+2025-12-06 18:14:50,278 - INFO - 
+Processing: eps=0.050, rho=0.18
+2025-12-06 18:14:50,289 - INFO -   Loaded transport plan
+2025-12-06 18:14:53,429 - INFO -   Plotting...
+2025-12-06 18:14:53,640 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.18.png
+2025-12-06 18:14:53,641 - INFO - 
+Processing: eps=0.050, rho=0.20
+2025-12-06 18:14:53,652 - INFO -   Loaded transport plan
+2025-12-06 18:14:56,791 - INFO -   Plotting...
+2025-12-06 18:14:57,002 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.20.png
+2025-12-06 18:14:57,002 - INFO - 
+Processing: eps=0.050, rho=0.25
+2025-12-06 18:14:57,013 - INFO -   Loaded transport plan
+2025-12-06 18:15:00,129 - INFO -   Plotting...
+2025-12-06 18:15:00,342 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.25.png
+2025-12-06 18:15:00,342 - INFO - 
+Processing: eps=0.050, rho=0.30
+2025-12-06 18:15:00,353 - INFO -   Loaded transport plan
+2025-12-06 18:15:03,614 - INFO -   Plotting...
+2025-12-06 18:15:03,827 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.30.png
+2025-12-06 18:15:03,827 - INFO - 
+Processing: eps=0.050, rho=0.50
+2025-12-06 18:15:03,838 - INFO -   Loaded transport plan
+2025-12-06 18:15:06,969 - INFO -   Plotting...
+2025-12-06 18:15:07,177 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.50.png
+2025-12-06 18:15:07,177 - INFO - 
+Processing: eps=0.050, rho=0.70
+2025-12-06 18:15:07,189 - INFO -   Loaded transport plan
+2025-12-06 18:15:10,330 - INFO -   Plotting...
+2025-12-06 18:15:10,542 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho0.70.png
+2025-12-06 18:15:10,543 - INFO - 
+Processing: eps=0.050, rho=1.00
+2025-12-06 18:15:10,554 - INFO -   Loaded transport plan
+2025-12-06 18:15:13,693 - INFO -   Plotting...
+2025-12-06 18:15:13,907 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho1.00.png
+2025-12-06 18:15:13,907 - INFO - 
+Processing: eps=0.070, rho=0.01
+2025-12-06 18:15:13,918 - INFO -   Loaded transport plan
+2025-12-06 18:15:17,053 - INFO -   Plotting...
+2025-12-06 18:15:17,261 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.01.png
+2025-12-06 18:15:17,261 - INFO - 
+Processing: eps=0.070, rho=0.02
+2025-12-06 18:15:17,272 - INFO -   Loaded transport plan
+2025-12-06 18:15:20,416 - INFO -   Plotting...
+2025-12-06 18:15:20,624 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.02.png
+2025-12-06 18:15:20,624 - INFO - 
+Processing: eps=0.070, rho=0.04
+2025-12-06 18:15:20,636 - INFO -   Loaded transport plan
+2025-12-06 18:15:23,788 - INFO -   Plotting...
+2025-12-06 18:15:23,998 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.04.png
+2025-12-06 18:15:23,998 - INFO - 
+Processing: eps=0.070, rho=0.05
+2025-12-06 18:15:24,009 - INFO -   Loaded transport plan
+2025-12-06 18:15:27,155 - INFO -   Plotting...
+2025-12-06 18:15:27,367 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.05.png
+2025-12-06 18:15:27,367 - INFO - 
+Processing: eps=0.070, rho=0.07
+2025-12-06 18:15:27,379 - INFO -   Loaded transport plan
+2025-12-06 18:15:30,512 - INFO -   Plotting...
+2025-12-06 18:15:30,719 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.07.png
+2025-12-06 18:15:30,720 - INFO - 
+Processing: eps=0.070, rho=0.09
+2025-12-06 18:15:30,731 - INFO -   Loaded transport plan
+2025-12-06 18:15:33,878 - INFO -   Plotting...
+2025-12-06 18:15:34,089 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.09.png
+2025-12-06 18:15:34,089 - INFO - 
+Processing: eps=0.070, rho=0.12
+2025-12-06 18:15:34,101 - INFO -   Loaded transport plan
+2025-12-06 18:15:37,235 - INFO -   Plotting...
+2025-12-06 18:15:37,448 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.12.png
+2025-12-06 18:15:37,448 - INFO - 
+Processing: eps=0.070, rho=0.15
+2025-12-06 18:15:37,460 - INFO -   Loaded transport plan
+2025-12-06 18:15:40,600 - INFO -   Plotting...
+2025-12-06 18:15:40,813 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.15.png
+2025-12-06 18:15:40,813 - INFO - 
+Processing: eps=0.070, rho=0.18
+2025-12-06 18:15:40,824 - INFO -   Loaded transport plan
+2025-12-06 18:15:43,962 - INFO -   Plotting...
+2025-12-06 18:15:44,174 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.18.png
+2025-12-06 18:15:44,174 - INFO - 
+Processing: eps=0.070, rho=0.20
+2025-12-06 18:15:44,186 - INFO -   Loaded transport plan
+2025-12-06 18:15:47,322 - INFO -   Plotting...
+2025-12-06 18:15:47,534 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.20.png
+2025-12-06 18:15:47,534 - INFO - 
+Processing: eps=0.070, rho=0.25
+2025-12-06 18:15:47,546 - INFO -   Loaded transport plan
+2025-12-06 18:15:50,682 - INFO -   Plotting...
+2025-12-06 18:15:50,895 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.25.png
+2025-12-06 18:15:50,895 - INFO - 
+Processing: eps=0.070, rho=0.30
+2025-12-06 18:15:50,906 - INFO -   Loaded transport plan
+2025-12-06 18:15:54,043 - INFO -   Plotting...
+2025-12-06 18:15:54,255 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.30.png
+2025-12-06 18:15:54,255 - INFO - 
+Processing: eps=0.070, rho=0.50
+2025-12-06 18:15:54,266 - INFO -   Loaded transport plan
+2025-12-06 18:15:57,407 - INFO -   Plotting...
+2025-12-06 18:15:57,621 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.50.png
+2025-12-06 18:15:57,621 - INFO - 
+Processing: eps=0.070, rho=0.70
+2025-12-06 18:15:57,632 - INFO -   Loaded transport plan
+2025-12-06 18:16:00,775 - INFO -   Plotting...
+2025-12-06 18:16:00,987 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho0.70.png
+2025-12-06 18:16:00,987 - INFO - 
+Processing: eps=0.070, rho=1.00
+2025-12-06 18:16:00,998 - INFO -   Loaded transport plan
+2025-12-06 18:16:04,286 - INFO -   Plotting...
+2025-12-06 18:16:04,499 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho1.00.png
+2025-12-06 18:16:04,499 - INFO - 
+Processing: eps=0.100, rho=0.01
+2025-12-06 18:16:04,510 - INFO -   Loaded transport plan
+2025-12-06 18:16:07,653 - INFO -   Plotting...
+2025-12-06 18:16:07,864 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.01.png
+2025-12-06 18:16:07,864 - INFO - 
+Processing: eps=0.100, rho=0.02
+2025-12-06 18:16:07,875 - INFO -   Loaded transport plan
+2025-12-06 18:16:11,016 - INFO -   Plotting...
+2025-12-06 18:16:11,226 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.02.png
+2025-12-06 18:16:11,226 - INFO - 
+Processing: eps=0.100, rho=0.04
+2025-12-06 18:16:11,237 - INFO -   Loaded transport plan
+2025-12-06 18:16:14,391 - INFO -   Plotting...
+2025-12-06 18:16:14,602 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.04.png
+2025-12-06 18:16:14,602 - INFO - 
+Processing: eps=0.100, rho=0.05
+2025-12-06 18:16:14,613 - INFO -   Loaded transport plan
+2025-12-06 18:16:17,754 - INFO -   Plotting...
+2025-12-06 18:16:17,965 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.05.png
+2025-12-06 18:16:17,965 - INFO - 
+Processing: eps=0.100, rho=0.07
+2025-12-06 18:16:17,976 - INFO -   Loaded transport plan
+2025-12-06 18:16:21,119 - INFO -   Plotting...
+2025-12-06 18:16:21,330 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.07.png
+2025-12-06 18:16:21,330 - INFO - 
+Processing: eps=0.100, rho=0.09
+2025-12-06 18:16:21,341 - INFO -   Loaded transport plan
+2025-12-06 18:16:24,493 - INFO -   Plotting...
+2025-12-06 18:16:24,703 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.09.png
+2025-12-06 18:16:24,703 - INFO - 
+Processing: eps=0.100, rho=0.12
+2025-12-06 18:16:24,714 - INFO -   Loaded transport plan
+2025-12-06 18:16:27,843 - INFO -   Plotting...
+2025-12-06 18:16:28,055 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.12.png
+2025-12-06 18:16:28,055 - INFO - 
+Processing: eps=0.100, rho=0.15
+2025-12-06 18:16:28,067 - INFO -   Loaded transport plan
+2025-12-06 18:16:31,204 - INFO -   Plotting...
+2025-12-06 18:16:31,416 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.15.png
+2025-12-06 18:16:31,416 - INFO - 
+Processing: eps=0.100, rho=0.18
+2025-12-06 18:16:31,427 - INFO -   Loaded transport plan
+2025-12-06 18:16:34,578 - INFO -   Plotting...
+2025-12-06 18:16:34,789 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.18.png
+2025-12-06 18:16:34,789 - INFO - 
+Processing: eps=0.100, rho=0.20
+2025-12-06 18:16:34,800 - INFO -   Loaded transport plan
+2025-12-06 18:16:37,946 - INFO -   Plotting...
+2025-12-06 18:16:38,160 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.20.png
+2025-12-06 18:16:38,160 - INFO - 
+Processing: eps=0.100, rho=0.25
+2025-12-06 18:16:38,171 - INFO -   Loaded transport plan
+2025-12-06 18:16:41,302 - INFO -   Plotting...
+2025-12-06 18:16:41,515 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.25.png
+2025-12-06 18:16:41,515 - INFO - 
+Processing: eps=0.100, rho=0.30
+2025-12-06 18:16:41,526 - INFO -   Loaded transport plan
+2025-12-06 18:16:44,670 - INFO -   Plotting...
+2025-12-06 18:16:44,884 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.30.png
+2025-12-06 18:16:44,884 - INFO - 
+Processing: eps=0.100, rho=0.50
+2025-12-06 18:16:44,895 - INFO -   Loaded transport plan
+2025-12-06 18:16:48,003 - INFO -   Plotting...
+2025-12-06 18:16:48,214 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.50.png
+2025-12-06 18:16:48,214 - INFO - 
+Processing: eps=0.100, rho=0.70
+2025-12-06 18:16:48,225 - INFO -   Loaded transport plan
+2025-12-06 18:16:51,358 - INFO -   Plotting...
+2025-12-06 18:16:51,571 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho0.70.png
+2025-12-06 18:16:51,571 - INFO - 
+Processing: eps=0.100, rho=1.00
+2025-12-06 18:16:51,582 - INFO -   Loaded transport plan
+2025-12-06 18:16:54,745 - INFO -   Plotting...
+2025-12-06 18:16:54,958 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho1.00.png
+2025-12-06 18:16:54,958 - INFO - 
+Processing: eps=0.150, rho=0.01
+2025-12-06 18:16:54,969 - INFO -   Loaded transport plan
+2025-12-06 18:16:58,111 - INFO -   Plotting...
+2025-12-06 18:16:58,324 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.01.png
+2025-12-06 18:16:58,325 - INFO - 
+Processing: eps=0.150, rho=0.02
+2025-12-06 18:16:58,335 - INFO -   Loaded transport plan
+2025-12-06 18:17:01,536 - INFO -   Plotting...
+2025-12-06 18:17:01,745 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.02.png
+2025-12-06 18:17:01,746 - INFO - 
+Processing: eps=0.150, rho=0.04
+2025-12-06 18:17:01,757 - INFO -   Loaded transport plan
+2025-12-06 18:17:04,892 - INFO -   Plotting...
+2025-12-06 18:17:05,105 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.04.png
+2025-12-06 18:17:05,105 - INFO - 
+Processing: eps=0.150, rho=0.05
+2025-12-06 18:17:05,116 - INFO -   Loaded transport plan
+2025-12-06 18:17:08,263 - INFO -   Plotting...
+2025-12-06 18:17:08,475 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.05.png
+2025-12-06 18:17:08,475 - INFO - 
+Processing: eps=0.150, rho=0.07
+2025-12-06 18:17:08,486 - INFO -   Loaded transport plan
+2025-12-06 18:17:11,621 - INFO -   Plotting...
+2025-12-06 18:17:11,833 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.07.png
+2025-12-06 18:17:11,833 - INFO - 
+Processing: eps=0.150, rho=0.09
+2025-12-06 18:17:11,844 - INFO -   Loaded transport plan
+2025-12-06 18:17:14,968 - INFO -   Plotting...
+2025-12-06 18:17:15,180 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.09.png
+2025-12-06 18:17:15,180 - INFO - 
+Processing: eps=0.150, rho=0.12
+2025-12-06 18:17:15,191 - INFO -   Loaded transport plan
+2025-12-06 18:17:18,340 - INFO -   Plotting...
+2025-12-06 18:17:18,552 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.12.png
+2025-12-06 18:17:18,552 - INFO - 
+Processing: eps=0.150, rho=0.15
+2025-12-06 18:17:18,563 - INFO -   Loaded transport plan
+2025-12-06 18:17:21,708 - INFO -   Plotting...
+2025-12-06 18:17:21,921 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.15.png
+2025-12-06 18:17:21,921 - INFO - 
+Processing: eps=0.150, rho=0.18
+2025-12-06 18:17:21,932 - INFO -   Loaded transport plan
+2025-12-06 18:17:25,068 - INFO -   Plotting...
+2025-12-06 18:17:25,279 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.18.png
+2025-12-06 18:17:25,279 - INFO - 
+Processing: eps=0.150, rho=0.20
+2025-12-06 18:17:25,290 - INFO -   Loaded transport plan
+2025-12-06 18:17:28,461 - INFO -   Plotting...
+2025-12-06 18:17:28,674 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.20.png
+2025-12-06 18:17:28,674 - INFO - 
+Processing: eps=0.150, rho=0.25
+2025-12-06 18:17:28,686 - INFO -   Loaded transport plan
+2025-12-06 18:17:31,837 - INFO -   Plotting...
+2025-12-06 18:17:32,049 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.25.png
+2025-12-06 18:17:32,049 - INFO - 
+Processing: eps=0.150, rho=0.30
+2025-12-06 18:17:32,060 - INFO -   Loaded transport plan
+2025-12-06 18:17:35,203 - INFO -   Plotting...
+2025-12-06 18:17:35,412 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.30.png
+2025-12-06 18:17:35,412 - INFO - 
+Processing: eps=0.150, rho=0.50
+2025-12-06 18:17:35,423 - INFO -   Loaded transport plan
+2025-12-06 18:17:38,622 - INFO -   Plotting...
+2025-12-06 18:17:38,843 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.50.png
+2025-12-06 18:17:38,843 - INFO - 
+Processing: eps=0.150, rho=0.70
+2025-12-06 18:17:38,855 - INFO -   Loaded transport plan
+2025-12-06 18:17:42,007 - INFO -   Plotting...
+2025-12-06 18:17:42,220 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho0.70.png
+2025-12-06 18:17:42,220 - INFO - 
+Processing: eps=0.150, rho=1.00
+2025-12-06 18:17:42,231 - INFO -   Loaded transport plan
+2025-12-06 18:17:45,376 - INFO -   Plotting...
+2025-12-06 18:17:45,589 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho1.00.png
+2025-12-06 18:17:45,589 - INFO - 
+Processing: eps=0.200, rho=0.01
+2025-12-06 18:17:45,600 - INFO -   Loaded transport plan
+2025-12-06 18:17:48,745 - INFO -   Plotting...
+2025-12-06 18:17:48,957 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.01.png
+2025-12-06 18:17:48,957 - INFO - 
+Processing: eps=0.200, rho=0.02
+2025-12-06 18:17:48,968 - INFO -   Loaded transport plan
+2025-12-06 18:17:52,097 - INFO -   Plotting...
+2025-12-06 18:17:52,308 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.02.png
+2025-12-06 18:17:52,308 - INFO - 
+Processing: eps=0.200, rho=0.04
+2025-12-06 18:17:52,319 - INFO -   Loaded transport plan
+2025-12-06 18:17:55,442 - INFO -   Plotting...
+2025-12-06 18:17:55,653 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.04.png
+2025-12-06 18:17:55,653 - INFO - 
+Processing: eps=0.200, rho=0.05
+2025-12-06 18:17:55,664 - INFO -   Loaded transport plan
+2025-12-06 18:17:58,806 - INFO -   Plotting...
+2025-12-06 18:17:59,018 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.05.png
+2025-12-06 18:17:59,019 - INFO - 
+Processing: eps=0.200, rho=0.07
+2025-12-06 18:17:59,029 - INFO -   Loaded transport plan
+2025-12-06 18:18:02,319 - INFO -   Plotting...
+2025-12-06 18:18:02,532 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.07.png
+2025-12-06 18:18:02,532 - INFO - 
+Processing: eps=0.200, rho=0.09
+2025-12-06 18:18:02,543 - INFO -   Loaded transport plan
+2025-12-06 18:18:05,714 - INFO -   Plotting...
+2025-12-06 18:18:05,927 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.09.png
+2025-12-06 18:18:05,927 - INFO - 
+Processing: eps=0.200, rho=0.12
+2025-12-06 18:18:05,938 - INFO -   Loaded transport plan
+2025-12-06 18:18:09,074 - INFO -   Plotting...
+2025-12-06 18:18:09,286 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.12.png
+2025-12-06 18:18:09,286 - INFO - 
+Processing: eps=0.200, rho=0.15
+2025-12-06 18:18:09,297 - INFO -   Loaded transport plan
+2025-12-06 18:18:12,415 - INFO -   Plotting...
+2025-12-06 18:18:12,623 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.15.png
+2025-12-06 18:18:12,623 - INFO - 
+Processing: eps=0.200, rho=0.18
+2025-12-06 18:18:12,634 - INFO -   Loaded transport plan
+2025-12-06 18:18:15,754 - INFO -   Plotting...
+2025-12-06 18:18:15,964 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.18.png
+2025-12-06 18:18:15,964 - INFO - 
+Processing: eps=0.200, rho=0.20
+2025-12-06 18:18:15,975 - INFO -   Loaded transport plan
+2025-12-06 18:18:19,113 - INFO -   Plotting...
+2025-12-06 18:18:19,324 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.20.png
+2025-12-06 18:18:19,324 - INFO - 
+Processing: eps=0.200, rho=0.25
+2025-12-06 18:18:19,335 - INFO -   Loaded transport plan
+2025-12-06 18:18:22,477 - INFO -   Plotting...
+2025-12-06 18:18:22,690 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.25.png
+2025-12-06 18:18:22,690 - INFO - 
+Processing: eps=0.200, rho=0.30
+2025-12-06 18:18:22,700 - INFO -   Loaded transport plan
+2025-12-06 18:18:25,851 - INFO -   Plotting...
+2025-12-06 18:18:26,062 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.30.png
+2025-12-06 18:18:26,062 - INFO - 
+Processing: eps=0.200, rho=0.50
+2025-12-06 18:18:26,073 - INFO -   Loaded transport plan
+2025-12-06 18:18:29,223 - INFO -   Plotting...
+2025-12-06 18:18:29,435 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.50.png
+2025-12-06 18:18:29,435 - INFO - 
+Processing: eps=0.200, rho=0.70
+2025-12-06 18:18:29,446 - INFO -   Loaded transport plan
+2025-12-06 18:18:32,570 - INFO -   Plotting...
+2025-12-06 18:18:32,783 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho0.70.png
+2025-12-06 18:18:32,783 - INFO - 
+Processing: eps=0.200, rho=1.00
+2025-12-06 18:18:32,794 - INFO -   Loaded transport plan
+2025-12-06 18:18:35,922 - INFO -   Plotting...
+2025-12-06 18:18:36,132 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho1.00.png
+2025-12-06 18:18:36,133 - INFO - 
+Processing: eps=0.010, rho=2.00
+2025-12-06 18:18:36,143 - INFO -   Loaded transport plan
+2025-12-06 18:18:39,274 - INFO -   Plotting...
+2025-12-06 18:18:39,485 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho2.00.png
+2025-12-06 18:18:39,485 - INFO - 
+Processing: eps=0.010, rho=3.00
+2025-12-06 18:18:39,495 - INFO -   Loaded transport plan
+2025-12-06 18:18:42,606 - INFO -   Plotting...
+2025-12-06 18:18:42,819 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho3.00.png
+2025-12-06 18:18:42,819 - INFO - 
+Processing: eps=0.010, rho=4.00
+2025-12-06 18:18:42,830 - INFO -   Loaded transport plan
+2025-12-06 18:18:45,949 - INFO -   Plotting...
+2025-12-06 18:18:46,160 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho4.00.png
+2025-12-06 18:18:46,160 - INFO - 
+Processing: eps=0.010, rho=5.00
+2025-12-06 18:18:46,171 - INFO -   Loaded transport plan
+2025-12-06 18:18:49,299 - INFO -   Plotting...
+2025-12-06 18:18:49,510 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.010_rho5.00.png
+2025-12-06 18:18:49,511 - INFO - 
+Processing: eps=0.020, rho=2.00
+2025-12-06 18:18:49,521 - INFO -   Loaded transport plan
+2025-12-06 18:18:52,636 - INFO -   Plotting...
+2025-12-06 18:18:52,848 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho2.00.png
+2025-12-06 18:18:52,848 - INFO - 
+Processing: eps=0.020, rho=3.00
+2025-12-06 18:18:52,858 - INFO -   Loaded transport plan
+2025-12-06 18:18:55,981 - INFO -   Plotting...
+2025-12-06 18:18:56,191 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho3.00.png
+2025-12-06 18:18:56,191 - INFO - 
+Processing: eps=0.020, rho=4.00
+2025-12-06 18:18:56,202 - INFO -   Loaded transport plan
+2025-12-06 18:18:59,328 - INFO -   Plotting...
+2025-12-06 18:18:59,539 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho4.00.png
+2025-12-06 18:18:59,539 - INFO - 
+Processing: eps=0.020, rho=5.00
+2025-12-06 18:18:59,550 - INFO -   Loaded transport plan
+2025-12-06 18:19:02,780 - INFO -   Plotting...
+2025-12-06 18:19:02,993 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.020_rho5.00.png
+2025-12-06 18:19:02,993 - INFO - 
+Processing: eps=0.030, rho=2.00
+2025-12-06 18:19:03,004 - INFO -   Loaded transport plan
+2025-12-06 18:19:06,144 - INFO -   Plotting...
+2025-12-06 18:19:06,357 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho2.00.png
+2025-12-06 18:19:06,357 - INFO - 
+Processing: eps=0.030, rho=3.00
+2025-12-06 18:19:06,368 - INFO -   Loaded transport plan
+2025-12-06 18:19:09,515 - INFO -   Plotting...
+2025-12-06 18:19:09,728 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho3.00.png
+2025-12-06 18:19:09,728 - INFO - 
+Processing: eps=0.030, rho=4.00
+2025-12-06 18:19:09,738 - INFO -   Loaded transport plan
+2025-12-06 18:19:12,846 - INFO -   Plotting...
+2025-12-06 18:19:13,058 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho4.00.png
+2025-12-06 18:19:13,058 - INFO - 
+Processing: eps=0.030, rho=5.00
+2025-12-06 18:19:13,069 - INFO -   Loaded transport plan
+2025-12-06 18:19:16,195 - INFO -   Plotting...
+2025-12-06 18:19:16,407 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.030_rho5.00.png
+2025-12-06 18:19:16,407 - INFO - 
+Processing: eps=0.050, rho=2.00
+2025-12-06 18:19:16,418 - INFO -   Loaded transport plan
+2025-12-06 18:19:19,546 - INFO -   Plotting...
+2025-12-06 18:19:19,760 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho2.00.png
+2025-12-06 18:19:19,760 - INFO - 
+Processing: eps=0.050, rho=3.00
+2025-12-06 18:19:19,770 - INFO -   Loaded transport plan
+2025-12-06 18:19:22,884 - INFO -   Plotting...
+2025-12-06 18:19:23,096 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho3.00.png
+2025-12-06 18:19:23,096 - INFO - 
+Processing: eps=0.050, rho=4.00
+2025-12-06 18:19:23,107 - INFO -   Loaded transport plan
+2025-12-06 18:19:26,234 - INFO -   Plotting...
+2025-12-06 18:19:26,446 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho4.00.png
+2025-12-06 18:19:26,446 - INFO - 
+Processing: eps=0.050, rho=5.00
+2025-12-06 18:19:26,457 - INFO -   Loaded transport plan
+2025-12-06 18:19:29,584 - INFO -   Plotting...
+2025-12-06 18:19:29,795 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.050_rho5.00.png
+2025-12-06 18:19:29,796 - INFO - 
+Processing: eps=0.070, rho=2.00
+2025-12-06 18:19:29,806 - INFO -   Loaded transport plan
+2025-12-06 18:19:32,920 - INFO -   Plotting...
+2025-12-06 18:19:33,132 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho2.00.png
+2025-12-06 18:19:33,132 - INFO - 
+Processing: eps=0.070, rho=3.00
+2025-12-06 18:19:33,143 - INFO -   Loaded transport plan
+2025-12-06 18:19:36,263 - INFO -   Plotting...
+2025-12-06 18:19:36,473 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho3.00.png
+2025-12-06 18:19:36,473 - INFO - 
+Processing: eps=0.070, rho=4.00
+2025-12-06 18:19:36,483 - INFO -   Loaded transport plan
+2025-12-06 18:19:39,607 - INFO -   Plotting...
+2025-12-06 18:19:39,818 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho4.00.png
+2025-12-06 18:19:39,818 - INFO - 
+Processing: eps=0.070, rho=5.00
+2025-12-06 18:19:39,828 - INFO -   Loaded transport plan
+2025-12-06 18:19:42,952 - INFO -   Plotting...
+2025-12-06 18:19:43,166 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.070_rho5.00.png
+2025-12-06 18:19:43,166 - INFO - 
+Processing: eps=0.100, rho=2.00
+2025-12-06 18:19:43,176 - INFO -   Loaded transport plan
+2025-12-06 18:19:46,297 - INFO -   Plotting...
+2025-12-06 18:19:46,508 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho2.00.png
+2025-12-06 18:19:46,508 - INFO - 
+Processing: eps=0.100, rho=3.00
+2025-12-06 18:19:46,518 - INFO -   Loaded transport plan
+2025-12-06 18:19:49,648 - INFO -   Plotting...
+2025-12-06 18:19:49,860 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho3.00.png
+2025-12-06 18:19:49,860 - INFO - 
+Processing: eps=0.100, rho=4.00
+2025-12-06 18:19:49,871 - INFO -   Loaded transport plan
+2025-12-06 18:19:52,992 - INFO -   Plotting...
+2025-12-06 18:19:53,203 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho4.00.png
+2025-12-06 18:19:53,203 - INFO - 
+Processing: eps=0.100, rho=5.00
+2025-12-06 18:19:53,214 - INFO -   Loaded transport plan
+2025-12-06 18:19:56,334 - INFO -   Plotting...
+2025-12-06 18:19:56,547 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.100_rho5.00.png
+2025-12-06 18:19:56,547 - INFO - 
+Processing: eps=0.150, rho=2.00
+2025-12-06 18:19:56,558 - INFO -   Loaded transport plan
+2025-12-06 18:19:59,689 - INFO -   Plotting...
+2025-12-06 18:19:59,901 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho2.00.png
+2025-12-06 18:19:59,901 - INFO - 
+Processing: eps=0.150, rho=3.00
+2025-12-06 18:19:59,911 - INFO -   Loaded transport plan
+2025-12-06 18:20:03,123 - INFO -   Plotting...
+2025-12-06 18:20:03,334 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho3.00.png
+2025-12-06 18:20:03,334 - INFO - 
+Processing: eps=0.150, rho=4.00
+2025-12-06 18:20:03,345 - INFO -   Loaded transport plan
+2025-12-06 18:20:06,476 - INFO -   Plotting...
+2025-12-06 18:20:06,688 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho4.00.png
+2025-12-06 18:20:06,688 - INFO - 
+Processing: eps=0.150, rho=5.00
+2025-12-06 18:20:06,699 - INFO -   Loaded transport plan
+2025-12-06 18:20:09,824 - INFO -   Plotting...
+2025-12-06 18:20:10,035 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.150_rho5.00.png
+2025-12-06 18:20:10,035 - INFO - 
+Processing: eps=0.200, rho=2.00
+2025-12-06 18:20:10,046 - INFO -   Loaded transport plan
+2025-12-06 18:20:13,163 - INFO -   Plotting...
+2025-12-06 18:20:13,373 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho2.00.png
+2025-12-06 18:20:13,373 - INFO - 
+Processing: eps=0.200, rho=3.00
+2025-12-06 18:20:13,383 - INFO -   Loaded transport plan
+2025-12-06 18:20:16,509 - INFO -   Plotting...
+2025-12-06 18:20:16,723 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho3.00.png
+2025-12-06 18:20:16,723 - INFO - 
+Processing: eps=0.200, rho=4.00
+2025-12-06 18:20:16,733 - INFO -   Loaded transport plan
+2025-12-06 18:20:19,865 - INFO -   Plotting...
+2025-12-06 18:20:20,076 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho4.00.png
+2025-12-06 18:20:20,076 - INFO - 
+Processing: eps=0.200, rho=5.00
+2025-12-06 18:20:20,086 - INFO -   Loaded transport plan
+2025-12-06 18:20:23,212 - INFO -   Plotting...
+2025-12-06 18:20:23,421 - INFO -   ✓ Saved: /Data/janis.aiad/geodata/experiments/pixelart/transport_timeline_eps0.200_rho5.00.png
+2025-12-06 18:20:23,421 - INFO - 
+================================================================================
+2025-12-06 18:20:23,421 - INFO - COMPLETED
+2025-12-06 18:20:23,421 - INFO - ================================================================================

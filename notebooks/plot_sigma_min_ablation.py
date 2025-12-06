@@ -151,15 +151,15 @@ def interpolate_at_t(transport_data, t: float, sigma_min: float, use_adaptive: b
     return img_t.cpu()
 
 def plot_sigma_min_ablation():
-    """Plot timelines and Sinkhorn divergence for different sigma_min values."""
+    """Plot timelines for different sigma_min values across multiple eps and rho."""
     
     logger.info("=" * 80)
-    logger.info("SIGMA_MIN ABLATION: TIMELINES AND SINKHORN DIVERGENCE")
+    logger.info("SIGMA_MIN ABLATION: TIMELINES FOR MULTIPLE EPS AND RHO")
     logger.info("=" * 80)
     
-    # Parameters
-    eps = 0.07
-    rho = 0.7
+    # Parameters - multiple eps and rho values
+    epsilons = [0.05, 0.07, 0.10]
+    rhos = [0.5, 0.7, 1.0]
     lambda_color = 2.5
     sigma_mins = [0.0, 0.01, 0.02, 0.05, 0.10, 0.15, 0.20, 0.30, 0.50]
     times = np.linspace(0.0, 1.0, 11)  # 0.0, 0.1, ..., 1.0
@@ -170,70 +170,83 @@ def plot_sigma_min_ablation():
     img_target = load_image(DATA_DIR / "strawberry.jpg")
     logger.info(f"Source: {img_source.shape}, Target: {img_target.shape}")
     
-    # Find experiment files
-    logger.info("\nLoading transport plans...")
-    transport_plans = {}
-    for sigma_min in sigma_mins:
-        sigma_min_str = f"{sigma_min:.2f}"
-        pattern = f"*eps{eps:.3f}_rho{rho:.2f}_lam{lambda_color:.1f}_smin{sigma_min_str}_debiasTrue_adapsigmaTrue.pt"
-        files = list(EXPERIMENTS_DIR.glob(pattern))
-        if files:
-            transport_plans[sigma_min] = torch.load(files[0], weights_only=False)
-            logger.info(f"  Loaded: sigma_min={sigma_min:.3f}")
-        else:
-            logger.warning(f"  Not found: sigma_min={sigma_min:.3f}")
-    
-    if len(transport_plans) == 0:
-        logger.error("No transport plans found! Run ablation_studies.py first.")
-        return
-    
-    logger.info("\nComputing interpolations...")
-    results = {}
-    
-    for sigma_min in sigma_mins:
-        if sigma_min not in transport_plans:
-            continue
-        
-        transport_data = transport_plans[sigma_min]
-        results[sigma_min] = {
-            'times': [],
-            'images_adaptive': []
-        }
-        
-        for t in tqdm(times, desc=f"sigma_min={sigma_min:.3f}", leave=False):
-            # Adaptive splatting
-            img_adaptive = interpolate_at_t(transport_data, t, sigma_min, use_adaptive=True)
+    # Iterate over all (eps, rho) combinations
+    for eps in epsilons:
+        for rho in rhos:
+            logger.info(f"\n{'='*80}")
+            logger.info(f"Processing eps={eps:.3f}, rho={rho:.2f}")
+            logger.info(f"{'='*80}")
             
-            results[sigma_min]['times'].append(t)
-            results[sigma_min]['images_adaptive'].append(img_adaptive)
+            # Find experiment files for this (eps, rho) combination
+            logger.info("Loading transport plans...")
+            transport_plans = {}
+            for sigma_min in sigma_mins:
+                sigma_min_str = f"{sigma_min:.2f}"
+                rho_str = f"{rho:.2f}"
+                pattern = f"*eps{eps:.3f}_rho{rho_str}_lam{lambda_color:.1f}_smin{sigma_min_str}_debiasTrue_adapsigmaTrue.pt"
+                files = list(EXPERIMENTS_DIR.glob(pattern))
+                if files:
+                    transport_plans[sigma_min] = torch.load(files[0], weights_only=False)
+                    logger.info(f"  Loaded: sigma_min={sigma_min:.3f}")
+                else:
+                    logger.warning(f"  Not found: sigma_min={sigma_min:.3f}")
             
-            if torch.cuda.is_available():
-                torch.cuda.empty_cache()
-            gc.collect()
-    
-    # Plot timelines
-    logger.info("\nPlotting timelines...")
-    n_sigma = len([s for s in sigma_mins if s in results])
-    fig_timeline, axes = plt.subplots(n_sigma, len(times), figsize=(len(times) * 2, n_sigma * 2))
-    if n_sigma == 1:
-        axes = axes.reshape(1, -1)
-    
-    for idx, sigma_min in enumerate(sorted([s for s in sigma_mins if s in results])):
-        for t_idx, t in enumerate(times):
-            img = results[sigma_min]['images_adaptive'][t_idx]
-            img_np = img.permute(1, 2, 0).numpy()
-            axes[idx, t_idx].imshow(img_np)
-            axes[idx, t_idx].axis('off')
-            if idx == 0:
-                axes[idx, t_idx].set_title(f'$t={t:.1f}$', fontsize=10)
-            if t_idx == 0:
-                axes[idx, t_idx].set_ylabel(rf'$\sigma_{{min}}={sigma_min:.2f}$', fontsize=10)
-    
-    plt.suptitle('Interpolation Timelines for Different $\sigma_{min}$ (Adaptive Splatting)', fontsize=14)
-    plt.tight_layout()
-    timeline_path = OUTPUT_DIR / f"sigma_min_timelines_eps{eps:.3f}_rho{rho:.2f}.png"
-    plt.savefig(timeline_path, dpi=150, bbox_inches='tight')
-    logger.info(f"✓ Saved timeline: {timeline_path}")
+            if len(transport_plans) == 0:
+                logger.warning(f"No transport plans found for eps={eps:.3f}, rho={rho:.2f}. Skipping...")
+                continue
+            
+            logger.info("\nComputing interpolations...")
+            results = {}
+            
+            for sigma_min in sigma_mins:
+                if sigma_min not in transport_plans:
+                    continue
+                
+                transport_data = transport_plans[sigma_min]
+                results[sigma_min] = {
+                    'times': [],
+                    'images_adaptive': []
+                }
+                
+                for t in tqdm(times, desc=f"sigma_min={sigma_min:.3f}", leave=False):
+                    # Adaptive splatting
+                    img_adaptive = interpolate_at_t(transport_data, t, sigma_min, use_adaptive=True)
+                    
+                    results[sigma_min]['times'].append(t)
+                    results[sigma_min]['images_adaptive'].append(img_adaptive)
+                    
+                    if torch.cuda.is_available():
+                        torch.cuda.empty_cache()
+                    gc.collect()
+            
+            # Plot timelines for this (eps, rho) combination
+            logger.info("\nPlotting timelines...")
+            n_sigma = len([s for s in sigma_mins if s in results])
+            if n_sigma == 0:
+                continue
+                
+            fig_timeline, axes = plt.subplots(n_sigma, len(times), figsize=(len(times) * 2, n_sigma * 2))
+            if n_sigma == 1:
+                axes = axes.reshape(1, -1)
+            
+            for idx, sigma_min in enumerate(sorted([s for s in sigma_mins if s in results])):
+                for t_idx, t in enumerate(times):
+                    img = results[sigma_min]['images_adaptive'][t_idx]
+                    img_np = img.permute(1, 2, 0).numpy()
+                    axes[idx, t_idx].imshow(img_np)
+                    axes[idx, t_idx].axis('off')
+                    if idx == 0:
+                        axes[idx, t_idx].set_title(f'$t={t:.1f}$', fontsize=10)
+                    if t_idx == 0:
+                        axes[idx, t_idx].set_ylabel(rf'$\sigma_{{min}}={sigma_min:.2f}$', fontsize=10)
+            
+            plt.suptitle(f'Timelines: $\varepsilon={eps:.3f}$, $\\rho={rho:.2f}$', fontsize=14)
+            plt.tight_layout()
+            rho_str = f"{rho:.2f}"
+            timeline_path = OUTPUT_DIR / f"sigma_min_timelines_eps{eps:.3f}_rho{rho_str}.png"
+            plt.savefig(timeline_path, dpi=150, bbox_inches='tight')
+            plt.close()
+            logger.info(f"✓ Saved timeline: {timeline_path}")
     
     logger.info("\n" + "=" * 80)
     logger.info("COMPLETED")

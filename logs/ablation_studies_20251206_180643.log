@@ -1,0 +1,83 @@
+2025-12-06 18:06:43,545 - INFO - ================================================================================
+2025-12-06 18:06:43,545 - INFO - SIGMA_MIN ABLATION: TIMELINES FOR MULTIPLE EPS AND RHO
+2025-12-06 18:06:43,545 - INFO - ================================================================================
+2025-12-06 18:06:43,545 - INFO - Loading images...
+2025-12-06 18:06:43,561 - INFO - Source: torch.Size([3, 500, 500]), Target: torch.Size([3, 500, 500])
+2025-12-06 18:06:43,561 - INFO - 
+================================================================================
+2025-12-06 18:06:43,561 - INFO - Processing eps=0.050, rho=0.50
+2025-12-06 18:06:43,561 - INFO - ================================================================================
+2025-12-06 18:06:43,561 - INFO - Loading transport plans...
+2025-12-06 18:06:43,561 - WARNING -   Not found: sigma_min=0.000
+2025-12-06 18:06:43,561 - WARNING -   Not found: sigma_min=0.010
+2025-12-06 18:06:43,562 - WARNING -   Not found: sigma_min=0.020
+2025-12-06 18:06:43,562 - WARNING -   Not found: sigma_min=0.050
+2025-12-06 18:06:43,562 - WARNING -   Not found: sigma_min=0.100
+2025-12-06 18:06:43,562 - WARNING -   Not found: sigma_min=0.150
+2025-12-06 18:06:43,562 - WARNING -   Not found: sigma_min=0.200
+2025-12-06 18:06:43,562 - WARNING -   Not found: sigma_min=0.300
+2025-12-06 18:06:43,563 - WARNING -   Not found: sigma_min=0.500
+2025-12-06 18:06:43,563 - WARNING - No transport plans found for eps=0.050, rho=0.50. Skipping...
+2025-12-06 18:06:43,563 - INFO - 
+================================================================================
+2025-12-06 18:06:43,563 - INFO - Processing eps=0.050, rho=0.70
+2025-12-06 18:06:43,563 - INFO - ================================================================================
+2025-12-06 18:06:43,563 - INFO - Loading transport plans...
+2025-12-06 18:06:43,563 - WARNING -   Not found: sigma_min=0.000
+2025-12-06 18:06:43,563 - WARNING -   Not found: sigma_min=0.010
+2025-12-06 18:06:43,563 - WARNING -   Not found: sigma_min=0.020
+2025-12-06 18:06:43,563 - WARNING -   Not found: sigma_min=0.050
+2025-12-06 18:06:43,563 - WARNING -   Not found: sigma_min=0.100
+2025-12-06 18:06:43,564 - WARNING -   Not found: sigma_min=0.150
+2025-12-06 18:06:43,564 - WARNING -   Not found: sigma_min=0.200
+2025-12-06 18:06:43,564 - WARNING -   Not found: sigma_min=0.300
+2025-12-06 18:06:43,564 - WARNING -   Not found: sigma_min=0.500
+2025-12-06 18:06:43,564 - WARNING - No transport plans found for eps=0.050, rho=0.70. Skipping...
+2025-12-06 18:06:43,564 - INFO - 
+================================================================================
+2025-12-06 18:06:43,564 - INFO - Processing eps=0.050, rho=1.00
+2025-12-06 18:06:43,564 - INFO - ================================================================================
+2025-12-06 18:06:43,564 - INFO - Loading transport plans...
+2025-12-06 18:06:43,564 - WARNING -   Not found: sigma_min=0.000
+2025-12-06 18:06:43,564 - WARNING -   Not found: sigma_min=0.010
+2025-12-06 18:06:43,564 - WARNING -   Not found: sigma_min=0.020
+2025-12-06 18:06:43,565 - WARNING -   Not found: sigma_min=0.050
+2025-12-06 18:06:43,565 - WARNING -   Not found: sigma_min=0.100
+2025-12-06 18:06:43,565 - WARNING -   Not found: sigma_min=0.150
+2025-12-06 18:06:43,565 - WARNING -   Not found: sigma_min=0.200
+2025-12-06 18:06:43,565 - WARNING -   Not found: sigma_min=0.300
+2025-12-06 18:06:43,565 - WARNING -   Not found: sigma_min=0.500
+2025-12-06 18:06:43,565 - WARNING - No transport plans found for eps=0.050, rho=1.00. Skipping...
+2025-12-06 18:06:43,565 - INFO - 
+================================================================================
+2025-12-06 18:06:43,565 - INFO - Processing eps=0.070, rho=0.50
+2025-12-06 18:06:43,565 - INFO - ================================================================================
+2025-12-06 18:06:43,565 - INFO - Loading transport plans...
+2025-12-06 18:06:43,565 - WARNING -   Not found: sigma_min=0.000
+2025-12-06 18:06:43,566 - WARNING -   Not found: sigma_min=0.010
+2025-12-06 18:06:43,566 - WARNING -   Not found: sigma_min=0.020
+2025-12-06 18:06:43,566 - WARNING -   Not found: sigma_min=0.050
+2025-12-06 18:06:43,566 - WARNING -   Not found: sigma_min=0.100
+2025-12-06 18:06:43,566 - WARNING -   Not found: sigma_min=0.150
+2025-12-06 18:06:43,566 - WARNING -   Not found: sigma_min=0.200
+2025-12-06 18:06:43,567 - WARNING -   Not found: sigma_min=0.300
+2025-12-06 18:06:43,567 - WARNING -   Not found: sigma_min=0.500
+2025-12-06 18:06:43,567 - WARNING - No transport plans found for eps=0.070, rho=0.50. Skipping...
+2025-12-06 18:06:43,567 - INFO - 
+================================================================================
+2025-12-06 18:06:43,567 - INFO - Processing eps=0.070, rho=0.70
+2025-12-06 18:06:43,567 - INFO - ================================================================================
+2025-12-06 18:06:43,567 - INFO - Loading transport plans...
+2025-12-06 18:06:43,582 - INFO -   Loaded: sigma_min=0.000
+2025-12-06 18:06:43,593 - INFO -   Loaded: sigma_min=0.010
+2025-12-06 18:06:43,604 - INFO -   Loaded: sigma_min=0.020
+2025-12-06 18:06:43,615 - INFO -   Loaded: sigma_min=0.050
+2025-12-06 18:06:43,626 - INFO -   Loaded: sigma_min=0.100
+2025-12-06 18:06:43,637 - INFO -   Loaded: sigma_min=0.150
+2025-12-06 18:06:43,648 - INFO -   Loaded: sigma_min=0.200
+2025-12-06 18:06:43,659 - INFO -   Loaded: sigma_min=0.300
+2025-12-06 18:06:43,670 - INFO -   Loaded: sigma_min=0.500
+2025-12-06 18:06:43,670 - INFO - 
+Computing interpolations...
+2025-12-06 18:07:11,276 - INFO - 
+Plotting timelines...
