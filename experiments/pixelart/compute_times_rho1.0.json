@@ -1,0 +1,213 @@
+{
+  "rho": 1.0,
+  "lambda_color": 2.5,
+  "sigma_min": 0.1,
+  "resolution": [
+    64,
+    64
+  ],
+  "use_debias": true,
+  "use_adaptive_sigma": true,
+  "compute_times": [
+    {
+      "epsilon": 0.0001,
+      "compute_time_seconds": 1.1234540939331055
+    },
+    {
+      "epsilon": 0.00013257113655901095,
+      "compute_time_seconds": 0.9180335998535156
+    },
+    {
+      "epsilon": 0.00017575106248547912,
+      "compute_time_seconds": 0.8938572406768799
+    },
+    {
+      "epsilon": 0.00023299518105153718,
+      "compute_time_seconds": 0.8686885833740234
+    },
+    {
+      "epsilon": 0.00030888435964774815,
+      "compute_time_seconds": 0.8515937328338623
+    },
+    {
+      "epsilon": 0.00040949150623804275,
+      "compute_time_seconds": 0.8260097503662109
+    },
+    {
+      "epsilon": 0.0005428675439323859,
+      "compute_time_seconds": 0.8008754253387451
+    },
+    {
+      "epsilon": 0.0007196856730011522,
+      "compute_time_seconds": 0.7842521667480469
+    },
+    {
+      "epsilon": 0.0009540954763499944,
+      "compute_time_seconds": 0.7596073150634766
+    },
+    {
+      "epsilon": 0.0012648552168552957,
+      "compute_time_seconds": 0.734158992767334
+    },
+    {
+      "epsilon": 0.0016768329368110084,
+      "compute_time_seconds": 0.7166249752044678
+    },
+    {
+      "epsilon": 0.0022229964825261957,
+      "compute_time_seconds": 0.692737340927124
+    },
+    {
+      "epsilon": 0.0029470517025518097,
+      "compute_time_seconds": 0.668036937713623
+    },
+    {
+      "epsilon": 0.003906939937054617,
+      "compute_time_seconds": 0.6505234241485596
+    },
+    {
+      "epsilon": 0.005179474679231213,
+      "compute_time_seconds": 0.6244616508483887
+    },
+    {
+      "epsilon": 0.006866488450042998,
+      "compute_time_seconds": 0.599684476852417
+    },
+    {
+      "epsilon": 0.009102981779915217,
+      "compute_time_seconds": 0.5734589099884033
+    },
+    {
+      "epsilon": 0.012067926406393288,
+      "compute_time_seconds": 0.5577781200408936
+    },
+    {
+      "epsilon": 0.015998587196060572,
+      "compute_time_seconds": 0.5325264930725098
+    },
+    {
+      "epsilon": 0.021209508879201904,
+      "compute_time_seconds": 0.5072143077850342
+    },
+    {
+      "epsilon": 0.028117686979742307,
+      "compute_time_seconds": 0.4896514415740967
+    },
+    {
+      "epsilon": 0.03727593720314938,
+      "compute_time_seconds": 0.46524739265441895
+    },
+    {
+      "epsilon": 0.04941713361323833,
+      "compute_time_seconds": 0.43979573249816895
+    },
+    {
+      "epsilon": 0.0655128556859551,
+      "compute_time_seconds": 0.42293405532836914
+    },
+    {
+      "epsilon": 0.08685113737513521,
+      "compute_time_seconds": 0.3991827964782715
+    },
+    {
+      "epsilon": 0.1151395399326447,
+      "compute_time_seconds": 0.37338972091674805
+    },
+    {
+      "epsilon": 0.15264179671752334,
+      "compute_time_seconds": 0.35592031478881836
+    },
+    {
+      "epsilon": 0.20235896477251575,
+      "compute_time_seconds": 0.3305964469909668
+    },
+    {
+      "epsilon": 0.2682695795279725,
+      "compute_time_seconds": 0.3058156967163086
+    },
+    {
+      "epsilon": 0.35564803062231287,
+      "compute_time_seconds": 0.28797125816345215
+    },
+    {
+      "epsilon": 0.47148663634573945,
+      "compute_time_seconds": 0.26306891441345215
+    },
+    {
+      "epsilon": 0.6250551925273969,
+      "compute_time_seconds": 0.23808860778808594
+    },
+    {
+      "epsilon": 0.8286427728546842,
+      "compute_time_seconds": 0.22121191024780273
+    },
+    {
+      "epsilon": 1.0985411419875573,
+      "compute_time_seconds": 0.1955864429473877
+    },
+    {
+      "epsilon": 1.4563484775012443,
+      "compute_time_seconds": 0.17081356048583984
+    },
+    {
+      "epsilon": 1.9306977288832496,
+      "compute_time_seconds": 0.15410232543945312
+    },
+    {
+      "epsilon": 2.559547922699533,
+      "compute_time_seconds": 0.12871265411376953
+    },
+    {
+      "epsilon": 3.39322177189533,
+      "compute_time_seconds": 0.10388064384460449
+    },
+    {
+      "epsilon": 4.498432668969444,
+      "compute_time_seconds": 0.08659672737121582
+    },
+    {
+      "epsilon": 5.963623316594637,
+      "compute_time_seconds": 0.07812356948852539
+    },
+    {
+      "epsilon": 7.9060432109077015,
+      "compute_time_seconds": 0.07819724082946777
+    },
+    {
+      "epsilon": 10.481131341546853,
+      "compute_time_seconds": 0.07797694206237793
+    },
+    {
+      "epsilon": 13.89495494373136,
+      "compute_time_seconds": 0.07802104949951172
+    },
+    {
+      "epsilon": 18.420699693267164,
+      "compute_time_seconds": 0.07802820205688477
+    },
+    {
+      "epsilon": 24.420530945486497,
+      "compute_time_seconds": 0.07808375358581543
+    },
+    {
+      "epsilon": 32.3745754281764,
+      "compute_time_seconds": 0.07791471481323242
+    },
+    {
+      "epsilon": 42.91934260128778,
+      "compute_time_seconds": 0.07907915115356445
+    },
+    {
+      "epsilon": 56.89866029018293,
+      "compute_time_seconds": 0.07827138900756836
+    },
+    {
+      "epsilon": 75.43120063354607,
+      "compute_time_seconds": 0.07858490943908691
+    },
+    {
+      "epsilon": 100.0,
+      "compute_time_seconds": 0.07915830612182617
+    }
+  ]
+}

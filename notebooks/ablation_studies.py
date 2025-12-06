@@ -214,7 +214,8 @@ def run_compute_time_benchmark():
     
     # Parameters for benchmark
     rho = 1.0
-    epsilons = [0.01, 0.02, 0.03, 0.05, 0.07, 0.10, 0.15, 0.20]
+    # Generate 50 epsilon values in log space from 1e-4 to 100
+    epsilons = np.logspace(-4, 2, 50).tolist()
     lambda_color = 2.5
     sigma_min = 0.1
     use_debias = True
