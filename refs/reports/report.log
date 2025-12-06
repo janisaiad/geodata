@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.16)  2 DEC 2025 23:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.16)  6 DEC 2025 00:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,30 +6,7 @@ entering extended mode
 (./report.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
-
-! LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1 c
-     ursor .\documentclass[sigconf, screen, nonacm]{acmart}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Missing character: There is no c in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no . in font nullfont!
 (/usr/share/texlive/texmf-dist/tex/latex/acmart/acmart.cls
-Overfull \hbox (20.0pt too wide) in paragraph at lines 1--38
-[] 
- []
-
 Document Class: acmart 2024/02/04 v2.03 Typesetting articles for the Associatio
 n for Computing Machinery
 (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
@@ -1045,13 +1022,13 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count329
 \l__pdf_internal_box=\box61
 )
-No file report.aux.
+(./report.aux)
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 89.
 LaTeX Font Info:    Trying to load font information for OML+nxlmi on input line
  89.
-(/usr/share/texlive/texmf-dist/tex/latex/newtx/omlnxlmi.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/newtx/omlnxlmi.fd
 File: omlnxlmi.fd 2013/11/19 Fontinst v1.933 font definitions for OML/nxlmi.
 )
 LaTeX Font Info:    ... okay on input line 89.
@@ -1161,6 +1138,8 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 Package hyperref Info: Link coloring ON on input line 89.
+ (./report.out)
+(./report.out)
 \@outlinefile=\write4
 \openout4 = `report.out'.
 
@@ -1275,7 +1254,7 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [1.1]
+)
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 9.0pt on input line 91.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
@@ -1298,33 +1277,12 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-
-Package natbib Warning: Citation `peyre2019' on page 2 undefined on input line 
-97.
-
-
 Underfull \vbox (badness 1337) has occurred while \output is active []
-
-
-
-Package natbib Warning: Citation `peyre2019' on page 2 undefined on input line 
-99.
-
-
-LaTeX Warning: Reference `sec:splatting' on page 2 undefined on input line 122.
-
-
-
-LaTeX Warning: Reference `sec:5d' on page 2 undefined on input line 124.
 
 
 Underfull \vbox (badness 1033) has occurred while \output is active []
 
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 125.
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 125.
- [2.2{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/tex
+ [1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/tex
 mf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/share/texlive/texmf-dis
 t/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}
 
@@ -1333,15 +1291,7 @@ share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/share/
 texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/usr/share/texliv
 e/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
 
-Package natbib Warning: Citation `sejourne2019' on page 3 undefined on input li
-ne 127.
-
-
-Package natbib Warning: Citation `sejourne2019' on page 3 undefined on input li
-ne 133.
-
-
-LaTeX Warning: Reference `app:formulation' on page 3 undefined on input line 13
+LaTeX Warning: Reference `app:formulation' on page 2 undefined on input line 13
 3.
 
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
@@ -1356,16 +1306,8 @@ y/m/n/9 ∫ \U/ntxmia/m/it/9 = [] [] \OML/nxlmi/m/it/9 Cd^^Y \LMS/ntxsy/m/n/9 œ [
  []
 
 
-Package natbib Warning: Citation `cuturi2013' on page 3 undefined on input line
- 149.
-
-
-LaTeX Warning: Reference `app:formulation' on page 3 undefined on input line 14
+LaTeX Warning: Reference `app:formulation' on page 2 undefined on input line 14
 9.
-
-
-Package natbib Warning: Citation `sejourne2019' on page 3 undefined on input li
-ne 156.
 
 
 Overfull \hbox (3.92513pt too wide) in paragraph at lines 156--157
@@ -1387,18 +1329,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 
-Package natbib Warning: Citation `feydy2019geomloss' on page 3 undefined on inp
-ut line 166.
-
-
-LaTeX Warning: Reference `eq:dual' on page 3 undefined on input line 166.
-
-
-LaTeX Warning: Reference `eq:pi' on page 3 undefined on input line 176.
-
-
-Package natbib Warning: Citation `charlier2021keops' on page 3 undefined on inp
-ut line 178.
+LaTeX Warning: Reference `eq:dual' on page 2 undefined on input line 166.
 
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 10.95pt on input line 182.
@@ -1407,248 +1338,253 @@ LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 6.1pt on input line 182.
 
-LaTeX Warning: Reference `eq:pi' on page 3 undefined on input line 189.
-
-
 Overfull \hbox (16.76805pt too wide) in paragraph at lines 191--192
 []\T1/LinuxLibertineT-TLF/b/n/9 (-20) Solution : \T1/LinuxLibertineT-TLF/m/n/9 
 (-20) Il est im-pÈ-ra-tif de confi-gu-rer le sol-veur avec \T1/zi4/m/n/9 debias
 =False
  []
 
-[3.3{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 203.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
+(Font)              scaled to size 7.0pt on input line 203.
+[2.2{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
 
-Package natbib Warning: Citation `peyre2019' on page 4 undefined on input line 
-216.
-
-
-LaTeX Warning: Reference `app:interpolation' on page 4 undefined on input line 
+LaTeX Warning: Reference `app:interpolation' on page 3 undefined on input line 
 222.
 
 
-Overfull \hbox (10.34877pt too wide) in paragraph at lines 231--232
+Overfull \hbox (10.34877pt too wide) in paragraph at lines 232--233
 []\T1/LinuxLibertineT-TLF/m/n/9 (-20) Le tea-ring est un \T1/LinuxLibertineT-TL
 F/b/n/9 (-20) ar-te-fact de dis-crÈ-ti-sa-tion Lagrangien-EulÈrien\T1/LinuxLibe
 rtineT-TLF/m/n/9 (-20) .
  []
 
 
-LaTeX Warning: Reference `app:tearing_math' on page 4 undefined on input line 2
-40.
+LaTeX Warning: Reference `app:tearing_math' on page 3 undefined on input line 2
+41.
 
 
-LaTeX Warning: Reference `app:templates' on page 4 undefined on input line 249.
+LaTeX Warning: Reference `app:templates' on page 3 undefined on input line 250.
 
 
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
+(Font)              scaled to size 9.0pt on input line 256.
 
-LaTeX Warning: File `template_isotropic.png' not found on input line 254.
+LaTeX Warning: Reference `app:nyquist' on page 3 undefined on input line 267.
 
+[3.3]
 
-! Package pdftex.def Error: File `template_isotropic.png' not found: using draf
-t setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.254 ...th=0.3\linewidth]{template_isotropic.png}
-                                                   &
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+LaTeX Warning: Reference `app:boost' on page 4 undefined on input line 288.
 
 
-LaTeX Warning: File `template_rotation.png' not found on input line 255.
+LaTeX Warning: File `results/image_56e3bb.png' not found on input line 318.
 
 
-! Package pdftex.def Error: File `template_rotation.png' not found: using draft
- setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.255 ...dth=0.3\linewidth]{template_rotation.png}
-                                                   &
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `template_anisotropic.png' not found on input line 256.
-
-
-! Package pdftex.def Error: File `template_anisotropic.png' not found: using dr
+! Package pdftex.def Error: File `results/image_56e3bb.png' not found: using dr
 aft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.256 ...=0.3\linewidth]{template_anisotropic.png}
-                                                   \\
+l.318 ...dth=\linewidth]{results/image_56e3bb.png}
+                                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-
-Overfull \hbox (42.79016pt too wide) in paragraph at lines 253--259
- [][] 
- []
-
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 9.0pt on input line 259.
+(Font)              scaled to size 9.0pt on input line 319.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/sc' will be
-(Font)              scaled to size 9.0pt on input line 259.
+(Font)              scaled to size 9.0pt on input line 319.
 
-LaTeX Warning: Reference `app:templates' on page 4 undefined on input line 259.
-
-
-
-LaTeX Warning: Reference `app:templates' on page 4 undefined on input line 259.
+Class acmart Warning: A possible image without description on input line 321.
 
 
-
-Class acmart Warning: A possible image without description on input line 261.
-
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 267.
-
-LaTeX Warning: Reference `app:nyquist' on page 4 undefined on input line 278.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `app:boost' on page 4 undefined on input line 299.
-
-[4.4{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_tlukpt.enc}]
-
-LaTeX Warning: File `sigma_evolution.png' not found on input line 321.
+LaTeX Warning: File `results/image_sigma_ablation_t2.png' not found on input li
+ne 326.
 
 
-! Package pdftex.def Error: File `sigma_evolution.png' not found: using draft s
-etting.
+! Package pdftex.def Error: File `results/image_sigma_ablation_t2.png' not foun
+d: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.321 ...idth=0.45\linewidth]{sigma_evolution.png}
+l.326 ...dth]{results/image_sigma_ablation_t2.png}
+                                                   \\
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `results/image_sigma_ablation_t8.png' not found on input li
+ne 328.
+
+
+! Package pdftex.def Error: File `results/image_sigma_ablation_t8.png' not foun
+d: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.328 ...dth]{results/image_sigma_ablation_t8.png}
+                                                   \\
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Class acmart Warning: A possible image without description on input line 333.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: File `results/image_5838f6.png' not found on input line 345.
+
+
+! Package pdftex.def Error: File `results/image_5838f6.png' not found: using dr
+aft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.345 ...dth=\linewidth]{results/image_5838f6.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Class acmart Warning: A possible image without description on input line 348.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: File `results/image_reach_effect.png' not found on input line 35
+4.
+
+
+! Package pdftex.def Error: File `results/image_reach_effect.png' not found: us
+ing draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.354 ...inewidth]{results/image_reach_effect.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Class acmart Warning: A possible image without description on input line 357.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: File `results/image_swap_source_target_t2.png' not found on inpu
+t line 371.
+
+
+! Package pdftex.def Error: File `results/image_swap_source_target_t2.png' not 
+found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.371 ...{results/image_swap_source_target_t2.png}
                                                    &
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: File `tearing_comparison.png' not found on input line 322.
+LaTeX Warning: File `results/image_swap_source_target_t8.png' not found on inpu
+t line 372.
 
 
-! Package pdftex.def Error: File `tearing_comparison.png' not found: using draf
-t setting.
+! Package pdftex.def Error: File `results/image_swap_source_target_t8.png' not 
+found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.322 ...h=0.45\linewidth]{tearing_comparison.png}
+l.372 ...{results/image_swap_source_target_t8.png}
                                                    \\
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: Reference `eq:sigma_heuristic' on page 5 undefined on input line
- 323.
-
-
-Overfull \hbox (24.03004pt too wide) in paragraph at lines 320--325
- [][] 
- []
-
-
-Class acmart Warning: A possible image without description on input line 327.
-
-<image_56e3bb.png, id=94, 1065.9825pt x 852.786pt>
-File: image_56e3bb.png Graphic file (type png)
-<use image_56e3bb.png>
-Package pdftex.def Info: image_56e3bb.png  used on input line 339.
-(pdftex.def)             Requested size: 241.14749pt x 192.90956pt.
-
-Class acmart Warning: A possible image without description on input line 342.
+Class acmart Warning: A possible image without description on input line 377.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `fig:tearing_result' on page 5 undefined on input line
- 344.
-
-<image_5838f6.png, id=96, 1022.6205pt x 690.9012pt>
-File: image_5838f6.png Graphic file (type png)
-<use image_5838f6.png>
-Package pdftex.def Info: image_5838f6.png  used on input line 352.
-(pdftex.def)             Requested size: 241.14749pt x 162.92055pt.
-
-Class acmart Warning: A possible image without description on input line 355.
+LaTeX Warning: File `results/image_particle_tracking_Balanced.png' not found on
+ input line 386.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `fig:balanced_unbalanced' on page 5 undefined on input
- line 357.
-
-<image_reach_effect.png, id=97, 1358.676pt x 323.0469pt>
-File: image_reach_effect.png Graphic file (type png)
-<use image_reach_effect.png>
-Package pdftex.def Info: image_reach_effect.png  used on input line 361.
-(pdftex.def)             Requested size: 241.14749pt x 57.3326pt.
-
-Class acmart Warning: A possible image without description on input line 364.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[5.5 <./image_56e3bb.png> <./image_5838f6.png>]
-<image_swap_source_target.png, id=114, 572.3784pt x 602.0091pt>
-File: image_swap_source_target.png Graphic file (type png)
-<use image_swap_source_target.png>
-Package pdftex.def Info: image_swap_source_target.png  used on input line 377.
-(pdftex.def)             Requested size: 241.14749pt x 253.6229pt.
-
-
-Class acmart Warning: A possible image without description on input line 380.
-
-
-LaTeX Warning: Reference `app:5d_motivation' on page 6 undefined on input line 
-393.
-
-[6.6 <./image_reach_effect.png> <./image_swap_source_target.png>]
-
-LaTeX Warning: File `mnist_1_to_0_comparison.png' not found on input line 478.
-
-
-! Package pdftex.def Error: File `mnist_1_to_0_comparison.png' not found: using
- draft setting.
+! Package pdftex.def Error: File `results/image_particle_tracking_Balanced.png'
+ not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.478 ...9\linewidth]{mnist_1_to_0_comparison.png}
-                                                  
+l.386 ...lts/image_particle_tracking_Balanced.png}
+                                                   &
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Class acmart Warning: A possible image without description on input line 481.
+LaTeX Warning: File `results/image_particle_tracking_Unbalanced.png' not found 
+on input line 387.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+! Package pdftex.def Error: File `results/image_particle_tracking_Unbalanced.pn
+g' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.387 ...s/image_particle_tracking_Unbalanced.png}
+                                                   \\
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (4.94318pt too wide) in paragraph at lines 506--516
+Overfull \hbox (10.35205pt too wide) in paragraph at lines 385--390
  [][] 
  []
 
 
+Class acmart Warning: A possible image without description on input line 392.
+
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+[4.4{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_tlukpt.enc}]
 
-LaTeX Warning: File `5d_marginal.png' not found on input line 530.
+LaTeX Warning: Reference `app:5d_motivation' on page 5 undefined on input line 
+408.
+
+[5.5]
+Overfull \hbox (4.94318pt too wide) in paragraph at lines 474--484
+ [][] 
+ []
+
+
+LaTeX Warning: File `5d_marginal.png' not found on input line 498.
 
 
 ! Package pdftex.def Error: File `5d_marginal.png' not found: using draft setti
@@ -1658,13 +1594,13 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.530 ...ics[width=0.3\linewidth]{5d_marginal.png}
+l.498 ...ics[width=0.3\linewidth]{5d_marginal.png}
                                                    &
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: File `5d_lambda_opt.png' not found on input line 531.
+LaTeX Warning: File `5d_lambda_opt.png' not found on input line 499.
 
 
 ! Package pdftex.def Error: File `5d_lambda_opt.png' not found: using draft set
@@ -1674,13 +1610,13 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.531 ...s[width=0.3\linewidth]{5d_lambda_opt.png}
+l.499 ...s[width=0.3\linewidth]{5d_lambda_opt.png}
                                                    &
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: File `5d_lambda_opt_splat.png' not found on input line 532.
+LaTeX Warning: File `5d_lambda_opt_splat.png' not found on input line 500.
 
 
 ! Package pdftex.def Error: File `5d_lambda_opt_splat.png' not found: using dra
@@ -1690,47 +1626,46 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.532 ...h=0.3\linewidth]{5d_lambda_opt_splat.png}
+l.500 ...h=0.3\linewidth]{5d_lambda_opt_splat.png}
                                                    \\
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (5.88747pt too wide) in paragraph at lines 529--535
+Overfull \hbox (5.88747pt too wide) in paragraph at lines 497--503
  [][] 
  []
 
 
-Class acmart Warning: A possible image without description on input line 537.
+Class acmart Warning: A possible image without description on input line 505.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-File: image_56e3bb.png Graphic file (type png)
-<use image_56e3bb.png>
-Package pdftex.def Info: image_56e3bb.png  used on input line 542.
-(pdftex.def)             Requested size: 241.14749pt x 192.90956pt.
 
-LaTeX Warning: Reference `eq:sigma_heuristic' on page 7 undefined on input line
- 543.
+LaTeX Warning: File `results/image_56e3bb.png' not found on input line 510.
 
 
-LaTeX Warning: Reference `eq:sigma_heuristic' on page 7 undefined on input line
- 543.
+! Package pdftex.def Error: File `results/image_56e3bb.png' not found: using dr
+aft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.510 ...dth=\linewidth]{results/image_56e3bb.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-Class acmart Warning: A possible image without description on input line 545.
+Class acmart Warning: A possible image without description on input line 513.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7.7]
 
-LaTeX Warning: Reference `eq:mass_conservation' on page 8 undefined on input li
-ne 564.
-
-
-Overfull \hbox (10.41159pt too wide) in paragraph at lines 572--573
+Overfull \hbox (10.41159pt too wide) in paragraph at lines 540--541
 []\T1/LinuxLibertineT-TLF/m/n/9 (-20) Le boost pa-ra-bo-lique de-vrait ga-ran-t
 ir : Sharpness$\LMS/ntxsy/m/n/9 π\OT1/LinuxLibertineT-TLF/m/n/9 (-20) 0\LMS/ntx
 sy/m/n/9 ∫ ^^Y$ \T1/LinuxLibertineT-TLF/m/n/9 (-20) Sharpness$\LMS/ntxsy/m/n/9 
@@ -1745,7 +1680,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.586 ...& \textit{Faible} & \textit{Rapide} & ‚úì
+l.554 ...& \textit{Faible} & \textit{Rapide} & ‚úì
                                                    Temps r√©el \\
 You may provide a definition with
 \DeclareUnicodeCharacter 
@@ -1758,7 +1693,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.587 ...extit{Mod√©r√©} & \textit{Mod√©r√©} & ‚úì
+l.555 ...extit{Mod√©r√©} & \textit{Mod√©r√©} & ‚úì
                                                    Interactif \\
 You may provide a definition with
 \DeclareUnicodeCharacter 
@@ -1771,7 +1706,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.588 ... & \textit{√âlev√©} & \textit{Lent} & ‚úì
+l.556 ... & \textit{√âlev√©} & \textit{Lent} & ‚úì
                                                    Batch \\
 You may provide a definition with
 \DeclareUnicodeCharacter 
@@ -1784,61 +1719,98 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.589 ...r√®s √©lev√©} & \textit{Tr√®s lent} & ‚úó
+l.557 ...r√®s √©lev√©} & \textit{Tr√®s lent} & ‚úó
                                                    Limite GPU \\
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-Overfull \hbox (36.07521pt too wide) in paragraph at lines 582--592
+Overfull \hbox (36.07521pt too wide) in paragraph at lines 550--560
  [][] 
  []
 
 
-Overfull \hbox (1.48pt too wide) in paragraph at lines 616--617
+Overfull \hbox (1.48pt too wide) in paragraph at lines 584--585
  []\T1/LinuxLibertineT-TLF/m/it/9 (-20) VidÈos et sÈ-quences tem-po-relles :[] 
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) …tendre au trans-port 4D $\LMS/ntxsy/m/n/9 
 π\OML/nxlmi/m/it/9 x; y; t; i\LMS/ntxsy/m/n/9 ∫$
  []
 
-[8.8]
+[6.6]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 7.0pt on input line 636.
+(Font)              scaled to size 7.0pt on input line 604.
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 647.
+(Font)              scaled to size 7.0pt on input line 615.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 7.0pt on input line 662.
+(Font)              scaled to size 7.0pt on input line 630.
 
-Underfull \hbox (badness 1533) in paragraph at lines 660--663
+Underfull \hbox (badness 1533) in paragraph at lines 628--631
 []\T1/LinuxLibertineT-TLF/m/n/7 (+20) Feydy, J., SÈ-journÈ, T., Via-lard, F. X.
 , Amari, S. I., TrouvÈ, A., & PeyrÈ,
  []
 
 
-Underfull \hbox (badness 1939) in paragraph at lines 660--663
+Underfull \hbox (badness 1939) in paragraph at lines 628--631
 \T1/LinuxLibertineT-TLF/m/n/7 (+20) G. (2019). \T1/LinuxLibertineT-TLF/m/it/7 (
 +20) Geom-Loss : A Py-thon li-brary for geo-me-tric lear-ning\T1/LinuxLibertine
 T-TLF/m/n/7 (+20) . Gi-tHub :
  []
 
 
-Package natbib Warning: There were undefined citations.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 665.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\to' on input line 665.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 665.
+
+
+LaTeX Warning: File `mnist_1_to_0_comparison.png' not found on input line 685.
+
+
+! Package pdftex.def Error: File `mnist_1_to_0_comparison.png' not found: using
+ draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.685 ...9\linewidth]{mnist_1_to_0_comparison.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Class acmart Warning: A possible image without description on input line 688.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Class acmart Warning: Some images may lack descriptions.
 
-[9.9] (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+[7.7]
+Overfull \vbox (20.42513pt too high) has occurred while \output is active []
+
+
+[8.8] [9.9
+
+] (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
-)
-(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def
+) (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def
 File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
-) [10.9]
-(./report.aux
+) [10.10
 
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-)
+]
+(./report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1850,46 +1822,41 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-
-LaTeX Warning: Temporary extra page added at the end. Rerun to get it removed.
-
-
-Package rerunfilecheck Warning: File `report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `report.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  ED95E21C6594FDC6EC33939A767EA61F;8652.
+Package rerunfilecheck Info: File `report.out' has not changed.
+(rerunfilecheck)             Checksum: 06FF682F5E006CA01BA1A8CA9ECB06D4;9430.
  ) 
 Here is how much of TeX's memory you used:
- 23734 strings out of 474222
- 389982 string characters out of 5748733
- 1950975 words of memory out of 5000000
- 44745 multiletter control sequences out of 15000+600000
- 755123 words of font info for 490 fonts, out of 8000000 for 9000
+ 23865 strings out of 474222
+ 397090 string characters out of 5748733
+ 1961975 words of memory out of 5000000
+ 44872 multiletter control sequences out of 15000+600000
+ 755113 words of font info for 487 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 90i,13n,131p,1003b,661s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4
-r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTI.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/t
-xsym.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on report.pdf (10 pages, 979614 bytes).
+ 90i,12n,131p,1003b,660s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{figure.caption.19} has been referenced but does not
+ exist, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTI.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txs
+ym.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on report.pdf (10 pages, 574890 bytes).
 PDF statistics:
- 307 PDF objects out of 1000 (max. 8388607)
- 244 compressed objects within 3 object streams
+ 431 PDF objects out of 1000 (max. 8388607)
+ 373 compressed objects within 4 object streams
  126 named destinations out of 1000 (max. 500000)
- 101413 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 101689 words of extra memory for PDF output out of 106986 (max. 10000000)
 

@@ -1,0 +1,70 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\providecommand\babel@aux[2]{}
+\@nameuse{bbl@beforestart}
+\citation{peyre2019}
+\citation{sejourne2019}
+\citation{mukherjee2021outlier,fatras2021unbalanced}
+\providecommand \oddpage@label [2]{}
+\babel@aux{english}{}
+\@writefile{toc}{\contentsline {section}{Abstract}{1}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\citation{sejourne2019}
+\citation{sejourne2019}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Theoretical Framework}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Unbalanced Optimal Transport}{2}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}The Sinkhorn Divergence as a Metric}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}5D Joint Lifting Strategy}{2}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methodological Challenges and Implementation Details}{2}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Numerical Stability in High-Dimensional Spaces}{2}{subsection.3.1}\protected@file@percent }
+\citation{feydy2019}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}The "Debiasing" Trap in GeomLoss}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Addressing the Lagrangian-Eulerian Gap}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Comparison of adaptive vs fixed vs no splatting to illustrate tearing reduction. The first two rows show timelines for $\lambda =3.0$ and $\lambda =10.0$ without splatting, revealing severe tearing artifacts at $t=0.5$ (maximum geometric expansion). The following rows show the effect of splatting: adaptive splatting (row 3) significantly reduces tearing by adapting the kernel width $\sigma (t)$ to geometric expansion, while fixed splatting (row 4) offers partial improvement. Without splatting (row 5), discrete particles leave "holes" in the reconstruction grid, creating pronounced visual artifacts. This comparison demonstrates that adaptive splatting is essential for preserving density continuity during geodesic interpolation.}}{3}{figure.caption.3}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:splatting_tearing_comparison}{{1}{3}{Comparison of adaptive vs fixed vs no splatting to illustrate tearing reduction. The first two rows show timelines for $\lambda =3.0$ and $\lambda =10.0$ without splatting, revealing severe tearing artifacts at $t=0.5$ (maximum geometric expansion). The following rows show the effect of splatting: adaptive splatting (row 3) significantly reduces tearing by adapting the kernel width $\sigma (t)$ to geometric expansion, while fixed splatting (row 4) offers partial improvement. Without splatting (row 5), discrete particles leave "holes" in the reconstruction grid, creating pronounced visual artifacts. This comparison demonstrates that adaptive splatting is essential for preserving density continuity during geodesic interpolation}{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Displacement fields for adaptive splatting. The adaptive kernel width $\sigma (t)$ compensates for geometric expansion during transport.}}{3}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:splatting_displacement_fields}{{2}{3}{Displacement fields for adaptive splatting. The adaptive kernel width $\sigma (t)$ compensates for geometric expansion during transport}{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Comparison of dynamic vs fixed grid interpolation. The first row shows interpolations using a dynamic grid where $H(t)$ and $W(t)$ interpolate linearly between source and target resolutions. The second row uses a fixed grid at the target resolution. At $t=0$, the dynamic grid preserves the source's native resolution, avoiding aliasing artifacts that occur when forcing a high-resolution source onto a low-resolution fixed grid.}}{4}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:dynamic_rasterization_comparison}{{3}{4}{Comparison of dynamic vs fixed grid interpolation. The first row shows interpolations using a dynamic grid where $H(t)$ and $W(t)$ interpolate linearly between source and target resolutions. The second row uses a fixed grid at the target resolution. At $t=0$, the dynamic grid preserves the source's native resolution, avoiding aliasing artifacts that occur when forcing a high-resolution source onto a low-resolution fixed grid}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments and Analysis}{4}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Ablation Study: The Role of 5D Lifting}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Analysis of the Unbalanced Regime}{4}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Quantitative Validation via Sinkhorn Divergence}{4}{subsection.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Interpolation timeline for different values of $\lambda $ (0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0). Each row shows the temporal evolution ($t \in [0, 1]$) for a given $\lambda $ value. For $\lambda = 0.0$ (marginal 2D transport), we observe purple color artifacts due to independent channel transport. For $\lambda \gg 1$, the transport becomes highly restrictive, creating "teleportation" chromatic effects. The optimal value $\lambda \approx 2.0$ provides a trade-off between spatial coherence and chromatic fidelity.}}{5}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:lambda_timelines}{{4}{5}{Interpolation timeline for different values of $\lambda $ (0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0). Each row shows the temporal evolution ($t \in [0, 1]$) for a given $\lambda $ value. For $\lambda = 0.0$ (marginal 2D transport), we observe purple color artifacts due to independent channel transport. For $\lambda \gg 1$, the transport becomes highly restrictive, creating "teleportation" chromatic effects. The optimal value $\lambda \approx 2.0$ provides a trade-off between spatial coherence and chromatic fidelity}{figure.caption.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Displacement statistics (in pixels) for different values of $\rho $. For $\rho =0.01$, displacements are zero because the Unbalanced mechanism strongly favors local mass destruction/creation rather than geometric transport. For increasing $\rho $, displacements progressively increase until reaching the values of Balanced transport.}}{5}{table.caption.9}\protected@file@percent }
+\newlabel{tab:rho_displacement}{{1}{5}{Displacement statistics (in pixels) for different values of $\rho $. For $\rho =0.01$, displacements are zero because the Unbalanced mechanism strongly favors local mass destruction/creation rather than geometric transport. For increasing $\rho $, displacements progressively increase until reaching the values of Balanced transport}{table.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Interpolation timeline for different values of $\rho $ (Balanced, 0.01, 0.05, 0.10, 0.30, 0.50). Each row shows the temporal evolution ($t \in [0, 1]$) for a given $\rho $ value. For small $\rho $ (0.01), the Unbalanced mechanism allows significant mass destruction/creation, creating a pronounced "cross-fade" effect for the background. For large $\rho $ (0.50) or Balanced, the transport is more constrained, forcing mass conservation even for costly color transitions.}}{5}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:rho_timelines}{{5}{5}{Interpolation timeline for different values of $\rho $ (Balanced, 0.01, 0.05, 0.10, 0.30, 0.50). Each row shows the temporal evolution ($t \in [0, 1]$) for a given $\rho $ value. For small $\rho $ (0.01), the Unbalanced mechanism allows significant mass destruction/creation, creating a pronounced "cross-fade" effect for the background. For large $\rho $ (0.50) or Balanced, the transport is more constrained, forcing mass conservation even for costly color transitions}{figure.caption.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Evolution of Sinkhorn Divergence $S_\varepsilon (\mu _t, \nu )$. "Fixed $\sigma $" uses a constant kernel width. "Adaptive" uses our heuristic with boost $\gamma =0.5$.}}{5}{table.caption.10}\protected@file@percent }
+\newlabel{tab:metrics}{{2}{5}{Evolution of Sinkhorn Divergence $S_\eps (\mu _t, \nu )$. "Fixed $\sigma $" uses a constant kernel width. "Adaptive" uses our heuristic with boost $\gamma =0.5$}{table.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Evolution of Sinkhorn divergence $S_{\varepsilon }(\mu _t, \nu )$ along the geodesic for adaptive vs fixed splatting. Adaptive splatting (blue line) systematically minimizes the Sinkhorn divergence compared to fixed splatting (red dashed line), confirming that adaptive density estimation provides a better approximation of the theoretical geodesic in Wasserstein space.}}{5}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:sinkhorn_evolution}{{7}{5}{Evolution of Sinkhorn divergence $S_{\varepsilon }(\mu _t, \nu )$ along the geodesic for adaptive vs fixed splatting. Adaptive splatting (blue line) systematically minimizes the Sinkhorn divergence compared to fixed splatting (red dashed line), confirming that adaptive density estimation provides a better approximation of the theoretical geodesic in Wasserstein space}{figure.caption.11}{}}
+\citation{genevay2019}
+\bibstyle{ACM-Reference-Format}
+\bibcite{mukherjee2021outlier}{{1}{}{{}}{{}}}
+\bibcite{fatras2021unbalanced}{{2}{}{{}}{{}}}
+\bibcite{sejourne2019}{{3}{}{{}}{{}}}
+\bibcite{peyre2019}{{4}{}{{}}{{}}}
+\bibcite{chizat2018}{{5}{}{{}}{{}}}
+\bibcite{feydy2019}{{6}{}{{}}{{}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Evolution of kernel width $\sigma (t)$ for adaptive splatting. The formula $\sigma (t) = (1-t)\sigma _{start} + t\sigma _{end} + \gamma 4t(1-t)$ combines a linear interpolation between intrinsic resolutions (linear part) with a parabolic boost (term $4t(1-t)$) that reaches its maximum at $t=0.5$ to compensate for maximum geometric expansion. The red horizontal line represents the fixed $\sigma $ baseline, which serves as a guiding principle: it maintains distribution smoothness while being robust to pixel art outliers that cause tearing artifacts. Our adaptive approach improves upon this baseline by dynamically adjusting $\sigma (t)$ to handle geometric expansion.}}{6}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:sigma_evolution}{{8}{6}{Evolution of kernel width $\sigma (t)$ for adaptive splatting. The formula $\sigma (t) = (1-t)\sigma _{start} + t\sigma _{end} + \gamma 4t(1-t)$ combines a linear interpolation between intrinsic resolutions (linear part) with a parabolic boost (term $4t(1-t)$) that reaches its maximum at $t=0.5$ to compensate for maximum geometric expansion. The red horizontal line represents the fixed $\sigma $ baseline, which serves as a guiding principle: it maintains distribution smoothness while being robust to pixel art outliers that cause tearing artifacts. Our adaptive approach improves upon this baseline by dynamically adjusting $\sigma (t)$ to handle geometric expansion}{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion and Limitations}{6}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{6}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{6}{section*.14}\protected@file@percent }
+\bibcite{genevay2019}{{7}{}{{}}{{}}}
+\bibcite{charlier2021}{{8}{}{{}}{{}}}
+\newlabel{tocindent-1}{0pt}
+\newlabel{tocindent0}{0pt}
+\newlabel{tocindent1}{6.25499pt}
+\newlabel{tocindent2}{12.41998pt}
+\newlabel{tocindent3}{0pt}
+\providecommand\NAT@force@numbers{}\NAT@force@numbers
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Displacement fields for different values of $\rho $. For small $\rho $, transport is more localized because mass destruction/creation is favored. For large $\rho $ or Balanced, displacements are larger because mass must be transported geometrically.}}{7}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:rho_displacement_fields}{{6}{7}{Displacement fields for different values of $\rho $. For small $\rho $, transport is more localized because mass destruction/creation is favored. For large $\rho $ or Balanced, displacements are larger because mass must be transported geometrically}{figure.caption.8}{}}
+\newlabel{TotPages}{{7}{7}{}{page.7}{}}
+\gdef \@abspage@last{7}
