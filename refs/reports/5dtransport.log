@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.16)  6 DEC 2025 02:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.16)  6 DEC 2025 18:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1290,19 +1290,19 @@ t/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}
 
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/
 share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}]
-Overfull \hbox (7.22762pt too wide) in paragraph at lines 96--97
+Overfull \hbox (7.22762pt too wide) in paragraph at lines 95--96
 []\T1/LinuxLibertineT-TLF/b/n/9 (-20) Metrization of Weak Con-ver-gence: \T1/Li
 nuxLibertineT-TLF/m/n/9 (-20) Cru-cially, $\OML/nxlmi/m/it/9 S[]$ \T1/LinuxLibe
 rtineT-TLF/m/n/9 (-20) metrizes
  []
 
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 12
-0.
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 11
+9.
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 120.
+(Font)              scaled to size 9.0pt on input line 119.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1311,125 +1311,197 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 122.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 7.0pt on input line 122.
- [2.2]
+ [2.2{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 124.
-<figures/splatting_tearing_comparison.png, id=115, 867.9627pt x 869.1672pt>
+(Font)              scaled to size 9.0pt on input line 123.
+<figures/splatting_tearing_comparison.png, id=116, 867.9627pt x 869.1672pt>
 File: figures/splatting_tearing_comparison.png Graphic file (type png)
 <use figures/splatting_tearing_comparison.png>
 Package pdftex.def Info: figures/splatting_tearing_comparison.png  used on inpu
-t line 134.
+t line 133.
 (pdftex.def)             Requested size: 867.9606pt x 869.16508pt.
 
 
-Class acmart Warning: A possible image without description on input line 137.
+Class acmart Warning: A possible image without description on input line 136.
 
-<figures/lambda_ablation_displacement_fields.png, id=117, 826.287pt x 411.6981p
+<figures/lambda_ablation_displacement_fields.png, id=118, 826.287pt x 411.6981p
 t>
 File: figures/lambda_ablation_displacement_fields.png Graphic file (type png)
 <use figures/lambda_ablation_displacement_fields.png>
 Package pdftex.def Info: figures/lambda_ablation_displacement_fields.png  used 
-on input line 141.
+on input line 140.
 (pdftex.def)             Requested size: 826.28499pt x 411.69708pt.
 
-Class acmart Warning: A possible image without description on input line 144.
+Class acmart Warning: A possible image without description on input line 143.
 
-<figures/dynamic_rasterization_comparison.png, id=119, 838.0911pt x 328.8285pt>
-
-File: figures/dynamic_rasterization_comparison.png Graphic file (type png)
-<use figures/dynamic_rasterization_comparison.png>
-Package pdftex.def Info: figures/dynamic_rasterization_comparison.png  used on 
-input line 157.
-(pdftex.def)             Requested size: 838.08905pt x 328.8277pt.
-
-Class acmart Warning: A possible image without description on input line 160.
-
-[3.3{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/us
-r/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc} <./figure
-s/splatting_tearing_comparison.png> <./figures/lambda_ablation_displacement_fie
-lds.png>]
-<figures/lambda_ablation_timelines.png, id=136, 871.3353pt x 1230.7581pt>
+[3.3{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc} <
+./figures/splatting_tearing_comparison.png> <./figures/lambda_ablation_displace
+ment_fields.png>]
+<figures/lambda_ablation_timelines.png, id=133, 871.3353pt x 1230.7581pt>
 File: figures/lambda_ablation_timelines.png Graphic file (type png)
 <use figures/lambda_ablation_timelines.png>
 Package pdftex.def Info: figures/lambda_ablation_timelines.png  used on input l
-ine 195.
+ine 178.
 (pdftex.def)             Requested size: 871.33316pt x 1230.75511pt.
 
 
-Class acmart Warning: A possible image without description on input line 198.
+Class acmart Warning: A possible image without description on input line 181.
 
-<figures/rho_ablation_timelines.png, id=140, 869.4081pt x 1050.0831pt>
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 10.95pt on input line 183.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 183.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 6.1pt on input line 183.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 183.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\rho' on input line 183.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 183.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4.4 <./figures/lambda_ablation_timelines.png>]
+
+LaTeX Warning: Reference `fig:rho_l2_comparison' on page 5 undefined on input l
+ine 192.
+
+
+LaTeX Warning: Reference `fig:rho1_timelines' on page 5 undefined on input line
+ 198.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<figures/rho_ablation_timelines.png, id=145, 869.4081pt x 1050.0831pt>
 File: figures/rho_ablation_timelines.png Graphic file (type png)
 <use figures/rho_ablation_timelines.png>
 Package pdftex.def Info: figures/rho_ablation_timelines.png  used on input line
- 211.
+ 209.
 (pdftex.def)             Requested size: 869.40598pt x 1050.08054pt.
 
-Class acmart Warning: A possible image without description on input line 214.
 
-<figures/rho_displacement_fields.png, id=141, 684.8787pt x 2126.1834pt>
+Class acmart Warning: A possible image without description on input line 212.
+
+<figures/rho_displacement_fields.png, id=146, 684.8787pt x 2126.1834pt>
 File: figures/rho_displacement_fields.png Graphic file (type png)
 <use figures/rho_displacement_fields.png>
 Package pdftex.def Info: figures/rho_displacement_fields.png  used on input lin
-e 218.
+e 216.
 (pdftex.def)             Requested size: 684.87701pt x 2126.17824pt.
 
-Class acmart Warning: A possible image without description on input line 221.
+Class acmart Warning: A possible image without description on input line 219.
 
 
-LaTeX Warning: Float too large for page by 101.11578pt on input line 221.
+LaTeX Warning: Float too large for page by 145.25189pt on input line 219.
 
-[4.4 <./figures/dynamic_rasterization_comparison.png>]
-<figures/sinkhorn_evolution_comparison.png, id=155, 580.3281pt x 325.6968pt>
+<figures/rho_l2_comparison_lambda2.5.png, id=147, 714.0276pt x 418.6842pt>
+File: figures/rho_l2_comparison_lambda2.5.png Graphic file (type png)
+<use figures/rho_l2_comparison_lambda2.5.png>
+Package pdftex.def Info: figures/rho_l2_comparison_lambda2.5.png  used on input
+ line 223.
+(pdftex.def)             Requested size: 714.02586pt x 418.68318pt.
+
+Class acmart Warning: A possible image without description on input line 226.
+
+
+LaTeX Warning: Reference `fig:rho1_timelines' on page 5 undefined on input line
+ 229.
+
+[5.5 <./figures/rho_ablation_timelines.png>]
+
+LaTeX Warning: Reference `fig:rho1_timelines' on page 6 undefined on input line
+ 233.
+
+<figures/rho1_timelines_comparison.png, id=157, 764.3757pt x 761.9667pt>
+File: figures/rho1_timelines_comparison.png Graphic file (type png)
+<use figures/rho1_timelines_comparison.png>
+Package pdftex.def Info: figures/rho1_timelines_comparison.png  used on input l
+ine 237.
+(pdftex.def)             Requested size: 764.37383pt x 761.96484pt.
+
+Underfull \hbox (badness 1292) in paragraph at lines 238--238
+[]\T1/LinuxLibertineT-TLF/b/n/9 (+20) Figure 7: |Trans-port time-lines for dif-
+fer-ent val-ues of $\OML/nxlmi/m/it/9 "$
+ []
+
+
+Class acmart Warning: A possible image without description on input line 240.
+
+
+LaTeX Warning: Reference `fig:compute_times' on page 6 undefined on input line 
+243.
+
+
+LaTeX Warning: Reference `fig:compute_times' on page 6 undefined on input line 
+245.
+
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 7.3pt on input line 249.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 5.5pt on input line 249.
+
+LaTeX Warning: Reference `fig:compute_times' on page 6 undefined on input line 
+251.
+
+<figures/compute_times_rho1.0.png, id=158, 713.064pt x 418.6842pt>
+File: figures/compute_times_rho1.0.png Graphic file (type png)
+<use figures/compute_times_rho1.0.png>
+Package pdftex.def Info: figures/compute_times_rho1.0.png  used on input line 2
+57.
+(pdftex.def)             Requested size: 713.06226pt x 418.68318pt.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 7.3pt on input line 258.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 5.5pt on input line 258.
+
+Class acmart Warning: A possible image without description on input line 260.
+
+<figures/sinkhorn_evolution_comparison.png, id=159, 580.3281pt x 325.6968pt>
 File: figures/sinkhorn_evolution_comparison.png Graphic file (type png)
 <use figures/sinkhorn_evolution_comparison.png>
 Package pdftex.def Info: figures/sinkhorn_evolution_comparison.png  used on inp
-ut line 261.
+ut line 283.
 (pdftex.def)             Requested size: 580.32668pt x 325.696pt.
 
+Class acmart Warning: A possible image without description on input line 286.
 
-Class acmart Warning: A possible image without description on input line 264.
-
-
-Overfull \vbox (39.9402pt too high) has occurred while \output is active []
-
-
-[5.5 <./figures/lambda_ablation_timelines.png> <./figures/rho_ablation_timeline
-s.png> <./figures/sinkhorn_evolution_comparison.png>]
-<figures/sigma_evolution.png, id=166, 545.8794pt x 325.215pt>
+<figures/sigma_evolution.png, id=160, 545.8794pt x 325.215pt>
 File: figures/sigma_evolution.png Graphic file (type png)
 <use figures/sigma_evolution.png>
-Package pdftex.def Info: figures/sigma_evolution.png  used on input line 268.
+Package pdftex.def Info: figures/sigma_evolution.png  used on input line 290.
 (pdftex.def)             Requested size: 545.87805pt x 325.2142pt.
 
+Class acmart Warning: A possible image without description on input line 293.
 
-Class acmart Warning: A possible image without description on input line 271.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6.6 <./figures/sinkhorn_evolution_comparison.png>]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 7.0pt on input line 301.
+(Font)              scaled to size 7.0pt on input line 323.
 LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF
- on input line 314.
+ on input line 336.
+
 (/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
 File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/
 LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 314.
+(Font)              scaled to size 7.0pt on input line 336.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-[6.6{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc} <
-./figures/sigma_evolution.png>]
-
-Class acmart Warning: Some images may lack descriptions.
-
-
-Overfull \vbox (273.0pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (273.0pt too high) has occurred while \output is active []
+Underfull \vbox (badness 2990) has occurred while \output is active []
 
 
 (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
@@ -1437,11 +1509,39 @@ File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
 (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def
 File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
-) [7.7 <./figures/rho_displacement_fields.png>] (./5dtransport.aux)
+) [7.7{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}
+ <./figures/sigma_evolution.png>]
+
+Class acmart Warning: Some images may lack descriptions.
+
+
+Overfull \vbox (85.1831pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (85.1831pt too high) has occurred while \output is active []
+
+
+[8.8 <./figures/rho_displacement_fields.png> <./figures/rho_l2_comparison_lambd
+a2.5.png>]
+Overfull \vbox (149.34467pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (149.34467pt too high) has occurred while \output is active []
+
+
+[9.9 <./figures/compute_times_rho1.0.png>]
+
+LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (7 not 9).
+               Rerun to correct this.
+
+(./5dtransport.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
@@ -1452,52 +1552,43 @@ Package rerunfilecheck Warning: File `5dtransport.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `5dtransport.out':
-(rerunfilecheck)             Before: FE11ECFDF0601A11BEDB60996CE7C89A;3710
-(rerunfilecheck)             After:  05D401C62A886CC7640F6F29719EA526;3710.
+(rerunfilecheck)             Before: 05D401C62A886CC7640F6F29719EA526;3710
+(rerunfilecheck)             After:  76F166F256D215664550076D0EE9AF0C;3827.
  ) 
 Here is how much of TeX's memory you used:
- 23320 strings out of 474222
- 381402 string characters out of 5748733
+ 23507 strings out of 474222
+ 385999 string characters out of 5748733
  1955975 words of memory out of 5000000
- 44534 multiletter control sequences out of 15000+600000
- 701449 words of font info for 360 fonts, out of 8000000 for 9000
+ 44618 multiletter control sequences out of 15000+600000
+ 744575 words of font info for 450 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 90i,13n,131p,1809b,706s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,13n,131p,1809b,826s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{table.caption.11} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{figure.caption.9} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{figure.caption.13} has been referenced but does not
+pdfTeX warning (dest): name{figure.caption.11} has been referenced but does not
  exist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{section*.15} has been referenced but does not exist
-, replaced by a fixed one
+pdfTeX warning (dest): name{table.caption.10} has been referenced but does not 
+exist, replaced by a fixed one
 
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/newtx/txsym.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txs
-ys.pfb>
-Output written on 5dtransport.pdf (7 pages, 5184247 bytes).
+sr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/newtx/txsym.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/
+txsys.pfb>
+Output written on 5dtransport.pdf (9 pages, 5514947 bytes).
 PDF statistics:
- 281 PDF objects out of 1000 (max. 8388607)
- 218 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
- 74433 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 285 PDF objects out of 1000 (max. 8388607)
+ 219 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 92875 words of extra memory for PDF output out of 106986 (max. 10000000)
 
