@@ -19,9 +19,9 @@ import itertools
 import gc
 
 # Configuration
-DATA_DIR = Path("/Data/janis.aiad/geodata/data/faces")
-EXPERIMENTS_DIR = Path("/Data/janis.aiad/geodata/experiments/faces")
-LOGS_DIR = Path("/Data/janis.aiad/geodata/logs")
+DATA_DIR = Path("/home/janis/4A/geodata/data/pixelart/images")
+EXPERIMENTS_DIR = Path("/home/janis/4A/geodata/experiments/pixelart")
+LOGS_DIR = Path("/home/janis/4A/geodata/logs")
 EXPERIMENTS_DIR.mkdir(parents=True, exist_ok=True)
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -51,7 +51,6 @@ class OTConfig:
     sigma_boost: float = 0.5
     # Ablation flags
     use_debias: bool = False
-    use_dynamic_rasterization: bool = True
     use_adaptive_sigma: bool = True
 
 def get_5d_cloud(img: torch.Tensor, res: int, lambda_c: float):
@@ -161,8 +160,8 @@ def run_ablation_studies():
     
     # Chargement des images
     logger.info("Loading images...")
-    img_source = load_image(DATA_DIR / "before.jpg")
-    img_target = load_image(DATA_DIR / "after.jpg")
+    img_source = load_image(DATA_DIR / "salameche.webp")
+    img_target = load_image(DATA_DIR / "strawberry.jpg")
     logger.info(f"Source: {img_source.shape}, Target: {img_target.shape}")
     
     # Use native resolutions, but cap at reasonable maximum to avoid memory issues
@@ -178,14 +177,13 @@ def run_ablation_studies():
     
     # Grille d'hyperparamètres
     epsilons = [0.01, 0.02, 0.03, 0.05, 0.07, 0.10, 0.15, 0.20]
-    rhos = [None, 0.01, 0.02, 0.05, 0.10, 0.15, 0.30, 0.50]
-    lambdas = [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 10.0, 50.0, 100.0]
+    rhos = [None, 0.01, 0.02, 0.04, 0.05, 0.07, 0.09, 0.12, 0.15, 0.18, 0.20, 0.25, 0.30]
+    lambdas = [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 5.0, 10.0, 20.0, 50.0, 100.0]
     debias_options = [False]
-    dynamic_rasterization_options = [False, True]
-    adaptive_sigma_options = [False, True]
+    adaptive_sigma_options = [False]
     
     # Génération de toutes les combinaisons
-    total_experiments = len(epsilons) * len(rhos) * len(lambdas) * len(debias_options) * len(dynamic_rasterization_options) * len(adaptive_sigma_options)
+    total_experiments = len(epsilons) * len(rhos) * len(lambdas) * len(debias_options) * len(adaptive_sigma_options)
     logger.info(f"Nombre total d'expériences: {total_experiments}")
     logger.info(f"Lambda values: {lambdas}")
     
@@ -193,8 +191,8 @@ def run_ablation_studies():
     successful = 0
     failed = 0
     
-    for eps, rho, lambda_color, use_debias, use_dyn_rast, use_adapt_sigma in itertools.product(
-        epsilons, rhos, lambdas, debias_options, dynamic_rasterization_options, adaptive_sigma_options
+    for eps, rho, lambda_color, use_debias, use_adapt_sigma in itertools.product(
+        epsilons, rhos, lambdas, debias_options, adaptive_sigma_options
     ):
         experiment_id += 1
         
@@ -208,18 +206,17 @@ def run_ablation_studies():
             sigma_end=0.15,
             sigma_boost=0.15,
             use_debias=use_debias,
-            use_dynamic_rasterization=use_dyn_rast,
             use_adaptive_sigma=use_adapt_sigma
         )
         
         # Nom du fichier
         rho_str = "balanced" if rho is None else f"{rho:.2f}"
         lambda_str = f"{lambda_color:.1f}" if lambda_color < 10 else f"{lambda_color:.0f}"
-        exp_name = f"exp_{experiment_id:04d}_eps{eps:.3f}_rho{rho_str}_lam{lambda_str}_debias{use_debias}_dynrast{use_dyn_rast}_adapsigma{use_adapt_sigma}"
+        exp_name = f"exp_{experiment_id:04d}_eps{eps:.3f}_rho{rho_str}_lam{lambda_str}_debias{use_debias}_adapsigma{use_adapt_sigma}"
         output_path = EXPERIMENTS_DIR / f"{exp_name}.pt"
         
         logger.info(f"\n[{experiment_id}/{total_experiments}] {exp_name}")
-        logger.info(f"  eps={eps:.3f}, rho={rho}, lambda={lambda_color:.1f}, debias={use_debias}, dyn_rast={use_dyn_rast}, adapt_sigma={use_adapt_sigma}")
+        logger.info(f"  eps={eps:.3f}, rho={rho}, lambda={lambda_color:.1f}, debias={use_debias}, adapt_sigma={use_adapt_sigma}")
         
         try:
             # Clear memory before experiment
@@ -238,7 +235,6 @@ def run_ablation_studies():
                 'lambda_color': lambda_color,
                 'resolution': resolution,
                 'use_debias': use_debias,
-                'use_dynamic_rasterization': use_dyn_rast,
                 'use_adaptive_sigma': use_adapt_sigma,
                 'experiment_id': experiment_id,
                 'exp_name': exp_name
