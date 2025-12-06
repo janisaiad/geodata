@@ -244,6 +244,36 @@ def compute_mean_displacement(transport_data):
     
     return mean_disp.item()
 
+def compute_mean_squared_displacement(transport_data):
+    """Compute mean squared displacement from transport plan (in normalized coordinates)."""
+    pi = transport_data['pi']
+    X_a = transport_data['X_a']
+    X_b = transport_data['X_b']
+    Ha, Wa = transport_data['Ha'], transport_data['Wa']
+    
+    # Spatial positions
+    pos_a_spatial = X_a[:, :2]  # (N_a, 2)
+    pos_b_spatial = X_b[:, :2]  # (N_b, 2)
+    
+    # Compute barycentric target positions for each source point
+    pi_row_sums = pi.sum(dim=1, keepdim=True)  # (N_a, 1)
+    pi_normalized = pi / (pi_row_sums + 1e-10)  # (N_a, N_b)
+    
+    # Weighted target positions: (N_a, N_b) @ (N_b, 2) -> (N_a, 2)
+    weighted_targets = torch.matmul(pi_normalized, pos_b_spatial)  # (N_a, 2)
+    
+    # Displacements in normalized coordinates
+    displacements_norm = weighted_targets - pos_a_spatial  # (N_a, 2)
+    
+    # Compute squared magnitudes (in normalized coordinates)
+    displacement_sq = torch.sum(displacements_norm ** 2, dim=1)  # (N_a,)
+    
+    # Weight by transport mass
+    weights = pi_row_sums.squeeze(1)  # (N_a,)
+    mean_sq_disp = (displacement_sq * weights).sum() / (weights.sum() + 1e-10)
+    
+    return mean_sq_disp.item()
+
 def plot_rho_l2_comparison():
     """Plot L2 loss between balanced and unbalanced OT as function of rho."""
     
@@ -260,7 +290,7 @@ def plot_rho_l2_comparison():
     # Parameters
     lambda_color = 2.5
     epsilons = [0.01, 0.02, 0.03, 0.05, 0.07, 0.10, 0.15, 0.20]
-    rhos = [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.10, 0.12, 0.15, 0.18, 0.20, 0.25, 0.30, 0.40, 0.50, 0.70, 1.0]
+    rhos = [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.10, 0.12, 0.15, 0.18, 0.20, 0.25, 0.30, 0.40, 0.50, 0.70, 1.0, 2.0, 3.0, 4.0, 5.0]
     t = 0.5
     
     # Storage for results
@@ -359,7 +389,7 @@ def plot_rho_l2_comparison():
                 alpha=alpha
             )
     
-    # Find and plot inflection point for eps = 0.07
+    # Find and plot maximum point for eps = 0.07, and compare with theoretical prediction
     eps_target = 0.07
     if eps_target in results and len(results[eps_target]['rhos']) > 2:
         rhos_eps = np.array(results[eps_target]['rhos'])
@@ -370,33 +400,49 @@ def plot_rho_l2_comparison():
         rhos_eps = rhos_eps[sort_idx]
         disp_eps = disp_eps[sort_idx]
         
-        # Compute second derivative to find inflection point
-        # Use log scale for x to account for log scale in plot
-        log_rhos = np.log(rhos_eps)
+        # Find maximum displacement
+        max_idx = np.argmax(disp_eps)
+        rho_max = rhos_eps[max_idx]
+        disp_max = disp_eps[max_idx]
         
-        # First derivative
-        d1 = np.gradient(disp_eps, log_rhos)
-        # Second derivative
-        d2 = np.gradient(d1, log_rhos)
+        # Compute theoretical prediction: mean squared displacement / 2 from balanced OT
+        logger.info(f"\nComputing theoretical prediction for eps={eps_target}...")
+        config_balanced = OTConfig(
+            resolution=(64, 64),
+            blur=eps_target,
+            reach=None,  # Balanced
+            lambda_color=lambda_color,
+            use_debias=False
+        )
+        interpolator_balanced = OT5DInterpolator(config_balanced)
+        transport_balanced = interpolator_balanced.compute_transport_plan(img_source, img_target)
         
-        # Find inflection point: where second derivative crosses zero or is minimum
-        sign_changes = np.where(np.diff(np.sign(d2)))[0]
-        if len(sign_changes) > 0:
-            # Use the first sign change (inflection point)
-            inflection_idx = sign_changes[0]
-        else:
-            # If no sign change, use point of minimum second derivative (maximum curvature change)
-            inflection_idx = np.argmin(d2)
+        # Compute mean squared displacement from balanced transport
+        mean_sq_disp = compute_mean_squared_displacement(transport_balanced)
+        rho_theoretical = mean_sq_disp / 2.0
         
-        rho_inflection = rhos_eps[inflection_idx]
-        disp_inflection = disp_eps[inflection_idx]
+        logger.info(f"  Mean squared displacement (balanced): {mean_sq_disp:.6f}")
+        logger.info(f"  Theoretical prediction: rho = {mean_sq_disp:.6f} / 2 = {rho_theoretical:.6f}")
+        logger.info(f"  Observed maximum: rho = {rho_max:.6f}")
+        logger.info(f"  Difference: {abs(rho_max - rho_theoretical):.6f} ({abs(rho_max - rho_theoretical) / rho_theoretical * 100:.2f}%)")
         
-        # Plot vertical line at inflection point
-        ax.axvline(x=rho_inflection, color='red', linestyle='--', linewidth=2.5, 
-                   label=rf'Inflection point: $\rho = {rho_inflection:.3f}$ ($\varepsilon = {eps_target:.2f}$)',
+        # Plot vertical line at maximum point
+        ax.axvline(x=rho_max, color='red', linestyle='--', linewidth=2.5, 
+                   label=rf'Maximum: $\rho = {rho_max:.3f}$ ($\varepsilon = {eps_target:.2f}$)',
                    zorder=10)
         
-        logger.info(f"Inflection point for eps={eps_target}: rho={rho_inflection:.4f}, displacement={disp_inflection:.4f}")
+        # Plot vertical line at theoretical prediction
+        ax.axvline(x=rho_theoretical, color='blue', linestyle=':', linewidth=2.5, 
+                   label=rf'Theoretical: $\rho = {rho_theoretical:.3f} = \mathbb{{E}}[||x-y||^2]/2$',
+                   zorder=10)
+        
+        logger.info(f"Maximum for eps={eps_target}: rho={rho_max:.4f}, displacement={disp_max:.4f}")
+        
+        # Clean up
+        del transport_balanced, interpolator_balanced
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        gc.collect()
     
     ax.set_xlabel(r'$\rho$ (Reach parameter)', fontsize=12)
     ax.set_ylabel('Mean Displacement (pixels)', fontsize=12)

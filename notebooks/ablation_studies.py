@@ -46,9 +46,7 @@ class OTConfig:
     reach: Optional[float] = 0.3
     lambda_color: float = 2.0
     device: str = "cuda" if torch.cuda.is_available() else "cpu"
-    sigma_start: float = 1.2
-    sigma_end: float = 0.5
-    sigma_boost: float = 0.5
+    sigma_min: float = 0.1  # Minimum sigma value (only hyperparameter to vary)
     # Ablation flags
     use_debias: bool = False
     use_adaptive_sigma: bool = True
@@ -69,6 +67,34 @@ def get_5d_cloud(img: torch.Tensor, res: int, lambda_c: float):
     N = cloud_5d.shape[0]
     weights = torch.ones(N, device=img.device) / N
     return cloud_5d, weights, colors, new_H, new_W
+
+def compute_average_interparticle_distance(X: torch.Tensor, H: int, W: int):
+    """Compute average interparticle distance in normalized coordinates."""
+    # Spatial positions
+    pos_spatial = X[:, :2]  # (N, 2)
+    N = pos_spatial.shape[0]
+    
+    # Compute average spacing: area / number of particles
+    area = 1.0  # Normalized coordinates [0,1] x [0,1]
+    avg_spacing = np.sqrt(area / N)
+    
+    return avg_spacing
+
+def compute_sigma_max(X_a: torch.Tensor, X_b: torch.Tensor, Ha: int, Wa: int, Hb: int, Wb: int):
+    """Compute sigma_max from average interparticle distance for input and output images."""
+    # Compute average interparticle distance for source and target
+    avg_dist_a = compute_average_interparticle_distance(X_a, Ha, Wa)
+    avg_dist_b = compute_average_interparticle_distance(X_b, Hb, Wb)
+    
+    # Take the maximum and ensure sigma_max > 0.5 * avg_dist
+    avg_dist_max = max(avg_dist_a, avg_dist_b)
+    sigma_max = max(0.5 * avg_dist_max, avg_dist_max * 0.6)  # At least 0.5 * avg_dist, or 0.6 * avg_dist
+    
+    return sigma_max
+
+def compute_sigma_t(t: float, sigma_min: float, sigma_max: float):
+    """Compute adaptive sigma at time t: sigma(t) = sigma_min + 4*(sigma_max-sigma_min)*t*(1-t)."""
+    return sigma_min + 4.0 * (sigma_max - sigma_min) * t * (1.0 - t)
 
 class OT5DInterpolator:
     def __init__(self, config: OTConfig):
@@ -172,23 +198,25 @@ def run_ablation_studies():
     logger.info(f"Using fixed resolution: {resolution}")
     
     # Grille d'hyperparamètres
-    epsilons = [0.01, 0.02, 0.03, 0.05, 0.07, 0.10, 0.15, 0.20]
-    rhos = [0.01, 0.02, 0.04, 0.05, 0.07, 0.09, 0.12, 0.15, 0.18, 0.20, 0.25, 0.30,0.5,0.7,1.0]
+    epsilons = [0.07]
+    rhos = [0.7]
     lambdas = [2.5]
+    sigma_mins = [0,0.01, 0.02, 0.05, 0.10, 0.15, 0.20, 0.30, 0.50]  # Vary sigma_min
     debias_options = [False]
     adaptive_sigma_options = [False]
     
     # Génération de toutes les combinaisons
-    total_experiments = len(epsilons) * len(rhos) * len(lambdas) * len(debias_options) * len(adaptive_sigma_options)
+    total_experiments = len(epsilons) * len(rhos) * len(lambdas) * len(sigma_mins) * len(debias_options) * len(adaptive_sigma_options)
     logger.info(f"Nombre total d'expériences: {total_experiments}")
     logger.info(f"Lambda values: {lambdas}")
+    logger.info(f"Sigma_min values: {sigma_mins}")
     
     experiment_id = 0
     successful = 0
     failed = 0
     
-    for eps, rho, lambda_color, use_debias, use_adapt_sigma in itertools.product(
-        epsilons, rhos, lambdas, debias_options, adaptive_sigma_options
+    for eps, rho, lambda_color, sigma_min, use_debias, use_adapt_sigma in itertools.product(
+        epsilons, rhos, lambdas, sigma_mins, debias_options, adaptive_sigma_options
     ):
         experiment_id += 1
         
@@ -198,9 +226,7 @@ def run_ablation_studies():
             blur=eps,
             reach=rho,
             lambda_color=lambda_color,
-            sigma_start=0.15,
-            sigma_end=0.15,
-            sigma_boost=0.15,
+            sigma_min=sigma_min,
             use_debias=use_debias,
             use_adaptive_sigma=use_adapt_sigma
         )
@@ -208,11 +234,12 @@ def run_ablation_studies():
         # Nom du fichier
         rho_str = "balanced" if rho is None else f"{rho:.2f}"
         lambda_str = f"{lambda_color:.1f}" if lambda_color < 10 else f"{lambda_color:.0f}"
-        exp_name = f"exp_{experiment_id:04d}_eps{eps:.3f}_rho{rho_str}_lam{lambda_str}_debias{use_debias}_adapsigma{use_adapt_sigma}"
+        sigma_min_str = f"{sigma_min:.2f}"
+        exp_name = f"exp_{experiment_id:04d}_eps{eps:.3f}_rho{rho_str}_lam{lambda_str}_smin{sigma_min_str}_debias{use_debias}_adapsigma{use_adapt_sigma}"
         output_path = EXPERIMENTS_DIR / f"{exp_name}.pt"
         
         logger.info(f"\n[{experiment_id}/{total_experiments}] {exp_name}")
-        logger.info(f"  eps={eps:.3f}, rho={rho}, lambda={lambda_color:.1f}, debias={use_debias}, adapt_sigma={use_adapt_sigma}")
+        logger.info(f"  eps={eps:.3f}, rho={rho}, lambda={lambda_color:.1f}, sigma_min={sigma_min:.3f}, debias={use_debias}, adapt_sigma={use_adapt_sigma}")
         
         try:
             # Clear memory before experiment
@@ -224,11 +251,20 @@ def run_ablation_studies():
             interpolator = OT5DInterpolator(config)
             transport_data = interpolator.compute_transport_plan(img_source, img_target)
             
+            # Compute sigma_max from interparticle distances
+            X_a = transport_data['X_a']
+            X_b = transport_data['X_b']
+            Ha, Wa = transport_data['Ha'], transport_data['Wa']
+            Hb, Wb = transport_data['Hb'], transport_data['Wb']
+            sigma_max = compute_sigma_max(X_a, X_b, Ha, Wa, Hb, Wb)
+            
             # Ajout des métadonnées
             transport_data['config'] = {
                 'eps': eps,
                 'rho': rho,
                 'lambda_color': lambda_color,
+                'sigma_min': sigma_min,
+                'sigma_max': sigma_max,
                 'resolution': resolution,
                 'use_debias': use_debias,
                 'use_adaptive_sigma': use_adapt_sigma,
