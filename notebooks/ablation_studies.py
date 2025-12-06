@@ -19,9 +19,9 @@ import itertools
 import gc
 
 # Configuration
-DATA_DIR = Path("/home/janis/4A/geodata/data/pixelart/images")
-EXPERIMENTS_DIR = Path("/home/janis/4A/geodata/experiments/pixelart")
-LOGS_DIR = Path("/home/janis/4A/geodata/logs")
+DATA_DIR = Path("/Data/janis.aiad/geodata/data/pixelart/images")
+EXPERIMENTS_DIR = Path("/Data/janis.aiad/geodata/experiments/pixelart")
+LOGS_DIR = Path("/Data/janis.aiad/geodata/logs")
 EXPERIMENTS_DIR.mkdir(parents=True, exist_ok=True)
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -164,21 +164,17 @@ def run_ablation_studies():
     img_target = load_image(DATA_DIR / "strawberry.jpg")
     logger.info(f"Source: {img_source.shape}, Target: {img_target.shape}")
     
-    # Use native resolutions, but cap at reasonable maximum to avoid memory issues
+    # Fixed resolution for ablation studies
+    resolution = (64, 64)
     _, H_source, W_source = img_source.shape
     _, H_target, W_target = img_target.shape
-    max_res = 128  # Cap at 128 to avoid OOM/segfaults
-    res_source = min(max(H_source, W_source), max_res)
-    res_target = min(max(H_target, W_target), max_res)
-    resolution = (res_source, res_target)
     logger.info(f"Source image: {H_source}x{W_source}, Target image: {H_target}x{W_target}")
-    logger.info(f"Using resolutions: source={res_source}, target={res_target} (capped at {max_res})")
-    logger.info(f"Resolution config: {resolution}")
+    logger.info(f"Using fixed resolution: {resolution}")
     
     # Grille d'hyperparamètres
     epsilons = [0.01, 0.02, 0.03, 0.05, 0.07, 0.10, 0.15, 0.20]
-    rhos = [None, 0.01, 0.02, 0.04, 0.05, 0.07, 0.09, 0.12, 0.15, 0.18, 0.20, 0.25, 0.30]
-    lambdas = [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 5.0, 10.0, 20.0, 50.0, 100.0]
+    rhos = [0.01, 0.02, 0.04, 0.05, 0.07, 0.09, 0.12, 0.15, 0.18, 0.20, 0.25, 0.30,0.5,0.7,1.0]
+    lambdas = [2.5]
     debias_options = [False]
     adaptive_sigma_options = [False]
     

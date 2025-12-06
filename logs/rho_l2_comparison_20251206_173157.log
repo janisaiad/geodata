@@ -1,0 +1,22 @@
+2025-12-06 17:31:58,048 - INFO - ================================================================================
+2025-12-06 17:31:58,048 - INFO - L2 LOSS COMPARISON: BALANCED vs UNBALANCED OT
+2025-12-06 17:31:58,048 - INFO - ================================================================================
+2025-12-06 17:31:58,048 - INFO - Loading images...
+2025-12-06 17:31:58,064 - INFO - Source: torch.Size([3, 500, 500]), Target: torch.Size([3, 500, 500])
+2025-12-06 17:31:58,064 - INFO - 
+Computing balanced OT references...
+2025-12-06 17:31:58,064 - INFO - 
+Epsilon = 0.010
+2025-12-06 17:31:58,168 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 17:31:58,591 - INFO -   Balanced reconstruction shape: torch.Size([3, 64, 64])
+2025-12-06 17:31:58,629 - INFO -   Computing unbalanced OT for different rho values...
+2025-12-06 17:31:58,631 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 17:31:58,957 - INFO -     rho=0.010: L2 loss = 0.145759, Mean displacement = 13.8169 px
+2025-12-06 17:31:58,994 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 17:31:59,318 - INFO -     rho=0.020: L2 loss = 0.145664, Mean displacement = 3.3777 px
+2025-12-06 17:31:59,357 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 17:31:59,682 - INFO -     rho=0.030: L2 loss = 0.144082, Mean displacement = 3.4520 px
+2025-12-06 17:31:59,720 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 17:32:00,044 - INFO -     rho=0.040: L2 loss = 0.141348, Mean displacement = 3.7375 px
+2025-12-06 17:32:00,081 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 17:32:00,405 - INFO -     rho=0.050: L2 loss = 0.138930, Mean displacement = 4.1181 px
