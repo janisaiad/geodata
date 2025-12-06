@@ -1,0 +1,25 @@
+2025-12-06 18:03:36,830 - INFO - ================================================================================
+2025-12-06 18:03:36,830 - INFO - SIGMA_MIN ABLATION: TIMELINES AND SINKHORN DIVERGENCE
+2025-12-06 18:03:36,830 - INFO - ================================================================================
+2025-12-06 18:03:36,830 - INFO - Loading images...
+2025-12-06 18:03:36,846 - INFO - Source: torch.Size([3, 500, 500]), Target: torch.Size([3, 500, 500])
+2025-12-06 18:03:36,846 - INFO - 
+Loading transport plans...
+2025-12-06 18:03:36,858 - INFO -   Loaded: sigma_min=0.000
+2025-12-06 18:03:36,869 - INFO -   Loaded: sigma_min=0.010
+2025-12-06 18:03:36,879 - INFO -   Loaded: sigma_min=0.020
+2025-12-06 18:03:36,890 - INFO -   Loaded: sigma_min=0.050
+2025-12-06 18:03:36,901 - INFO -   Loaded: sigma_min=0.100
+2025-12-06 18:03:36,911 - INFO -   Loaded: sigma_min=0.150
+2025-12-06 18:03:36,922 - INFO -   Loaded: sigma_min=0.200
+2025-12-06 18:03:36,932 - INFO -   Loaded: sigma_min=0.300
+2025-12-06 18:03:36,943 - INFO -   Loaded: sigma_min=0.500
+2025-12-06 18:03:36,943 - INFO - 
+Computing interpolations...
+2025-12-06 18:04:04,476 - INFO - 
+Plotting timelines...
+2025-12-06 18:04:05,362 - INFO - ✓ Saved timeline: /Data/janis.aiad/geodata/experiments/pixelart/sigma_min_timelines_eps0.070_rho0.70.png
+2025-12-06 18:04:05,362 - INFO - 
+================================================================================
+2025-12-06 18:04:05,362 - INFO - COMPLETED
+2025-12-06 18:04:05,362 - INFO - ================================================================================

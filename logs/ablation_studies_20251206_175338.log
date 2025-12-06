@@ -1,0 +1,18 @@
+2025-12-06 17:53:38,764 - INFO - ================================================================================
+2025-12-06 17:53:38,764 - INFO - SIGMA_MIN ABLATION: TIMELINES AND SINKHORN DIVERGENCE
+2025-12-06 17:53:38,764 - INFO - ================================================================================
+2025-12-06 17:53:38,764 - INFO - Loading images...
+2025-12-06 17:53:38,780 - INFO - Source: torch.Size([3, 500, 500]), Target: torch.Size([3, 500, 500])
+2025-12-06 17:53:38,780 - INFO - 
+Loading transport plans...
+2025-12-06 17:53:38,792 - INFO -   Loaded: sigma_min=0.000
+2025-12-06 17:53:38,802 - INFO -   Loaded: sigma_min=0.010
+2025-12-06 17:53:38,813 - INFO -   Loaded: sigma_min=0.020
+2025-12-06 17:53:38,824 - INFO -   Loaded: sigma_min=0.050
+2025-12-06 17:53:38,835 - INFO -   Loaded: sigma_min=0.100
+2025-12-06 17:53:38,845 - INFO -   Loaded: sigma_min=0.150
+2025-12-06 17:53:38,856 - INFO -   Loaded: sigma_min=0.200
+2025-12-06 17:53:38,867 - INFO -   Loaded: sigma_min=0.300
+2025-12-06 17:53:38,878 - INFO -   Loaded: sigma_min=0.500
+2025-12-06 17:53:38,878 - INFO - 
+Computing interpolations and Sinkhorn divergences...

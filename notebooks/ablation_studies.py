@@ -202,8 +202,8 @@ def run_ablation_studies():
     rhos = [0.7]
     lambdas = [2.5]
     sigma_mins = [0,0.01, 0.02, 0.05, 0.10, 0.15, 0.20, 0.30, 0.50]  # Vary sigma_min
-    debias_options = [False]
-    adaptive_sigma_options = [False]
+    debias_options = [True]
+    adaptive_sigma_options = [True]
     
     # Génération de toutes les combinaisons
     total_experiments = len(epsilons) * len(rhos) * len(lambdas) * len(sigma_mins) * len(debias_options) * len(adaptive_sigma_options)
