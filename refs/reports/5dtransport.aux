@@ -17,34 +17,49 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Unbalanced Optimal Transport}{2}{subsection.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}The Sinkhorn Divergence as a Metric}{2}{subsection.2.2}\protected@file@percent }
 \citation{feydy2019}
+\citation{feydy2019}
+\citation{chizat2018,liero2018}
+\citation{feydy2019}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}5D Joint Lifting Strategy}{3}{subsection.2.3}\protected@file@percent }
+\newlabel{eq:cost_function}{{1}{3}{5D Joint Lifting Strategy}{equation.2.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Methodological Challenges and Implementation Details}{3}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Numerical Stability in High-Dimensional Spaces}{3}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}The "Debiasing" Trap in GeomLoss}{3}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}How to Choose Hyperparameters}{3}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}How to Choose $\lambda $}{3}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}How to Choose $\varepsilon $ a Priori}{3}{subsection.4.2}\protected@file@percent }
-\citation{cuturi2013}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Interpolation timeline for different values of $\lambda $.}}{4}{figure.caption.3}\protected@file@percent }
+\newlabel{eq:log_coupling}{{2}{3}{Numerical Stability in High-Dimensional Spaces}{equation.3.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Geodesic Interpolation in the Joint Space}{3}{subsection.3.2}\protected@file@percent }
+\newlabel{eq:geodesic_path}{{3}{3}{Geodesic Interpolation in the Joint Space}{equation.3.3}{}}
+\newlabel{eq:interpolated_measure}{{4}{3}{Geodesic Interpolation in the Joint Space}{equation.3.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}The "Debiasing" Trap in GeomLoss}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}How to Choose Hyperparameters}{4}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}How to Choose $\lambda $}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Interpolation timelines for different values of $\lambda $.}}{4}{figure.caption.3}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:lambda_timelines}{{1}{4}{Interpolation timeline for different values of $\lambda $}{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Displacement fields for different values of $\lambda $.}}{4}{figure.caption.4}\protected@file@percent }
-\newlabel{fig:lambda_displacement_fields}{{2}{4}{Displacement fields for different values of $\lambda $}{figure.caption.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Transport timelines for different values of $\varepsilon $ with $\rho = 0.7$ fixed.}}{4}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:rho1_timelines}{{3}{4}{Transport timelines for different values of $\varepsilon $ with $\rho = 0.7$ fixed}{figure.caption.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Computation time for transport plan calculation as a function of $\varepsilon $ (log-log scale) with $\rho = 0.7$ fixed.}}{5}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:compute_times}{{4}{5}{Computation time for transport plan calculation as a function of $\varepsilon $ (log-log scale) with $\rho = 0.7$ fixed}{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}How to Choose $\rho $ a Priori for Outlier-Prone Environments}{5}{subsection.4.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Mean displacement between balanced and unbalanced OT reconstructions at $t=0.5$ as a function of $\rho $ for different values of $\varepsilon $ ($\lambda = 2.5$).}}{5}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:rho_l2_comparison}{{5}{5}{Mean displacement between balanced and unbalanced OT reconstructions at $t=0.5$ as a function of $\rho $ for different values of $\varepsilon $ ($\lambda = 2.5$)}{figure.caption.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Addressing the Lagrangian-Eulerian Gap}{6}{section.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Interpolation timeline for different values of $\rho $.}}{6}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:rho_timelines}{{6}{6}{Interpolation timeline for different values of $\rho $}{figure.caption.8}{}}
+\newlabel{fig:lambda_timelines}{{1}{4}{Interpolation timelines for different values of $\lambda $}{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Displacement fields.}}{4}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:lambda_displacement_fields}{{2}{4}{Displacement fields}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{Conclusion for $\lambda $ scale}{4}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}How to Choose $\varepsilon $ a Priori}{4}{subsection.4.2}\protected@file@percent }
+\citation{sejourne2019}
+\citation{fig:rho_l2_comparison}
+\citation{cuturi2013,schmitzer2019stabilizedsparsescalingalgorithms}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Transport timelines for different values of $\varepsilon $ with $\rho = 0.7$ fixed.}}{5}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:rho1_timelines}{{3}{5}{Transport timelines for different values of $\varepsilon $ with $\rho = 0.7$ fixed}{figure.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Computation time for transport plan calculation as a function of $\varepsilon $ (log-log scale) with $\rho = 0.7$ fixed.}}{5}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:compute_times}{{4}{5}{Computation time for transport plan calculation as a function of $\varepsilon $ (log-log scale) with $\rho = 0.7$ fixed}{figure.caption.7}{}}
+\newlabel{eq:epsilon_heuristic}{{5}{5}{How to Choose $\varepsilon $ a Priori}{equation.4.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{conclusion for $\varepsilon $ scale}{5}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}How to Choose $\rho $ a Priori for Outliers Environments}{5}{subsection.4.3}\protected@file@percent }
+\citation{sejourne2019}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Mean displacement for unbalanced OT reconstructions at $t=0.5$ as a function of $\rho $ for different values of $\varepsilon $ ($\lambda = 2.0$).}}{6}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:rho_l2_comparison}{{5}{6}{Mean displacement for unbalanced OT reconstructions at $t=0.5$ as a function of $\rho $ for different values of $\varepsilon $ ($\lambda = 2.0$)}{figure.caption.9}{}}
+\newlabel{eq:rho_bound}{{6}{6}{How to Choose $\rho $ a Priori for Outliers Environments}{equation.4.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Interpolation timeline for different values of $\rho $.}}{6}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:rho_timelines}{{6}{6}{Interpolation timeline for different values of $\rho $}{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Addressing the Black-block Tearing Artifact}{6}{section.5}\protected@file@percent }
 \citation{genevay2019}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Comparison of adaptive vs fixed vs no splatting to illustrate tearing reduction.}}{7}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:splatting_tearing_comparison}{{7}{7}{Comparison of adaptive vs fixed vs no splatting to illustrate tearing reduction}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Hyperparameter Summary}{7}{subsection.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6}Discussion and Limitations}{7}{section.6}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Comparison of adaptive vs fixed vs no splatting to illustrate tearing reduction.}}{7}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:splatting_tearing_comparison}{{7}{7}{Comparison of adaptive vs fixed vs no splatting to illustrate tearing reduction}{figure.caption.9}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{7}{section.7}\protected@file@percent }
 \bibstyle{ACM-Reference-Format}
 \bibcite{mukherjee2021outlier}{{1}{}{{}}{{}}}
 \bibcite{fatras2021unbalanced}{{2}{}{{}}{{}}}
@@ -52,15 +67,18 @@
 \bibcite{peyre2019}{{4}{}{{}}{{}}}
 \bibcite{cuturi2013}{{5}{}{{}}{{}}}
 \bibcite{chizat2018}{{6}{}{{}}{{}}}
-\bibcite{feydy2019}{{7}{}{{}}{{}}}
-\bibcite{genevay2019}{{8}{}{{}}{{}}}
-\bibcite{charlier2021}{{9}{}{{}}{{}}}
+\bibcite{liero2018}{{7}{}{{}}{{}}}
+\bibcite{feydy2019}{{8}{}{{}}{{}}}
+\bibcite{genevay2019}{{9}{}{{}}{{}}}
+\bibcite{charlier2021}{{10}{}{{}}{{}}}
+\bibcite{schmitzer2019stabilizedsparsescalingalgorithms}{{11}{}{{}}{{}}}
 \newlabel{tocindent-1}{0pt}
 \newlabel{tocindent0}{0pt}
 \newlabel{tocindent1}{6.25499pt}
 \newlabel{tocindent2}{12.41998pt}
 \newlabel{tocindent3}{0pt}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\@writefile{toc}{\contentsline {section}{References}{8}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{8}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{8}{section*.13}\protected@file@percent }
 \newlabel{TotPages}{{8}{8}{}{page.8}{}}
 \gdef \@abspage@last{8}
