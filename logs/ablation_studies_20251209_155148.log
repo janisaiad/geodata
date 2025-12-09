@@ -1,0 +1,209 @@
+2025-12-09 15:51:48,327 - INFO - ================================================================================
+2025-12-09 15:51:48,327 - INFO - COMPUTE TIME BENCHMARK: rho=0.7, various epsilon
+2025-12-09 15:51:48,327 - INFO - ================================================================================
+2025-12-09 15:51:48,327 - INFO - Loading images...
+2025-12-09 15:51:48,363 - INFO - Source: torch.Size([3, 500, 500]), Target: torch.Size([3, 500, 500])
+2025-12-09 15:51:48,364 - INFO - 
+Testing 50 epsilon values with rho=0.7
+2025-12-09 15:51:48,364 - INFO - 
+Testing eps=0.000...
+2025-12-09 15:51:48,765 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:51:50,663 - INFO -   ✓ eps=0.000: 2.22 seconds
+2025-12-09 15:51:50,663 - INFO - 
+Testing eps=0.000...
+2025-12-09 15:51:50,665 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:51:52,132 - INFO -   ✓ eps=0.000: 1.40 seconds
+2025-12-09 15:51:52,132 - INFO - 
+Testing eps=0.000...
+2025-12-09 15:51:52,135 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:51:53,583 - INFO -   ✓ eps=0.000: 1.38 seconds
+2025-12-09 15:51:53,583 - INFO - 
+Testing eps=0.000...
+2025-12-09 15:51:53,587 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:51:54,964 - INFO -   ✓ eps=0.000: 1.31 seconds
+2025-12-09 15:51:54,964 - INFO - 
+Testing eps=0.000...
+2025-12-09 15:51:54,967 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:51:56,292 - INFO -   ✓ eps=0.000: 1.26 seconds
+2025-12-09 15:51:56,292 - INFO - 
+Testing eps=0.000...
+2025-12-09 15:51:56,294 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:51:57,664 - INFO -   ✓ eps=0.000: 1.30 seconds
+2025-12-09 15:51:57,664 - INFO - 
+Testing eps=0.001...
+2025-12-09 15:51:57,667 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:51:58,995 - INFO -   ✓ eps=0.001: 1.26 seconds
+2025-12-09 15:51:58,995 - INFO - 
+Testing eps=0.001...
+2025-12-09 15:51:58,998 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:00,317 - INFO -   ✓ eps=0.001: 1.23 seconds
+2025-12-09 15:52:00,317 - INFO - 
+Testing eps=0.001...
+2025-12-09 15:52:00,320 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:01,696 - INFO -   ✓ eps=0.001: 1.29 seconds
+2025-12-09 15:52:01,697 - INFO - 
+Testing eps=0.001...
+2025-12-09 15:52:01,700 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:03,119 - INFO -   ✓ eps=0.001: 1.33 seconds
+2025-12-09 15:52:03,119 - INFO - 
+Testing eps=0.002...
+2025-12-09 15:52:03,123 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:04,523 - INFO -   ✓ eps=0.002: 1.32 seconds
+2025-12-09 15:52:04,523 - INFO - 
+Testing eps=0.002...
+2025-12-09 15:52:04,526 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:05,686 - INFO -   ✓ eps=0.002: 1.10 seconds
+2025-12-09 15:52:05,687 - INFO - 
+Testing eps=0.003...
+2025-12-09 15:52:05,689 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:06,776 - INFO -   ✓ eps=0.003: 1.02 seconds
+2025-12-09 15:52:06,776 - INFO - 
+Testing eps=0.004...
+2025-12-09 15:52:06,778 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:07,818 - INFO -   ✓ eps=0.004: 0.97 seconds
+2025-12-09 15:52:07,818 - INFO - 
+Testing eps=0.005...
+2025-12-09 15:52:07,821 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:08,880 - INFO -   ✓ eps=0.005: 0.99 seconds
+2025-12-09 15:52:08,881 - INFO - 
+Testing eps=0.007...
+2025-12-09 15:52:08,883 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:09,894 - INFO -   ✓ eps=0.007: 0.93 seconds
+2025-12-09 15:52:09,894 - INFO - 
+Testing eps=0.009...
+2025-12-09 15:52:09,896 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:10,972 - INFO -   ✓ eps=0.009: 0.99 seconds
+2025-12-09 15:52:10,972 - INFO - 
+Testing eps=0.012...
+2025-12-09 15:52:10,976 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:12,002 - INFO -   ✓ eps=0.012: 0.96 seconds
+2025-12-09 15:52:12,002 - INFO - 
+Testing eps=0.016...
+2025-12-09 15:52:12,005 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:12,846 - INFO -   ✓ eps=0.016: 0.78 seconds
+2025-12-09 15:52:12,847 - INFO - 
+Testing eps=0.021...
+2025-12-09 15:52:12,849 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:13,666 - INFO -   ✓ eps=0.021: 0.75 seconds
+2025-12-09 15:52:13,667 - INFO - 
+Testing eps=0.028...
+2025-12-09 15:52:13,669 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:14,544 - INFO -   ✓ eps=0.028: 0.80 seconds
+2025-12-09 15:52:14,544 - INFO - 
+Testing eps=0.037...
+2025-12-09 15:52:14,547 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:15,336 - INFO -   ✓ eps=0.037: 0.70 seconds
+2025-12-09 15:52:15,336 - INFO - 
+Testing eps=0.049...
+2025-12-09 15:52:15,339 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:16,091 - INFO -   ✓ eps=0.049: 0.68 seconds
+2025-12-09 15:52:16,091 - INFO - 
+Testing eps=0.066...
+2025-12-09 15:52:16,093 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:16,828 - INFO -   ✓ eps=0.066: 0.67 seconds
+2025-12-09 15:52:16,828 - INFO - 
+Testing eps=0.087...
+2025-12-09 15:52:16,831 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:17,473 - INFO -   ✓ eps=0.087: 0.57 seconds
+2025-12-09 15:52:17,474 - INFO - 
+Testing eps=0.115...
+2025-12-09 15:52:17,478 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:18,066 - INFO -   ✓ eps=0.115: 0.52 seconds
+2025-12-09 15:52:18,066 - INFO - 
+Testing eps=0.153...
+2025-12-09 15:52:18,069 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:18,635 - INFO -   ✓ eps=0.153: 0.50 seconds
+2025-12-09 15:52:18,635 - INFO - 
+Testing eps=0.202...
+2025-12-09 15:52:18,637 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:19,209 - INFO -   ✓ eps=0.202: 0.50 seconds
+2025-12-09 15:52:19,209 - INFO - 
+Testing eps=0.268...
+2025-12-09 15:52:19,212 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:19,751 - INFO -   ✓ eps=0.268: 0.46 seconds
+2025-12-09 15:52:19,751 - INFO - 
+Testing eps=0.356...
+2025-12-09 15:52:19,754 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:20,274 - INFO -   ✓ eps=0.356: 0.44 seconds
+2025-12-09 15:52:20,275 - INFO - 
+Testing eps=0.471...
+2025-12-09 15:52:20,277 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:20,795 - INFO -   ✓ eps=0.471: 0.43 seconds
+2025-12-09 15:52:20,796 - INFO - 
+Testing eps=0.625...
+2025-12-09 15:52:20,800 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:21,299 - INFO -   ✓ eps=0.625: 0.40 seconds
+2025-12-09 15:52:21,299 - INFO - 
+Testing eps=0.829...
+2025-12-09 15:52:21,303 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:21,732 - INFO -   ✓ eps=0.829: 0.34 seconds
+2025-12-09 15:52:21,732 - INFO - 
+Testing eps=1.099...
+2025-12-09 15:52:21,737 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:22,128 - INFO -   ✓ eps=1.099: 0.31 seconds
+2025-12-09 15:52:22,128 - INFO - 
+Testing eps=1.456...
+2025-12-09 15:52:22,131 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:22,473 - INFO -   ✓ eps=1.456: 0.27 seconds
+2025-12-09 15:52:22,473 - INFO - 
+Testing eps=1.931...
+2025-12-09 15:52:22,476 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:22,757 - INFO -   ✓ eps=1.931: 0.21 seconds
+2025-12-09 15:52:22,757 - INFO - 
+Testing eps=2.560...
+2025-12-09 15:52:22,760 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:23,016 - INFO -   ✓ eps=2.560: 0.17 seconds
+2025-12-09 15:52:23,017 - INFO - 
+Testing eps=3.393...
+2025-12-09 15:52:23,019 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:23,285 - INFO -   ✓ eps=3.393: 0.18 seconds
+2025-12-09 15:52:23,286 - INFO - 
+Testing eps=4.498...
+2025-12-09 15:52:23,289 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:23,579 - INFO -   ✓ eps=4.498: 0.22 seconds
+2025-12-09 15:52:23,580 - INFO - 
+Testing eps=5.964...
+2025-12-09 15:52:23,583 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:23,870 - INFO -   ✓ eps=5.964: 0.20 seconds
+2025-12-09 15:52:23,870 - INFO - 
+Testing eps=7.906...
+2025-12-09 15:52:23,874 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:24,154 - INFO -   ✓ eps=7.906: 0.21 seconds
+2025-12-09 15:52:24,154 - INFO - 
+Testing eps=10.481...
+2025-12-09 15:52:24,157 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:24,408 - INFO -   ✓ eps=10.481: 0.17 seconds
+2025-12-09 15:52:24,409 - INFO - 
+Testing eps=13.895...
+2025-12-09 15:52:24,412 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:24,662 - INFO -   ✓ eps=13.895: 0.17 seconds
+2025-12-09 15:52:24,662 - INFO - 
+Testing eps=18.421...
+2025-12-09 15:52:24,665 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:24,905 - INFO -   ✓ eps=18.421: 0.17 seconds
+2025-12-09 15:52:24,905 - INFO - 
+Testing eps=24.421...
+2025-12-09 15:52:24,907 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:25,149 - INFO -   ✓ eps=24.421: 0.17 seconds
+2025-12-09 15:52:25,149 - INFO - 
+Testing eps=32.375...
+2025-12-09 15:52:25,152 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:25,393 - INFO -   ✓ eps=32.375: 0.17 seconds
+2025-12-09 15:52:25,394 - INFO - 
+Testing eps=42.919...
+2025-12-09 15:52:25,396 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:25,676 - INFO -   ✓ eps=42.919: 0.21 seconds
+2025-12-09 15:52:25,676 - INFO - 
+Testing eps=56.899...
+2025-12-09 15:52:25,679 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:25,932 - INFO -   ✓ eps=56.899: 0.18 seconds
+2025-12-09 15:52:25,932 - INFO - 
+Testing eps=75.431...
+2025-12-09 15:52:25,936 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:26,193 - INFO -   ✓ eps=75.431: 0.18 seconds
+2025-12-09 15:52:26,193 - INFO - 
+Testing eps=100.000...
+2025-12-09 15:52:26,196 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-09 15:52:26,460 - INFO -   ✓ eps=100.000: 0.19 seconds
+2025-12-09 15:52:26,464 - INFO - 
+✓ Saved compute times to: /home/janis/4A/geodata/experiments/pixelart/compute_times_rho1.0.json

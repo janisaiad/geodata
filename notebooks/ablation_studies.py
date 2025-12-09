@@ -198,10 +198,10 @@ def measure_compute_time(config: OTConfig, img_source, img_target):
     return compute_time
 
 def run_compute_time_benchmark():
-    """Benchmark computation times for rho=1.0 with various epsilon values."""
+    """Benchmark computation times for rho=0.7 with various epsilon values."""
     
     logger.info("=" * 80)
-    logger.info("COMPUTE TIME BENCHMARK: rho=1.0, various epsilon")
+    logger.info("COMPUTE TIME BENCHMARK: rho=0.7, various epsilon")
     logger.info("=" * 80)
     
     # Chargement des images
@@ -214,7 +214,7 @@ def run_compute_time_benchmark():
     resolution = (64, 64)
     
     # Parameters for benchmark
-    rho = 1.0
+    rho = 0.7
     # Generate 50 epsilon values in log space from 1e-4 to 100
     epsilons = np.logspace(-4, 2, 50).tolist()
     lambda_color = 1
@@ -263,7 +263,7 @@ def run_compute_time_benchmark():
             })
     
     # Save to JSON
-    json_path = EXPERIMENTS_DIR / "compute_times_rho1.0.json"
+    json_path = EXPERIMENTS_DIR / "compute_times_rho0.7.json"
     with open(json_path, 'w') as f:
         json.dump(results, f, indent=2)
     logger.info(f"\n✓ Saved compute times to: {json_path}")
