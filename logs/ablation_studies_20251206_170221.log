@@ -1,0 +1,14 @@
+2025-12-06 17:02:21,433 - INFO - ================================================================================
+2025-12-06 17:02:21,433 - INFO - DÉMARRAGE DES ÉTUDES D'ABLATION
+2025-12-06 17:02:21,433 - INFO - ================================================================================
+2025-12-06 17:02:21,433 - INFO - Loading images...
+2025-12-06 17:02:21,450 - INFO - Source: torch.Size([3, 500, 500]), Target: torch.Size([3, 500, 500])
+2025-12-06 17:02:21,451 - INFO - Source image: 500x500, Target image: 500x500
+2025-12-06 17:02:21,451 - INFO - Using resolutions: source=128, target=128 (capped at 128)
+2025-12-06 17:02:21,451 - INFO - Resolution config: (128, 128)
+2025-12-06 17:02:21,451 - INFO - Nombre total d'expériences: 1248
+2025-12-06 17:02:21,451 - INFO - Lambda values: [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 5.0, 10.0, 20.0, 50.0, 100.0]
+2025-12-06 17:02:21,451 - INFO - 
+[1/1248] exp_0001_eps0.010_rhobalanced_lam0.0_debiasFalse_adapsigmaFalse
+2025-12-06 17:02:21,451 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=False, adapt_sigma=False
+2025-12-06 17:02:21,576 - INFO -   Cloud sizes: source=16384, target=16384

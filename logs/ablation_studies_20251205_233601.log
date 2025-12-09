@@ -1,0 +1,1000 @@
+2025-12-05 23:36:01,428 - INFO - ================================================================================
+2025-12-05 23:36:01,428 - INFO - DÉMARRAGE DES ÉTUDES D'ABLATION
+2025-12-05 23:36:01,428 - INFO - ================================================================================
+2025-12-05 23:36:01,428 - INFO - Loading images...
+2025-12-05 23:36:01,609 - INFO - Source: torch.Size([3, 458, 343]), Target: torch.Size([3, 457, 341])
+2025-12-05 23:36:01,620 - INFO - Source image: 458x343, Target image: 457x341
+2025-12-05 23:36:01,620 - INFO - Using resolutions: source=256, target=256 (capped at 256)
+2025-12-05 23:36:01,620 - INFO - Resolution config: (256, 256)
+2025-12-05 23:36:01,620 - INFO - Nombre total d'expériences: 2560
+2025-12-05 23:36:01,620 - INFO - Lambda values: [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 10.0, 50.0, 100.0]
+2025-12-05 23:36:01,620 - INFO - 
+[1/2560] exp_0001_eps0.010_rhobalanced_lam0.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:36:01,620 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:36:01,794 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:01,915 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:02,195 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:02,197 - INFO - 
+[2/2560] exp_0002_eps0.010_rhobalanced_lam0.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:36:02,197 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:36:02,272 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:02,576 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:02,843 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:02,845 - INFO - 
+[3/2560] exp_0003_eps0.010_rhobalanced_lam0.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:36:02,845 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:36:02,924 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:03,223 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:03,493 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:03,498 - INFO - 
+[4/2560] exp_0004_eps0.010_rhobalanced_lam0.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:36:03,498 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:36:03,576 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:03,873 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:04,140 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:04,142 - INFO - 
+[5/2560] exp_0005_eps0.010_rhobalanced_lam0.5_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:36:04,142 - INFO -   eps=0.010, rho=None, lambda=0.5, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:36:04,222 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:04,518 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:04,786 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:04,787 - INFO - 
+[6/2560] exp_0006_eps0.010_rhobalanced_lam0.5_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:36:04,787 - INFO -   eps=0.010, rho=None, lambda=0.5, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:36:04,889 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:05,165 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:05,434 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:05,435 - INFO - 
+[7/2560] exp_0007_eps0.010_rhobalanced_lam0.5_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:36:05,436 - INFO -   eps=0.010, rho=None, lambda=0.5, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:36:05,518 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:05,813 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:06,086 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:06,087 - INFO - 
+[8/2560] exp_0008_eps0.010_rhobalanced_lam0.5_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:36:06,087 - INFO -   eps=0.010, rho=None, lambda=0.5, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:36:06,169 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:06,468 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:06,744 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:06,746 - INFO - 
+[9/2560] exp_0009_eps0.010_rhobalanced_lam1.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:36:06,746 - INFO -   eps=0.010, rho=None, lambda=1.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:36:06,826 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:07,124 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:07,392 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:07,393 - INFO - 
+[10/2560] exp_0010_eps0.010_rhobalanced_lam1.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:36:07,393 - INFO -   eps=0.010, rho=None, lambda=1.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:36:07,503 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:07,771 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:08,039 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:08,041 - INFO - 
+[11/2560] exp_0011_eps0.010_rhobalanced_lam1.0_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:36:08,041 - INFO -   eps=0.010, rho=None, lambda=1.0, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:36:08,133 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:08,418 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:08,685 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:08,686 - INFO - 
+[12/2560] exp_0012_eps0.010_rhobalanced_lam1.0_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:36:08,687 - INFO -   eps=0.010, rho=None, lambda=1.0, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:36:08,767 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:09,065 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:09,335 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:09,336 - INFO - 
+[13/2560] exp_0013_eps0.010_rhobalanced_lam1.5_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:36:09,336 - INFO -   eps=0.010, rho=None, lambda=1.5, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:36:09,442 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:09,714 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:09,981 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:09,982 - INFO - 
+[14/2560] exp_0014_eps0.010_rhobalanced_lam1.5_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:36:09,982 - INFO -   eps=0.010, rho=None, lambda=1.5, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:36:10,066 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:10,365 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:10,641 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:10,642 - INFO - 
+[15/2560] exp_0015_eps0.010_rhobalanced_lam1.5_debiasFalse_dynrastTrue_adapsigmaFalse
+2025-12-05 23:36:10,642 - INFO -   eps=0.010, rho=None, lambda=1.5, debias=False, dyn_rast=True, adapt_sigma=False
+2025-12-05 23:36:10,720 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:11,019 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:11,287 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:11,288 - INFO - 
+[16/2560] exp_0016_eps0.010_rhobalanced_lam1.5_debiasFalse_dynrastTrue_adapsigmaTrue
+2025-12-05 23:36:11,288 - INFO -   eps=0.010, rho=None, lambda=1.5, debias=False, dyn_rast=True, adapt_sigma=True
+2025-12-05 23:36:11,368 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:11,669 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:11,939 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:11,941 - INFO - 
+[17/2560] exp_0017_eps0.010_rhobalanced_lam2.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:36:11,941 - INFO -   eps=0.010, rho=None, lambda=2.0, debias=False, dyn_rast=False, adapt_sigma=False
+2025-12-05 23:36:12,061 - INFO -   Cloud sizes: source=48896, target=48896
+2025-12-05 23:36:12,321 - WARNING -   OOM error during Sinkhorn computation. Clearing cache and retrying...
+2025-12-05 23:36:12,590 - ERROR -   ✗ Erreur: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 111, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+           ~~~~~^~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 232, in run_ablation_studies
+    transport_data = interpolator.compute_transport_plan(img_source, img_target)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/notebooks/ablation_studies.py", line 119, in compute_transport_plan
+    F_pot, G_pot = self.loss_layer(w_a, X_a, w_b, X_b)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/samples_loss.py", line 265, in forward
+    values = routines[self.loss][backend](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 180, in sinkhorn_tensorized
+    C_xy = cost(x, y.detach())  # (B,N,M) torch Tensor
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/sinkhorn_samples.py", line 29, in <lambda>
+    2: (lambda x, y: squared_distances(x, y) / 2),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Data/janis.aiad/geodata/.venv/lib/python3.11/site-packages/geomloss/utils.py", line 55, in squared_distances
+    return D_xx - 2 * D_xy + D_yy
+                  ~~^~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.91 GiB. GPU 0 has a total capacity of 19.53 GiB of which 1.35 GiB is free. Including non-PyTorch memory, this process has 18.03 GiB memory in use. Of the allocated memory 17.82 GiB is allocated by PyTorch, and 17.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-12-05 23:36:12,591 - INFO - 
+[18/2560] exp_0018_eps0.010_rhobalanced_lam2.0_debiasFalse_dynrastFalse_adapsigmaTrue
+2025-12-05 23:36:12,591 - INFO -   eps=0.010, rho=None, lambda=2.0, debias=False, dyn_rast=False, adapt_sigma=True
+2025-12-05 23:36:12,675 - INFO -   Cloud sizes: source=48896, target=48896

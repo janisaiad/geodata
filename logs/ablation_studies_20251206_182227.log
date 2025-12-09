@@ -1,0 +1,41 @@
+2025-12-06 18:22:27,657 - INFO - ================================================================================
+2025-12-06 18:22:27,657 - INFO - COMPUTE TIME BENCHMARK: rho=1.0, various epsilon
+2025-12-06 18:22:27,657 - INFO - ================================================================================
+2025-12-06 18:22:27,657 - INFO - Loading images...
+2025-12-06 18:22:27,672 - INFO - Source: torch.Size([3, 500, 500]), Target: torch.Size([3, 500, 500])
+2025-12-06 18:22:27,672 - INFO - 
+Testing 8 epsilon values with rho=1.0
+2025-12-06 18:22:27,672 - INFO - 
+Testing eps=0.010...
+2025-12-06 18:22:27,777 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:22:28,473 - INFO -   ✓ eps=0.010: 0.77 seconds
+2025-12-06 18:22:28,473 - INFO - 
+Testing eps=0.020...
+2025-12-06 18:22:28,474 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:22:29,020 - INFO -   ✓ eps=0.020: 0.51 seconds
+2025-12-06 18:22:29,020 - INFO - 
+Testing eps=0.030...
+2025-12-06 18:22:29,021 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:22:29,534 - INFO -   ✓ eps=0.030: 0.48 seconds
+2025-12-06 18:22:29,534 - INFO - 
+Testing eps=0.050...
+2025-12-06 18:22:29,536 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:22:30,005 - INFO -   ✓ eps=0.050: 0.44 seconds
+2025-12-06 18:22:30,005 - INFO - 
+Testing eps=0.070...
+2025-12-06 18:22:30,006 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:22:30,449 - INFO -   ✓ eps=0.070: 0.41 seconds
+2025-12-06 18:22:30,449 - INFO - 
+Testing eps=0.100...
+2025-12-06 18:22:30,451 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:22:30,870 - INFO -   ✓ eps=0.100: 0.39 seconds
+2025-12-06 18:22:30,871 - INFO - 
+Testing eps=0.150...
+2025-12-06 18:22:30,872 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:22:31,257 - INFO -   ✓ eps=0.150: 0.36 seconds
+2025-12-06 18:22:31,257 - INFO - 
+Testing eps=0.200...
+2025-12-06 18:22:31,258 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:22:31,621 - INFO -   ✓ eps=0.200: 0.33 seconds
+2025-12-06 18:22:31,621 - INFO - 
+✓ Saved compute times to: /Data/janis.aiad/geodata/experiments/pixelart/compute_times_rho1.0.json

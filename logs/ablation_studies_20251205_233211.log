@@ -1,0 +1,12 @@
+2025-12-05 23:32:11,531 - INFO - ================================================================================
+2025-12-05 23:32:11,531 - INFO - DÉMARRAGE DES ÉTUDES D'ABLATION
+2025-12-05 23:32:11,531 - INFO - ================================================================================
+2025-12-05 23:32:11,531 - INFO - Loading images...
+2025-12-05 23:32:11,672 - INFO - Source: torch.Size([3, 458, 343]), Target: torch.Size([3, 457, 341])
+2025-12-05 23:32:11,673 - INFO - Using native resolutions: source=458x343, target=457x341
+2025-12-05 23:32:11,673 - INFO - Resolution config: (458, 457)
+2025-12-05 23:32:11,673 - INFO - Nombre total d'expériences: 2560
+2025-12-05 23:32:11,673 - INFO - Lambda values: [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 10.0, 50.0, 100.0]
+2025-12-05 23:32:11,673 - INFO - 
+[1/2560] exp_0001_eps0.010_rhobalanced_lam0.0_debiasFalse_dynrastFalse_adapsigmaFalse
+2025-12-05 23:32:11,673 - INFO -   eps=0.010, rho=None, lambda=0.0, debias=False, dyn_rast=False, adapt_sigma=False

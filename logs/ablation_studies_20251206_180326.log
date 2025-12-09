@@ -1,0 +1,73 @@
+2025-12-06 18:03:26,795 - INFO - ================================================================================
+2025-12-06 18:03:26,795 - INFO - DÉMARRAGE DES ÉTUDES D'ABLATION
+2025-12-06 18:03:26,795 - INFO - ================================================================================
+2025-12-06 18:03:26,795 - INFO - Loading images...
+2025-12-06 18:03:26,812 - INFO - Source: torch.Size([3, 500, 500]), Target: torch.Size([3, 500, 500])
+2025-12-06 18:03:26,812 - INFO - Source image: 500x500, Target image: 500x500
+2025-12-06 18:03:26,812 - INFO - Using fixed resolution: (64, 64)
+2025-12-06 18:03:26,812 - INFO - Nombre total d'expériences: 9
+2025-12-06 18:03:26,812 - INFO - Lambda values: [2.5]
+2025-12-06 18:03:26,812 - INFO - Sigma_min values: [0, 0.01, 0.02, 0.05, 0.1, 0.15, 0.2, 0.3, 0.5]
+2025-12-06 18:03:26,812 - INFO - 
+[1/9] exp_0001_eps0.070_rho0.70_lam2.5_smin0.00_debiasTrue_adapsigmaTrue
+2025-12-06 18:03:26,812 - INFO -   eps=0.070, rho=0.7, lambda=2.5, sigma_min=0.000, debias=True, adapt_sigma=True
+2025-12-06 18:03:26,936 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:03:27,453 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/pixelart/exp_0001_eps0.070_rho0.70_lam2.5_smin0.00_debiasTrue_adapsigmaTrue.pt
+2025-12-06 18:03:27,454 - INFO -   Taille plan: torch.Size([4096, 4096]), Mémoire: 64.00 MB
+2025-12-06 18:03:27,481 - INFO - 
+[2/9] exp_0002_eps0.070_rho0.70_lam2.5_smin0.01_debiasTrue_adapsigmaTrue
+2025-12-06 18:03:27,481 - INFO -   eps=0.070, rho=0.7, lambda=2.5, sigma_min=0.010, debias=True, adapt_sigma=True
+2025-12-06 18:03:27,497 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:03:27,927 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/pixelart/exp_0002_eps0.070_rho0.70_lam2.5_smin0.01_debiasTrue_adapsigmaTrue.pt
+2025-12-06 18:03:27,928 - INFO -   Taille plan: torch.Size([4096, 4096]), Mémoire: 64.00 MB
+2025-12-06 18:03:27,955 - INFO - 
+[3/9] exp_0003_eps0.070_rho0.70_lam2.5_smin0.02_debiasTrue_adapsigmaTrue
+2025-12-06 18:03:27,955 - INFO -   eps=0.070, rho=0.7, lambda=2.5, sigma_min=0.020, debias=True, adapt_sigma=True
+2025-12-06 18:03:27,971 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:03:28,401 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/pixelart/exp_0003_eps0.070_rho0.70_lam2.5_smin0.02_debiasTrue_adapsigmaTrue.pt
+2025-12-06 18:03:28,401 - INFO -   Taille plan: torch.Size([4096, 4096]), Mémoire: 64.00 MB
+2025-12-06 18:03:28,430 - INFO - 
+[4/9] exp_0004_eps0.070_rho0.70_lam2.5_smin0.05_debiasTrue_adapsigmaTrue
+2025-12-06 18:03:28,430 - INFO -   eps=0.070, rho=0.7, lambda=2.5, sigma_min=0.050, debias=True, adapt_sigma=True
+2025-12-06 18:03:28,447 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:03:28,876 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/pixelart/exp_0004_eps0.070_rho0.70_lam2.5_smin0.05_debiasTrue_adapsigmaTrue.pt
+2025-12-06 18:03:28,876 - INFO -   Taille plan: torch.Size([4096, 4096]), Mémoire: 64.00 MB
+2025-12-06 18:03:28,903 - INFO - 
+[5/9] exp_0005_eps0.070_rho0.70_lam2.5_smin0.10_debiasTrue_adapsigmaTrue
+2025-12-06 18:03:28,903 - INFO -   eps=0.070, rho=0.7, lambda=2.5, sigma_min=0.100, debias=True, adapt_sigma=True
+2025-12-06 18:03:28,920 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:03:29,349 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/pixelart/exp_0005_eps0.070_rho0.70_lam2.5_smin0.10_debiasTrue_adapsigmaTrue.pt
+2025-12-06 18:03:29,349 - INFO -   Taille plan: torch.Size([4096, 4096]), Mémoire: 64.00 MB
+2025-12-06 18:03:29,377 - INFO - 
+[6/9] exp_0006_eps0.070_rho0.70_lam2.5_smin0.15_debiasTrue_adapsigmaTrue
+2025-12-06 18:03:29,377 - INFO -   eps=0.070, rho=0.7, lambda=2.5, sigma_min=0.150, debias=True, adapt_sigma=True
+2025-12-06 18:03:29,394 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:03:29,824 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/pixelart/exp_0006_eps0.070_rho0.70_lam2.5_smin0.15_debiasTrue_adapsigmaTrue.pt
+2025-12-06 18:03:29,824 - INFO -   Taille plan: torch.Size([4096, 4096]), Mémoire: 64.00 MB
+2025-12-06 18:03:29,851 - INFO - 
+[7/9] exp_0007_eps0.070_rho0.70_lam2.5_smin0.20_debiasTrue_adapsigmaTrue
+2025-12-06 18:03:29,851 - INFO -   eps=0.070, rho=0.7, lambda=2.5, sigma_min=0.200, debias=True, adapt_sigma=True
+2025-12-06 18:03:29,868 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:03:30,298 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/pixelart/exp_0007_eps0.070_rho0.70_lam2.5_smin0.20_debiasTrue_adapsigmaTrue.pt
+2025-12-06 18:03:30,298 - INFO -   Taille plan: torch.Size([4096, 4096]), Mémoire: 64.00 MB
+2025-12-06 18:03:30,326 - INFO - 
+[8/9] exp_0008_eps0.070_rho0.70_lam2.5_smin0.30_debiasTrue_adapsigmaTrue
+2025-12-06 18:03:30,326 - INFO -   eps=0.070, rho=0.7, lambda=2.5, sigma_min=0.300, debias=True, adapt_sigma=True
+2025-12-06 18:03:30,343 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:03:30,773 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/pixelart/exp_0008_eps0.070_rho0.70_lam2.5_smin0.30_debiasTrue_adapsigmaTrue.pt
+2025-12-06 18:03:30,773 - INFO -   Taille plan: torch.Size([4096, 4096]), Mémoire: 64.00 MB
+2025-12-06 18:03:30,800 - INFO - 
+[9/9] exp_0009_eps0.070_rho0.70_lam2.5_smin0.50_debiasTrue_adapsigmaTrue
+2025-12-06 18:03:30,800 - INFO -   eps=0.070, rho=0.7, lambda=2.5, sigma_min=0.500, debias=True, adapt_sigma=True
+2025-12-06 18:03:30,817 - INFO -   Cloud sizes: source=4096, target=4096
+2025-12-06 18:03:31,247 - INFO -   ✓ Sauvegardé: /Data/janis.aiad/geodata/experiments/pixelart/exp_0009_eps0.070_rho0.70_lam2.5_smin0.50_debiasTrue_adapsigmaTrue.pt
+2025-12-06 18:03:31,247 - INFO -   Taille plan: torch.Size([4096, 4096]), Mémoire: 64.00 MB
+2025-12-06 18:03:31,274 - INFO - 
+================================================================================
+2025-12-06 18:03:31,275 - INFO - RÉSUMÉ
+2025-12-06 18:03:31,275 - INFO - ================================================================================
+2025-12-06 18:03:31,275 - INFO - Expériences réussies: 9/9
+2025-12-06 18:03:31,275 - INFO - Expériences échouées: 0/9
+2025-12-06 18:03:31,275 - INFO - Répertoire de sortie: /Data/janis.aiad/geodata/experiments/pixelart
+2025-12-06 18:03:31,275 - INFO - Log: /Data/janis.aiad/geodata/logs/ablation_studies_20251206_180326.log
+2025-12-06 18:03:31,275 - INFO - ================================================================================
