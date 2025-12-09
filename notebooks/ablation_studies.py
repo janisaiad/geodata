@@ -21,9 +21,10 @@ import json
 import time
 
 # Configuration
-DATA_DIR = Path("/Data/janis.aiad/geodata/data/pixelart/images")
-EXPERIMENTS_DIR = Path("/Data/janis.aiad/geodata/experiments/pixelart")
-LOGS_DIR = Path("/Data/janis.aiad/geodata/logs")
+BASE_DIR = Path(__file__).parent.parent  # we go up from notebooks/ to project root
+DATA_DIR = BASE_DIR / "data/pixelart/images"
+EXPERIMENTS_DIR = BASE_DIR / "experiments/pixelart"
+LOGS_DIR = BASE_DIR / "logs"
 EXPERIMENTS_DIR.mkdir(parents=True, exist_ok=True)
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -216,8 +217,8 @@ def run_compute_time_benchmark():
     rho = 1.0
     # Generate 50 epsilon values in log space from 1e-4 to 100
     epsilons = np.logspace(-4, 2, 50).tolist()
-    lambda_color = 2.5
-    sigma_min = 0.1
+    lambda_color = 1
+    sigma_min = 0
     use_debias = True
     use_adaptive_sigma = True
     

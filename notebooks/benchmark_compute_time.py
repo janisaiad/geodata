@@ -14,9 +14,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import torch
 
-EXPERIMENTS_DIR = Path("/Data/janis.aiad/geodata/experiments/pixelart")
-OUTPUT_DIR = Path("/Data/janis.aiad/geodata/experiments/pixelart")
-DATA_DIR = Path("/Data/janis.aiad/geodata/data/pixelart/images")
+EXPERIMENTS_DIR = Path("/home/janis/4A/geodata/experiments/pixelart")
+OUTPUT_DIR = Path("/home/janis/4A/geodata/experiments/pixelart")
+DATA_DIR = Path("/home/janis/4A/geodata/data/pixelart/images")
 
 def plot_compute_times(json_path: Path):
     """Plot compute times from JSON file."""
@@ -78,10 +78,16 @@ def plot_compute_times(json_path: Path):
     ax.set_title(f'Computation Time vs $\\varepsilon$ ($\\rho={data["rho"]:.1f}$, $\\lambda={data["lambda_color"]:.1f}$) [Log-Log]', fontsize=14)
     ax.grid(True, alpha=0.3, which='both')
     
-    # Add thumb rule lines (without labels, legend will be in caption)
+    # Add thumb rule lines with labels
     y_min, y_max = ax.get_ylim()
-    ax.axvline(eps_rule_max, color='green', linestyle='--', linewidth=2, alpha=0.7)
-    ax.axvline(eps_rule_mean, color='orange', linestyle='--', linewidth=2, alpha=0.7)
+    ax.axvline(eps_rule_max, color='green', linestyle='--', linewidth=2, alpha=0.7, label=f'Thumb rule: $\\varepsilon \\approx 0.01 \\times C_{{max}} = {eps_rule_max:.4f}$')
+    ax.axvline(eps_rule_mean, color='orange', linestyle='--', linewidth=2, alpha=0.7, label=f'Thumb rule: $\\varepsilon \\approx 0.01 \\times C_{{mean}} = {eps_rule_mean:.4f}$')
+    
+    # Add red vertical bar for chosen eps = 0.01
+    ax.axvline(0.01, color='red', linestyle='-', linewidth=3, alpha=0.8, label='Chosen $\\varepsilon = 0.01$')
+    
+    # Add legend after all lines are drawn
+    ax.legend(loc='best')
     
     # Highlight eps = 0.01 (without label, legend will be in caption)
     if 0.01 in epsilons:
