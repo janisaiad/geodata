@@ -10,14 +10,7 @@ To address these issues, this project introduces a unified, mathematically princ
 
 We validate this approach by tracking the Unbalanced Sinkhorn Divergence ($S_{\varepsilon}$) along the geodesic path, demonstrating robust, artifact-minimizing interpolation even in outlier-rich settings.
 
-## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Contributing](#contributing)
-- [Tests](#tests)
-- [License](#license)
-- [Contact](#contact)
+
 ## Installation
 
 To install dependencies using uv, follow these steps:
