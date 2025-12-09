@@ -48,4 +48,5 @@ data/cifar-10-batches-py/data_batch_5
 *.pt
 # refs/ files except PNG
 refs/**/*
+!refs/**/
 !refs/**/*.png
