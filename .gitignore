@@ -34,3 +34,5 @@ pip-wheel-metadata/
 # End of Selection
 *.pyc
 .cursorindexingignore
+
+refs/prez/
